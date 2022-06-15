@@ -1,0 +1,33 @@
+The jQuery flavor of the UIC is being deprecated.
+
+All new integrations of the UIC should use the W3C flavor. Existing web
+applications using the jQuery flavor of the UIC should plan for updating
+to the W3C flavor as soon as possible.
+
+How do I know if my application is using the jQuery flavor of the UIC?
+Fewer than 5% of Tealeaf integrations use the jQuery flavor of the UIC.
+Your web application is only impacted if you are using the jQuery flavor
+of the UIC. To determine the flavor of the UIC, look for the IBM Copyright
+message in your UIC file. The jQuery flavor will have a copyright message
+with the last line containing "@flags jQuery" like the following:
+
+/*!
+* Licensed Materials - Property of IBM
+* © Copyright IBM Corp. 2017
+* US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+*
+* @version 5.4.1.1813
+* @flags jQuery,NDEBUG
+*/
+
+Alternatively, load the web application with which the UIC is integrated
+and open Developer Tools. In the Console, type "TLT.getFlavor()" to obtain
+the UIC flavor.
+
+What will happen if I do nothing?
+Your current integration will continue to function. However, you may not be
+able to take advantage of the latest enhancements to the product. At some
+point in the future support for the jQuery flavor will stop entirely.
+
+Please consult with your Professional Services representative for further
+guidance.
