@@ -1,0 +1,52 @@
+.confirmation-overlay.cover{
+    display:none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 99999999999;
+    overflow: auto;
+}
+
+.confirmation-overlay .popup-container.opened {
+    width: 57%;
+    margin: auto;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    overflow: visible;
+    height: 0%;
+}
+
+.confirmation-overlay.cover .close-button {
+    position: absolute;
+    right: -15px;
+    top: -16px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+.confirmation-overlay.cover .close-button img {
+    width: 30px;
+}
+.confirmation-overlay .popup-container.opened .modal-content {
+    padding: 20px;
+}
+.confirmation-overlay .popup-container.opened .modal-content .modal-footer{
+    margin-top:20px;
+    text-align: center;
+}
+.confirmation-overlay .popup-container.opened .modal-content .modal-footer .btn:first-child{
+    margin-bottom: 0px;
+}
+.confirmation-overlay .popup-container.opened .modal-content .modal-body{
+    text-align: center;
+}
+@media (max-width: 767px){
+.confirmation-overlay .popup-container.opened .modal-content .modal-footer .btn:first-child{
+    margin-bottom: 10px;
+}
+}

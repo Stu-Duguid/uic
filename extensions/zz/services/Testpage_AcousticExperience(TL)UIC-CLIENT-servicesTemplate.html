@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE> Acoustic Tealeaf UIC</TITLE>
+<script type="text/javascript" src="//127.0.0.1/tealeaf-libs/AcousticExperience_UICapture_6.1.0/AcousticExperience(TL)UIC-CLIENT-servicesTemplate.js"></script>
+</head>
+<body>
+<img src="loading.png" id="testspinner"/>
+<script>
+// test ajaxListener 4xx/5xx request/response logging
+function reqListener () {
+	console.log(this.responseText);
+}
+function sendXHR() {
+	cmTimeOut = setTimeout(timeOutFunction, 500);
+}
+function timeOutFunction() {
+// xhr test
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.open("GET", "https://127.0.0.1/tealeaf-libs/AcousticTealeaf_UICapture_6.1.0/doesnotexist.html");
+	oReq.send();
+// fetch test
+	fetch('https://127.0.0.1/tealeaf-libs/AcousticTealeaf_UICapture_6.1.0/doesnotexist.json')
+		.then((response) => {
+		return response.json();
+	})
+	.then((data) => {
+		console.log(data);
+	});
+
+	functiondoesnotexist();  // test error event
+}
+var cmTimeOut;
+if (window.addEventListener)
+{window.addEventListener('load', sendXHR, false);}
+
+// test lazyload feature - delete #testspinner / loading.png and create #contentloaded / loaded.png
+function deleteLoader() {
+	cmTimeOut2 = setTimeout(timeOutFunction2, 2000);
+}
+function timeOutFunction2() {
+// create loaded.png
+// <img src="loaded.png" id="contentloaded"/>
+	(function() {
+	 var loaded = document.createElement("img");
+	 loaded.id = "contentloaded";
+	 loaded.src = "loaded.png";
+	 document.getElementsByTagName("body")[0].appendChild(loaded);
+	})
+	();
+// delete loader.png
+	(function() {
+	 var loading = document.getElementById("testspinner");
+     loading.parentNode.removeChild(loading);
+	})
+	();
+}
+var cmTimeOut2;
+if (window.addEventListener) {
+	window.addEventListener('load', deleteLoader, false);
+} 
+</script>
+<script type="text/javascript" src="//127.0.0.1/tealeaf-libs/AcousticExperience_UICapture_6.1.0/ASlowJSFile.js"></script>
+<br>
+<a id="Select Your State">anchor with id=</a><br>
+<a data-label2="Select Your State (data-label2)" name="Select Your State" >anchor with data-label2= and name=</a><br>
+<a role="button" tabindex="0" data-category="primary_navigation" ng-navhelper="state-list-desktop" data-label="Select Your State" data-action="/home" class="ci-icon-location state-select dropdown-state" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false" ng-class="{'active': stateContainer, 'intercept-active':interceptVisible}" ng-enterclick="" ng-click="showStates()">anchor with only data-label= and other custom attributes</a><br><br>
+<div class="row general-form-styles ng-scope" vertilize-container="" ng-if="cookieEnabled">
+				<a href="Testpage_AcousticExperience(TL)UIC-CLIENT-servicesTemplate.html">linkback to self</a><br>
+                <div class="col-md-6 col-lg-6 col-sm-6 border-right" vertilize="" style="height: 387px;">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-md-offset-1 col-lg-offset-1">
+                            <h3 class="section-header signin text-center hidden-xs">My Account</h3>
+                            <form id="mobile-login" name="loginForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-minlength" onSubmit="functionDoesNotExist($event, loginForm)" method="post" ng-submit="functionDoesNotExist($event, loginForm)" action="/form/SignIn/GetAccountValidationMessage" novalidate="">
+                                <div class="form-group has-error" ng-class=" { 'has-error': loginForm.userId.$invalid &amp;&amp; loginForm.userId.$touched }" style="">
+                                    <label for="username" class="sr-only">Username/Email</label>
+                                    <input class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-touched" type="text" placeholder="Username/Email" init-value="" id="username" name="userId" ng-model="user.userId" ng-minlength="1" required="" aria-invalid="true" style="">
+                                    
+                                    <span tabindex="0" class="info-tooltip" data-placement="auto right" data-toggle="tooltip" title="" data-original-title="Your username could be your email address"><img src="/Assets/site/img/sign-in/info-icon.png" alt="Your username could be your email address)"></span>
+                                    <span class="ci-icon-person"></span>
+                                    
+                                    <div class="form-error-container">
+                                        <span class="error-span" ng-show="loginForm.userId.$error.required" aria-hidden="false">Please enter a Username/Email</span>
+                                        <span class="error-span ng-hide" ng-show="loginForm.userId.$error.minlength" aria-hidden="true">Username must have more than 4 characters</span>
+                                    </div>
+                                </div>
+                                <div class="form-group last" ng-class="{ 'has-error' : loginForm.userPassword.$invalid &amp;&amp; loginForm.userPassword.$touched }">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" id="password" name="userPassword" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" placeholder="Password" ng-model="user.userPassword" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" required="" aria-invalid="true">
+                                    <span class="ci-icon-padlock"></span>
+                                    <div class="form-error-container">
+                                        <span class="error-span" ng-show="loginForm.userPassword.$error.required" aria-hidden="false">You must enter a password</span>
+                                    </div>
+                                <button class="btn-toggle-visibility hidden" type="button">SHOW</button></div>
+                                <div class="remember-container">
+                                    <input type="checkbox" id="loginRemember" name="loginRemember" class="sr-only">
+                                    <label class="login-remember" for="loginRemember">Remember Username/Email</label>
+                                </div>
+                                <input type="hidden" name="pageId" value="416298df-33d4-4347-9d27-08f66d922a96">
+                                <input type="hidden" name="deviceprofile" value="mobile">
+                                <div class="text-center">
+                                    <button ng-click="attributionSubmitForm('sign_in','/my-account/sign-in','Sign In','event-click','mobile-login',$event)" class="btn btn-blue btn-medium signin-btn" title="Sign In submit">Sign In</button>
+                                    <a href="#" ng-click="attributionPush('sign_in_help','Forgot User Name','Sign In To Your Account','event-click','/my-account/sign-in/forgot-user-name',$event)" class="cancel-btn link forgot-link">Forgot Username</a>
+                                    <a href="#" ng-click="attributionPush('sign_in_help','Forgot Password','Sign In To Your Account','event-click','/my-account/sign-in/forgot-password',$event)" class="cancel-btn link">Forgot Password</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+/*!
+ *	----------------------------------------------------------------
+ *	Copyright Backbase b.v. 2003/2012
+ *	All rights reserved.
+ *	----------------------------------------------------------------
+ *	Version 5.5
+ *	Author : Backbase R&D - Amsterdam - New York
+ *	----------------------------------------------------------------
+ */
+
+
+/* Chrome */
+
+.aa-widget-head {
+	position: relative;
+    background-color: #EEEEEE;
+	background: -moz-linear-gradient(center top , #FFFFFF 0pt, #EEEEEE 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(100%, #EEEEEE) );
+	background: -webkit-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+	background: -o-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+	background: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#EEEEEE', GradientType=0 );
+	background: linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    border-color: #CCCCCC #CCCCCC #BBBBBB;
+    border-style: solid solid none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-width: 1px 1px 0;
+}
+.aa-widget-pref {
+	display:none;
+	position:absolute;
+	z-index:9999;
+	width:100%;
+    background-color: #FFFFFF;
+	box-shadow: 0px 4px 4px #505d64;
+}
+.aa-widget-body {
+    position: relative;
+    overflow:auto;
+    background-color: #FFFFFF;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #999999;
+}
+
+.aa-widget-foot {
+    position: relative;
+    overflow:auto;
+    background-color: #FFFFFF;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.aa-widget-title {
+	position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #333333;
+    font-weight: bold;
+    text-overflow: ellipsis;
+	width: auto;
+}
+
+
+.aa-widget-head-left,
+.aa-widget-head-center,
+.aa-widget-head-right {
+	margin: 0;
+}
+
+.aa-widget-head-left {
+    position: absolute;
+    top:0px;
+    left:0px;
+    padding: 4px 4px 4px 6px;
+}
+
+.aa-widget-head-center {
+	padding: 4px;
+	margin-left: 20px;
+	margin-right: 80px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
+	display: block;
+}
+.aa-widget-head-draggable{
+    cursor: move;
+}
+
+.aa-widget-head-right {
+    position: absolute;
+    display: block;
+    height: 23px;
+    top:0px;
+    right:0px;
+    padding: 4px;
+}
+
+.aa-widget-head-left-list-item,
+.aa-widget-head-center-list-item,
+.aa-widget-head-right-list-item {
+	list-style-type: none;
+	display: inline-block;
+	width: inherit;
+}
+
+.aa-widget-head-right .aa-widget-head-right-list-item {
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+
+.aa-chrome-button{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.aa-chrome-button .aa-button-in {
+	background:url("../media/aa-chrome-buttons.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.aa-button-preferences .aa-button-in {
+    background-position: 0 0;
+}
+.aa-button-preferences:hover .aa-button-in {
+    background-position: 0 -16px;
+}
+.aa-button-preferences:active .aa-button-in {
+    background-position: 0 -32px;
+}
+.aa-button-refresh .aa-button-in {
+    background-position: -32px 0;
+}
+.aa-button-refresh:hover .aa-button-in {
+    background-position: -32px -16px;
+}
+.aa-button-refresh:active .aa-button-in {
+    background-position: -32px -32px;
+}
+.aa-button-maximize .aa-button-in {
+    background-position: -96px 0;
+}
+.aa-button-maximize:hover .aa-button-in {
+    background-position: -96px -16px;
+}
+.aa-button-maximize:active .aa-button-in {
+    background-position: -96px -32px;
+}
+.aa-button-close .aa-button-in {
+    background-position: -112px 0;
+}
+.aa-button-close:hover .aa-button-in {
+    background-position: -112px -16px;
+}
+.aa-button-close:active .aa-button-in {
+    background-position: -112px -32px;
+}
+.aa-button-minimize .aa-button-in {
+    background-position: -48px 0;
+}
+
+.aa-w3c-iframe {
+	border:0;
+	width:100%;
+	height:100%;
+}
+
+.aa-hideIfStylesheetAbsent {
+    visibility: hidden;
+}
+

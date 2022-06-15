@@ -1,0 +1,111 @@
+{
+  "events" : [ {
+    "displayName" : "Rage click",
+    "internalName" : "E_RAGE_CLICK_1647907417403",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "rage" ],
+    "description" : "Fires when the same item is clicked repeatedly without intervening pauses or other clicks or changes",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Advanced",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_RAGE_CLICK_1647907417403() {\n\tvar threshold = 4; // set this to the number of total clicks required to be a rage event\n\tvar timeout = 2000; // milliseconds of inactivity which resets any count\n\tvar storageKey = \"sessionObject_clickCount\";\n\tvar dimScreenview = \"DIM_SCREENVIEW\";\n\tvar dimTarget = \"DIM_RAGE_TARGET_1647905877010\";\n\tvar obj, newTarget, oldTarget, now, newClicks, dims = {};\n\n\t// click rage is X or more clicks on the same item, with no pause of more than X and no intervening clicks or value changes\n\t//\n\t// capture the screenview and the item clicked (alternate identifiers?)\n\t// false positives ignored through dimension filtering in reports\n\t// could have event which user edits for these - false positive if target=x or target=y\n\t// assumes checking of same page is uncessary\n\n\t// reset on value change\n\tif ($P[ \"TL.STEP_TL_EVENT_TYPE\" ].firstValue().toUpperCase() == \"VALUECHANGE\") {\n\t\t$S.setCustomJSObj(storageKey, { target: 'empty', clicks: 0, recent: 0 });\n\t\treturn;\n\t}\n\n\t// if click happened on step\n\tif ($P[ \"TL.STEP_TL_EVENT_TYPE\" ].firstValue().toUpperCase() == \"CLICK\") {\n\t\t// get previous target and click count and recency of last click\n\t\tobj = $S.getCustomJSObj(storageKey);\n\t\tif (obj === null || !obj.target || !obj.clicks || !obj.recent) {\n\t\t\tobj = { target: \"empty\", clicks: 0, recent: 0 };\n\t\t}\n\n\t\t// get this latest clicked target\n\t\tnewTarget = $P[ \"TL.STEP_TARGET_ID\" ].firstValue().toUpperCase();\n\t\toldTarget = obj.target.toUpperCase(); // to get a new string to compare otherwise matches incorrectly\n\t\tnow = Date.now();\n\n\t\tif (newTarget !== oldTarget || now - obj.recent > timeout) {\n\t\t\t// new item clicked OR too delayed so reset\n\t\t\t$S.setCustomJSObj(storageKey, { target: newTarget, clicks: 1, recent: now });\n\t\t}\n\t\telse\n\t\t{\n\t\t\t// conditions met for a new click in a rage click sequence\n\t\t\tnewClicks = obj.clicks + 1;\n\n\t\t\t// check if clicks not yet reached (or over clicks so already fired)\n\t\t\tif (newClicks == threshold) {\n\t\t\t\t// we have reached rage level fire event\n\t\t\t\tdims[ dimScreenview ] = $S.LastScreenView;\n\t\t\t\tdims[ dimTarget ] = newTarget;\n\t\t\t\t$F.setFacts(\"E_RAGE_CLICK_1647907417403\", newTarget, dims);\n\t\t\t}\n\t\t\t\n\t\t\t// update\n\t\t\t$S.setCustomJSObj(storageKey, { target: newTarget, clicks: newClicks, recent: now });\n\t\t}\n\t}\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - TL Event Type",
+          "internalName" : "STEP_TL_EVENT_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "patternFound()",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : false,
+    "buildingBlockOnly" : false,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : {
+      "Rage details" : false
+    }
+  }, {
+    "displayName" : "Rage dummy event",
+    "internalName" : "E_RAGE_DUMMY_EVENT_1647906073640",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "rage" ],
+    "description" : "used only as a placeholder to create a dimension 'Rage target' with something to populate it",
+    "trigger" : "FirstHit",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_RAGE_DUMMY_EVENT_1647906073640()\n{\n    if ($S.NumberOfHits == 0)\n    {\n        $F.setFacts(\"E_RAGE_DUMMY_EVENT_1647906073640\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Hit Count",
+          "internalName" : "S_HIT_COUNT",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionAttribute",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "0",
+        "rightOperandValueType" : "NumericLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  } ],
+  "dimensions" : [ {
+    "displayName" : "Rage target",
+    "internalName" : "DIM_RAGE_TARGET_1647905877010",
+    "tags" : [ "rage" ],
+    "description" : "filled by click rage event",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : {
+      "displayName" : "Rage dummy event",
+      "internalName" : "E_RAGE_DUMMY_EVENT_1647906073640",
+      "type" : "Event"
+    },
+    "populateWith" : "FirstValueInSession",
+    "defaultValue" : "TLT$OTHERS",
+    "publish" : "Immediate",
+    "whiteList" : [ ],
+    "valueToRecord" : "WhiteListPlusObservedValues",
+    "maxObservedValues" : 100,
+    "turnOnLogging" : false
+  } ],
+  "dimensionGroups" : [ {
+    "displayName" : "Rage details",
+    "internalName" : "DG_RAGE_DETAILS_1647906494241",
+    "tags" : [ "rage" ],
+    "active" : true,
+    "dimensions" : [ "Rage target", "ScreenView" ]
+  } ],
+  "sessionAttributes" : [ ],
+  "hitAttributes" : [ ],
+  "stepAttributes" : [ ]
+}

@@ -1,0 +1,772 @@
+/*openDeposit.css*/
+.blue-panel{
+background-color:#bedcff;
+padding:15px 40px;
+border-radius:0px;
+-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+box-shadow:0 1px 1px rgba(0,0,0,.05);
+}
+@media only screen and (max-width: 991px){
+    .amount-input md-input-container{
+        padding-left: 0px;
+            display: initial;
+    }
+    .deposit .input-box md-input-container{
+        margin-left: 66px;
+        width: 360px;
+    }
+    .amount-input .input-box{
+        padding-left: 5px;
+    }
+}
+.deposit .input-box md-input-container{
+    margin-left: 66px;
+}
+
+.duration .dropdown-menu {
+    min-width: 93px;
+}
+
+.listAlignment .panel-white .detail-info .inner-rows .inner-cols li {
+    width:150px;
+}
+
+.checkbox input[type=checkbox]{
+    margin-left:0px;
+}
+
+.checkbox span {
+    padding-left:20px;
+}
+
+.checkbox a {
+    padding-left:20px;
+}
+
+.radio-block .radio {
+    margin-top: 0px;
+}
+
+.radio-block .radio .currency span:first-child {
+    font-size: 30px;
+}
+
+.radio-block .radio label{
+    width:100%;
+}
+
+.c-template-hdfc-middle-section .large-side-scroll-fix{
+    z-index: 9999 !important;
+}
+
+
+
+.liqiudate .share-bar a img {
+    margin-right: 0px;
+}
+
+.liquidatefd md-input-container input{
+    width: 300px;
+    }
+.liquidatefd-sm md-input-container input{
+    width: 215px;
+    }
+.liquidatefd .two-btn {
+    margin: 10px auto 0;
+    }
+.durationfd hdfc-dropdown .input-box .dropdown{
+    width: 87px;
+}
+.durationfdmob hdfc-dropdown .input-box .dropdown{
+  width: 100px;
+}
+
+.duration-margin{
+    margin-right: 40px;
+}
+
+.margin-pull-left{
+    margin-left: -125px;
+}
+
+.margin-top15{
+    margin-top : 15px
+}
+
+.liquidate .currency{
+    margin:0px;
+}
+
+.durationrd hdfc-dropdown .input-box .dropdown{
+    width: 120px;
+}
+
+ .label-margin>.input-box label  {
+    margin : 10px 0px;
+ }
+
+ .no-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.padding-left25{
+    padding-left : 25px;
+}
+
+
+.margin-inverse {
+    margin-top : -5px;
+}
+
+.margin-bottom1 {
+    margin-bottom: 1px;
+}
+.margin-top1 {
+    margin-top: 1px;
+}
+
+.currency decimal-casing>span:nth-of-type(2) {
+    font-size: 30px;
+}
+.stepOneCss .tooltip {
+    border-bottom: none;
+}
+.stepOneCss .message {
+margin-left:228px;
+margin-top:-10px;
+font-size:13px;
+color:#868686;
+}
+.stepOneCss .subMessage {
+font-size:13px;
+margin-left:16px;
+color:#868686;
+}
+.stepOneCss .view-interest-rates{
+    right: 18%;
+}
+.margin-top7 {
+    margin-top: 7px;
+}
+
+
+.panel-padding {
+    padding:10px;
+}
+
+@media all and (-ms-high-contrast:none) {
+     .checkbox-custom input{
+         margin:0;
+    }
+}
+
+
+.modified-tooltip .tooltip {
+     position: relative;
+     display: inline-block;
+     opacity: 1;
+ }
+
+ a.tooltip.info-tool-tip {
+     border-bottom: none;
+     margin-left: 48px;
+     z-index: 1;
+     margin-top: -3px;
+ }
+ .callout {
+     z-index: 10;
+     position: absolute;
+     top: 29px;
+     border: 0;
+     left: -9px;
+ }
+
+
+
+ a.tooltip.info-tool-tip span {
+     z-index: 5;
+     display: none;
+     padding: 14px 20px;
+     margin-top: -30px;
+     margin-left: 29px;
+     width: 300px;
+ }
+
+ a.tooltip:hover span {
+     display: inline;
+     position: absolute;
+     color: #162f57;
+     border: 1px solid #162f57;
+     background: #fff;
+ }
+
+ a.tooltip span p {
+     line-height: 16px;
+ }
+
+ a.tooltip span p:last-child {
+     margin: 0;
+ }
+
+ @media only screen and (max-width:950px) {
+    .callout {
+         -ms-transform: rotate(90deg);
+          /* IE 9 */
+         -webkit-transform: rotate(90deg);
+         /* Chrome, Safari, Opera */
+         transform: rotate(90deg);
+         top: -15px;
+         left: 5px;
+     }
+
+     a.tooltip.info-tool-tip span {
+         z-index: 10;
+         display: none;
+         padding: 14px 20px;
+         margin-top: 30px;
+         margin-left: -115px;
+         width: 250px;
+     }
+     a.tooltip:hover span {
+         display: inline;
+         position: absolute;
+         color: #162f57;
+         border: 1px solid #162f57;
+         background: #fff;
+     }
+
+     a.userId.tooltip.info-tool-tip span {
+         margin-top: 30px;
+     }
+
+ }
+
+ @media only screen and (max-width:481px) {
+
+     a.tooltip.info-tool-tip span {
+         margin-left: 0px;
+     }
+
+     a.tooltip.info-tool-tip span {
+          width: 175px;
+     }
+
+     a.tooltip.info-tool-tip span .text-center .c3.font-weight-bold {
+        margin-right: 0px !important;
+     }
+ }
+
+
+ /*tooltip css starts*/
+
+ .margin-top-10 {
+     margin-top: -10px;
+ }
+
+ /*PAN exclamation scenario*/
+ .status-template .success-exclamation{
+     margin-top: 15px;
+ }
+
+.icon {
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 10px;
+}
+
+.dropdown-mobile hdfc-dropdown .input-box .dropdown{
+    width: 180px;
+}
+
+.tooltip-alignment{
+    margin-top: -25px!important;
+    margin-left: 33px!important;
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+
+    .no-label label{
+        display: none;
+    }
+}
+/*openDeposit.css*/
+
+/*openNewFCNRDeposit.css*/
+ .open-fcnr-deposit .acknowledge-container-outer .panel-white .employee-code-container-outer {
+     display: block;
+     margin: 0;
+     padding: 0;
+}
+div#acknowledge-content-id{
+    background-color: #ffffff;
+}
+
+div#acknowledge-content-id .status-template .success-icon-div{
+   text-align : center;
+}
+
+.open-fcnr-deposit .nomineeRadio .input-box label {
+    width: 183px;
+    padding-bottom: 10px;
+    padding-right: 0px;
+ }
+
+
+
+div#acknowledge-content-id .status-template .success-icon-div .success-tick{
+    width: 56px;
+    height: 56px;
+    background-size: 56px;
+    margin: 0 auto;
+    margin-bottom: -9px;
+    background-image:none;
+}
+
+
+ .open-fcnr-deposit .panel-group .panel .accordionHeight {
+     height: auto!important;
+}
+ .open-fcnr-deposit .acknowledge-container-outer .panel-white .employee-code-container-outer .employee-code-container-component {
+     position: relative;
+     width: 70%;
+     float: left;
+}
+ .open-fcnr-deposit .acknowledge-container-outer .panel-white .employee-code-container-outer .employee-code-container-button-div {
+     margin: 5px 0;
+     position: relative;
+     float: right;
+     width: 28%;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer {
+     display: block;
+     margin: 0;
+     padding: 0;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer .step01-input-container-amount {
+     position: relative;
+    /*width: 70%;
+    */
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer {
+     position: relative;
+     width: 100%;
+     float: left;
+    /* margin-bottom: 20px;
+     */
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer .step01-input-container-forexRates-link-div {
+     width: 150px;
+     margin: 5px 0;
+     position: relative;
+     float: left;
+     text-align: right;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer {
+     display: block;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+}
+ .open-fcnr-deposit .radio-custom .radio ,.open-fcnr-deposit-popup-container .radio-custom .radio{
+     width: auto;
+  }
+  .open-fcnr-deposit .nomineeRadio .input-box .radio-custom {
+     width:auto;
+  }
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer {
+     display: block;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer {
+     display: block;
+     margin: -17px 0 0 0;
+     padding: 0;
+     width: 100%;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-year {
+     position: relative;
+     width: 25%;
+     max-width: 100px;
+    /*width: 100px;
+    */
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-year hdfc-dropdown .input-box .dropdown {
+     position: relative;
+     width: 100%;
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-year hdfc-dropdown .input-box .dropdown .single-dropdown {
+     margin : 5px 0;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-month {
+    /*width: 100px;
+    */
+     width: 25%;
+     max-width: 100px;
+     margin: 0 10px;
+     position: relative;
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-month hdfc-dropdown .input-box .dropdown {
+     width: 100%;
+    /*margin: 0 10px;
+    */
+     position: relative;
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-month hdfc-dropdown .input-box .dropdown .single-dropdown{
+     margin : 5px 0;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-days {
+    /*width: 100px;
+    */
+     width: 25%;
+     max-width: 100px;
+     margin: 0 10px;
+     position: relative;
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-input-container-outer .step01-duration-input-container-inner .step01-input-container-duration-days hdfc-dropdown .input-box .dropdown {
+     width: 100%;
+    /*margin: 0 10px;
+    */
+     position: relative;
+     float: left;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 p.dropdown-component-setMessage {
+     position: relative;
+     float: left;
+     margin-top: -17px;
+     color: #989898;
+}
+ .open-fcnr-deposit.open-fcnr-deposit .margin-left10{
+     margin-left: 10px;
+}
+ .acknowledge-container-outer .employee-code-container-component{
+     width:70%;
+     float: left;
+}
+ .acknowledge-container-outer .employee-code-container-component hdfc-alphanumeric{
+     margin-top:2px;
+}
+ .acknowledge-container-outer .employee-code-container-button-div{
+     width:25%;
+     float: left;
+}
+ @media screen and (min-width: 960px) {
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 165px;
+         padding-right: 24px;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer p.dropdown-setMessage {
+         position: relative;
+         width: 70%;
+         float: left;
+         margin-bottom: 20px;
+         color: #989898;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 165px;
+         padding-right: 24px;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer .step01-duration-input-container-outer {
+         position: relative;
+         width: calc(100% - 165px);
+         float: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer label {
+         position: relative;
+         width: 165px;
+         float: left;
+         margin: 5px 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer a {
+         position: relative;
+         width: calc(100% - 165px);
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer label {
+         position: relative;
+         width: 165px;
+         float: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer .step02-branchDetails-section {
+         position: relative;
+         width: calc(100% - 165px);
+         float: left;
+    }
+}
+ @media screen and (min-width: 768px) and (max-width: 960px) {
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 165px;
+         padding-right: 24px;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer p.dropdown-setMessage {
+         position: relative;
+         width: 60%;
+         float: left;
+         margin-bottom: 20px;
+         color: #989898;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 165px;
+         padding-right: 24px;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer .step01-duration-input-container-outer {
+         position: relative;
+         width: calc(100% - 165px);
+         float: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer label {
+         position: relative;
+         width: 100%;
+        /*float: left;
+        */
+         margin: 5px 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer a {
+         position: relative;
+         width: 100%;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer label {
+         position: relative;
+         width: 165px;
+         float: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer .step02-branchDetails-section {
+         position: relative;
+         width: 60%;
+         float: left;
+    }
+
+}
+@media screen and (max-width: 480px){
+      .acknowledge-container-outer .employee-code-container-component{
+         width:100%;
+         float: left;
+    }
+     .acknowledge-container-outer .employee-code-container-button-div{
+         width:100%;
+         float: left;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 960px){
+    .acknowledge-container-outer .employee-code-container-button-div{
+         margin-top: 24px;
+    }
+}
+ @media screen and (max-width: 768px) {
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 100%;
+         padding-right: 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .dropdown-setMessage-container-outer p.dropdown-setMessage {
+         position: relative;
+         width: 100%;
+         float: left;
+         margin-bottom: 20px;
+         color: #989898;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer label {
+         float: left;
+         margin: 5px 0;
+         width: 100%;
+         padding-right: 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer .step01-duration-input-container-outer {
+         position: relative;
+         width: 100%;
+         float: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer label {
+         position: relative;
+         width: 100%;
+        /*float: left;
+        */
+         margin: 5px 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer a {
+         position: relative;
+         width: 100%;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer {
+         float: none;
+         margin-bottom: 0;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer label {
+         position: relative;
+         width: 100%;
+         float: none;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer .step02-branchDetails-section {
+         position: relative;
+         width: 100%;
+         float: none;
+    }
+
+}
+ .lp-widget-hdfc-open-deposit .lp-modal .modal-dialog {
+     position: relative;
+     margin-top: 20px;
+     z-index: 999;
+}
+ .open-fcnr-deposit .text-muted {
+     pointer-events: none;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .field-container-space {
+     margin-bottom: 20px;
+}
+ .open-fcnr-deposit-popup-container .panel-white .modal-body .field-container-space {
+     margin-top: 20px;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-note-list .step01-note-list-item {
+     margin-left: 20px;
+     list-style-type: disc;
+}
+ .open-fcnr-deposit-popup-container .modal-container .modal-body p.popup-header {
+     margin-bottom: 20px;
+}
+ .open-fcnr-deposit-popup-container .modal-container .modal-body .findBranch-list-container {
+     margin-top: 20px;
+}
+ .open-fcnr-deposit-popup-container .modal-container .modal-body .findBranch-list-container .findBranch-header {
+     margin-bottom: 20px;
+}
+ .open-fcnr-deposit-popup-container hdfc-dropdown .input-box .dropdown .single-dropdown {
+     margin: 5px 0;
+}
+/*--- Loader start ---*/
+/*.loader-relative {
+     position: relative;
+}
+*/
+/*.loader {
+     position: absolute;
+     top: 74px;
+     left: 54%;
+     z-index: 1;
+     width: 150px;
+     height: 150px;
+     margin: 0 0 0 -40px;
+     width: 40px;
+     height: 40px;
+}
+*/
+/* ---- Loader End ----- */
+ .blue .detail-info .inner-rows .inner-cols li:nth-of-type(1), .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1), .status-template .detail-info .inner-rows .inner-cols li:nth-of-type(1) {
+     width: 35%;
+}
+ .blue .detail-info .inner-rows .inner-cols li:nth-of-type(2), .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(2), .status-template .detail-info .inner-rows .inner-cols li:nth-of-type(2) {
+     width: 65%;
+}
+ .open-fcnr-deposit-popup-container .modal-body .mini-table .table .inner-rows .inner-cols li:nth-of-type(1) {
+     width: 25%;
+}
+ .open-fcnr-deposit-popup-container .modal-body .mini-table .table .inner-rows .inner-cols li:nth-of-type(2) {
+     width: 25%;
+}
+ .open-fcnr-deposit-popup-container .modal-body .mini-table .table .inner-rows .inner-cols li:nth-of-type(3) {
+     width: 25%;
+}
+ .open-fcnr-deposit-popup-container .modal-body .mini-table .table .inner-rows .inner-cols li:nth-of-type(4) {
+     width: 25%;
+     text-align: center;
+}
+ .openFCNR-confirm-container hr {
+     margin-top: 10px;
+     margin-bottom: 0px;
+}
+ @media screen and (max-width: 960px) {
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer {
+         display: block;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer .step01-input-container-amount {
+         width: 100%;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-duration-container-outer {
+         width: 100%;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-interestRateLink-container-outer {
+         width: 100%;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step01 .step01-input-container-outer .step01-input-container-forexRates-link-div {
+         width: 100%;
+         margin: 0;
+         float: left;
+         text-align: left;
+    }
+     .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer {
+         width: 100%;
+    }
+     .open-fcnr-deposit .acknowledge-container-outer .panel-white .employee-code-container-outer .employee-code-container-component {
+         width: 100%;
+    }
+     .open-fcnr-deposit .acknowledge-container-outer .panel-white .employee-code-container-outer .employee-code-container-button-div {
+         width: 100%;
+         margin: 0;
+         float: left;
+    }
+}
+/*** kalpesh ***/
+ .open-fcnr-deposit .step01-duration-container-outer .input-box{
+     margin-bottom:0px;
+}
+ .open-fcnr-deposit .step01-duration-error{
+     clear : both;
+}
+ .open-fcnr-deposit .diffRadio .input-box{
+     margin-bottom:0;
+}
+ .open-fcnr-deposit .diffRadioOuter{
+     overflow: hidden;
+}
+ .acknowledge-container-outer .c6, .openFCNR-confirm-container .c6{
+     color:#989898;
+}
+ .openFCNR-confirm-container .mt25{
+     margin-top:25px;
+}
+ .open-fcnr-deposit-popup-container .findBranch-header{
+     margin: 25px 0 15px 0;
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer .step02-branchDetails-section .step02-homeBranchDetails-section{
+     position: relative;
+     display: block;
+    /*float: left;
+    */
+}
+ .open-fcnr-deposit .open-fcnr-deposit-step02 .step02-branchDetails-outer .step02-branchDetails-section .step02-otherBranchDetails-section{
+     position: relative;
+     display: block;
+    /*margin-left: 18%;
+    */
+     margin-left: 132px;
+    /*float: left;
+    */
+}
+
+/*openNewFCNRDeposit.css*/
+
+/*popup.css*/
+.lp-widget-hdfc-open-deposit .lp-modal .modal-dialog {
+    position: relative;
+    margin-top: 20px;
+    z-index: 999;
+}
+/*popup.css*/

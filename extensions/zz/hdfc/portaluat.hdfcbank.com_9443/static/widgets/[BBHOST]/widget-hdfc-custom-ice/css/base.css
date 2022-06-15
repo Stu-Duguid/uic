@@ -1,0 +1,155 @@
+.accordion-banner{
+    position:relative;
+}
+.accordion-content{
+    margin-bottom: 20px;
+}
+.be-ex-article{
+    padding:0;
+}
+.be-ice-widget .bd-bdDrop .hidden-content{
+    display:block !important;
+}
+
+.accordion-body .hidden-content{
+    display:none;
+    margin-top: 14px;
+}
+
+.accordion-body .hidden-content p:nth-child(even){
+    height:13px;
+}
+
+.arrow-icon{
+    /* float: right; */
+    font-size: 18px;
+    color: #1d85fe;
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    bottom: 30px;
+}
+.accordion-content .arrow-icon i{
+    /* float: right; */
+    font-size: 14px;
+    font-style:normal;
+    text-transform:uppercase;
+/*    display: inline-block;
+    margin-right: -5px;*/
+}
+.accordion-content .arrow-icon .view-more{
+    display:inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.accordion-content .view-less{
+display:inline-block
+}
+.accordion-content .view-less{
+display:none;
+}
+.accordion-content  .cke_editable_inline.view-less{
+    display:inline-block;
+    font-size: 18px;
+    color: #1d85fe;
+    margin-left:70%;
+    /*float:right;
+    z-index: 999999;*/
+}
+
+
+/*.arrow-icon span{
+    margin-right: -10px;
+}*/
+
+.cards-header {
+    background: #e9f5ff url("../media/productContrBg1.jpg") bottom center no-repeat;
+    height:60px;
+    width:100%;
+    padding: 13px 20px;
+    display: table;
+}
+
+.accordion-banner .cards-header .img-container{
+    height:100%;
+    float: left;
+    margin-right:10px;
+}
+
+.accordion-banner .cards-header .img-container .card-icon{
+    /*max-width:38px;*/
+    height: 44px;
+    width: 44px;
+}
+
+.card-title{
+    font-weight: bold;
+    color: #00337e;
+    font-size: 20px;
+    margin: 10px 0;
+    display: table-cell;
+    vertical-align: middle;
+    width: inherit;
+}
+
+/*.card-icon{
+    display: inline-block;
+    float: left;
+}*/
+
+.accordion-content{
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid #dedede;
+    padding:20px 40px 30px 20px;
+    background-color: #fff;
+}
+.header-banner{
+box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+}
+
+.accordion-banner{
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+}
+
+.accordian-margin{
+    margin-bottom:20px;
+}
+
+.simple-plain-text{
+    margin-bottom:20px;
+}
+
+@media (max-width:767px){
+    .accordion-content{
+        margin-bottom:10px;
+        padding-bottom:40px;
+    }
+    .accordion-content .arrow-icon{
+        bottom:25px;
+    }
+}
+
+@media (max-width:479px){
+    .card-title{
+        /*display: block;*/
+        font-size: 18px;
+    }
+    .cards-header {
+        height:100%;
+    }
+
+}
+
+@media (max-width:420px){
+    .header-banner .header-banner-img img{
+        height:270px;
+    }
+
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .header-banner .header-banner-img img{
+        width: 100%;
+   }
+}

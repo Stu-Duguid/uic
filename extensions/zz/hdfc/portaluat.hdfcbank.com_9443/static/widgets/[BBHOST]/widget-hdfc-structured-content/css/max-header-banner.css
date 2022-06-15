@@ -1,0 +1,392 @@
+/*Custom CSS for Max Header*/
+ .max-header-banner.imperiabankbaneer {
+    height: 458px;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    }
+    .max-header-banner .pd20{
+        padding:20px;
+    }
+    .max-header-banner .mt10{
+        margin-top:10px;
+    }
+    .max-header-banner .mt20{
+        margin-top:10px;
+    }
+    .max-header-banner .mr10{
+        margin-right:10px;
+    }
+    .max-header-banner .mb10{
+        margin-bottom:10px;
+    }
+    .max-header-banner .gray-brd{
+        border: 1px solid #dedede;
+    }
+    .max-header-banner .mt5{
+        margin-top: 5px;
+    }
+    .max-header-banner .imbankttlwrap {
+        margin: 20px 0 0 0;
+        position: relative;
+       /* bottom: 310px;
+         z-index: 9999; */
+    }
+    .max-header-banner .imbankttlwrap .imbankttllogoblk {
+         margin: 50px 0 75px;
+    }
+    .max-header-banner .imbankttlwrap .imbankttllogoblk img{
+       width:150px;
+    }
+    .max-header-banner .imbankttltext {
+        position: absolute;
+       /* left: 90px;*/
+        top: 71px;
+    }
+    .max-header-banner .imbankttltext p.sub-text {
+        font-size: 17px;
+        font-style: italic;
+        line-height: 25px;
+       /* color: #fff !important;*/
+        font-weight: 400;
+        white-space: nowrap;
+    }
+    .max-header-banner .imperia3blk {
+        background: rgba(0,0,0,0.5);
+        width: 528px;
+        border-radius: 5px;
+        margin: 10px 0 0 0;
+       /* position: absolute;
+        bottom: 60px;
+        z-index: 9999;*/
+    }
+
+     .max-header-banner .imperia3blk .panel-body{
+        padding: 15px;
+     }
+    .max-header-banner .imperia3blk .mobile-app {
+        height: auto;
+        margin-bottom: 0;
+       /* margin-top: 15px;*/
+    }
+    .max-header-banner .imperia3blk .mobile-app img{
+        height: 57px;
+        width: 51px;
+    }
+    .max-header-banner .text-center {
+        text-align: center;
+    }
+    .max-header-banner .mobile-app {
+        padding: 0 15px;
+        border-right: 1px solid #ddd;
+        height: 167px;
+        margin-bottom: 20px;
+    }
+/*    .max-header-banner .imperia3blk h4 {
+        color: #fff;
+    }*/
+    .max-header-banner .mobile-app h4 {
+        position: relative;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    .max-header-banner .fw700 {
+        font-weight: 700;
+    }
+  /* .max-header-banner .imperia3blk .mobile-app p {
+        color: #CCC;
+    }*/
+    .max-header-banner .mobile-app p {
+        line-height: 20px;
+        color: #ccc;
+    }
+    .max-header-banner .mobile-app:last-child {
+        border-right: none;
+    }
+    .max-header-banner .container{
+        position:relative;
+        padding:0;
+        margin-top:0;
+    }
+    .max-header-banner .mobile-app h4:after {
+        content: ' ';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        bottom: -10px;
+        border-bottom: 2px solid #cb101b;
+        left: 0;
+        margin-left: 44%;
+    }
+    .max-header-banner .img-responsive.desktop-screen-img{
+        display:block;
+        width:100%
+    }
+    .max-header-banner .img-responsive.mobile-screen-img{
+        display:none;
+    }
+   /* .max-header-banner.imperiabankbaneer {
+        margin-bottom: -50px;
+    }*/
+@media screen and (max-width: 959px){
+    .max-header-banner .img-responsive.desktop-screen-img{
+        display:block;
+    }
+    .max-header-banner .img-responsive.mobile-screen-img{
+        display:none;
+    }
+    .imbankttlwrap .imbankttllogoblk img {
+        width: 145px;
+    }
+    .max-header-banner .section-image img{
+        height: 300px;
+        min-width: 100%;
+    }
+    .max-header-banner .pd20{
+        padding:20px;
+    }
+    .max-header-banner .mt10{
+        margin-top:10px;
+    }
+    .max-header-banner .mt20{
+        margin-top:10px;
+    }
+    .max-header-banner .mr10{
+        margin-right:10px;
+    }
+    .max-header-banner .mb10{
+        margin-bottom:10px;
+    }
+    .max-header-banner .gray-brd{
+        border: 1px solid #dedede;
+    }
+    .max-header-banner .mt5{
+        margin-top: 5px;
+    }
+    .max-header-banner .imbankttlwrap {
+        margin: 20px 0 0 0;
+       /* position: absolute;
+        bottom: 200px;*/
+        /* z-index: 9999; */
+        width: 180px;
+    }
+    .max-header-banner .imbankttltext {
+        position: absolute;
+     /*   left: 50px;
+        top: 55px;*/
+    }
+    .max-header-banner .imbankttltext p.sub-text {
+        font-size: 17px;
+        font-style: italic;
+        line-height: 25px;
+        color: #fff !important;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+    .max-header-banner .imperia3blk {
+        background: rgba(0,0,0,0.2);
+        width: 528px;
+        border-radius: 5px;
+        margin: 10px 0 0 0;
+       /* position: absolute;
+        bottom: 10px;*/
+       /* z-index: 9999; */
+    }
+    .max-header-banner .imperia3blk .mobile-app {
+        height: auto;
+        margin-bottom: 0;
+    }
+    .max-header-banner .text-center {
+        text-align: center;
+    }
+    .max-header-banner .mobile-app {
+        padding: 0 15px;
+        border-right: 1px solid #ddd;
+        height: 167px;
+        margin-bottom: 20px;
+    }
+    .max-header-banner .imperia3blk h4 {
+        color: #fff;
+    }
+    .max-header-banner .mobile-app h4 {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .max-header-banner .fw700 {
+        font-weight: 700;
+    }
+    .max-header-banner .imperia3blk .mobile-app p {
+        color: #CCC;
+    }
+    .max-header-banner .mobile-app p {
+        line-height: 20px;
+    }
+    .max-header-banner .mobile-app:last-child {
+        border-right: none;
+    }
+    .max-header-banner .container{
+        position:relative;
+        padding:0;
+        margin-top:0;
+    }
+    .max-header-banner .mobile-app h4:after {
+        content: ' ';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        bottom: -10px;
+        border-bottom: 2px solid #cb101b;
+        left: 0;
+        margin-left: 44%;
+    }
+    .max-header-banner.imperiabankbaneer {
+            /*margin-bottom: -50px;*/
+    }
+}
+
+@media screen and (max-width: 767px){
+    .max-header-banner.imperiabankbaneer {
+        margin-bottom: 0px;
+    }
+    .max-header-banner .panel-body {
+        padding: 0px;
+    }
+    .max-header-banner .img-responsive.desktop-screen-img{
+        display:none;
+    }
+    .max-header-banner .img-responsive.mobile-screen-img{
+            display:block;
+    }
+    .max-header-banner .mobile-app h4:after {
+        content: ' ';
+        border-bottom: 0px solid #cb101b;
+    }
+    .max-header-banner .mobile-app p {
+        padding-left: 80px;
+        text-align: left;
+    }
+    .max-header-banner .imperia3blk .mobile-app:last-child {
+        margin-bottom: 10px;
+        border-bottom: 0px solid #ddd;
+        padding-bottom: 0px;
+    }
+    .max-header-banner .imperia3blk .mobile-app {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        height: auto;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .max-header-banner .section-image{
+        height: 600px;
+    }
+    .max-header-banner .section-image img {
+        height: 600px;
+        min-width: 100%;
+    }
+    .max-header-banner .imbankttlwrap {
+        bottom: 618px;
+        margin: 60px 0 0 30px;
+    }
+    .max-header-banner .imperia3blk {
+        background: rgba(0,0,0,0.2);
+        width: 90%;
+        border-radius: 5px;
+        margin: 20px auto;
+        position: absolute;
+        bottom: 305px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%)
+       /* z-index: 9999; */
+    }
+    .max-header-banner .imbankttlwrap .imbankttllogoblk{
+        width: 180px;
+        margin: 50px 0;
+    }
+    .max-header-banner .imbankttllogoblk img {
+        width: 100%;
+    }
+    .max-header-banner .imbankttltext {
+        position: absolute;
+        /*left: 60px;*/
+        top: 135px;
+    }
+    .max-header-banner .imperia3blk .mobile-app .img-contr{
+        position: absolute;
+        left: 0;
+    }
+    .max-header-banner .mobile-app h4 {
+        text-align: left;
+        padding-left: 80px;
+        margin-bottom: 10px;
+    }
+    .max-header-banner .imbankttlwrap {
+        width: 67%;
+    }
+       .max-header-banner .panel-body {
+            margin-top: -22px;
+            padding-0px;
+        }
+}
+@media screen and (max-width: 479px){
+    .max-header-banner .imbankttltext p.sub-text {
+        white-space: unset;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 20px;
+        color: #fff !important;
+        font-weight: 400;
+    .mobile-app p {
+        padding-left: 80px;
+    }
+    .max-header-banner .imperia3blk {
+        bottom: 0;
+        top:-500px;
+        background: none;
+    }
+    .max-header-banner .imbankttlwrap {
+        margin: 0px 0 0 30px;
+    }
+    .max-header-banner .imbankttlwrap .imbankttllogoblk{
+        margin: 20px 0 50px;
+    }
+    .max-header-banner .imbankttltext {
+        top: 70px;
+    }
+    .max-header-banner .imbankttllogoblk img{
+        width:80%;
+    }
+    .max-header-banner .imperia3blk .panel-body{
+        padding:6px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+    .max-header-banner .imperia3blk .mobile-app {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 480px){
+    .max-header-banner .imbankttlwrap {
+        margin: 30px 0;
+    }
+    .max-header-banner .imbankttlwrap .imbankttllogoblk {
+        margin: 20px 0 50px;
+    }
+    .max-header-banner .imbankttltext {
+        top: 81px;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1150px){
+    .max-header-banner .imbankttlwrap{
+        /*bottom:180px;*/
+    }
+
+    .max-header-banner .imperia3blk{
+        bottom: 20px;
+    }
+
+}
+/*End Custom for Max header*/

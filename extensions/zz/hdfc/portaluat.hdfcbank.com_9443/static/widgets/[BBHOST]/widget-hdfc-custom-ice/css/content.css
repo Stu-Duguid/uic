@@ -1,0 +1,79 @@
+.be-ex-title {
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.be-ex-title {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color:  #666;
+}
+
+.be-ex-content {
+	margin: 5px 0;
+	padding: 5px 0;
+}
+
+/*
+Sample content css for the ckeditor
+contents css :
+The CSS file(s) to be used to apply style to the contents. It should reflect the CSS used in the final pages where the contents are to be used.
+*/
+.be-ice-widget em {
+    font-style: italic;
+    font-weight: inherit;
+}
+
+.be-ice-widget strong {
+    font-style: inherit;
+    font-weight: bold;
+}
+
+.be-ice-widget ul,
+.be-ice-widget ul li,
+.be-ice-widget ol,
+.be-ice-widget ol li{
+    list-style: inherit;
+    list-style-position:inside;
+}
+.be-ice-widget ul > li{
+    list-style-type: disc;
+}
+.be-ice-widget ol > li{
+    list-style-type: decimal;
+}
+
+.be-ice-widget table{
+    border-style: solid;
+}
+.be-ice-widget table th,
+.be-ice-widget tr td{
+    border-width: 1px;
+    border-style: solid;
+}
+.be-ice-widget tr td{
+    border-color: #ccc;
+}
+
+.bd-BrandingText{}
+.bd-iceLink{}
+
+.bbTemplate-redBold {
+    color: red;
+    font-weight: bold;
+}
+.bbTemplate-yellowBg {
+    background-color: yellow;
+}
+
+.bbTemplate-borderGreen {
+    border: 1px dotted green;
+    display: inline-block;
+}
+
+
+/* Hide broken images on live */
+img.be-ice-hide-image {
+    display:none;
+}
+

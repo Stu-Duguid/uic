@@ -1,0 +1,304 @@
+<h1>dataListener test</h1>
+<script>
+  window.dataLayer = [
+    {
+      "content": {
+        "environment": "contentEnvironment",
+        "type": "contentType"
+      }
+    },
+    {
+      "gtm.start": 1624362381805,
+      "event": "gtm.js",
+      "gtm.uniqueEventId": 7
+    },
+    {
+      "event": "gtm.dom",
+      "gtm.uniqueEventId": 30
+    },
+    {
+      "event": "custom.search.results.view",
+      "eventCategory": "Search",
+      "group": "site search",
+      "label": "results | view",
+      "data": {
+        "value": "645",
+        "term": "45",
+        "results": "645"
+      },
+      "gtm.uniqueEventId": 36
+    },
+    {
+      "event": "gtm.load",
+      "gtm.uniqueEventId": 56
+    },
+    {
+      "event": "gtm.scrollDepth",
+      "gtm.scrollThreshold": 25,
+      "gtm.scrollUnits": "percent",
+      "gtm.scrollDirection": "vertical",
+      "gtm.triggers": "9824660_21",
+      "gtm.uniqueEventId": 59
+    },
+    {
+      "event": "gtm.scrollDepth",
+      "gtm.scrollThreshold": 30,
+      "gtm.scrollUnits": "percent",
+      "gtm.scrollDirection": "vertical",
+      "gtm.triggers": "9824660_451",
+      "gtm.uniqueEventId": 62
+    },
+    {
+      "gtm.start": 1624362383886,
+      "event": "gtm.js",
+      "gtm.uniqueEventId": 67
+    },
+    {
+      "0": "event",
+      "1": "optimize.callback",
+      "2": {}
+    },
+    {
+      "event": "gtm.timer",
+      "gtm.timerId": 150,
+      "gtm.timerEventNumber": 1,
+      "gtm.timerInterval": 10000,
+      "gtm.timerLimit": 1,
+      "gtm.timerStartTime": 1624362382383,
+      "gtm.timerCurrentTime": 1624362392791,
+      "gtm.timerElapsedTime": 10408,
+      "gtm.triggers": "9824660_453",
+      "gtm.uniqueEventId": 95
+    },
+    {
+      "event": "gtm.timer",
+      "gtm.timerId": 96,
+      "gtm.timerEventNumber": 1,
+      "gtm.timerInterval": 30000,
+      "gtm.timerLimit": 1,
+      "gtm.timerStartTime": 1624362382381,
+      "gtm.timerCurrentTime": 1624362412379,
+      "gtm.timerElapsedTime": 29998,
+      "gtm.triggers": "9824660_22",
+      "gtm.uniqueEventId": 98
+    }
+  ];
+</script>
+
+<script src="../tealeaf.min.6.1.0.js"></script>
+<script src="dataListener.1.0.js"></script>
+
+<button onclick='window.dataLayer.push({ "event": "gtm.click", "gtm.element": {}, "gtm.elementClasses": "big-search h1 search-wrapper", "gtm.elementId": "", "gtm.elementTarget": "", "gtm.elementUrl": "", "gtm.uniqueEventId": 121 });''>push</button>
+
+<script>
+
+// config
+
+// tealeaf v6.1.0 - Mar 24, 2021
+
+(function () {
+  "use strict";
+  var TLT = window.TLT;
+
+  var config = {
+    core: {
+      buildNote: "stu-default 2021.03",
+      blockedElements: [],
+      // blockedUserAgents: [
+        // { regex: "(Google|Bing|Face|DuckDuck|Yandex|Exa)bot", flags: "i" },
+        // { regex: "spider", flags: "i" },
+        // { regex: "archiver", flags: "i" },
+        // "PhantomJS"
+      // ],
+      // ieExcludedLinks: ["a[href^=javascript]", "a.ignore"],
+      modules: {
+        overstat: {
+          events: [
+            { name: "click", recurseFrames: true },
+            { name: "mousemove", recurseFrames: true },
+            { name: "mouseout", recurseFrames: true },
+            { name: "submit", recurseFrames: true }
+          ]
+        },
+        performance: {
+          events: [
+            { name: "load", target: window },
+            { name: "unload", target: window }
+          ]
+        },
+        replay: {
+          events: [
+            { name: "change", attachToShadows: true, recurseFrames: true },
+            { name: "click", recurseFrames: true },
+            { name: "dblclick", recurseFrames: true },
+            { name: "contextmenu", recurseFrames: true },
+            { name: "pointerdown", recurseFrames: true },
+            { name: "pointerup", recurseFrames: true },
+            { name: "hashchange", target: window },
+            { name: "focus", recurseFrames: true },
+            { name: "blur", recurseFrames: true },
+            { name: "load", target: window },
+            { name: "unload", target: window },
+            { name: "resize", target: window },
+            { name: "scroll", target: window },
+            { name: "mousemove", recurseFrames: true },
+            { name: "orientationchange", target: window },
+            { name: "touchend" },
+            { name: "touchstart" },
+            { name: "error", target: window },
+            { name: "visibilitychange" }
+          ]
+        },
+        dataLayer: {
+          enabled: true,
+          events: [
+            { name: "load", target: window },
+            { name: "unload", target: window }
+          ]
+        },
+        TLCookie: {
+          enabled: true
+        },
+				dataListener: {
+          enabled: true,
+          events: [
+            { name: "change", attachToShadows: true, recurseFrames: true },
+            { name: "click", recurseFrames: true },
+            { name: "dblclick", recurseFrames: true },
+            { name: "contextmenu", recurseFrames: true },
+            { name: "pointerdown", recurseFrames: true },
+            { name: "pointerup", recurseFrames: true },
+            { name: "hashchange", target: window },
+            { name: "focus", recurseFrames: true },
+            { name: "blur", recurseFrames: true },
+            { name: "load", target: window },
+            { name: "unload", target: window },
+            { name: "resize", target: window },
+            // { name: "scroll", target: window },
+            // { name: "mousemove", recurseFrames: true },
+            { name: "orientationchange", target: window },
+            { name: "touchend" },
+            { name: "touchstart" },
+            { name: "error", target: window },
+            { name: "visibilitychange" }
+          ]
+				}
+      },
+      normalization: {
+        urlFunction: function (urlOrPath, messageType) {
+          return urlOrPath;
+        }
+      },
+      sessionDataEnabled: false,
+      sessionData: {
+        sessionValueNeedsHashing: true,
+        sessionQueryName: "sessionID",
+        sessionQueryDelim: ";",
+        sessionCookieName: "jsessionid"
+      },
+      screenviewAutoDetect: true,
+      framesBlacklist: [ "#iframe1" ]
+    },
+    services: {
+      queue: {
+        tltWorker: null,
+        asyncReqOnUnload: /WebKit/i.test(navigator.userAgent),
+        useBeacon: true,
+        queues: [{
+          qid: "DEFAULT",
+          endpoint: "https://lib-ap-1.brilliantcollector.com/collector/collectorPost",
+          // endpoint: "https://teabooster-eu.acoustic-demo.com/collector/sduguid/sydney/collectorPost",
+          maxEvents: 50,
+          timerInterval: 30000,
+          maxSize: 300000,
+          checkEndpoint: false,
+          endpointCheckTimeout: 3000,
+          // encoder: "gzip" // check if needed
+        }]
+      },
+      message: {
+        privacy: [
+        ],
+        privacyPatterns: [
+        ]
+      },
+      encoder: {
+        gzip: {
+          encode: "window.pako.gzip",
+          defaultEncoding: "gzip"
+        }
+      },
+      domCapture: {
+        diffEnabled: true,
+        options: {
+          // maxMutations: 100,
+          // maxLength: 2000000,
+          // captureFrames: false
+          // captureShadowDOM: false,
+          // captureStyle: true,
+          // discardBase64: 20000,
+          // removeScripts: true
+        }
+      },
+      browser: {
+        normalizeTargetToParentLink: true,
+        // blacklist: [ "duplicateid", {regex: /snerklex/, flags: "gi"} ],
+        customid: [ "name" ]
+      }
+    },
+    modules: {
+      overstat: {
+        hoverThreshold: 1000
+      },
+      performance: {
+        calculateRenderTime: true,
+        renderTimeThreshold: 600000,
+        performanceAlert: {
+          enabled: true,
+          threshold: 1000,
+          maxAlerts: 40,
+          resourceTypes: ["script", "img", "xmlhttprequest", "fetch"],
+          // blacklist: [/google-analytics/]
+        }
+      },
+      replay: {
+        domCapture: {
+          enabled: true,
+          // screenviewBlacklist:[ "/some/url", { regex: "somerRegEx", flags: "someFlag" } ],
+          triggers: [
+            { event: "load" },
+            // { event: "load", fullDOMCapture: true, delay: 100 }
+            // { event: "load", delayUntil: { selector: "html.async-hide", exists: false, timeout: 3000 }}
+            { event: "click" },
+            //{ event: "click", targets: ["a", "a *", "button", "button *"] },
+            { event: "change" },
+            { event: "visibilitychange" },
+            // { event: "unload" } // usually not for production
+          ]
+        },
+        mousemove: { enabled: true, sampleRate: 200, ignoreRadius: 3 }
+      },
+      gestures: { enabled: false, options: { doubleTapInterval: 300 } },
+      dataLayer: {
+        dataObject: "window.dataLayer",
+        // screenviewBlocklist: [ "#info", { regex: "^#search", flags: "i" } ],
+        // propertyBlocklist: [ "currency", { regex: "_code$" } ]
+      },
+      TLCookie: {
+        appCookieWhitelist: [{ regex: ".*" }],
+        // secureTLTSID: true, // default is false
+        // samesite: "None", // default is Strict
+        // sessionIDUsesStorage, sessionIDUsesCookie
+        tlAppKey: "2b5f323f11804851beb8617eee293042" // syd [austeampilots]:[stu demos]
+        // use test appkey here as code at the bottom looks for prod domain and adds prod appkey
+      },
+			dataListener: {
+				dataObject: "dataLayer",
+				dataBlocklist: [ "gtm.js", "gtm.start", "gtm.load", "gtm.dom", "gtm.timer", "gtm.scrollDepth" ]
+			}
+    }
+  };
+  TLT.init(config);
+}());
+
+</script>

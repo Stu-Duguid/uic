@@ -1,0 +1,9 @@
+<form enctype="application/json" action="https://tealeaf-ap-1.goacoustic.com/webapp/api/sessions?org=20160630230846" method="post" class="form-example">
+  <div class="form-example">
+    <label for="json">json: </label>
+    <textarea name="json" id="json" rows="8" cols="80">{ "resultSize":100, "dateAfter":"2021-02-03T17:07:50", "dateBefore":"2021-02-05T17:07:50", "groupOperator":"AND", "conditionGroups": [{ "isNot":false, "conditionOperator":"AND", "conditions": [{ "excluded":false, "leftOperand": { "operandType":"HIT_COUNT" }, "operator":"GT", "rightOperand": ["5"] }] }] }</textarea>
+  </div>
+  <div class="form-example">
+    <input type="submit" value="post">
+  </div>
+</form>

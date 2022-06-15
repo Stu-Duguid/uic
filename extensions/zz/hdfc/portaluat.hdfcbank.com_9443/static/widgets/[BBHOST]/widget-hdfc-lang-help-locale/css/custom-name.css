@@ -1,0 +1,31 @@
+p.guest-title {
+    font-size: 18px;
+    color: #3b526f;
+    padding-top: 18px;
+    margin-left: -8px;
+    display:none;
+}
+.guest-title.needed{
+    display:block;
+}
+/*@media only screen and (min-width:540px) and (max-width:767px) {*/
+@media only screen and (max-width:767px) {
+    p.guest-title {
+    font-size: 14px;
+    margin-left: 5px;
+    }
+}
+/*@media only screen and (min-width:320px) and (max-width:539px) {*/
+@media only screen and (max-width:539px) {
+    p.guest-title {
+    font-size: 14px;
+    margin-left: -2px;
+    }
+}
+@media only screen and (max-width:320px) {
+    p.guest-title {
+    font-size: 14px;
+    margin-left: -2px;
+    line-height:1.2;
+    }
+}

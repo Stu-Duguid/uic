@@ -1,0 +1,65 @@
+div.bp-manageableArea-masterpage {
+    min-height: 200px;
+}
+.bp-manageableArea--icon {
+    display: block;
+    background: transparent url("../media/bi-pm2_manageable-area.svg") no-repeat center top;
+    height: 55px;
+}
+.bp-manageableArea--title {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.bp-manageableArea--message {
+    display: none;
+    position: relative;
+    top: 25px;
+    margin: 0;
+    text-align: center;
+    color: #448800;
+    min-width: 100px;
+}
+.bp-manageableArea--message:before {
+    content: '';
+    float: left;
+    height: 200px;
+    width: 11px;
+}
+.bp-manageableArea--message .bp-manageableArea--body {
+    float: left;
+    width: 90%;
+}
+.bp-manageableArea--message:after {
+    content: '';
+    clear: left;
+}
+.bp-manageableArea-empty .bp-manageableArea--message {
+    display: block;
+}
+.bp-manageableArea-noDropZone .bp-drag-indicator {
+    display : none !important; 
+}
+.bp-manageableArea-masterpage.bp-manageableArea-empty {
+    background-color: #c6dab2;
+    border-color: #99cc66;
+    transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    height: 200px;
+    overflow: hidden;
+}
+.bp-manageableArea-masterpage.bp-manageableArea-empty.bd-dm-clicked.bd-dm-nudged {
+    margin: 0;
+}
+.bp-manageableArea-masterpage .bd-dm-edit-bar {
+    top: 0;
+}
+.bp-page .bp-manageableArea-masterpage.bd-dm-clicked {
+    box-shadow: 0 0 1px 1px #448800 inset;
+    border: none;
+}
+.bp-manageableArea {
+    height:100%;
+    box-sizing: border-box;
+}

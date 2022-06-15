@@ -1,0 +1,596 @@
+/*Popup*/
+
+.tc-overlay .popup-container{
+    display: block;
+}
+.download-container .icons-parent{
+    margin-left: 36%;
+}
+body.noScroll .bp-container{
+    z-index: inherit;
+}
+.tc-overlay .cover{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 99999999;
+    overflow: hidden;
+}
+
+.tc-overlay.overlay-download-app .popup-container.opened{
+    background: #fff;
+}
+
+.tc-overlay .popup-container.opened{
+    width: 70%;
+    position: absolute;
+    background: #fff;
+    top:67px;
+    right:0;
+    bottom:0;
+    left:0;
+    margin: auto;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    overflow: visible;
+    height: 70%;
+    margin-top: 0%;
+}
+
+.tc-overlay .popup-container.opened .modal-content{
+    padding: 0;
+    margin: inherit;
+    width: auto;
+}
+
+.tc-overlay .popup-container .modal-footer{
+    text-align:center;
+}
+
+.tc-overlay .close-button{
+    position: absolute;
+    right: -15px;
+    top: -16px;
+    background: #fff;
+    border-radius: 50%;
+    z-index:9999;
+}
+
+.tc-overlay .close-button img{
+    width:30px;
+}
+
+body.noScroll{
+    overflow-y:hidden;
+}
+
+.tc-overlay .popup-heading{
+    font-size:20px;
+    padding: 7px 0px 7px 0px;
+    border-bottom: 1px solid #ddd;
+    color:#fff;
+}
+
+@media only screen and (max-width: 820px) and (min-width: 700px){
+    .tc-overlay .popup-heading{
+        font-size: 17px;
+    }
+}
+/*.tc-overlay .modal-content{
+    padding:0px;
+    width: 55%;
+    margin: 0px auto;
+    position: relative;
+    top:10%;
+}*/
+
+.tc-overlay .cover .popup-container .modal-content .modal-header{
+    margin-bottom: 0px;
+    background: #3a526e;
+}
+
+.tc-overlay .logo-section{
+    position:absolute;
+    left:15px;
+    top:5px;
+    width: 25%;
+}
+
+.tc-overlay .logo-section img{
+    width:150px;
+    margin-top: 2px;
+}
+
+.tc-overlay .modal-body{
+    padding:20px;
+}
+
+/*.main-body .main-container:first-child{
+    border-top: 1px solid #ddd;
+}*/
+.main-body .main-container{
+    margin-bottom:10px;
+}
+.main-body .main-container.sections-border{
+    border-top: 1px solid #ddd;
+}
+
+.tc-overlay .ind-row{
+    margin-top: 20px;
+    /*margin-bottom: 20px;*/
+}
+
+.tc-overlay .ind-row .left-content{
+    font-weight:900;
+}
+
+.tc-overlay .rt-align{
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.tc-overlay .heading{
+    font-size:20px;
+    font-weight: 400;
+}
+
+.tc-overlay .main-body h6{
+    color: #777;
+}
+
+.tc-overlay .center-content{
+    text-align:center;
+}
+
+.tc-overlay .left-img,.tc-overlay .right-img{
+    border: 1px solid #ddd;
+    width: 285px;
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.tc-overlay .fb-img-container{
+    text-align:center;
+    margin-top:30px;
+}
+.fb-img-container img{
+    /*width:100px;*/
+    min-height:100px;
+    min-width:100px;
+}
+
+.fb-img-container .small-gray-text{
+    color: #777;
+    font-size: 12px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.download-app-cover {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/*.download-app-cover:nth-child(odd) {
+    margin-right:20px;
+}*/
+/*Popup*/
+
+
+.main-body{
+    clear:both;
+}
+
+.popup-container .modal-body .main-container .ind-row ul{
+    margin-top:5px;
+    margin-bottom: 20px;
+}
+.popup-container .modal-body .main-container .ind-row ul li{
+    list-style-type: disc;
+    margin-left: 18px;
+}
+
+.popup-container .modal-body .main-container .ind-row table{
+    margin-bottom:10px;
+}
+.button-options li{
+    cursor:pointer;
+    display:inline-block;
+    font-size:10px;
+    text-align:center;
+}
+/*.button-options li:first-child{
+    margin-right:10px;
+}*/
+.button-options li:last-child{
+    margin-left:10px;
+}
+
+.tc-overlay .popup-container .modal-body .heading{
+    display: inline-block;
+}
+.tc-overlay.overlay-download-app .popup-container.opened .modal-content{
+    height: auto;
+    border: none;
+}
+
+.overlay-download-app.tc-overlay .popup-container.opened{
+   /* width: 580px;*/
+/*   background : transparent;*/
+}
+.overlay-download-app .download-container .download-label{
+    margin-bottom: 15px;
+}
+
+.popup-container.opened.download-in-progress{
+   /* overflow: visible;*/
+   /* height: 100%;*/
+}
+
+.tc-overlay.overlay-download-app .cover .send-code{
+    cursor:pointer;
+}
+
+.popup-container.opened.download-in-progress .modal-content .tc-overlay .modal-body{
+    /*overflow-y: visible;*/
+    /*max-height: none;*/
+}
+
+.popup-container.opened.download-in-progress .close-button{
+    /*display:none;*/
+}
+
+/*body.no-scroll .bp-container{
+    z-index: inherit !important;
+}*/
+
+body.noScroll .web-portal .top-menu .row.main-search-container, body.noScroll .quick-navbar.middle-quick-menus.top-stick-menus .full-width-bg{
+    z-index:10001 !important;
+}
+
+.download-container input.mobile-number{
+    width: 50%;
+    display: inline-block;
+    /*margin: 0px 10px 0 15px;*/
+}
+.or-divider, .captcha-input-database{
+    margin-bottom: 10px;
+}
+.download-container input.captcha-input-database{
+    width: 25%;
+    height: 65px;
+}
+.get-sms-interaction{
+    margin-bottom: 15px;
+}
+.download-success-container, .download-error-container{
+    display:none;
+    padding: 30px 25px;
+}
+.get-sms-success, .get-sms-failure{
+    width: 72px;
+    margin-bottom: 15px;
+}
+.get-sms-interaction .country-codes{
+    width: 55px;
+    display: inline-block;
+    padding: 0;
+}
+.get-sms-error{
+    color:red;
+    display:none;
+    font-size: 11px;
+    padding: 0;
+}
+
+.tc-overlay .buttons-wrapper a{
+    margin: 0;
+    padding: 0;
+    width: inherit;
+}
+
+.tc-overlay ul{
+   list-style-type: disc;
+   padding-left:20px;
+}
+
+.tc-overlay ul li{
+    list-style: disc;
+}
+.tc-overlay ul.button-options p{
+    color: #1d86ff;
+}
+.tc-overlay ul.button-options p:hover{
+    color: #0060d0;
+    text-decoration: underline;
+}
+.tc-overlay .cover .popup-container.opened.download-in-progress .modal-content{
+    border-left:none;
+}
+
+.download-app-name{
+    display:none;
+}
+
+.hidden-country-codes{
+    display:none;
+}
+
+@media only screen and (max-width: 767px) {
+    .tc-overlay .popup-heading{
+        font-size:15px;
+        width: 55%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 auto;
+        border: none;
+    }
+
+    body.noScroll .web-portal header, body.noScroll .nb-portal header, body.noScroll .web-portal .top-menu, body.noScroll .nb-portal .top-menu{
+        display:none;
+    }
+}
+@media only screen and (max-width: 950px) and (min-width: 760px){
+ .tc-overlay .left-img,.tc-overlay .right-img{
+      width: 210px;
+     }
+ }
+@media only screen and (max-width: 700px) and (min-width: 540px){
+    .overlay-download-app.tc-overlay .popup-container.opened{
+        width: 480px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .tc-overlay .cover .modal-body{
+    max-height: 450px;
+    }
+  .tc-overlay .popup-container.opened{
+          height: fit-content;
+          background: transparent;
+      }
+    .download-container input.mobile-number {
+        width: 41%;
+    }
+
+}
+
+@media only screen and (min-width: 540px) {
+    .tc-overlay .cover .modal-body{
+        overflow-y: scroll;
+        max-height: 500px;
+    }
+    .tc-overlay .cover .popup-container.opened.download-in-progress .modal-body{
+         max-height: none !important;
+    }
+    .logo-section i.icon-left-open-big{
+        display:none;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 539px) {
+    .download-success-container.text-center .get-sms-success{
+        margin-top: 16px
+    }
+}
+@media only screen and (max-width: 539px) {
+    .download-container input.mobile-number{
+       width: 62%;
+    }
+    .tc-overlay .cover .popup-container.opened{
+        width:100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .tc-overlay .cover .popup-container .modal-content .modal-header{
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+    .tc-overlay .modal-body {
+        padding: 54px 20px 20px;
+    }
+    .tc-overlay .close-button{
+        display:none;
+    }
+    .tc-overlay .popup-container.opened .modal-content{
+        border:none;
+        height: initial;
+    }
+    .tc-overlay .logo-section{
+        left:0;
+        width: 40%;
+    }
+    .logo-section i.icon-left-open-big{
+        font-size: 20px;
+        color: #fff;
+        top: -2px;
+        position: relative;
+    }
+    .tc-overlay .cover{
+        background: #fff;
+    }
+    .tc-overlay .logo-section img{
+        display: none;
+    }
+    .tc-overlay .download-container .send-code{
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+}
+
+@media print {
+    body *{
+        visibility: hidden;
+        height: 0;
+    }
+    .quick-navbar *{
+        display: none !important;
+    }
+/*    title{
+        display:none;
+        visibility:hidden;
+    }*/
+    .container-fluid .web-portal .bp-manageableArea{
+        top:0;
+    }
+    .tc-overlay .modal.popup-container.opened .modal-content *{
+        height: auto;
+        visibility: visible;
+        border: none;
+        position: relative;
+    }
+    .tc-overlay .cover{
+        position: relative !important;
+        overflow: visible !important;
+    }
+    .tc-overlay .popup-container.opened{
+        width:100% !important;
+        height:100% !important;
+        top: 0;
+    }
+    .logo-section i.icon-left-open-big{
+        visibility:hidden;
+        display: none;
+    }
+    .button-options *{
+        display: none;
+    }
+/*    .tc-overlay .cover .modal-body{
+        overflow-y: initial;
+        max-height: 5000px;
+    }*/
+}
+@media screen and (max-width: 940px) and (min-width: 791px) {
+    .download-container input.mobile-number{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 790px) and (min-width: 767px) {
+    .download-container input.mobile-number{
+        width: 48%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 439px){
+    .get-sms-interaction .country-codes{
+        width: 60px;
+   }
+   .tc-overlay .modal-body {
+           padding: 54px 9px 20px;
+       }
+   .captcha-icons .voice{
+        width: 0%;
+   }
+}
+@media only screen and (min-width: 360px) and (max-width: 640px){
+    .tc-overlay .cover .popup-container.opened{
+        max-height: 580px;
+    }
+}
+
+/*captcha css starts*/
+.captcha-container .captcha-input-display .captcha-input-val .captcha-text{
+    color: #444;
+    font-size: 12px;
+    margin: 6px 0 8px 0;
+}
+.captcha-container .captcha-input-display .captcha-input-val .captcha-input{
+    width: 41%;
+    margin-bottom: 20px;
+}
+.captcha-container .captcha-input-display .captcha-input-val .get-captcha-error{
+    display: none;
+}
+.captcha-container .captcha-input-display .captcha-input-val .get-captcha-error{
+    color: #ff0000;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.captcha-container .captcha-input-display .captcha-image{
+    height: 50px;
+}
+.captcha-container .captcha-input-display .captcha-image-icons .captcha-icons {
+    cursor: pointer;
+}
+.captcha-container .captcha-input-display .captcha-image-icons .captcha-icons .refresh {
+    margin-top: 2px;
+}
+.captcha-container .captcha-input-display #captcha-image{
+    height: 100%;
+    width: 100%;
+}
+.captcha-container .captcha-input-display .captcha-input-val .captcha-error{
+    border: 1px solid red;
+}
+.get-sms-interaction-code .country-codes{
+    width: auto;
+    padding: 0px;
+    float: right;
+}
+.sec-text{
+    text-align: right;
+}
+.captcha-not-pres{
+    display: none;
+}
+
+@media only screen and (max-width: 767px){
+    .captcha-container .captcha-input-display{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: -16px;
+    }
+    .captcha-container .captcha-input-text{
+        width: 100%;
+    }
+    .sec-text, .captcha-image-icons{
+        text-align: left;
+        margin-left: -8px;
+    }
+    .download-container input.mobile-number{
+        margin: 0px;
+    }
+    .captcha-container .captcha-input-display .captcha-image{
+        padding-left: 10px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 370px){
+    .captcha-parent{
+        padding-left: 10px;
+    }
+    .country-code{
+        padding-left: 20px;
+    }
+    .download-container input.mobile-number {
+        width: 81%;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px){
+    .col-sm-4.col-xs-3.col-lg-2.refresh {
+       width: auto;
+    }
+    .download-container .icons-parent{
+        margin-left: 0%;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 539px){
+    .tc-overlay .popup-container.opened{
+        top: 32px;
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+   .tc-overlay.overlay-download-app .popup-container.opened {
+    height: 250px;
+   }
+}
+/*captcha css ends*/

@@ -1,0 +1,47 @@
+/* Build with bb-lp-cli @ v1.8.1 */.lp-navbar-advanced .navbar>.container-fluid{width:auto}.lp-navbar-advanced .launcher-toggle{margin-left:5px;width:auto}.lp-navbar-advanced .navbar-brand.active-page{float:none;margin:0}.lp-navbar-advanced .launcher-toggle .badge{margin-left:10px}.nav-icon.navbar-left .glyphicon.glyphicon-list{padding:0 5px}.lp-navbar-advanced .animation-arrow span,.lp-navbar-advanced .animation-none span{transition:all .7s ease}.lp-navbar-advanced .animation-arrow .animate{position:relative}.lp-navbar-advanced .animation-arrow span.bar-first{transform:rotate(90deg);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg)}.lp-navbar-advanced .animation-arrow span.bar-second{transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);width:70%;margin-left:8px;margin-top:4px}.lp-navbar-advanced .animation-arrow span.bar-third{transform:rotate(45deg);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);width:70%;margin-left:-1px;margin-top:-2px}.lp-navbar-advanced span.bar-first,.lp-navbar-advanced span.bar-second,.lp-navbar-advanced span.bar-third{transform:rotate(0deg);-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg)}.lp-navbar-advanced .lp-transparency-scroll{transition:opacity .7s ease;opacity:.5}.lp-navbar-advanced .lp-hide-show-scroll{transition:min-height .3s ease;min-height:0;height:0}.lp-navbar-advanced .lp-hide-show-scroll *{display:none}@media screen and (min-width:767px){.lp-navbar-advanced-root>li>ul{position:absolute;display:none;white-space:nowrap}.lp-navbar-advanced-root>li:hover ul{display:block}}.lp-navbar-advanced .divider-vertical a{height:100%;display:block;border-right:1px solid rgba(255,255,255,0.1);border-left:1px solid rgba(0,0,0,0.1);width:2px;overflow:hidden;padding-left:0;padding-right:0}@media (max-width:767px){.navbar-collapse .nav>.divider-vertical{display:none}}.lp-navbar-advanced .profile-info{margin-right:0}.lp-navbar-advanced .profile-info>li{height:100%}.lp-navbar-advanced .profile-info .card{height:100%;white-space:nowrap;padding:0 0 0 25px}.lp-navbar-advanced .profile-info .card img{width:42px;height:42px;border-radius:50%}.lp-navbar-advanced .profile-info .card .info{margin:0 5px;line-height:1.5;display:inline-block;vertical-align:middle}.lp-navbar-advanced .profile-info .card .info .title{font-weight:bold;font-size:15px}.lp-navbar-advanced .profile-info .card .info .title a:not([href]){text-decoration:none}.lp-navbar-advanced .profile-info .card .info .title :after{background:none}.lp-navbar-advanced .profile-info .card .logout{padding:0 12px 0 14px;font-size:14px;margin-left:7px;cursor:pointer}@media (max-width:768px){.lp-navbar-advanced .container-fluid .profile-info{margin-right:-20px}}.lp-navbar-advanced .sign-in .link{padding:6px 15px;font-weight:500;font-size:14px}.lp-navbar-advanced .sign-in .link:after{display:none}@media (max-width:768px){.lp-navbar-advanced .sign-in .link{display:block;padding:10px 25px}}
+/*# sourceMappingURL=base.css.map */
+
+.web-portal .txn-item{
+    display: none !important;
+}
+.side-menu-wrapper{
+    border: 1px solid #dedede;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.side-menu-wrapper ul{
+    display:none;
+}
+
+.side-menu-wrapper ul li {
+    border-bottom: 1px solid #f7f7f7;
+    cursor:pointer;
+}
+.side-menu-wrapper ul li a:hover {
+    text-decoration: underline;
+}
+
+.side-menu-wrapper ul li a:hover{
+    text-decoration:underline;
+}
+.side-menu-wrapper ul li a {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    color: #333;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.side-menu-wrapper ul li>a{
+    border-bottom: 1px solid #f7f7f7;
+}
+
+
+.side-menu-wrapper ul li a i{
+    display:none !important;
+}
+.side-menu-wrapper ul li.hideMenu{
+    display:none !important;
+}

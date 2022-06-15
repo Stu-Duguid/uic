@@ -1,0 +1,357 @@
+.open-account{
+    display: none;
+}
+
+.open-account .cardWrapper{
+    background-color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #dedede  ;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+}
+
+.open-account .card-offer-contr h3 {
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dedede;
+}
+
+.open-account .bodyArea{
+    padding: 20px;
+}
+
+.open-account .offer-dtl ul li {
+    margin-bottom: 15px;
+    list-style-type: disc;
+    margin-left: 20px;
+    padding: 0 0 0 0px;
+}
+.open-account .offer-dtl ul li p{
+    position: relative;
+    margin-left: -5px;
+    width: 110%;
+}
+.open-account .full-contr img{
+    margin-left: 20px;
+}
+.template-hdfc-portal-2-10--area .open-account .full-contr img{
+    float:right;
+}
+.open-account .cardWrapper .card-offer-contr .custome-btn{
+    margin-left: 13px;
+}
+.open-account .cardWrapper .card-offer-contr .custome-btn .btnParent{
+    /*float: right;*/
+    width: 92%%;
+}
+.template-hdfc-portal-2-10--area .open-account .cardWrapper .card-offer-contr .custome-btn .btnParent{
+    width: 46%;
+}
+.open-account .selectCSS {
+    margin-bottom:5px   ;
+}
+.open-account .iconSmall{
+    display: inline-block;
+    word-wrap: break-word;
+}
+.open-account .buttonDiv{
+    padding: 0px;
+    margin-right:5px;
+}
+
+.open-account .btn-primary-custom:hover{
+    background-color: #fff;
+    color: #1d86ff;
+    border:2px solid #1d86ff;
+}
+.open-account .btn-primary-custom {
+    background: #1d86ff;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 6px 20px;
+}
+.open-account .btn-custom {
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    border-radius: 3px;
+
+    margin-top:5px;
+}
+.open-account .myButton{
+
+    width: 100%;
+
+}
+
+.open-account .imageLink{
+    width:100%;
+}
+.open-account .mB20 {
+    margin-bottom: 0px;
+    padding-bottom: 0px   ;
+}
+.open-account .mB0 {
+    margin-bottom: 0  ;
+}
+
+.open-account .mT0 {
+    margin-top: 0  ;
+}
+.open-account .mTn10 {
+    margin-top: -10px;
+}
+
+.open-account .pull-right {
+    float: right  ;
+    padding-left: 0;
+}
+.open-account .full-contr {
+    width: 100%;
+    float: left;
+}
+
+.open-account .mB5 {
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.open-account .fs13 {
+    font-size: 13px;
+}
+
+.open-account .mT10 {
+    margin-top: 10px  ;
+}
+.open-account .mL5 {
+    margin-left: 5px;
+}
+
+.open-account .fs12 {
+    font-size: 12px;
+}
+
+.open-account .hide-for-large {
+    display: none;
+}
+
+.open-account .mR5 {
+    margin-right: 5px;
+}
+
+.open-account .mT2 {
+    margin-top: 2px  ;
+}
+
+.open-account .pull-left {
+    float: left;
+}
+.open-account .user-number {
+    font-size: 12px;
+    color: #337ab7;
+}
+.open-account .offer-dtl ul li i.offer-icon {
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.open-account .cardTitle{
+
+    margin-top: 0px;
+}
+
+.open-account .btn-default-custom {
+    margin-right: 0px;
+    font-size: 16px;
+    padding: 6px 20px;
+    width:45%;
+}
+.open-account .compareCheckbox{
+
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.open-account .compareCheckbox input{
+    top:1px   ;
+    margin-right: 7px;
+    margin-top: -1px;
+}
+.open-account .offer-icon img{
+    height: 20px;
+    width: 20px;
+}
+.open-account .ckLabel{
+    color: #444444;
+    min-height: 20px;
+    font-size: 13px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    padding-left: 0;
+
+}
+.open-account .ckLabel input[type=checkbox]{
+
+    left:-20px;
+}
+.open-account .card-offer-contr {
+     border-bottom: 1px solid #E1E1E1;
+     margin-bottom: 0px;
+     padding-bottom: 0px;
+     width: 100%;
+     float: left;
+}
+.open-account .btn-primary-customs {
+    margin-bottom: 0px;
+    width: 45%;
+    border: 2px solid #1d86ff;
+    font-size: 16px;
+    padding: 6px 1px;
+    /*margin-right: 25px;*/
+}
+.c-template-hdfc-portal-accordion .contentacc .card-offer-contr{
+
+    border-bottom: 1px solid #E1E1E1   ;
+}
+
+
+.c-template-hdfc-portal-accordion .contentacc .cardWrapper{
+
+    border: none   ;
+    border-radius: 0px   ;
+    margin-bottom: 0px   ;
+    box-shadow: none   ;
+}
+    @media (max-width: 479px)
+    .open-account .btnParent a {
+        width: 100%;
+    }
+    @media screen and (max-width: 479px)
+    .open-account .card-offer-contr .show-for-small {
+        padding-left: 15px;
+        float: left;
+        width: 100%;
+        display: block;
+    }
+    @media screen and (min-width: 480px)
+    .open-account .card-offer-contr .show-for-small {
+        padding-left: 15px;
+        float: left;
+        display: block;
+    }
+/*Media queries for handling style guide and responsiveness*/
+
+/*@media screen and (min-width: 769px) {
+   .open-account .parentdiv{
+
+        padding-left:0px;
+        padding-right: 13px;
+    }
+  .open-account   .mTn10 {
+
+        margin-bottom: 15px;
+    }
+}*/
+@media (max-width:479px){
+  .open-account  .offer-dtl{
+
+        margin-top: 10px;
+    }
+  .open-account  .btnParent{
+
+        text-align: center;
+
+    }
+  .open-account  .btnParent a{
+
+        width:100%;
+
+    }
+
+
+
+}
+
+/*Media queries for All resolutions*/
+
+
+@media screen and (max-width: 1024px) and (min-width: 768px){
+   .open-account .bodyArea{
+        padding-top: 10px;
+    }
+
+    .open-account .mTn10{
+
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 767px){
+   .open-account .imageLink{
+        height:50%;
+    }
+  .open-account  .btn-primary-customs, .btn-default-custom {
+        padding: 6px 10px;
+    }
+  .open-account  .pull-left{
+        float: none   ;
+    }
+  .open-account  .card-offer-contr .full-contr  {
+        width: 140px;
+    }
+
+   .open-account .card-offer-contr .show-for-small{
+        padding-left: 15px;
+        float: left;
+        display: block;
+    }
+   .open-account .hide-for-large {
+        display: block;
+    }
+   .open-account .show-for-small {
+        display: block;
+    }
+   .open-account .hide-for-small{
+        display: none;
+    }
+   .open-account .mTn10 {
+        margin-top: 0px;
+    }
+
+}
+@media screen and (max-width: 767px) and (min-width: 540px) {
+   .open-account  .btn-primary-customs {
+        width: 210px;
+    }
+   .open-account .btn-default-custom{
+        width: 210px;
+    }
+}
+@media screen and (max-width: 539px) and (min-width: 480px) {
+   .open-account .btn-primary-customs {
+        width: 200px;
+    }
+   .open-account .btn-default-custom{
+        width: 200px;
+    }
+
+}
+@media screen and (max-width: 320px){
+
+    .open-account .card-offer-contr .full-contr{
+
+        width:110px;
+        margin-right: 10px;
+    }
+   .open-account .card-offer-contr .show-for-small {
+        padding-left: 13px;
+          width: 100%  ;
+
+        }
+}
+

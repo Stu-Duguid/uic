@@ -1,0 +1,34 @@
+<html>
+<head>
+    <script>
+            function draw(){
+                var canvas = document.getElementById("thecanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "rgba(125, 46, 138, 0.5)";
+                ctx.fillRect(25,25,100,100);
+                ctx.fillStyle = "rgba( 0, 146, 38, 0.5)";
+                ctx.fillRect(58, 74, 125, 100);
+            }
+
+            function downloadImage()
+            {
+                var canvas = document.getElementById("thecanvas");
+                var image = canvas.toDataURL();
+                var theImage = document.getElementById("theimage");
+                theImage.src = image;
+
+                var aLink = document.createElement('a');
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("click");
+                aLink.download = 'image.png';
+                aLink.href = image;
+                aLink.dispatchEvent(evt);
+            }
+    </script>
+</head>
+<body onload="draw()">
+    <canvas width=200 height=200 id="thecanvas"></canvas>
+    <div><button onclick="downloadImage()">Download</button></div>
+    <image id="theimage"></image>
+</body>
+</html>

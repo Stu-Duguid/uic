@@ -1,0 +1,1252 @@
+/*----------------------------------------------------------------*/
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+.dapApplycc{
+    display: none;
+}
+.red{
+    color: #ff0000;
+}
+ .dashboard-account .popover .popover-content {
+    width: 110% !important;
+}
+ .dashboard-account .invest-sec-left{
+     padding-left:0;
+     padding-right:0;
+     margin-bottom:10px;
+}
+.dashboard-loader{
+    z-index: 9999;
+}
+ .dashboard-account .invest-section-320{
+     float:right
+}
+ .dashboard-account .invest-section {
+    text-align: center;
+    padding: 43px 0;
+}
+ .dashboard-account .invest-section-owe {
+    text-align: center;
+    padding: 43px 0;
+}
+.dashboard-account .invest-section-owe .owe-bold{
+    font-weight: bold;
+}
+ .dashboard-account #dashZineBannerHave {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+ .p-top-none {
+     padding-top: 0 !important;
+}
+ .padding-horizontal-sm{
+     padding-left:8px;
+     padding-right:8px;
+}
+ .text-bold{
+     font-weight:bold;
+}
+ .m-bottom-sm{
+     margin-bottom:20px;
+}
+ .m-bottom-xs{
+     margin-bottom:5px;
+}
+ .m-bottom-none{
+     margin-bottom:0px !important;
+}
+ .m-bottom-n-xs{
+     margin-bottom: -5px !important;
+}
+ .m-none{
+     margin:0px !important;
+}
+ .m-left-none{
+     margin-left:0px !important;
+}
+ .m-top-xs{
+     margin-top:4px;
+}
+ .m-top-none{
+     margin-top:0px;
+}
+ .m-vertical-xs{
+     margin: 6px 0px;
+}
+ .m-vertical-sm{
+     margin: 4px 0px;
+}
+ .m-vertical-small{
+     margin: 10px 0px;
+}
+ .p-v-xs {
+     padding:7px 0 !important;
+}
+ .p-v-lg {
+     padding:20px 0 !important;
+}
+ .p-v-lg:last-child {
+     padding-bottom:0 !important;
+}
+ .no-padding {
+     padding: 0 !important;
+}
+ .seeBenefits{
+     border: 1px solid #e2e2e2!important;
+     margin-top: 4px;
+}
+ .req-callback-contr {
+     margin-bottom: 59px!important;
+}
+ .req-callback-contr .btn-default {
+     font-size: 16px;
+}
+ .req-callback-contr .btn:first-child {
+     margin-top: 0px;
+}
+ .panel-home .panel-body h3 {
+     font-size: 16px;
+}
+ .mB5 {
+     margin-bottom: 5px;
+}
+ .mT5 {
+     margin-top: 5px!important;
+}
+ .panel-home .panel-body .highlited-panel {
+     background: #ebedf0;
+     border-radius: 5px;
+}
+ .pD10 {
+     padding: 10px !important;
+}
+ .req-callback-contr .text-contr {
+     float: left;
+     width: 70%;
+}
+ .relation-manager-contr .rel-mngr-img {
+     position: absolute;
+     left: 0;
+     top: 0;
+}
+ .relation-manager-contr .icon{
+     width:40px;
+     height:40px;
+     border-radius: 5px 17px 17px 6px;
+     background-color: white;
+}
+ .mR5 {
+     margin-right: 5px;
+}
+ .mR20 {
+     margin-right: 20px;
+}
+ .padding-left-none{
+     padding-left:0px !important;
+}
+ .padding-right-none{
+     padding-right:0px !important;
+}
+ .p-v-lg .currency{
+     margin-bottom:0px !important;
+}
+ .outstanding-label{
+     font-size:12px;
+     color:#999999;
+     margin-top:5px !important;
+}
+ .tab-section{
+     background-color: #e6e6e6;
+}
+ .tab-section .nav-pills {
+     background-color: #fff;
+}
+ .lp-widget-hdfc-dashboard .tab-section .tab-content {
+     padding: 15px 0 0 0 ;
+}
+ .lp-widget-hdfc-dashboard .panel-footer, .panel-white {
+     background-color: #fff;
+     border: none;
+     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+     box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+ .lp-widget-hdfc-dashboard .panel-white .currency {
+     color: #444444;
+     line-height: 20px;
+     margin: 10px 0 12px;
+     word-wrap: break-word;
+}
+ .lp-widget-hdfc-dashboard .h5{
+     color : #002759;
+}
+ .two-section .currency {
+     color: #444444;
+     line-height: 20px;
+     margin: 10px 0 15px;
+     word-wrap: break-word;
+}
+ .two-section .currency decimal-casing, .dashboard-account .have-contr {
+     font-weight: bold;
+}
+ .invest-section:after {
+     /*background: url(../media/right-shadow.png) right 0 no-repeat;*/
+     padding: 5px 15px;
+     content: "";
+     position: absolute;
+     right: -17px;
+     top: -11px;
+     height: 133px;
+}
+ .invest-section-owe:after {
+     /*background: url(../media/right-shadow.png) right 0 no-repeat;*/
+     padding: 10px 30px;
+     content: "";
+     position: absolute;
+     right: -17px;
+     top: -2px;
+     height: 133px;
+}
+ .pay-section {
+     border-right: 1px solid #e1e1e1;
+     padding-right: 10px;
+     margin-right: 10px;
+     float: left;
+     width: 125px;
+}
+ @media screen and (max-width: 768px){
+     .pay-section {
+         border-right: 0px solid #e1e1e1;
+         float: left;
+         margin-right: 0px;
+         padding-right: 0px;
+    }
+}
+/*bill carousel starts*/
+ .bill-carousel .btn:last-child {
+     margin-bottom: 0;
+}
+ .bill-carousel .btn:first-child {
+     margin-top: 0;
+}
+ .bill-carousel .btn {
+     margin-top: 20px;
+     margin-bottom: 20px;
+     width: 100%;
+}
+ .carousel-indicators{
+     position:relative !important;
+     margin-top: 5px;
+     bottom: -2px !important;
+}
+ .lp-widget-hdfc-bill-carousel{
+     z-index:99999;
+}
+ .dashboard-widget .hdfc-carousel-widget-div:after, .hdfc-carousel-widget-div:before {
+     display: block;
+     clear: both;
+     content: "";
+}
+ div#bill-carousel:before, div#bill-carousel:after {
+     content: "";
+     clear: both;
+     display: block;
+}
+ .hdfc-carousel-widget-div {
+     display: block;
+     margin-top: 2%;
+     margin-bottom: 2%;
+}
+ .bill-carousel {
+     padding: 0 0 0;
+     height: auto;
+}
+ .bill-carousel .btn-default {
+     margin-top:0px;
+}
+
+ .bill-carousel .carousel-inner > .item > .inner-item, .bill-carousel .carousel-inner > .item > a > .inner-item {
+     width: 100%;
+     margin: auto;
+     border-radius: 2px;
+     display: inline-table;
+     padding: 10px;
+     background-color:#fff;
+}
+ .bill-carousel .bill-data-div{
+     display: table-cell;
+     vertical-align: middle;
+     width: 850px;
+}
+ .bill-carousel .bill-button-div{
+     display: table-cell;
+     vertical-align: middle;
+     width: 20%;
+     padding-left: 2%;
+}
+ .bill-carousel .carousel-indicators,.offer-indicator {
+     top:100%;
+}
+ .bill-carousel .carousel-indicators li,.offer-indicator li {
+     border: 1px solid #004a8f !important;
+     margin: 1px !important;
+     width: 7px;
+     height: 7px;
+}
+ .carousel-indicators .active,.offer-indicator .active {
+     background:#004a8f !important;
+}
+ .bill-carousel .left.carousel-control,.bill-carousel .right.carousel-control {
+     display:none;
+}
+ .price-bold {
+     font-size: 18px;
+}
+.life-parent .superParent{
+    width: 97%;
+}
+.life-parent{
+    display: none;
+}
+.life-parent .adbanner img{
+    width: 100%;
+}
+/*bill carousel ends*/
+/* AccountSection Tablet view css starts*/
+ .accounts {
+     padding-top: 0;
+}
+ .accounts .accounts-col:nth-child(1){
+     width: 80%;
+}
+ .accounts .accounts-col:nth-child(2){
+     width: 20%;
+}
+ .accounts-col .accounts-row {
+     border-bottom: 1px solid #e2e2e2;
+}
+ .accounts-col .accounts-row:last-child {
+     border: none;
+}
+
+ .account-list > div{
+     float:left;
+     width:50%;
+     margin-bottom: 10px;
+}
+ .net-amount {
+     padding-right: 20px;
+     border-radius:5px;
+}
+ .net-amount .currency {
+     color: #00337e;
+     line-height: 20px;
+     margin: 10px 0 15px;
+     word-wrap: break-word;
+}
+ .net-amount .currency decimal-casing {
+     font-weight: bold;
+     color: #00337e;
+}
+ .last-login .info-tool-tip{
+     width:17px;
+     height:17px;
+}
+
+ .accounts-row-wid{
+     width:70%;
+}
+ .owe-style{
+     border-bottom:none !important;
+}
+/* AccountSection Tablet view css ends*/
+/*Due Bill Section Starts Here*/
+ @media only screen and (min-width:767px) {
+     .panel-card:last-child{
+        /*margin-bottom:20px !important;
+        */
+    }
+     .none{
+         display: block;
+    }
+     .accounts-row .accounts-row-col:nth-child(1){
+         width : 30%;
+         padding:10px;
+    }
+     .accounts-row .accounts-row-col:nth-child(2){
+         width: 70%;
+         padding:10px;
+    }
+
+     .fav-netbanking .favorites-panel{
+        background-color: #fff;
+        border: 1px solid #e2e2e2;
+        border-top: none !important;
+     }
+}
+ @media screen and (max-width: 766px) and (min-width: 225px) {
+     .none{
+         display: none;
+    }
+}
+ .padding-verticle{
+     padding-top:5px;
+     padding-bottom:5px;
+}
+ .recharge-border.abc{
+     padding-top:23px;
+}
+ .padding-verticle-sm{
+     padding-top:10px !important;
+     padding-bottom:10px !important;
+}
+ .padding-bottom-md{
+     padding-bottom:15px !important;
+}
+ .padding-horizontal{
+     padding-left:5px;
+     padding-right:5px;
+     float: right;
+}
+/* swiper here */
+ .swiper::-webkit-scrollbar{
+     width:0px;
+     height:0px;
+}
+ .swiper {
+     white-space: nowrap;
+     position: sticky;
+     overflow-x: scroll;
+     overflow-y: hidden;
+     -webkit-overflow-scrolling: touch;
+}
+ .swiper .inner-div {
+     width: 285px;
+     background-color: #fff;
+     margin: 0 5px;
+     display: inline-block;
+     zoom: 1;
+     vertical-align: top;
+}
+ .display-inline{
+     display: inline;
+}
+ .no-margin{
+     margin-top: 0px !important;
+}
+ .dashboardRegister{
+     text-align:center;
+     margin-top:10px;
+}
+
+.dashboardRegister .btn{
+     width: 90%;
+}
+
+ .noBills{
+     background-color: #fff;
+     padding:20px;
+}
+ .noBills p{
+     width: 204px;
+}
+ .noBills .btn{
+     width: 200px;
+}
+ .swiper-dueBills{
+     padding: 10px;
+     border: 1px solid #e2e2e2;
+     white-space: normal;
+}
+ .swiper-dueBills .icon{
+     width: 35px !important;
+     height: 35px;
+}
+ .text-sm{
+     font-size:12px;
+}
+/*Due Bill Section Ends Here*/
+/*Favourite css*/
+ .favourite-feature-div .view-all{
+     font-size: 14px;
+     color: #00337f;
+     text-transform: uppercase;
+     vertical-align: middle;
+     line-height: 2.3;
+}
+ .favourite-feature-div .fav-list .hdfc-para-color {
+     color: #00337f;
+     font-size: 10px;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     width: 82px;
+}
+ .favourite-feature-div .fav-bg img {
+     border: 1px solid #00337f;
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+}
+ .favourite-feature-div .panel-white .panel-row .panel-cols:first-child{
+     width:15%;
+     vertical-align:top;
+     padding-top:0px;
+}
+ .favourite-feature-div .panel-white .panel-row{
+     padding:15px 0px;
+}
+ .favourite-feature-div .imagemini{
+     width:34px;
+     height:34px;
+}
+ .favourite-feature-div .imagetab{
+     width:34px;
+     height:34px;
+     margin-right:10px;
+}
+
+ .favourite-feature-div .panel-cols {
+     vertical-align: top !important;
+}
+ .favourite-feature-div .panelPadding{
+     padding:0px 20px;
+}
+ .favourite-feature-div .modal-header{
+     margin-bottom:1px;
+     margin-top:10px;
+}
+ .favourite-feature-div .panel-footer{
+     border:none;
+}
+/*favorite netbanking*/
+ .favorites .panel-fav {
+     padding: 0 0 5px 0 !important;
+     margin-bottom: 4px;
+     border-bottom: 1px solid #e2e2e2;
+}
+ .favorites .panel-fav:last-child {
+     border-bottom: 0px;
+}
+/* .favorites .icon-center{
+     margin: 10% 0;
+}*/
+ .favorites .arrow{
+     width: 14px;
+}
+
+ .favorites .panel-fav .vertical-middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .favorites{
+    border: 1px solid #e2e2e2;
+ }
+
+ /*.fav-netbanking section{
+    border: 1px solid #e2e2e2;
+ }*/
+
+ .fav-netbanking .panel-white{
+    padding: 10px;
+ }
+
+/*message section for tablet */
+ .decimal-carousel{
+     padding-right:0px;
+}
+ .no-carousel .btn:first-child{
+     margin-top:0px !important;
+}
+ .no-bill-carousel, .no-bill-carousel a{
+     font-size:12px !important;
+}
+ .no-carousel .btn-link{
+     color:#2196F3 !important;
+     margin-top:0px !important;
+}
+ .notifications .bill-title{
+     padding-top:0px;
+     padding-bottom:0px;
+     margin-bottom:5px;
+}
+ .notifications:last-child .bill-title{
+     margin-bottom:0px;
+}
+ .text-left{
+     text-align:left;
+}
+ .quick-links .btn-link{
+     padding:0px 10px;
+     max-width:100%;
+}
+ .quick-links .p-last{
+     border-bottom:none;
+}
+ .no-carousel .icon{
+     width:22px;
+     float:left;
+     position:relative;
+     right:10px;
+}
+ .no-bill-carousel a, .no-bill-carousel p{
+     padding:5px 0;
+}
+ .text-right{
+     text-align:right;
+}
+ .quick-link-contr {
+     margin-bottom: 50px;
+}
+ .quick-link-contr .quick-link {
+     padding: 0px 10px!important;
+}
+ .listing ul {
+     margin: 0;
+     padding: 0;
+}
+ .listing ul li {
+     border-bottom: 1px solid #E1E1E1;
+}
+ .listing ul li:last-child {
+     border-bottom: 0px;
+}
+ ul li {
+     list-style: none;
+}
+ .listing-home ul li a {
+     padding: 8px 0;
+}
+ .listing ul li a {
+     display: block;
+     width: 100%;
+     font-size: 14px;
+     padding: 10px 0;
+     text-transform: capitalize;
+}
+
+ .quick-links .panel-white .panel-row{
+     padding: 10px 0;
+}
+/* refresh CSS */
+ .refresh-fixed{
+     box-shadow: 0 -10px 20px -5px #ccc;
+     position:fixed;
+     bottom:0px;
+     right: 0px;
+     width:100%;
+     z-index: 9999;
+     font-size:12px;
+}
+ .refresh-fixed div{
+     width:285px;
+}
+ .refresh-fixed .simple-close{
+     margin-top: 5px;
+     position: absolute;
+     top: 20px;
+     right: 15px;
+}
+ .refresh-fixed .refresh{
+     width:20px;
+     height:20px;
+     position: relative;
+     left: 38%;
+}
+ .refresh span{
+     position: relative;
+     left: 125%;
+     color:#1d86ff;
+}
+ .none{
+     display:none;
+}
+ .block{
+     display:block;
+}
+ @media screen and (max-width: 340px) {
+     .refresh-fixed div{
+         width:235px;
+    }
+}
+
+/* netbanking */
+/*Due bills */
+ .duebills-netbank .inner-div{
+     width: 100%;
+     background-color: #fff;
+}
+ .duebills-netbank .swiper-dueBills{
+     padding:10px !important;
+     background: #fff;
+}
+ .frequent-netbank .inner-div{
+     width: 100%;
+     background-color: #fff;
+     height: 74px;
+}
+ .duebills-netbank .swiper-dueBills .icon{
+     width: 42px !important;
+     height: 42px;
+}
+ .duebills-netbank .biller-icon{
+     width:40px;
+     height:40px;
+}
+
+ .favorites .panel-bills {
+     padding: 0 0 25px 0 !important;
+     margin-bottom: 25px;
+     border-bottom: 1px solid #e2e2e2;
+}
+ .favorites .panel-bills:last-child {
+     border-bottom: 0px;
+     padding: 0 0 0px 0 !important;
+     margin-bottom: 0px;
+}
+
+.favorites .panel-bills .btn {
+    font-size: 16px;
+    padding: 6px 0;
+    text-align: center;
+}
+
+.b-b{
+     border-bottom: 1px solid #ccc;
+     margin-bottom:10px;
+}
+.frequent-netbank .swiper-dueBills{
+     padding: 15px 16px !important;
+     border-bottom: 1px solid #E6E6E6;
+     background-color: #fff;
+     width: 100%;
+}
+ .frequent-netbank .currency{
+     margin-top:-6px !important;
+     margin-bottom:0px !important;
+}
+ .right-arrow p{
+     padding:17px 0;
+}
+ .right-arrow .icon{
+     width:25px;
+     height:25px;
+}
+ .netbanking .currency{
+     margin:0px !important;
+}
+/*Recharge netbanking*/
+ .recharge-netbank .inner-div{
+     width: 100%;
+     background-color: #fff;
+     height: 150px;
+     padding: 0px 10px;
+}
+ .recharge-tab .btn{
+     color: rgb(2, 82, 150);
+     border: 1px solid rgb(2, 82, 150);
+}
+ .recharge-tab .btn.active{
+     color: rgb(255, 255, 255);
+     background-color:rgb(2, 82, 150);
+     outline:none;
+}
+ .recharge-netbank .btn-group label{
+     font-size: 12px;
+}
+ .recharge-netbank .btn-group label:first-child{
+     width:33%;
+}
+ .recharge-netbank .btn-group label:nth-child(2){
+     width:22%;
+}
+ .recharge-netbank .btn-group label:last-child{
+     width:45%;
+}
+ .recharge-netbank hdfc-radio-group .input-box .radio-custom , md-input-container .md-input, md-input-container:not(.md-input-invalid).md-input-focused .md-input{
+     width: 100% !important;
+}
+ .recharge-netbank hdfc-radio-group .input-box label{
+     padding-right: 6px;
+}
+ .recharge-netbank .btn{
+     padding: 8px 8px;
+}
+ .recharge-netbank .panel-white{
+     padding:10px;
+}
+ .recharge-netbank .recharge-chevron{
+     background-color: #1d86ff;
+     height: 32.5px;
+     width: 37px;
+     z-index: 222;
+     cursor: pointer;
+     right: 1px;
+     position: absolute;
+     border-radius: 0px 4px 4px 0px !important;
+}
+ .recharge-netbank .recharge-tab .radio-custom{
+     margin: 0px 0;
+}
+ .recharge-netbank .recharge-tab .input-box{
+     margin: 0 0 0px;
+}
+ .recharge-netbank .input-box label{
+     margin: 0px 0;
+}
+ .recharge-netbank .btn-default{
+     font-size: 16px;
+     width: 100%;
+}
+ .recharge-netbank .rupee-space{
+     padding-right:5px;
+}
+ .recharge-netbank .recharge-tab .radio-custom .btn-group{
+     margin-bottom:24px;
+}
+ .recharge-netbank hdfc-number, .recharge-netbank hdfc-alphanumeric{
+     margin-bottom:30px;
+}
+ .recharge-netbank .recharge-border{
+     border-top: 1px solid #ccc;
+     margin-bottom: 23px;
+     padding-top: 23px;
+     padding-left:0px;
+     padding-right:0px;
+}
+
+.recharge-netbank .recharge-border:last-child {
+    margin-bottom: 0px;
+}
+
+ .recharge-netbank .panel-card .panel-white{
+     border: 1px solid #e2e2e2;
+}
+
+ @media only screen and (max-width:767px) {
+     .recharge-netbank .recharge-chevron{
+         height: 33.2px!important;
+     }
+     .dashboard-account .invest-section {
+        padding: 10px;
+     }
+     .dashboard-account .invest-section-amount{
+        padding: 0px !important;
+     }
+     .dashboard-account .invest-section-owe{
+         padding: 10px;
+     }
+     .portal-xsml.message-home-contr .left-contr{
+        width: 85% !important;
+     }
+     .portal-xsml.message-home-contr .right-contr{
+        width: 15% !important;
+     }
+     .owe{
+        text-align: center;
+        padding: 10px;
+     }
+     .panel-footer, .panel-white {
+        padding: 10px !important;
+     }
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices */
+    .recharge-netbank .recharge-chevron{
+        height: 33.9px!important;
+    }
+}
+
+ .recharge-netbank .icon{
+     width:20px;
+     height:20px;
+     position: relative;
+     top: 6px;
+     left: 10px;
+}
+ .recharge-netbank .input-group-addon {
+     border: none;
+}
+ .recharge-netbank .error-msg {
+     width: 68%;
+}
+ .recharge-netbank {
+     margin-top: 0;
+}
+ .recharge-netbank md-input-container{
+     width: 100% !important;
+}
+
+ @media screen and (max-width: 479px){
+     .recharge-480, .rel-qlink-480 {
+         width: 100%;
+    }
+}
+ .recharge-netbank .marginTop4{
+     margin-top:4px;
+}
+/*netbanking*/
+/*message Section*/
+ .no-links-carousel .icon{
+     width:36px !important;
+     height:36px;
+     right:0;
+     position:none;
+}
+ .padding-xs{
+     padding:5px;
+}
+ .info-tool-tip{
+     top:3px !important;
+}
+ .rel-manager{
+     background-color: #ebedf0;
+     padding: 7px 8px;
+     border-radius: 4px;
+     position: relative;
+     top: 0px;
+     float: right;
+}
+ .biller-title{
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+}
+ .height{
+     height:127px;
+     background-color:#fff;
+}
+ .word-break{
+     word-break:break-all;
+     font-size: 13px;
+}
+ .portal-xsml.message-home-contr {
+     font-size: 12px;
+     margin-bottom: 1px;
+}
+ .portal-xsml .icon {
+     float: left;
+     margin-right: 10px;
+     display: table-cell;
+     vertical-align: middle;
+     width: 18px;
+     height: 23px;
+}
+ .portal-xsml {
+     background: #fff;
+     border: 1px solid #e1e1e1;
+     position: relative;
+     padding: 3px;
+     box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+ .portal-xsml.message-home-contr .left-contr {
+     float: left;
+     display: table-cell;
+     width: 90%;
+}
+ .portal-xsml.message-home-contr .left-contr-zn {
+     float: left;
+     display: table-cell;
+     width: 85%;
+}
+ .message-section .left-contr .message {
+     margin-top: 2px;
+ }
+
+  .widthsm {
+     height: 162px;
+  }
+
+ p:last-child {
+     margin-bottom: 0;
+}
+ .portal-xsml.message-home-contr .right-contr {
+     float: left;
+     display: table-cell;
+     width: 10%;
+     text-align: right;
+     padding-right: 5px;
+     margin-top: 2px;
+}
+.portal-xsml.message-home-contr .right-contr-zn {
+     float: left;
+     display: table-cell;
+     width: 15%;
+     text-align: right;
+     padding-right: 5px;
+     margin-top: 2px;
+}
+ .row {
+     margin-left: -5px;
+     margin-right: -5px;
+     position: relative;
+}
+ .panel-home {
+     margin-bottom: 31px;
+     position: relative;
+}
+.dashboard-account .have-section{
+ margin-bottom: 14px;
+ }
+.fcnr-mb:last-child{
+     margin-bottom: 20px;
+}
+ .mB10 {
+     margin-bottom: 10px!important;
+}
+ .panel-home .panel-body, .panel-home .panel-footer {
+     padding: 10px;
+}
+ .relation-manager-contr {
+     min-height: 40px;
+     height: auto;
+     position: relative;
+     margin-bottom: 5px;
+}
+ .relation-manager-contr .rel-mngr-name {
+     padding: 5px 5px 5px 50px;
+     line-height: 15px;
+     word-break: break-all;
+}
+ h2, h3, h4 {
+     margin-bottom: 10px;
+}
+ .message-nb h2{
+     margin-bottom: 0;
+}
+/*netbanking*/
+/*Account Section*/
+ .fcnr-currency{
+     text-align: center;
+     font-weight: bold;
+}
+ @media only screen and (max-width:479px) {
+     .vertical-middle{
+         display: inherit;
+         align-items: inherit;
+         justify-content: inherit;
+    }
+}
+ @media only screen and (min-width:320px) {
+     .vertical-middle{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+    }
+}
+ .text-center{
+     text-align:center;
+}
+ .w-45{
+     width:45% !important;
+}
+ .w-55{
+     width:55% !important;
+}
+ .netbanking-accounts {
+     width:100% !important;
+     padding: 0px 0 0 0 !important;
+}
+ .netbanking-accounts .c3{
+     cursor: pointer;
+}
+ .net-asset-outer-contr {
+     background: #e1f3f7;
+     /*padding: 6px 165px 0 0;*/
+     padding: 6px;
+     text-align: center;
+     border: 1px solid #c7dce1;
+     border-radius: 3px;
+     color: #00337e;
+     /*height: 66px;
+     line-height: 55px;*/
+     font-weight: bold;
+}
+ .net-asset-outer-contr .currency {
+     margin: 6px 0 0;
+}
+.dashboard-account .invest-section-amount {
+     padding: 10px 30px;
+}
+/* Request Callback */
+ .callback-width{
+     width:85%;
+}
+/*all messages table css for desktop*/
+ .allMessages .mini-table .inner-cols>li:nth-of-type(1){
+     width: 5%;
+}
+ .allMessages .mini-table .inner-cols>li:nth-of-type(2){
+     width: 75%;
+}
+ .allMessages .mini-table .inner-cols>li:nth-of-type(3){
+     text-align: right;
+     width: 20%;
+}
+ .allMessages .mini-table .inner-cols{
+     width: 100%;
+}
+.allMessages {
+     top: 10px;
+     position: relative;
+}
+.onlyHaveFailed {
+    width: 100% !important;
+    color: #ff0000 !important;
+}
+/*all messages table css for 325 to 500*/
+@media only screen and (min-width:320px) and (max-width:500px){
+     .allMessages .mini-table .inner-cols>li:nth-of-type(1){
+         width: 10%;
+    }
+     .allMessages .mini-table .inner-cols>li:nth-of-type(2){
+         width: 70%;
+    }
+     .allMessages .mini-table .inner-cols>li:nth-of-type(3){
+         text-align: right;
+         width: 20%;
+    }
+     .allMessages .mini-table .inner-cols{
+         width: 100%;
+    }
+}
+
+/*all messages table css for 501 to 700*/
+@media only screen and (min-width:501px) and (max-width:700px){
+     .allMessages .mini-table .inner-cols>li:nth-of-type(1){
+         width: 6%;
+    }
+     .allMessages .mini-table .inner-cols>li:nth-of-type(2){
+         width: 74%;
+    }
+     .allMessages .mini-table .inner-cols>li:nth-of-type(3){
+         text-align: right;
+         width: 20%;
+    }
+     .allMessages .mini-table .inner-cols{
+         width: 100%;
+    }
+}
+ .allMessages .mini-table{
+     background: none;
+}
+ hr {
+     height: 1px;
+     border-top: 1px solid #e1e1e1;
+     width: 100%;
+     margin: 0;
+}
+ .mT10 {
+     margin-top: 10px!important;
+}
+ .float-none{
+     float: inherit;
+}
+ @media screen and (max-width: 479px){
+     .swiper-dueBills .btn-full {
+         width: 100%!important;
+    }
+}
+ .user-type-logo{
+     padding: 10px 20px;
+     text-align: center;
+     margin-bottom: 0!important;
+     width:100%;
+     line-height: 0;
+}
+ .all-type-logo-color{
+     background: #e8c360;
+}
+ .prime-type-logo-color{
+     background: #ffffff;
+}
+ .height-rm-chat{
+     height: 130px;
+     border: 1px solid #e2e2e2;
+}
+ .outer-border-grey{
+     border: 1px solid #e2e2e2;
+}
+ .dueBillsNB .accordion-toggle{
+     background-color: white;
+     padding: 10px;
+}
+ .dueBillsNB h2{
+     margin-bottom: 0px
+}
+ .dueBillView{
+     border: 1px solid #e2e2e2;
+     border-top: none;
+     border-radius: 0px 0px 3px 3px;
+}
+ .email-label .input-box label{
+     width:25%;
+     position: relative;
+     top: 3px;
+}
+ .dashboardLanding{
+     padding-top: 15px !important;
+}
+
+.negative-sign{
+    font-size: 25px;
+    font-weight: bold;
+}
+@media only screen and (max-device-width:767px){
+.bp-container.hnc-template-hdfc-column-two.main-container{
+    top:20px;
+}
+}
+@media only screen and (max-width: 991px) and (min-width: 960px){
+   .container-fluid .nb-portal .container .message-section .width-sm {
+        width: 100%!important;
+   }
+}
+
+/*add loan feature style starts*/
+.vehicle-reg-no1 md-input-container input{
+   width: 68px;
+   max-width: 68px;
+   margin-top: -10px;
+}
+.vehicle-reg-no2 md-input-container input{
+   width: 68px;
+   max-width: 68px;
+   margin-top: -10px;
+}
+.vehicle-reg-no3 md-input-container input{
+   width: 68px;
+   max-width: 68px;
+   margin-top: -10px;
+}
+.vehicle-reg-no4 md-input-container input{
+   width: 68px;
+   max-width: 68px;
+   margin-top: -10px;
+}
+/*add loan feature style ends*/
+
+/* Update KYC starts*/
+.iframeForm {
+    display: none;
+}
+
+.myIframe {
+    height: 450px;
+    width: 100%;
+}
+/* Update KYC -- ends*/
+/* Preapproved -- starts*/
+.preApprovedView{
+    padding-top: 15px;
+}
+.preApprovedClass{
+    padding: 10px 10px 15px 10px;
+    background: #fff;
+}
+/* Preapproved -- ends*/

@@ -1,0 +1,16 @@
+
+.financial-information .panel-footer a{
+    float:right;
+}
+.financial-information .detail-wrapper{
+    float:left;
+}
+.financial-information h2{
+    margin-bottom:10px;
+}
+.events .panel-footer a{
+     float:right;
+}
+.events h2{
+    margin-bottom:10px;
+}

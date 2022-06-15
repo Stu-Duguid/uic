@@ -1,0 +1,42 @@
+.zb-banner{
+    margin-bottom:20px;
+}
+
+.static-banner-container{
+    margin-bottom:20px;
+}
+
+#nb-zbanner-one img, #nb-zbanner-two img, #nb-zbanner-three img {
+    width:100%;
+    height: auto;
+}
+.offersPage {
+    background: #e9f5ff url(../assets/media/productContrBg1.jpg) bottom center no-repeat;
+    height: 60px;
+    width: 100%;
+    padding: 10.6px 20px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    display: table;
+    margin-bottom :21px;
+}
+.offersPage .headerbanner{
+    display: table;
+}
+.offersPage .titleOffers{
+    font-weight: bold;
+    float: right;
+    color: #00337e;
+    font-size: 20px;
+    margin: 10px 0;
+    vertical-align: middle;
+}
+.offersPage .iconOffer{
+    float: left;
+    margin-right: 10px;
+    height: 100%;
+}
+.requestEva {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 38.5px;
+}

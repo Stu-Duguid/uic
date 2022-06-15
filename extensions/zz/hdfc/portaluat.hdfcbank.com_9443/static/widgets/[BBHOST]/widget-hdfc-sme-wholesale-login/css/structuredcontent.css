@@ -1,0 +1,308 @@
+.blog-author {
+    position: relative;
+}
+.blog-author .picture {
+    float: left;
+    padding: 10px;
+}
+.blog-author .info {
+    float: right;
+}
+.blog-author .info h5 {
+    margin: 8px 0 6px;
+    color: #699B41;
+    font-size: 23px;
+    line-height: 26px;
+}
+
+.blog-author .info p {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.blog-author .info .contact {
+    display: block;
+    float: left;
+    width: 70%;
+}
+
+.blog-author .info .contact .address-1:before {
+    content: "Home";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .contact .address-2:before {
+    content: "Work";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .enum {
+    display: block;
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+.bd-designMode-true .bd-empty-structured-content,
+.designMode .bd-empty-structured-content {
+    padding: 0;
+}
+
+.bd-designMode-true .bd-structured-content-widget,
+.designMode .bd-structured-content-widget {
+    min-height: 98px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after,
+.bd-over-structured-content .bd-structured-content-widget:after {
+    content: 'Replace ' attr(data-type);
+    display: block;
+    padding: 60px 30px 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    background:#f0f0f0 url(../media/drag-area-inactive.png) no-repeat center 13px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after {
+    content: 'Drop ' attr(data-type) ' here';
+}
+
+.bd-designMode-true .bd-over-structured-content .bd-structured-content-widget:after,
+.designMode .bd-over-structured-content .bd-structured-content-widget:after {
+    background-color: #bbb;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .8;
+    /*padding-top: 28%;*/
+}
+.bd-designMode-true .bd-empty-structured-content .bp-g-include,
+.designMode .bd-empty-structured-content .bp-g-include {
+    display: none;
+}
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*.sme-wholesale-login-overlay .cover{
+    display:none;
+}*/
+
+
+/**Custom Css**/
+.sme-wh-login-overlay{
+    position: relative;
+}
+
+
+.sme-wh-login-overlay .cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 99999999;
+    overflow: auto;
+}
+
+.popup-container{
+    display:none;
+}
+
+.sme-wh-login-overlay .popup-container.opened{
+    width: 45%;
+    display: block;
+    position: fixed;
+    top: 20%;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    overflow: visible;
+    max-height: 100%;
+    z-index: 99999999;
+}
+
+.sme-wh-login-overlay .popup-container.opened .modal-content{
+    padding:0;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.sme-wh-login-overlay .popup-container.opened .modal-header{
+    margin:0;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.sme-wh-login-overlay .popup-container.opened .modal-body{
+    padding: 20px;
+    font-size:16px;
+}
+
+.popup-container .modal-footer{
+    text-align:center;
+}
+
+.popup-container .text-center.modal-footer .btn:first-child{
+    margin-bottom:0px;
+}
+
+.close-button{
+    position: absolute;
+    right: -15px;
+    top: -16px;
+    background: #fff;
+    border-radius: 50%;
+    z-index:9999;
+}
+
+.close-button img{
+    width:30px;
+}
+
+/*.login-button-options{
+    margin-top:25px
+}*/
+
+.sme-wh-login-overlay .modal-body .main-body{
+    height: 266px;
+    overflow-y: scroll;
+}
+
+.login-button-options a{
+    margin-top:15px;
+    display: inline-block
+}
+
+.login-button-options .register-url, .login-button-options .login-url{
+    padding: 6px 20px;
+}
+
+.sme-wh-login-overlay .heading{
+    margin-bottom:10px;
+}
+
+.sme-wh-login-overlay .radio-parent div{
+    margin-bottom:10px;
+}
+
+.sme-wh-login-overlay .radio-parent div .link-name{
+    margin-left: 9px;
+    padding-left: 15px;
+    display: inline-block;
+    max-width: none;
+    color: #333;
+}
+.sme-wh-login-overlay .radio-parent div .link-name input[type=radio]{
+    position: absolute;
+    left: 19px;
+}
+.sme-wh-login-overlay .radio-parent div span.sub-text{
+    color: #777;
+    font-size: 14px;
+    margin-left: 20px;
+    display: block;
+}
+
+.sme-wh-login-overlay .register-url{
+    margin: 0px 33px;
+}
+
+body.no-scroll{
+    overflow-y:hidden;
+}
+
+.sme-wh-login-overlay .modal-header .icon-left-open-big{
+    display:none;
+}
+@media only screen and (max-width:539px){
+    .sme-wh-login-overlay .cover {
+        background: #fff;
+    }
+    .sme-wh-login-overlay .popup-container.opened{
+        width: 100%;
+        height: 100%;
+        top:0;
+    }
+    .sme-wh-login-overlay .popup-container.opened .modal-content{
+        border: none;
+        height: initial;
+        font-size: 10px;
+        width: 100%;
+
+    }
+    .sme-wh-login-overlay .close-button{
+        display:none;
+    }
+    .sme-wh-login-overlay .modal-header {
+        background: #3a526e;
+        color:#fff;
+    }
+    .sme-wh-login-overlay .modal-header .icon-left-open-big{
+        position: absolute;
+        display:block;
+        font-size: 10px;
+        top: 10px;
+    }
+    .sme-wh-login-overlay .popup-container.opened .modal-header h2{
+        font-size: 15px;
+    }
+    .sme-wh-login-overlay .popup-container.opened{
+        top: 6%;
+    }
+    .sme-wh-login-overlay .radio-parent div .link-name{
+        font-size: 10px;
+    }
+    .login-button-options{
+        text-align: center;
+    }
+    .sme-wh-login-overlay .login-button-options a{
+        width:auto;
+        margin-bottom:10px;
+        display:block;
+    }
+    .sme-wh-login-overlay .register-url{
+        margin:0;
+    }
+    .sme-wh-login-overlay .popup-container.opened .main-body .login-rb{
+       margin-top: 1px;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 320px) and (orientation: landscape) {
+       .sme-wh-login-overlay .popup-container.opened {
+            top: 9%;
+ }
+ }
+ @media only screen and (max-width:756px) and (min-width: 540px){
+ .sme-wh-login-overlay .register-url {
+     margin: 0px 10px;
+     padding: 6px 16px;
+ }
+ .sme-wh-login-overlay .popup-container.opened {
+        width:53%;
+ }
+ }
+ @media screen and (max-height: 480px) and (orientation: landscape) {
+
+  .sme-wh-login-overlay .popup-container.opened .modal-body {
+      height: 75%;
+      overflow-y: scroll;
+  }
+  .sme-wh-login-overlay .popup-container.opened .modal-content{
+    height: 90%;
+  }
+  }

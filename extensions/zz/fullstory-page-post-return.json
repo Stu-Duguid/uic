@@ -1,0 +1,73 @@
+{
+  "Consented": false,
+  "CookieDomain": "babybunting.com.au",
+  "ElementBlocks": [{
+    "Selector": "input[type=password]",
+    "Consent": false,
+    "Type": 1
+  }, {
+    "Selector": "input[type=hidden]",
+    "Consent": false,
+    "Type": 1
+  }, {
+    "Selector": "[autocomplete^=cc-]",
+    "Consent": false,
+    "Type": 1
+  }],
+  "ElementKeeps": [],
+  "ElementWatches": [{
+    "Selector": "div.error"
+  }, {
+    "Selector": "#giftcardError.error"
+  }, {
+    "Selector": "[id*=\"modal\"] p"
+  }, {
+    "Selector": ".order-number"
+  }, {
+    "Selector": ".progress-icon"
+  }, {
+    "Selector": "#checkoutSteps .active .step-title div.container"
+  }, {
+    "Selector": ".error-msg span"
+  }, {
+    "Selector": ".error.item-msg"
+  }],
+  "UrlKeeps": [],
+  "AjaxWatches": [],
+  "PrivacyHash": "",
+  "UserIntId": "5110563429752832",
+  "SessionIntId": "6196200260050944",
+  "PageIntId": "6376660525195264",
+  "EmbedToken": "",
+  "IntegrationScript": "(function(FS) {\n  var session = FS.getCurrentSession(), sessionUrl = FS.getCurrentSessionURL();\n  function retryWithBackoff(condition, callback, maxWait, failureMsg) {\n    var totalTimeExpired = 0;\n    var wait = 64;\n    var resultFn = function() {\n      if (condition()) {\n        callback();\n        return;\n      }\n      wait = Math.min(wait * 2, 1024);\n      if (totalTimeExpired \u003e maxWait) {\n        FS.log('warn', failureMsg);\n        return;\n      }\n      totalTimeExpired += wait\n      setTimeout(resultFn, wait);\n    };\n    return resultFn;\n  }\n  \n\twindow['_dlo_appender'] = 'fullstory';\n\twindow['_dlo_logLevel'] = -1;\n\twindow['_dlo_beforeDestination'] = { name: 'suffix' };\n\twindow['_dlo_previewMode'] = false;\n\twindow['_dlo_readOnLoad'] = false;\n\twindow['_dlo_validateRules'] = false;\n\n\twindow['_dlo_rules_adobe_am'] = [];\n\twindow['_dlo_rules_ceddl'] = [];\n\twindow['_dlo_rules_google_ec'] = [\n    {\n      \"id\": \"fs-ga-pageview\", \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$[?(pageType, pageName)]\" },\n        { \"name\": \"insert\", \"value\": \"pageview\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-detail-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.detail.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"detail\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-detail-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.detail.products[0]\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"detail_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-click-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.click.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"click\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-click-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.click.products[0]\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"click_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-add-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.add.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"add\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-add-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.add.products[0]\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"add_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-remove-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.remove.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"remove\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-remove-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.remove.products[0]\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"remove_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-promo_click-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.promoClick.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"promo_click\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-promo_click-promotion\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.promoClick.promotions[0]\" },\n        { \"name\": \"insert\", \"value\": \"promo_click_promotion\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-checkout-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.checkout.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"checkout\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-checkout-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.checkout.products\" },\n        { \"name\": \"fan-out\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"checkout_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-purchase-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.purchase.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"purchase\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-purchase-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.purchase.products\" },\n        { \"name\": \"fan-out\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"purchase_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-refund-action\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.refund.actionField\" },\n        { \"name\": \"convert\", \"properties\": \"revenue,tax,shipping\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"step\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"refund\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    },\n    {\n      \"id\": \"fs-ga-e-commerce-refund-product\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$.ecommerce.refund.products\" },\n        { \"name\": \"fan-out\" },\n        { \"name\": \"convert\", \"properties\": \"price\", \"type\": \"real\" },\n        { \"name\": \"convert\", \"properties\": \"quantity,position\", \"type\": \"int\" },\n        { \"name\": \"insert\", \"value\": \"refund_product\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    }\n\t]\n  ;\n\twindow['_dlo_rules_google_em'] = [\n    {\n      \"id\": \"fs-ga-event\",\n      \"source\": \"dataLayer\",\n      \"operators\": [\n        { \"name\": \"query\", \"select\": \"$[?(event!^gtm)]\" },\n        { \"name\": \"query\", \"select\": \"$[!(ecommerce,gtm.uniqueEventId)]\" },\n        { \"name\": \"insert\", \"select\": \"event\" },\n        { \"name\": \"insert\", \"value\": \"dlo\", \"position\": -1 }\n      ],\n      \"destination\": \"FS.event\"\n    }\n\t]\n  ;\n\twindow['_dlo_rules_tealium_retail'] = [];\n\n\tvar dloScriptTag = document.createElement('script');\n\tdloScriptTag.type = 'text/javascript';\n\tdloScriptTag.async = true;\n\tdloScriptTag.src = 'https://edge.fullstory.com/datalayer/v1/latest.js';\n\n\tvar firstScriptTag = document.getElementsByTagName('script')[0];\n\tfirstScriptTag.parentNode.insertBefore(dloScriptTag,firstScriptTag);\n\t\n})(window['_fs_namespace'] ? window[window['_fs_namespace']] : window['FS'])",
+  "PageStart": 1624420300894,
+  "IsNewSession": false,
+  "Flags": {
+    "AjaxFetch": true,
+    "AjaxWatcher": true,
+    "ConsoleWatcher": true,
+    "GetCurrentSession": true
+  },
+  "OrgSettings": {
+    "MaxConsoleLogPerPage": 1024,
+    "MaxAjaxPayloadLength": 16384,
+    "RecordPerformanceResourceImg": true,
+    "RecordPerformanceResourceTiming": true,
+    "HttpRequestHeadersAllowlist": ["a-im", "accept", "accept-charset", "accept-encoding", "accept-language", "accept-datetime", "access-control-request-method,", "access-control-request-headers", "cache-control", "connection", "content-length", "content-md5", "content-type", "date", "expect", "forwarded", "from", "host", "if-match", "if-modified-since", "if-none-match", "if-range", "if-unmodified-since", "max-forwards", "origin", "pragma", "range", "referer", "te", "user-agent", "upgrade", "via", "warning", "x-b3-traceid"],
+    "HttpResponseHeadersAllowlist": ["access-control-allow-origin", "access-control-allow-credentials", "access-control-expose-headers", "access-control-max-age", "access-control-allow-methods", "access-control-allow-headers", "accept-patch", "accept-ranges", "age", "allow", "alt-svc", "cache-control", "connection", "content-disposition", "content-encoding", "content-language", "content-length", "content-location", "content-md5", "content-range", "content-type", "date", "delta-base", "etag", "expires", "im", "last-modified", "link", "location", "permanent", "p3p", "pragma", "proxy-authenticate", "public-key-pins", "retry-after", "permanent", "server", "status", "strict-transport-security", "trailer", "transfer-encoding", "tk", "upgrade", "vary", "via", "warning", "www-authenticate", "x-b3-traceid", "x-frame-options"],
+    "UrlQueryStringBlocklist": ["password", "token", "^code$", "^jwt$"],
+    "UrlPathBlocklist": []
+  },
+  "BehaviorSignalSettings": {
+    "ElementBlocks": null
+  },
+  "GCLBSubdomain": "rs",
+  "Blocks": [],
+  "Watches": [],
+  "AjaxFetchEnabled": true,
+  "AjaxWatcherEnabled": true,
+  "ConsoleWatcherEnabled": true,
+  "GetCurrentSessionEnabled": true,
+  "ResourceUploadingEnabled": false,
+  "WhitelistElementsEnabled": false
+}

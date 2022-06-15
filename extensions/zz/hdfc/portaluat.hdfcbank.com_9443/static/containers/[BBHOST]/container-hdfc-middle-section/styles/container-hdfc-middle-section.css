@@ -1,0 +1,74 @@
+html.bd-designMode-true .c-container-hdfc-middle-section--area {
+	min-height: 100px;
+}
+
+body.no-scroll .bp-container.c-template-hdfc-middle-section{
+    /*z-index:999999;*/
+    z-index: inherit;
+}
+.c-template-hdfc-middle-section .left-side-scroll-fix{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+    transform: translate3d(0,0,0);
+}
+
+.c-template-hdfc-middle-section .right-side-scroll-fix{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+   /* transform: translate3d(0,0,0); */
+}
+
+body.stop-scroll .right-side-scroll-fix, body.stop-scroll .left-side-scroll-fix, body.stop-scroll .large-side-scroll-fix{
+    position:unset;
+}
+body.stop-scroll .cover{
+    overflow: hidden;
+}
+
+.c-template-hdfc-middle-section .large-side-scroll-fix{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+   /* transform: translate3d(0,0,0); */
+}
+
+@media(max-width:767px){
+   .c-template-hdfc-middle-section .right-side-scroll-fix{
+   top:0px !important;
+   }
+}
+
+@media(min-width:768px){
+   .bp-manageableArea {
+       z-index: 1;
+   }
+ }
+
+/*CSS for OverlayLinks LoginPopup*/
+body.stop-scroll .bp-container {
+   z-index: inherit !important;
+}
+body.stop-scroll .bp-container.c-template-hdfc-middle-section{
+    z-index:999999;
+}
+.stop-scroll{
+    overflow:hidden;
+}
+/*End*/
+/*IE START*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+.c-template-hdfc-middle-section .large-side-scroll-fix, .c-template-hdfc-middle-section .right-side-scroll-fix {
+ top: 0px;
+}
+}
+/*IE END*/
+
+/*IE Left action issue*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+.c-template-hdfc-middle-section .large-side-scroll-fix, .c-template-hdfc-middle-section .left-side-scroll-fix {
+ top: 0px;
+}
+}
+

@@ -1,0 +1,30 @@
+body {
+  background-color:black;
+  font-family: arial;
+}
+#header {
+  color:white;
+}
+#nav {
+  float:left; 
+  padding: 1em;
+  color:yellow;
+}
+#content {
+  float:left; 
+  padding: 1em;
+  color:green;
+}
+#footer {
+  clear:both;
+  color:red;
+}
+.component {
+  padding: 0 1em;
+}
+.component:hover {
+  border: 1px dotted green;
+}
+.component-ref:hover {
+  border: 1px dotted red;
+}

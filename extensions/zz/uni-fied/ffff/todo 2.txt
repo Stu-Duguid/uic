@@ -1,0 +1,62 @@
+Item
+[json]
+- get as json
+- put to create
+- post to update
+- delete
+[html]
+- get as generated html
+
+System
+[navigation]
+- get index
+- automatically update index
+- levels of depth
+
+Collection
+[properties]
+- put to create
+- get properties
+- post to update
+- delete
+[schema]
+- put to create
+- get
+- post to augment/update
+[items]
+- put to create item
+- get item
+- post to update item
+- delete item
+[index]
+- get to list
+- get to search
+- paginate
+
+Roles
+[security]
+- login/logout
+- groups
+[roles]
+- permissions on objects
+- scopes of object hierarchies
+- roles on scopes as sets of permissions
+- roles as sets of roles in larger scope
+
+Item
+[security]
+- crud permissions on object
+- owner/editor/viewer roles
+- crud on fields
+[fields]
+- repeating fields
+- references
+[conditions]
+- required
+- type, length min/max
+- pattern
+- dependency
+
+[storage layer]
+- get item at path
+- put item at path

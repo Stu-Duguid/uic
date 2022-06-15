@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CityCool - An Ecommerce Online Shopping Category Flat Bootstrap responsive Website Template | Home ::
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Fashion Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    
+    <!--PROD ENVIRONMENT SETUP UBX-->
+    <!-- <script>
+        var webanalytics = {};
+        webanalytics.PageIdentifier = "citycoolMpa";
+        var ubxEvents = [], searchKeyword = null;
+        var channelID = "cw-504986625-B11oVafD";
+        var DA_Id = 30003001;
+        var identifiersMapperArray = [];
+    </script> 
+   
+   <script type="text/javascript" src="//commercelibs.ibm.com/common/ubxCapture.js"></script>
+   <script>
+        ubxCapture.setTenantID("WRTP", channelID);
+        ubxCapture.setTenantID("DA", DA_Id);
+    </script>
+    <script type="text/javascript"> ubxCapture.setID("14eb8979-b7d9-4eea-a017-743011e0bcb6"); </script> -->
+ 
+ 
+
+    <!--QA ENVIRONMENT SETUP UBX-->
+    <!-->
+    <script>
+        var webanalytics = {};
+        webanalytics.PageIdentifier = "mpafclubsonepar";
+        var ubxEvents = [], searchKeyword = null;
+        var channelID = "cw-502521664-ESSTdDkB";  //qa precs 
+        //"cw-502519013-AY05GKAy";
+        var DA_Id = 30002001;
+        var identifiersMapperArray = [];
+    </script>
+ 
+    <script type="text/javascript" src="./jsddd/ubxCapture.js"></script>
+    <script>
+        ubxCapture.setTenantID("WRTP", channelID);
+        ubxCapture.setTenantID("DA", DA_Id);
+    </script>
+    <script type="text/javascript">ubxCapture.setID("7ff7e46c-85b9-4696-bb65-d649c005e027");  </script>
+
+
+    <!--Script to get GeoLocation-->
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+        function success(position) {
+            window.geoposition = {};
+            geoposition.lat = position.coords.latitude;
+            geoposition.lon = position.coords.longitude;
+        }
+        function error() {
+            console.log('Can not get location');
+        }
+    </script>
+    <!-- EOC Geolocation-->
+
+    <script>
+        if (typeof digitalData === "undefined") {
+            digitalData = {};
+        }
+
+        digitalData.page = {
+            pageInfo: {
+                onsiteSearchResults: '',
+                onsiteSearchTerm: '',
+                pageID: 'City Cool Home Page',
+                destinationURL: window.location.href
+            },
+            attributes: {
+                extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+            },
+            category: {
+                primaryCategory: 'Home'
+            },
+        }
+
+        function pageView() {
+
+            digitalData.page = {
+                pageInfo: {
+                    onsiteSearchResults: '',
+                    onsiteSearchTerm: '',
+                    pageID: 'City Cool Home Page',
+                    destinationURL: window.location.href
+                },
+                attributes: {
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                },
+                category: {
+                    primaryCategory: 'Home'
+                },
+            }
+        }
+
+        function productView(productId, productName, price, brand, category, quantity) {
+
+            if (!digitalData.product) {
+                digitalData.product = [];
+            }
+
+            digitalData.product = [{
+                productInfo: {
+                    productID: productId,
+                    productName: productName,
+                    sku: "sku12345",
+                    manufacturer: "Allen Solly",
+                    description: "Apperals",
+                    productURL: "http://site.com/r.html",
+                    productImage: "http://site.com/rog300_large.png",
+                    productThumbnail: "http://site.com/rog300_thumb.png",
+                    size: "xl"
+                },
+                attributes: {
+                    productType: "Special Offer",
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                },
+                category: {
+                    primaryCategory: category,
+                    subCategory1: "Men's",
+                    productType: "Wearables"
+                }
+            }];
+
+        }
+
+        function cartAdd(productId, productName, price, quantity, category) {
+            if (!digitalData.cart) {
+                digitalData.cart = {};
+            }
+            digitalData.cart = {
+                cartID: "Nikaa11",
+                price: {
+                    basePrice: price,
+                    voucherCode: "Alpha",
+                    voucherDiscount: 0.50,
+                    currency: "EUR",
+                    taxRate: 0.20,
+                    shipping: 5.00,
+                    shippingMethod: "UPS",
+                    priceWithTax: 120,
+                    cartTotal: 125
+                },
+                quantity: 3,
+                category: {
+                    primaryCategory: "shirts",
+                    subCategory1: "Men's",
+                    productType: "Wearables"
+                },
+                attributes: {
+                    productType: "Special Offer",
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                }
+            };
+
+            digitalData.cart.item = [{
+                cartID: "Nikaa11",
+                price: {
+                    basePrice: price,
+                    voucherCode: "Alpha",
+                    voucherDiscount: 0.50,
+                    currency: "EUR",
+                    taxRate: 0.20,
+                    shipping: 5.00,
+                    shippingMethod: "UPS",
+                    priceWithTax: 120,
+                    cartTotal: 125
+                },
+                quantity: quantity,
+                productInfo: {
+                    productID: productId,
+                    productName: productName,
+                    sku: "sku12345",
+                    manufacturer: "Allen Solly",
+                    description: "Apperals",
+                    productURL: "http://site.com/r.html",
+                    productImage: "http://site.com/rog300_large.png",
+                    productThumbnail: "http://site.com/rog300_thumb.png",
+                    size: "xl"
+                },
+                category: {
+                    primaryCategory: category,
+                    subCategory1: "Men's",
+                    productType: "Wearables"
+                },
+                attributes: {
+                    productType: "Special Offer",
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                }
+            }]
+        }
+
+        function cartPurchaseItem() {
+            if (!digitalData.transaction) {
+                digitalData.transaction = {}
+            }
+            digitalData.transaction = {
+                transactionID: "Trans111",
+                profile: {
+                    profileInfo: {
+                        profileID: "registrationId-11231"
+                    }
+                },
+                attributes: {
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                },
+                total: {
+                    basePrice: "220",
+                    voucherCode: "Alpha",
+                    voucherDiscount: 0.50,
+                    currency: "EUR",
+                    taxRate: 0.20,
+                    shipping: 5,
+                    shippingMethod: "UPS",
+                    priceWithTax: 120,
+                    transactionTotal: 125
+                },
+            }
+
+            digitalData.transaction.item = [{
+                price: {
+                    basePrice: "200.00",
+                    voucherCode: "Alpha",
+                    voucherDiscount: 0.50,
+                    currency: "EUR",
+                    taxRate: 0.20,
+                    shipping: 5.00,
+                    shippingMethod: "UPS",
+                    priceWithTax: 120,
+                    cartTotal: 125
+                },
+                quantity: 2,
+                productInfo: {
+                    productID: "123456",
+                    productName: "Shirts",
+                    sku: "sku12345",
+                    manufacturer: "Allen Solly",
+                    description: "Apperals",
+                    productURL: "http://site.com/r.html",
+                    productImage: "http://site.com/rog300_large.png",
+                    productThumbnail: "http://site.com/rog300_thumb.png",
+                    size: "xl"
+                },
+                category: {
+                    primaryCategory: "shirts",
+                    subCategory1: "Men's",
+                    productType: "Wearables"
+                },
+                attributes: {
+                    productType: "Special Offer",
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                }
+
+            }]
+
+        }
+
+        function searchClick() {
+
+            var searchTerm = $('#searchTerms').val();
+            digitalData.page = {
+                pageInfo: {
+                    onsiteSearchResults: '12345',
+                    onsiteSearchTerm: searchTerm,
+                    pageID: 'City Cool Home Page',
+                    destinationURL: window.location.href
+                },
+                attributes: {
+                    extraFields: channelID + "-_-ef2-_--_--_--_--_--_--_--_--_--_--_--_--_-"
+                },
+                category: {
+                    primaryCategory: 'Home'
+                }
+            }
+        }
+
+    </script> -->
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- css -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link
+        href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+        rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .mb-1 {
+            margin-bottom: 1%;
+        }
+    </style>
+    <style>
+        #WelcomeBannerZone,
+        #DiscountZone1,
+        #DiscountZone2,
+        #DiscountZone3,
+        #DiscountZone4,
+        #DiscountZone5,
+        #DiscountZone6,
+        #DiscountZone7,
+        #DiscountZone8,
+        #DiscountZone9 {
+            opacity: 0;
+        }
+        .wrtp-carousel{
+            margin-top:30px;
+            width:70%;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-top-w3layouts">
+        <div class="container">
+            <div id="DiscountZone8" class="col-md-6 logo-w3">
+                <a href="index.html">
+                    <!-- <img style="width: 200px"
+                        src="https://my8.digitalexperience.ibm.com/2cc18fe3-4474-4d58-9658-600890cbb2aa/dxresources/fa7c/fa7c2545-ab91-464e-b07c-a4c737bce40a.png"
+                        alt=" " /> -->
+                    <img src="images/logo2.png" alt=" " />
+                    <h1>FASHION<span>CLUB</span></h1>
+                </a>
+            </div>
+            <div class="col-md-6 phone-w3l">
+                <ul>
+                    <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
+                    <li>+18045403380</li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="header-bottom-w3ls">
+        <div class="container">
+            <div class="col-md-7 navigation-agileits">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse"
+                            data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+                            <li class=" active"><a href="index.html" class="hyper "><span>Home</span></a></li>
+                            <li class="dropdown ">
+                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown"><span>Clothing<b
+                                            class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+
+                                                <li><a href="women.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Women's
+                                                        Clothing</a></li>
+                                                <li><a href="men.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Men's
+                                                        Clothing</a></li>
+                                                <li>
+                                                    <a href="kids.html"> <i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Kid's
+                                                        Wear</a>
+                                                </li>
+                                                <li><a href="party.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Party
+                                                        Wear</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="casuals.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Casuals</a></li>
+                                                <li><a href="night.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Night
+                                                        Wear</a></li>
+                                                <li><a href="formals.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Formals</a></li>
+                                                <li><a href="inner.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Inner
+                                                        Wear</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4 w3l">
+                                            <a href="women.html"><img src="images/menu1.jpg" class="img-responsive"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span> Personal Care
+                                        <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi1">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="jewellery.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Jewellery
+                                                    </a></li>
+                                                <li><a href="watches.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Watches</a></li>
+                                                <li><a href="cosmetics.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Cosmetics</a></li>
+                                                <li><a href="deos.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Deo
+                                                        & Perfumes</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="haircare.html"> <i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Hair
+                                                        Care </a>
+                                                </li>
+                                                <li><a href="shoes.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Shoes</a></li>
+                                                <li><a href="handbags.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Handbags</a></li>
+                                                <li><a href="skincare.html"><i class="fa fa-angle-right"
+                                                            aria-hidden="true"></i>Skin
+                                                        care</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4 w3l">
+                                            <a href="jewellery.html"><img src="images/menu2.jpg" class="img-responsive"
+                                                    alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li><a href="about.html" class="hyper"><span>About</span></a></li>
+                            <li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                            $(this).toggleClass('open');
+                        },
+                        function () {
+                            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                            $(this).toggleClass('open');
+                        }
+                    );
+                });
+            </script>
+            <div class="col-md-4 search-agileinfo">
+                <form name="searchForm">
+                    <input type="search" name="search-terms" id="searchTerms" placeholder="Search for a Product..."
+                        required="">
+                    <button onclick="searchClick()" class="btn btn-default search" aria-label="Left Align">
+                        <i class="fa fa-search" aria-hidden="true"> </i>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-1 cart-wthree">
+                <div class="cart">
+                    <form action="#" method="post" class="last">
+                        <input type="hidden" name="cmd" value="_cart" />
+                        <input type="hidden" name="display" value="1" />
+                        <button class="w3view-cart" type="submit" name="submit" value=""><i
+                                class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div id="WelcomeBannerZone" class="banner-agile">
+        <div class="container">
+            <h2>WELCOME TO</h2>
+            <h3>FASHION <span>CLUB</span></h3>
+            <p>Suspendisse sed tellus id libero pretium interdum. Suspendisse potenti. Quisque consectetur elit sit amet
+                vehicula
+                tristique. </p>
+            <a id="trackBanner" href="about.html">Read More</a>
+            <button id="exploreBtn">Explore</button>
+        </div>
+    </div>
+    <div class="banner-bootom-w3-agileits">
+        <div class="container">
+            <div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
+                <a href="javascript:void(0)" onclick="pageView()">
+                    <div id="DiscountZone1" class="bb-left-agileits-w3layouts-inner">
+                        <h3>SALE</h3>
+                        <h4>upto<span>75%</span></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 bb-grids bb-middle-agileits-w3layouts">
+                <a href="javascript:void(0)" onclick="pageView()">
+                    <div id="DiscountZone4" class="bb-middle-top">
+                        <h3>SALE</h3>
+                        <h4>upto<span>55%</span></h4>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" onclick="pageView()">
+                    <div id="DiscountZone2" class="bb-middle-bottom">
+                        <h3>SALE</h3>
+                        <h4>upto<span>65%</span></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 bb-grids bb-right-agileits-w3layouts">
+                <a href="javascript:void(0)" onclick="pageView()">
+                    <div id="DiscountZone3" class="">
+                        <h3>SALE</h3>
+                        <h4>upto<span>50%</span></h4>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" onclick="pageView()">
+                    <div id="DiscountZone5" class="bb-right-bottom">
+                        <h3>SALE</h3>
+                        <h4>upto<span>60%</span></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="container banner-bootom-w3-agileits">
+            <div class="row">
+
+                <div class="col-sm-4 text-center mb-1">
+                    <button class="btn btn-primary" onclick="cartPurchaseItem()">Cart Purchase</button>
+                </div>
+                <!-- <div class="col-sm-4 text-center  mb-1">
+                    <button class="btn btn-primary" onclick="ibmelementFormError()">Form Error</button>
+                </div> -->
+                <!-- <div class="col-sm-4 text-center">
+                    <button class="btn btn-primary" onclick="search()">Search</button>
+                </div> -->
+                <!-- <div class="col-sm-4 text-center">
+                    <button class="btn btn-primary" onclick="cartAbandonment()">Cart Abandonment</button>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <button class="btn btn-primary" onclick="cartAbandonmentItem()">Cart Abandonment Item</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="top-products">
+        <div class="container">
+            <h3>Top Products</h3>
+            <div class="sap_tabs">
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item"><span>Men's</span></li>
+                        <!-- <li class="resp-tab-item"><span>Women</span></li> -->
+                        <!-- <li class="resp-tab-item"><span>Handbags</span></li> -->
+                        <!-- <li class="resp-tab-item"><span>Cosmetics</span></li> -->
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <div class="resp-tabs-container">
+                        <div class="tab-1 resp-tab-content">
+                            <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                <a href="javascript:void(0)">
+                                    <div class="product-img">
+                                        <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_064.png"
+                                            alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Minimals Moped" />
+                                                <input type="hidden" name="amount" value="220.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                    onclick="cartAdd('cc_064','Minimals Moped','220','1','Minimals Moped')"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                <button class="btn btn-link"
+                                    onclick="productView('cc_064', 'Minimals Moped', '220.00', 'Auto', 'mobile' , 1);">Minimals
+                                    Moped</button>
+                                <h5>$220.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp2">
+                                <a href="javascript:void(0)">
+                                    <div class="product-img">
+                                        <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_076.png"
+                                            alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Minimals SmartWatch" />
+                                                <input type="hidden" name="amount" value="190.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                    onclick="cartAdd('cc_076','Minimals SmartWatch','190','1','Watch')"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                <button class="btn btn-link"
+                                    onclick="productView('cc_076', 'Minimals SmartWatch', '190.00', 'Park Avenue', 'Watch', 1);">Minimals
+                                    SmartWatch</button>
+                                <h5>$190.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp3">
+                                <a href="javascript:void(0)">
+                                    <div class="product-img">
+                                        <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_070.png"
+                                            alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Pheonix ColorSplash" />
+                                                <input type="hidden" name="amount" value="160.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                    onclick="cartAdd('cc_070','Pheonix ColorSplash','160','1','ColorSplash')"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                <button class="btn btn-link"
+                                    onclick="productView('cc_070', 'Pheonix ColorSplash', '160.00', 'ColorSplash', 'ColorSplash', 1);">Pheonix
+                                    ColorSplash</button>
+                                <h5>$160.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp4">
+                                <a href="javascript:void(0)">
+                                    <div class="product-img">
+                                        <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_062.png"
+                                            alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="EGlide Optimus" />
+                                                <input type="hidden" name="amount" value="250.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                    onclick="cartAdd('cc_062','EGlide Optimus','250','1','EGlide')"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                <button class="btn btn-link"
+                                    onclick="productView('cc_062', 'EGlide Optimus', '250.00', 'EGlide', 'EGlide', 1);">EGlide
+                                    Optimus</button>
+                                <h5>$225.00</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="top-products-set2">
+                                <div class="col-md-3 top-product-grids tp5">
+                                    <a href="javascript:void(0)">
+                                        <div class="product-img">
+                                            <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_climate_files/cc_010.jpg"
+                                                alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Inner wear" />
+                                                    <input type="hidden" name="amount" value="50.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                        onclick="cartAdd('cc_010','Keyless Passcode Door Lock','50','1','Locks')"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                    <button class="btn btn-link"
+                                        onclick="productView('cc_010', 'Keyless Passcode Door Lock', '50.00', 'Locks', 'Locks' , 1);">Keyless
+                                        Passcode Door Lock</button>
+                                    <h5>$50.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp6">
+                                    <a href="javascript:void(0)">
+                                        <div class="product-img">
+                                            <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_084.jpg"
+                                                alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Shoes" />
+                                                    <input type="hidden" name="amount" value="150.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                        onclick="cartAdd('cc_084','CityFitPro Dual Ab Wheel','150','1','Wheels')"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                    <button class="btn btn-link"
+                                        onclick="productView('cc_084', 'CityFitPro Dual Ab Wheel', '150.00', 'Wheels','Wheels', 1);">CityFitPro
+                                        Dual Ab Wheel</button>
+                                    <h5>$150.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp7">
+                                    <a href="javascript:void(0)">
+                                        <div class="product-img">
+                                            <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_health_files/cc_067.png"
+                                                alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Minimals E-Bike" />
+                                                    <input type="hidden" name="amount" value="100.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                        onclick="cartAdd('cc_067','Minimals E-Bike','100','1','Bikes')"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                    <button class="btn btn-link"
+                                        onclick="productView('cc_067', 'Minimals E-Bike', '100.00', 'Bikes', 'Bikes', 1);">Minimals
+                                        E-Bike</button>
+                                    <h5>$100.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="javascript:void(0)">
+                                        <div class="product-img">
+                                            <img src="https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_computers_files/cc_041.jpg"
+                                                alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item"
+                                                        value='City Minimals Desktop Bundle' />
+                                                    <input type="hidden" name="amount" value="200.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"
+                                                        onclick="cartAdd('cc_041','City Minimals Desktop Bundle','200','1','Accessories')"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i><br>
+                                    <button class="btn btn-link"
+                                        onclick="productView('cc_041', 'City Minimals Desktop Bundle', '200.00', 'DooBo', 'Watches', 1);">City
+                                        Minimals Desktop Bundle</button>
+                                    <h5>$200.00</h5>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="tab-1 resp-tab-content">
+                            <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp5.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                <input type="hidden" name="amount" value="220.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Casual wear</h4>
+                                <h5>$220.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp2">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp6.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                <input type="hidden" name="amount" value="190.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Casual wear</h4>
+                                <h5>$190.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp3">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp7.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                <input type="hidden" name="amount" value="160.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Casual wear</h4>
+                                <h5>$160.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp4">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp8.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                <input type="hidden" name="amount" value="250.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Casual wear</h4>
+                                <h5>$250.00</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="top-products-set2">
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/wp8.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                    <input type="hidden" name="amount" value="250.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Casual wear</h4>
+                                    <h5>$250.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/wp5.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                    <input type="hidden" name="amount" value="250.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Casual wear</h4>
+                                    <h5>$250.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/wp4.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                    <input type="hidden" name="amount" value="350.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Casual wear</h4>
+                                    <h5>$350.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/wp3.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Casual wear" />
+                                                    <input type="hidden" name="amount" value="200.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Casual wear</h4>
+                                    <h5>$200.00</h5>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="tab-1 resp-tab-content">
+                            <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp9.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                <input type="hidden" name="amount" value="90.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Handbag</h4>
+                                <h5>$90.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp2">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp10.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                <input type="hidden" name="amount" value="60.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Handbag</h4>
+                                <h5>$60.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp3">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp11.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                <input type="hidden" name="amount" value="120.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Handbag</h4>
+                                <h5>$120.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp4">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp12.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                <input type="hidden" name="amount" value="70.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Handbag</h4>
+                                <h5>$70.00</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="top-products-set2">
+                                <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/hp9.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                    <input type="hidden" name="amount" value="290.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Handbag</h4>
+                                    <h5>$290.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/hp8.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                    <input type="hidden" name="amount" value="50.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Handbag</h4>
+                                    <h5>$50.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/hp7.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                    <input type="hidden" name="amount" value="70.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Handbag</h4>
+                                    <h5>$70.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/hp3.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Handbag" />
+                                                    <input type="hidden" name="amount" value="190.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Handbag</h4>
+                                    <h5>$190.00</h5>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="tab-1 resp-tab-content">
+                            <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp13.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Eye makeup" />
+                                                <input type="hidden" name="amount" value="90.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Eye makeup</h4>
+                                <h5>$90.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp2">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp14.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Gold makeup" />
+                                                <input type="hidden" name="amount" value="60.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Gold makeup</h4>
+                                <h5>$60.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp3">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp15.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Tya Makeup kit" />
+                                                <input type="hidden" name="amount" value="120.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Tya Makeup kit</h4>
+                                <h5>$120.00</h5>
+                            </div>
+                            <div class="col-md-3 top-product-grids tp4">
+                                <a href="single.html">
+                                    <div class="product-img">
+                                        <img src="images/tp16.jpg" alt="" />
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Vega Brushes" />
+                                                <input type="hidden" name="amount" value="60.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                        class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                    cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <h4>Vega Brushes</h4>
+                                <h5>$60.00</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="top-products-set2">
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/cp5.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Vega Brushes" />
+                                                    <input type="hidden" name="amount" value="60.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Lipstick</h4>
+                                    <h5>$60.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/cp4.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Vega Brushes" />
+                                                    <input type="hidden" name="amount" value="60.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Eye liner</h4>
+                                    <h5>$60.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/cp7.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Eye shades" />
+                                                    <input type="hidden" name="amount" value="60.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Eye shades</h4>
+                                    <h5>$60.00</h5>
+                                </div>
+                                <div class="col-md-3 top-product-grids tp4">
+                                    <a href="single.html">
+                                        <div class="product-img">
+                                            <img src="images/cp8.jpg" alt="" />
+                                            <div class="p-mask">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="w3ls1_item" value="Eye shades" />
+                                                    <input type="hidden" name="amount" value="160.00" />
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i
+                                                            class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                                                        cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                    <h4>Eye shades</h4>
+                                    <h5>$160.00</h5>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true // 100% fit in a container
+            });
+        });
+    </script>
+    <div class="fandt">
+        <div class="container">
+            <div class="col-md-6 features">
+                <h3>Our Services</h3>
+                <div class="support">
+                    <div class="col-md-2 ficon hvr-rectangle-out">
+                        <i class="fa fa-user " aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-10 ftext">
+                        <h4>24/7 online free support</h4>
+                        <p>Praesent rutrum vitae ligula sit amet vehicula. Donec eget libero nec dolor tincidunt
+                            vulputate.
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="shipping">
+                    <div class="col-md-2 ficon hvr-rectangle-out">
+                        <i class="fa fa-bus" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-10 ftext">
+                        <h4>Free shipping</h4>
+                        <p>Praesent rutrum vitae ligula sit amet vehicula. Donec eget libero nec dolor tincidunt
+                            vulputate.
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="money-back">
+                    <div class="col-md-2 ficon hvr-rectangle-out">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-10 ftext">
+                        <h4>100% money back</h4>
+                        <p>Praesent rutrum vitae ligula sit amet vehicula. Donec eget libero nec dolor tincidunt
+                            vulputate.
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6 testimonials">
+                <div class="test-inner">
+                    <div class="wmuSlider example1 animated wow slideInUp" data-wow-delay=".5s">
+                        <div class="wmuSliderWrapper">
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div id="DiscountZone6" class="banner-wrap">
+                                    <img src="images/c1.png" alt=" " class="img-responsive" />
+                                    <p>Nam elementum magna id nibh pretium suscipit varius tortor. Phasellus in lorem
+                                        sed massa
+                                        consectetur fermentum. Praesent pellentesque sapien euismod.</p>
+                                    <h4># Andrew</h4>
+                                </div>
+                            </article>
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div id="DiscountZone7" class="banner-wrap">
+                                    <img src="images/c2.png" alt=" " class="img-responsive" />
+                                    <p>Morbi semper, risus dignissim sagittis iaculis, diam est ornare neque, accumsan
+                                        risus
+                                        tortor at est. Vivamus auctor quis lacus sed interdum celerisque.</p>
+                                    <h4># Lucy</h4>
+                                </div>
+                            </article>
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div id="DiscountZone9" class="banner-wrap">
+                                    <img src="images/c3.png" alt=" " class="img-responsive" />
+                                    <p>Fusce non cursus quam, in hendrerit sem. Nam nunc dui, venenatis vitae porta sed,
+                                        sagittis
+                                        id nisl. Pellentesque celerisque eget ullamcorper vehicula. </p>
+                                    <h4># Martina</h4>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <script src="js/jquery.wmuSlider.js"></script>
+        <script>
+            $('.example1').wmuSlider();
+        </script>
+    </div>
+    <div>
+        <h4>Most recently viewed products</h4>
+        <!-- <div id="MostRecentlyViewedId" wrtp-recommended-zone="MostRecentlyViewedId"></div> -->
+        <div id="DARecentlyViewedZoneId" wrtp-recommended-zone="DARecentlyViewedZoneId"></div>
+    </div>
+    <div>
+        <h4>Most popular products</h4>
+        <!-- <div id="MostPopularId" wrtp-recommended-zone="MostPopularId"></div> -->
+        <div id="DAMostPopularZoneId" wrtp-recommended-zone="DAMostPopularZoneId"></div>
+    </div>
+    <div>
+        <h4>View to view</h4>
+        <!-- <div id="ViewtoViewId" wrtp-recommended-zone="ViewtoViewId"></div> -->
+        <div id="DAV2VoneId" wrtp-recommended-zone="DAV2VoneId"></div>
+    </div>
+    <div>
+        <h4>View to buy products</h4>
+        <!-- <div id="ViewtoBuyId" wrtp-recommended-zone="ViewtoBuyId"></div> -->
+        <div id="DAViewToBuyZoneId" wrtp-recommended-zone="DAViewToBuyZoneId"></div>
+    </div>
+    <div>
+        <h4>Buy to buy products</h4>
+        <!-- <div id="BuytoBuyId" wrtp-recommended-zone="BuytoBuyId"></div> -->
+        <div id="DABuyToBuyZone1Id" wrtp-recommended-zone="DABuyToBuyZone1Id"></div>
+    </div>
+    <!-- top-brands -->
+    <div class="top-brands">
+        <div class="container">
+            <h3>Top Brands</h3>
+            <div class="sliderfig">
+                <ul id="flexiselDemo1">
+                    <li>
+                        <img src="images/4.png" alt=" " class="img-responsive" />
+                    </li>
+                    <li>
+                        <img src="images/5.png" alt=" " class="img-responsive" />
+                    </li>
+                    <li>
+                        <img src="images/6.png" alt=" " class="img-responsive" />
+                    </li>
+                    <li>
+                        <img src="images/7.png" alt=" " class="img-responsive" />
+                    </li>
+                    <li>
+                        <img src="images/46.jpg" alt=" " class="img-responsive" />
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $("#flexiselDemo1").flexisel({
+                        visibleItems: 4,
+                        animationSpeed: 1000,
+                        autoPlay: false,
+                        autoPlaySpeed: 3000,
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 1
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 2
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+
+                });
+            </script>
+            <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+        </div>
+    </div>
+    <!-- //top-brands -->
+    <!-- newsletter -->
+    <div class="newsletter">
+        <div class="container">
+            <div class="col-md-6 w3agile_newsletter_left">
+                <h3>Newsletter</h3>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+            </div>
+            <div class="col-md-6 w3agile_newsletter_right">
+                <form action="#" method="post">
+                    <input type="email" name="Email" value="Email" onfocus="this.value = '';"
+                        onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                    <input type="submit" value="Subscribe" />
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //newsletter -->
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 footer-grids fgd1">
+                <a href="index.html">
+                    <!-- <img src="images/logo2.png" alt=" " />
+                    <h3>FASHION<span>CLUB</span></h3> -->
+                </a>
+                <ul>
+                    <li>1234k Avenue, 4th block,</li>
+                    <li>New York City.</li>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd2">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="icons.html">Web Icons</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd3">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="jewellery.html">Jewellery</a></li>
+                    <li><a href="cosmetics.html">Cosmetics</a></li>
+                    <li><a href="Shoes.html">Shoes</a></li>
+                    <li><a href="deos.html">Deos</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd4">
+                <h4>My Account</h4>
+                <ul>
+
+                    <li><a id="loginBtn" href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="recommended.html">Recommended </a></li>
+                    <li><a href="payment.html">Payments</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <p class="copy-right">© 2016 Fashion Club . All rights reserved </a>
+            </p>
+        </div>
+    </div>
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script>
+        w3ls1.render();
+
+        w3ls1.cart.on('w3sb1_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) {
+                    items[i].set('shipping', 0);
+                    items[i].set('shipping2', 0);
+                }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+
+    <br />
+    <!-- <button onclick="productView()"> productView </button> -->
+    <!-- <script src="./js/wrtp-ole.umd.js"></script> -->
+    <!-- <script>
+            var my_awesome_script = document.createElement('script');
+
+            my_awesome_script.setAttribute('src', './js/wrtp-ole.umd.js');
+
+            document.head.appendChild(my_awesome_script);
+    </script> -->
+    <script type="text/javascript">
+
+        let init = (function () {
+            if (wrtp != undefined || wrtp != {}) {
+                const WRTP = wrtp.ole.JsWRTP.create();
+
+                function displayContent(contentId, domOutlet) {
+                    console.log('ContentId in HTML file:', contentId);
+                    if (contentId == 'DCIDNF404') {
+                        domOutlet.style.background = "url(" + IMG_CONST["6ebdae16-b68f-46ab-8e4f-9fa0aadeb732"] + ") 0px 0px / cover no-repeat";
+                        domOutlet.style.opacity = 1;
+                    } else {
+                        console.log('DOM outlet in else is::', domOutlet);
+                        domOutlet.style.background = "url(" + contentId + ") 0px 0px / cover no-repeat";
+                        domOutlet.style.opacity = 1;
+                    }
+                }
+                function processContent(zoneId, outletId) {
+                    const outletArea = WRTP.__setOutlet(outletId);
+                    let contentId = WRTP.getContentId(zoneId);
+                    displayContent(contentId, outletArea);
+                    WRTP.trackEvent(outletId, zoneId, 'click');
+                }
+
+                WRTP.onReady(() => {
+                    processContent('WelcomeBannerZone', 'WelcomeBannerZone');
+                    processContent('DiscountZone1', 'DiscountZone1');
+                    processContent('DiscountZone2', 'DiscountZone2');
+                    processContent('DiscountZone3', 'DiscountZone3');
+                    processContent('DiscountZone4', 'DiscountZone4');
+                    processContent('DiscountZone5', 'DiscountZone5');
+                    processContent('DiscountZone6', 'DiscountZone6');
+                    processContent('DiscountZone7', 'DiscountZone7');
+                    processContent('DiscountZone8', 'DiscountZone8');
+                    processContent('DiscountZone9', 'DiscountZone9');
+                });
+
+                const IMG_CONST = {
+                    "6ebdae16-b68f-46ab-8e4f-9fa0aadeb732": "./images/banner2.jpg",
+                    "756812fe-aab8-45ca-b1ee-0856b71be824": "./images/menbanner.jpg",
+                    "5944577b-4a07-48c3-aa89-98eff460f7c9": "./images/clothsbanner.jpg",
+                    "720f8706-f325-4a15-9a97-e08a24d48131": "./images/menbanner.jpg"
+                };
+                // const IMG_CONST = {
+                //     "6ebdae16-b68f-46ab-8e4f-9fa0aadeb732": "https://my8.digitalexperience.ibm.com/2cc18fe3-4474-4d58-9658-600890cbb2aa/dxresources/763a/763ab408-05a9-4665-958b-2c4ef3a94047.jpg",
+                //     "756812fe-aab8-45ca-b1ee-0856b71be824": "https://my8.digitalexperience.ibm.com/2cc18fe3-4474-4d58-9658-600890cbb2aa/dxresources/763a/763ab408-05a9-4665-958b-2c4ef3a94047.jpg",
+                //     "5944577b-4a07-48c3-aa89-98eff460f7c9": "https://my8.digitalexperience.ibm.com/2cc18fe3-4474-4d58-9658-600890cbb2aa/dxresources/763a/763ab408-05a9-4665-958b-2c4ef3a94047.jpg",
+                //     "720f8706-f325-4a15-9a97-e08a24d48131": "https://my8.digitalexperience.ibm.com/2cc18fe3-4474-4d58-9658-600890cbb2aa/dxresources/763a/763ab408-05a9-4665-958b-2c4ef3a94047.jpg"
+                // };
+
+
+                // const zoneId10 = "MostRecentlyViewedId"; //Prod
+                const zoneId10 = "DARecentlyViewedZoneId";
+                WRTP.getRecommendedProducts(zoneId10, 10)
+                    .then(mostrecent => {
+                        let zoneArea = WRTP.getZoneArea(zoneId10);
+                        if (zoneArea) {
+                            if (mostrecent !== 'PRNF404') {
+
+                                for (let i in mostrecent) {
+                                    let element = document.createElement('div');
+                                    element.id = mostrecent[i].id;
+                                    element.classList.add("wrtp-slide", "wrtp-slide-" + ([i]));
+                                    // attach the onclick function
+                                    element.onclick = () => {
+                                        WRTP.trackProduct(mostrecent[i].id, event);
+                                        // add the redirection to product details page
+                                        // location.href = 'https://citycool.innovationcloud.info:7443/product?productNumber='+ mostrecent[i].id;
+                                        // Recommended products should sed the Prod View and Page view events when  
+                                    };
+                                    // add the product image
+                                    // element.style.background = "url(" + 'https://citycool.innovationcloud.info:7443/wcsstore/ExtendedSitesCatalogAssetStore/images/catalog/cc_main/cc_computers_files/'+ 'cc_043' +'.jpg' + ") 50% 50% / cover no-repeat";
+                                    element.innerHTML = mostrecent[i].id;
+                                    zoneArea.append(element);
+                                }
+                                zoneArea.style.opacity = 1;
+                                // example widget to render the products
+                                WRTP.wrtpRenderer(zoneArea);
+                            } else {
+                                console.log('WRTP:Error in getting the recommendation.')
+                            }
+                        } else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.')
+                        }
+                    })
+
+                // const zoneId11 = "MostPopularId"; // Prod
+                const zoneId11 = "DAMostPopularZoneId"; // QA 
+                WRTP.getRecommendedProducts(zoneId11, 10)
+                    .then(mostpopular => {
+                        let zoneArea = WRTP.getZoneArea(zoneId11);
+                        if (zoneArea) {
+                            if (mostpopular !== 'PRNF404') {
+                                for (let i in mostpopular) {
+                                    let element = document.createElement('div');
+                                    element.id = mostpopular[i].id;
+                                    element.classList.add("wrtp-slide", "wrtp-slide-" + ([i]));
+                                    // attach the onclick function
+                                    element.onclick = () => {
+                                        WRTP.trackProduct(mostpopular[i].id, event);
+                                        // add the redirection to product details page
+                                        // location.href = 'https://citycool.innovationcloud.info:7443/product?productNumber=' + mostpopular[i].id;
+                                        // Recommended products should sed the Prod View and Page view events when  
+                                    };
+                                    // add the product image
+                                    element.style.background = "url(" + mostpopular[i].images[0] + ") 50% 50% / cover no-repeat";
+                                    // element.innerHTML = mostpopular[i].id;
+
+                                    zoneArea.append(element);
+                                }
+                                zoneArea.style.opacity = 1;
+                                // example widget to render the products
+                                WRTP.wrtpRenderer(zoneArea);
+                            } else {
+                                console.log('WRTP:Error in getting the recommendation.')
+                            }
+                        }
+                        else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.')
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("WRTP: most popular", "recommendation not applied");
+                    });
+
+                // const zoneId12 = "ViewtoViewId"; // Prod
+                const zoneId12 = "DAV2VoneId"; // QA
+                WRTP.getRecommendedProducts(zoneId12, 10)
+                    .then(viewtoview => {
+                        let zoneArea = WRTP.getZoneArea(zoneId12);
+                        if (zoneArea) {
+                            if (viewtoview !== 'PRNF404') {
+                                for (let i in viewtoview) {
+                                    let element = document.createElement('div');
+                                    element.id = viewtoview[i].id;
+                                    element.classList.add("wrtp-slide", "wrtp-slide-" + ([i]));
+                                    // attach the onclick function
+                                    element.onclick = () => {
+                                        WRTP.trackProduct(viewtoview[i].id, event);
+                                        // add the redirection to product details page
+                                        // location.href = 'https://citycool.innovationcloud.info:7443/product?productNumber=' + viewtoview[i].id;
+                                        // Recommended products should sed the Prod View and Page view events when  
+                                    };
+                                    // add the product image
+                                    element.style.background = "url(" + viewtoview[i].images[0] + ") 50% 50% / cover no-repeat";
+                                    // element.innerHTML = viewtoview[i].id;
+
+                                    zoneArea.append(element);
+                                }
+                                zoneArea.style.opacity = 1;
+                                // example widget to render the products
+                                WRTP.wrtpRenderer(zoneArea);
+                            } else {
+                                console.log('WRTP:Error in getting the recommendation.');
+                            }
+                        }
+                        else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.')
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("WRTP: most popular", "recommendation not applied");
+                    });
+
+                // const zoneId13 = "ViewtoBuyId"; // Prod
+                const zoneId13 = "DAViewToBuyZoneId"; // Qa
+                WRTP.getRecommendedProducts(zoneId13, 10)
+                    .then(viewtobuy => {
+                        let zoneArea = WRTP.getZoneArea(zoneId13);
+                        if (zoneArea) {
+                            if (viewtobuy !== 'PRNF404') {
+                                for (let i in viewtobuy) {
+                                    let element = document.createElement('div');
+                                    element.id = viewtobuy[i].id;
+                                    element.classList.add("wrtp-slide", "wrtp-slide-" + ([i]));
+                                    // attach the onclick function
+                                    element.onclick = () => {
+                                        WRTP.trackProduct(viewtobuy[i].id, event);
+                                        // add the redirection to product details page
+                                        // location.href = 'https://citycool.innovationcloud.info:7443/product?productNumber=' + viewtobuy[i].id;
+                                        // Recommended products should sed the Prod View and Page view events when  
+                                    };
+                                    // add the product image
+                                    element.style.background = "url(" + viewtobuy[i].images[0] + ") 50% 50% / cover no-repeat";
+                                    // element.innerHTML = viewtobuy[i].id;
+
+                                    zoneArea.append(element);
+                                }
+                                zoneArea.style.opacity = 1;
+                                // example widget to render the products
+                                WRTP.wrtpRenderer(zoneArea);
+                            } else {
+                                console.log('WRTP:Error in getting the recommendation.');
+                            }
+                        }
+                        else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.')
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("WRTP: most popular", "recommendation not applied");
+                    });
+
+                // const zoneId14 = "BuytoBuyId"; // Prod
+                const zoneId14 = "DABuyToBuyZone1Id"; // Qa
+                WRTP.getRecommendedProducts(zoneId14, 10)
+                    .then(buytobuy => {
+                        let zoneArea = WRTP.getZoneArea(zoneId14);
+                        if (zoneArea) {
+                            if (buytobuy !== 'PRNF404') {
+                                for (let i in buytobuy) {
+                                    let element = document.createElement('div');
+                                    element.id = buytobuy[i].id;
+                                    element.classList.add("wrtp-slide", "wrtp-slide-" + ([i]));
+                                    // attach the onclick function
+                                    element.onclick = () => {
+                                        WRTP.trackProduct(buytobuy[i].id, event);
+                                        // add the redirection to product details page
+                                        // location.href = 'https://citycool.innovationcloud.info:7443/product?productNumber=' + buytobuy[i].id;
+                                        // Recommended products should sed the Prod View and Page view events when  
+                                    };
+                                    // add the product image
+                                    element.style.background = "url(" + buytobuy[i].images[0] + ") 50% 50% / cover no-repeat";
+                                    // element.innerHTML = buytobuy[i].id;
+
+                                    zoneArea.append(element);
+                                }
+                                zoneArea.style.opacity = 1;
+                                // example widget to render the products
+                                WRTP.wrtpRenderer(zoneArea);
+                            } else {
+                                console.log('WRTP:Error in getting the recommendation.');
+                            }
+                        }
+                        else {
+                            console.log('WRTP: Please add a valid element on HTML for displaying the recommended products.')
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("WRTP: most popular", "recommendation not applied");
+                    });
+
+            } else {
+                console.log("WRTP: Error in loading the online-engine library.");
+            }
+        });
+        window.onload = init;
+
+    </script>
+</body>
+
+</html>

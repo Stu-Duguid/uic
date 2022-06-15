@@ -1,0 +1,1189 @@
+----------------------------------------------------------------
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+.nb-login-main-container h1 h2 h3 h4 h5 h6 p ul li{
+    margin:0px;
+    padding:0px
+}
+.nb-login-main-container{
+    position:relative;
+}
+/*Header*/
+.nb-login-main-container .nb-header{
+    background-color: #ffffff;
+    width: 100%;
+}
+.nb-login-main-container .nb-middle-section{
+    margin: 0 auto;
+    /*background-color: #ffffff;*/
+    max-width: 960px;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 500px;
+    margin-top: -10px;
+}
+.nb-login-main-container .nb-footer{
+    background-color: #035297;
+    color: #fff;
+    width: 100%;
+    position:absolute;
+}
+.nb-login-main-container .center {
+    text-align: center;
+}
+.nb-login-main-container .welcomeWrap {
+    background: #fff;
+    padding: 20px;
+}
+.nb-login-main-container .hdfcLogo {
+    width: 193px;
+    margin: 0 auto 20px;
+}
+.nb-login-main-container .hdfcWelcomeText {
+    font-size: 20px;
+    color: #333;
+}
+.nb-footer .nb-footer-container{
+    margin:0 auto;
+    /*width:960px;*/
+}
+/*Middle section*/
+.nb-login-main-container .marginBtm10 {
+    margin-bottom: 10px!important;
+}
+.nb-login-main-container .welcomeWrap {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.nb-login-main-container .welcomeWrap .welcomeSec {
+    margin-bottom: 13px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+}
+.nb-login-main-container .hdfcStaticText {
+    font-size: 18px;
+    color: #333;
+}
+.nb-login-main-container .marginBtm20 {
+    margin-bottom: 20px;
+}
+.nb-login-main-container .netWrapper .labelField {
+    font-size: 14px;
+    width: 160px;
+}
+.nb-login-main-container .ibvt {
+    display: inline-block;
+    vertical-align: top;
+}
+.nb-login-main-container .labelField {
+    width: 145px;
+    margin: 0;
+    line-height: 25px;
+    padding-right: 20px;
+    font-size: 16px;
+}
+.nb-login-main-container .text-muted {
+    color: #777;
+}
+.nb-login-main-container .fr {
+    float: right;
+}
+.nb-login-main-container .nortonSecurity {
+    margin: -10px 0 20px 0;
+}
+.nb-login-main-container .nortonImage {
+    margin-left: 40%;
+    width:100px;
+    height:65px;
+}
+.nb-login-main-container hdfc-specialchar .input-box label, .nb-login-main-container hdfc-number .input-box label {
+    color: #333;
+    width: 164px;
+
+}
+.nb-login-main-container .lnHeight {
+    line-height: 0;
+}
+.nb-login-main-container .hdfcSmallText {
+    font-size: 14px;
+    color: #333;
+}
+.nb-login-main-container .color666 {
+    color: #666666;
+}
+.nb-login-main-container .btn {
+    width: 245px;
+    margin-top: 0px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+.nb-login-main-container .btn-primary {
+    background: #1d86ff;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 6px 20px;
+}
+.nb-login-main-container .last {
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+    border: none!important;
+}
+.nb-login-main-container .error-invalid-cust{
+    width:50%;
+}
+.nb-login-main-container .oHidden{
+    overflow: hidden;
+}
+.nb-login-main-container .infoLinks{
+    margin-left: 37%;
+}
+.nb-login-main-container .mrgnLeft31{
+    margin-left: 30%;
+}
+.nb-login-main-container .secureAccessImg{
+    width: 19%;
+}
+.leftWrap .inputField .input-box{
+    margin-bottom: 0px;
+}
+.nb-login-main-container hdfc-checkbox .checkbox-custom label{
+    font-size: 12px;
+}
+.nb-login-main-container .virtualCheckbox{
+    margin-left: 31%;
+}
+.nb-login-main-container .virtualCheckbox .checkbox-custom{
+    margin-bottom: 10px;
+}
+.nb-login-main-container .secureAccessCheckbox{
+    width: 35%;
+}
+.nb-login-main-container .secureAccessCheckbox .checkbox-custom{
+    margin-top: 24%;
+    margin-bottom: 10px;
+}
+.nb-login-main-container .secureAccessCheckbox .checkbox-custom label{
+    font-size: 14px;
+}
+.secureAccessCheckbox .checkbox-custom>div{
+    width: 80%;
+}
+.nb-login-main-container .staticCaptchaText{
+    margin-left: 32%;
+}
+.nb-login-main-container .captchaIconDiv{
+    margin-top: 6%;
+    padding-left: 0px;
+}
+.nb-login-main-container .captchaImg img{
+    border: 1px solid #ccc;
+}
+.nb-login-main-container .captchaTextDiv{
+    margin-top: 2%;
+    margin-left : 30%;
+}
+/*Footer*/
+.nb-login-main-container .footerBtm {
+    font-size: 11px;
+    padding: 17px 0;
+}
+.nb-login-main-container .nb-footer .container {
+        margin-top: 0px;
+}
+.nb-login-main-container .footerBtm a {
+    color: #fff;
+    margin-left: 20px;
+}
+.nb-login-main-container ul.bullet li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+.nb-login-main-container ul.bullet li:before {
+    font-family: "fontello";
+    content: '\e805';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.nb-login-main-container .btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.nb-login-main-container .secureAccessLabel{
+    padding-left: 0px;
+    width: 31%;
+}
+.nb-login-main-container md-input-container .md-input{
+    width: 245px !important;
+    color:#000000;
+}
+.nb-login-main-container .highligthed{
+    border:1px solid #dc3226!important;
+    background-color:#fff!important;
+    background-image: none!important;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 245px;
+}
+.nb-login-main-container md-input-container:not(.md-input-invalid).md-input-focused .md-input{
+    width:245px;
+}
+.login-info-overlay .mrgnBtm-20{
+    margin-bottom:20px;
+}
+.login-info-overlay .mrgnTop-20{
+    margin-top:20px;
+}
+.login-info-overlay .descDiv{
+    text-align: center;
+    width: 55%;
+}
+.login-info-overlay .descDivEx{
+    text-align: center;
+    width: 92%;
+}
+.login-info-overlay .forcedLockList{
+    margin-left: 20px;
+}
+.login-info-overlay .forcedLockList li{
+    list-style-type: disc;
+}
+.disabled{
+    cursor: not-allowed;
+}
+.container-fluid .nb-portal .bp-manageableArea{
+    top: 0px;
+}
+.epi-header{
+  max-width: 960px;
+    margin: 0 auto;
+}
+.emoduleLoader .loader{
+    position: fixed;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+.emoduleLoader img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.emoduleLoader .loader-relative{
+    height: auto;
+}
+
+
+/*Screen Resolutions*/
+@media screen and (max-width: 966px) {
+    .nb-login-main-container .infoLinks{
+        margin-left: 0%;
+    }
+    .nb-login-main-container .mrgnLeft36{
+        margin-left: 0%;
+    }
+}
+@media screen and (max-width: 991px) and (min-width:967px) {
+    .nb-login-main-container .secureAccessLabel{
+        width:33%;
+    }
+    .nb-login-main-container .secureAccessCheckbox{
+        width:40%;
+    }
+    .nb-login-main-container .secureAccessImg{
+        width: 23%;
+    }
+    .nb-login-main-container .secureAccessCheckbox .checkbox-custom{
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 966px) {
+    .nb-login-main-container .secureAccessCheckbox .checkbox-custom{
+        margin-top: 0px;
+    }
+    .nb-login-main-container .secureAccessImg,.nb-login-main-container .secureAccessCheckbox,.nb-login-main-container .loginBtnDiv,.nb-login-main-container .continueBtnDiv{
+        padding-left: 0px;
+    }
+}
+@media screen and (min-width: 767px) {
+.nb-login-main-container .forgotUserLink{
+    margin-left: 46%;
+}
+.nb-login-main-container .refreshLink{
+    float: right;
+}
+.nb-login-main-container .userIdLable{
+    width:63px;
+    color:#000000;
+}
+}
+@media screen and (max-width: 767px) {
+    .nb-login-main-container .leftWrap.fl{
+        float: none;
+        width: 100%;
+    }
+    .nb-login-main-container .rightWrap.fr {
+        float: none;
+        width: 100%;
+    }
+    .nb-login-main-container .nortonSecurity {
+        margin: 20px 0 20px 0;
+        text-align: left;
+    }
+    .nb-login-main-container .netWrapper .labelField {
+        width: 120px;
+    }
+    .nb-login-main-container .labelField.ibvt {
+        display: block;
+    }
+    .nb-login-main-container .labelField {
+        width: 100%;
+        margin: 0px 0 10px 0;
+    }
+    .nb-login-main-container .inputField {
+        margin: 10px 0 0px 0;
+    }
+    .nb-login-main-container .continueBtn {
+        width: 200px!important;
+    }
+    .nb-login-main-container .loginBtn {
+        width: 200px!important;
+    }
+    .nb-login-main-container .footerBtm {
+        font-size: 11px;
+        padding: 20px 5px;
+    }
+    .nb-login-main-container .error-invalid-cust{
+        width:100%;
+    }
+    .nb-login-main-container .virtualCheckbox{
+    	margin-left: 0px;
+    }
+    .nb-login-main-container .secureAccessLabel{
+    	width: 100%;
+    }
+    .nb-login-main-container .secureAccessImg{
+    	width: 100%;
+    }
+
+    .nb-login-main-container .secureAccessCheckbox {
+        width: 100%;
+    }
+    .nb-login-main-container .staticCaptchaText {
+        margin-left: 0%;
+    }
+    .nb-login-main-container .captchaTextDiv {
+         margin-top: 0%;
+         margin-left : 0%;
+    }
+    .nb-login-main-container .pl-0{
+        padding-left: 0px;
+    }
+    .nb-login-main-container md-input-container{
+        width: 200px;
+        float: none !important;
+    }
+    .rsa-image .error-msg{
+        margin-left: -18px;
+    }
+    .login-info-overlay .modal-header {
+            display:block;
+    }
+    .login-info-overlay .descDiv{
+        width: 88%;
+    }
+}
+@media screen and (width: 768px) {
+    .nb-login-main-container hdfc-specialchar .input-box label{
+    	width: 125px;
+    }
+    .nb-login-main-container .secureAccessImg {
+        width: 25%;
+    }
+    .nb-login-main-container .infoLinks{
+        margin-left: 31.5%;
+    }
+    .nb-login-main-container .mrgnLeft31 {
+        margin-left: 31%;
+    }
+    .nb-login-main-container .loginBtnDiv{
+    	margin-top: 20px
+    }
+    .nb-login-main-container .secureAccessCheckbox .checkbox-custom{
+    	margin-top: 36%;
+    }
+    .nb-login-main-container .secureAccessCheckbox{
+        width: 40%;
+    }
+}
+
+/*Keyboard css starts*/
+
+.virtualKeybd{
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    width:470px;
+    margin-left: 31%;
+}
+@media only screen and (max-device-width:800px){
+    .virtualKeybd{
+        padding: 0px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        width:470px;
+        margin-left: 31%;
+    }
+}
+@media only screen and (max-device-width:767px){
+    .virtualKeybd{
+        margin-left: 0;
+    }
+}
+.virtualKeybd td{
+    padding: 1px;
+}
+.virtualKeybd table tr td button{
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.virtualKeybd .virtualKeybdSpecial table tr td button{
+    padding: 0px;
+    width: 29px;
+    height: 28px;
+    text-align: center;
+}
+.virtualKeybd .virtualKeybdAlpha table tr td button,.virtualKeybd .virtualKeybdNumeric table tr td button{
+    padding: 0px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+}
+.virtualKeybdAlpha table tr td button.backbutton{
+    width:52px;
+}
+.virtualKeybdAlpha table tr td button.clearbutton{
+    width:75px;
+}
+.virtualKeybdAlpha table tr td button.capslockbutton{
+    width: 129px;
+}
+.virtualKeybdAlpha table tr td button.hoveringbutton,.virtualKeybdAlpha table tr td button.mixedbutton{
+    width:110px;
+}
+
+@media screen and (max-width: 510px) and (min-width: 390px){
+    .virtualKeybd{
+        width: 354px;
+    }
+    .virtualKeybd .virtualKeybdSpecial table tr td button, .virtualKeybd .virtualKeybdAlpha table tr td button, .virtualKeybd .virtualKeybdNumeric table tr td button{
+        width:21px;
+        height:23px;
+    }
+    .virtualKeybdAlpha table tr td button.backbutton{
+        width: 45px;
+    }
+    .virtualKeybdAlpha table tr td button.clearbutton{
+        width: 62px;
+    }
+    .virtualKeybdAlpha table tr td button.capslockbutton{
+        width: 102px;
+    }
+    .virtualKeybdAlpha table tr td button.hoveringbutton, .virtualKeybdAlpha table tr td button.mixedbutton{
+        width:93px;
+    }
+    .virtualKeybdAlpha table tr td button#elemSpace{
+        width: 50px;
+    }
+
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px){
+    .liability-register-overlay .security-label, .retrieve-id-container .security-label, .verfiy-overlay .security-label {
+        width: 35% !important;
+    }
+    .liability-register-overlay .pwd-text {
+        margin-left: 35% !important;
+    }
+}
+
+@media screen and (max-width: 389px) and (min-width: 320px){
+    .virtualKeybd{
+        width: 271px;
+        font-size:10px;
+    }
+    .virtualKeybd .virtualKeybdSpecial table tr td button, .virtualKeybd .virtualKeybdAlpha table tr td button, .virtualKeybd .virtualKeybdNumeric table tr td button{
+        width: 15px;
+        height: 20px;
+    }
+    .virtualKeybdAlpha table tr td button.backbutton{
+        width: 32px;
+    }
+    .virtualKeybdAlpha table tr td button.clearbutton{
+        width: 45px;
+    }
+    .virtualKeybdAlpha table tr td button.capslockbutton{
+        width: 74px;
+    }
+    .virtualKeybdAlpha table tr td button.hoveringbutton, .virtualKeybdAlpha table tr td button.mixedbutton{
+        width:67px;
+    }
+    .virtualKeybdAlpha table tr td button#elemSpace{
+        width: 50px;
+    }
+
+}
+
+/*Keyboard css ends*/
+
+/*Open market css starts*/
+.nb-openMarket-login-main-container .rightWrap.fr .marginBtm15 {
+    margin-bottom: 15px!important;
+}
+
+.nb-openMarket-login-main-container .lnHeight.txtalgn {
+line-height: 0;
+text-align:center;
+}
+.nb-openMarket-login-main-container .hdfcSmallText.lgntxt {
+font-size: 14px;
+color: #333;
+}
+
+.nb-openMarket-login-main-container ul.bullet li.mrgnbtm {
+position: relative;
+padding-left: 10px;
+margin-bottom: 0px;
+}
+
+.nb-openMarket-login-main-container .mrgnLeft36.btnalign{
+    text-align: center;
+    padding-right: 6%;
+    margin-left: 7%;
+}
+.nb-openMarket-login-main-container .loginBtn.btnmrgn {
+      margin-left: 19%;
+}
+.nb-openMarket-login-main-container .virtualCheckbox, .nb-openMarket-login-main-container .virtualKeybd{
+    margin-left: 31%;
+}
+.nb-openMarket-login-main-container .captchaLabel{
+    width: 30%;
+    padding-left: 0px;
+}
+.nb-openMarket-login-main-container .staticCaptchaText{
+    margin-left: 31%;
+    padding-left: 0px;
+}
+.nb-openMarket-login-main-container hdfc-alphanumeric .input-box label{
+    width: 158px;
+}
+/*.credit-card-register-overlay .date-layout{
+    margin-left: 27%;
+}*/
+
+
+.credit-card-register-overlay .pin-div{
+    clear: both;
+}
+.credit-card-register-overlay hdfc-dropdown .input-box .dropdown .dropdown-menu{
+    min-width: 100px;
+}
+
+.credit-card-register-overlay .ui-select-bootstrap .ui-select-match-text {
+    padding-right: 0em;
+}
+
+.credit-card-register-overlay hdfc-dropdown .dropdown{
+        /* float: left; */
+        width: 100%;
+}
+
+.credit-card-register-overlay .ui-select-bootstrap .ui-select-toggle>.caret {
+    right: 6px;
+}
+
+.credit-card-register-overlay .credit-date{
+    /* overflow: hidden; */
+}
+
+
+.set-ipin-container .pwd-text{
+    text-align: left;
+    margin-left: 29%;
+    padding-left: 2px;
+}
+/* .set-ipin-container hdfc-specialchar .input-box md-input-container{
+    width: 100%;
+} */
+
+/* .set-new-ipin-container .set-ipin-container hdfc-specialchar .input-box md-input-container{
+    width: 100%;
+} */
+
+.set-new-ipin-container .pwd-text{
+    text-align: left;
+    margin-left: 28%;
+    padding-left: 2px;
+    font-size: 12px;
+}
+.set-ipin-container .pwd-text-margin-top{
+    margin-top: -19px;
+    position: relative;
+    padding-left: 0;
+    width: 100%;
+    float: left;
+ }
+ .set-ipin-container .pwd-label{
+    float: left;
+    margin-top: -22px;
+    font-size: 11px;
+    position: relative;
+ }
+ .set-ipin-container .layout-pad{
+   margin-bottom: 20px;
+   margin-left: 4px;
+ }
+ .set-ipin-container .note-text{
+    margin-left: 4px;
+  }
+  .set-ipin-container hdfc-checkbox .checkbox-custom{
+    margin-left: 4px;
+  }
+.set-ipin-container .virtualKybd{
+    /* margin-left: 18%; */
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    width: 82%;
+    margin-left: 10%;
+}
+.set-new-ipin-container .virtualKybd{
+    margin-left: 18%;
+}
+.set-new-ipin-container hdfc-specialchar .input-box label {
+    color: #868686;
+}
+
+.point {
+    background: #DDD;
+    border-radius: 0px;
+    display: inline-block;
+    height: 10px;
+    margin: 0 3px;
+    width: 40px;
+}
+
+.strength-label{
+    width: 72%;
+    float: right;
+}
+
+/* .set-new-ipin-container .error-msg{
+    float: right;
+    width: 72%
+} */
+.set-ipin-container.error-msg{
+    float: right;
+    width: 100%
+}
+.retrieve-id-container .captcha{
+    width:60%;
+    max-width: 280px;
+    /*height: 80px;*/
+    border: 1px solid #ccc;
+    /*margin-top: 5px;*/
+    margin-bottom: 10px;
+}
+
+.retrieve-id-container .pwd-text{
+    text-align: left;
+    margin-left: 28%;
+    padding-left: 2px;
+}
+
+.retrieve-id-container .otp-text-font{
+    font-weight: 400;
+    color: #999;
+    font-size: 12px;
+    margin-top: -1%;
+}
+.credit-card-register-overlay .date-li  {
+        width: 100px;
+        float: left;
+        margin-left: 56px;
+}
+
+.credit-card-register-overlay .date-label{
+    float: left;
+}
+
+.retrieve-id-container .date-li  {
+    width: 100px;
+    margin-right: 45px;
+    float: left;
+}
+
+.retrieve-id-container .date-label{
+    float: left;
+}
+
+.retrieve-id-container .date-layout{
+    margin-left: 28%;
+}
+.retrieve-id-container .pin-div{
+    clear: both;
+}
+.retrieve-id-container hdfc-dropdown .dropdown{
+    width: 100%;
+
+}
+.retrieve-id-container hdfc-dropdown .input-box .dropdown .dropdown-menu{
+    min-width: 100px;
+}
+.retrieve-id-container .ui-select-bootstrap .ui-select-toggle>.caret {
+right: 6px;
+}
+
+
+.retrieve-id-container .ui-select-bootstrap .ui-select-match-text {
+    padding-right: 0em;
+}
+
+.retrieve-id-container .security-label{
+    float: left;
+    margin: 5px 0;
+    width: 165px;
+    padding-right: 24px;
+}
+
+.retrieve-id-container .radio-custom .radio {
+    float: left;
+    margin: 0;
+    width: 40%;
+}
+
+.retrieve-id-container .radio-custom .radio label{
+    padding-right: 0px;
+}
+
+.retrieve-id-container .radio-custom .radio:last-child {
+    margin-right: 0;
+    width: 60%;
+}
+.retrieve-id-container .error-sign-red-width-height{
+    width: 70px;
+    height: 50px;
+    margin-left: 256px;
+}
+.retrieve-id-container .credit-date{
+    /* overflow: hidden; */
+}
+
+.error-info-overlay .descDiv{
+    text-align: center;
+    width: 77%;
+}
+.error-info-overlay .li-padding{
+ padding-left: 10%;
+}
+
+.error-info-overlay .p-padding{
+    padding-top: 5px;
+    padding-bottom: 4px;
+}
+.error-info-overlay .li-style{
+    list-style: disc;
+
+}
+.verfiy-overlay .radio-custom .radio {
+    margin: 0;
+    width: 100%;
+}
+.verfiy-overlay .p-text {
+    font-size: 14px;
+}
+
+.successError-overlay .successWrap {
+    /* width: 70%; */
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.successError-overlay .panel-white .success {
+    width: 70px;
+    height: 70px;
+    background-size: 70px;
+    margin-bottom: 0px;
+    margin-right: auto;
+}
+
+.successError-overlay .diff2 {
+    margin-bottom: 50px;
+}
+
+.successError-overlay .error.error-warning .image-icon .success-exclamation {
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+}
+
+.verfiy-overlay .mobile-msg-text{
+    font-size: 12px;
+    float: right;
+    width:72%;
+    color: #999;
+}
+
+.verfiy-overlay hdfc-phone .input-box{
+    margin-bottom: 0px;
+}
+
+.successError-overlay .modal-header{
+    margin-bottom: 20px;
+}
+
+.successError-overlay .modal-content{
+    width: 550px;
+}
+.successError-overlay .error-icon{
+    width: 56px;
+    height: 56px;
+    background-size: 56px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.liability-register-overlay .icon {
+    width: 22px;
+    height: 18px;
+    display: block;
+    float: left;
+}
+
+.liability-register-overlay .error-p{
+    margin-left: 28%;
+    margin-bottom:4px
+}
+.liability-register-overlay .error-icon{
+    width: 56px;
+    height: 56px;
+    background-size: 56px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.liability-register-overlay .security-label{
+    float: left;
+    margin: 5px 0;
+    width: 165px;
+    padding-right: 24px;
+}
+
+.successError-overlay .error-sign-red-width-height{
+    width: 70px;
+    height: 50px;
+}
+
+.verfiy-overlay .captcha{
+    width:60%;
+    max-width: 280px;
+    /*height: 80px;*/
+    border: 1px solid #ccc;
+    /*margin-top: 5px;*/
+    margin-bottom: 10px;
+}
+
+.verfiy-overlay .pwd-text{
+    text-align: left;
+    margin-left: 28%;
+    padding-left: 2px;
+}
+
+.liability-register-overlay .pwd-text{
+    text-align: left;
+    margin-left: 28%;
+    padding-left: 2px;
+}
+
+.liability-register-overlay .captcha{
+    width:60%;
+    max-width: 280px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.verfiy-overlay .security-label{
+    float: left;
+    margin: 5px 0;
+    width: 165px;
+    padding-right: 24px;
+}
+
+.verfiy-overlay .m10{
+    margin-top: 10px;
+}
+
+.retrieve-id-container .panel-white .success, .status-template .success {
+    width: 75px;
+    height: 75px;
+    background-size: 65px;
+}
+
+.retrieve-id-container  .modal-title {
+    padding-bottom: 20px;
+}
+.epiLoaderLogin .loaderClass{
+    background: #fff;
+    padding: 20px;
+    height: 500px;
+}
+
+.epiLoaderLogin .welcomeWrap {
+    background: #fff;
+    padding: 20px;
+}
+.epi-footer{
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+}
+
+@media only screen and (min-width: 320px) and (max-width:481px){
+    .retrieve-id-container .date-label{
+        float: inherit;
+    }
+
+   .credit-card-register-overlay .date-label{
+       float: inherit;
+   }
+}
+
+@media only screen and (max-width:481px){
+    .retrieve-id-container .securityImage{
+        margin-right: 12%;
+    }
+}
+
+@media only screen and (min-width:481px){
+    .retrieve-id-container .securityImage{
+        margin-left: 23%;
+    }
+}
+
+@media only screen and (min-width: 328px) and (max-width:768px){
+
+.set-ipin-container .pwd-text-margin-top{
+    margin-top: -7px;
+ }
+    .liability-register-overlay .error-p{
+        margin-left: 0;
+    }
+
+    .strength-label{
+        width: 100%;
+        float: right;
+    }
+
+    .set-ipin-container .pwd-text{
+        text-align: left;
+        margin-left: 0%;
+        padding-left: 2px;
+    }
+    .set-ipin-container .virtualKybd{
+        margin-left: 0%;
+    }
+    .set-ipin-container .pwd-label{
+        display: none;
+    }
+
+    .set-ipin-container hdfc-checkbox .checkbox-custom{
+        margin-left: 4px;
+    }
+    .retrieve-id-container .pwd-text{
+        text-align: left;
+        margin-left: 0%;
+        padding-left: 2px;
+    }
+    .verfiy-overlay .pwd-text{
+            margin-left: 0%;
+     }
+
+    .retrieve-id-container .date-layout{
+        margin-left: 0%;
+    }
+    .verfiy-overlay .mobile-msg-text {
+        font-size: 12px;
+        float: right;
+        width: 100%;
+        color: #999;
+    }
+
+    /** Open market login media query **/
+    .nb-openMarket-login-main-container .virtualCheckbox,.nb-openMarket-login-main-container .virtualKeybd,.nb-openMarket-login-main-container .staticCaptchaText{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .nb-openMarket-login-main-container .captchaLabel{
+        width: auto;
+    }
+    .nb-openMarket-login-main-container .pl-0{
+        padding-left:0px;
+    }
+    .nb-login-main-container .captchaIconDiv{
+        margin-top: 0px;
+    }
+    .nb-login-main-container .captchaTextDiv{
+        padding-left:0px;
+    }
+    .nb-openMarket-login-main-container .overflowXAuto{
+        overflow-x:auto;
+    }
+    .retrieve-id-container .radio label{
+        white-space: nowrap;
+        margin: 0px 0px 0px 20px;
+    }
+    .retrieve-id-container .modal-footer .btn{
+        width:45%;
+    }
+    .retrieve-id-container .ui-datepicker{
+        z-index: 9999!important;
+    }
+    .set-ipin-container .ui-datepicker{
+        z-index: 9999!important;
+    }
+    /*.verfiy-overlay .mobile-msg-text{
+        width: 100%;
+    }*/
+}
+@media only screen and (max-width:327px){
+    .retrieve-id-container .pwd-text{
+        margin-left: initial;
+    }
+    .retrieve-id-container .modal-footer .btn{
+        width:100%;
+        max-width: 509px;
+        margin-bottom: 20px;
+    }
+    .retrieve-id-container .radio label{
+        margin: 0px 0px 0px 20px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width:1024px){
+    .retrieve-id-container .pwd-text{
+        text-align: left;
+        margin-left: 28%;
+        padding-left: 2px;
+    }
+    .set-ipin-container .pwd-text-margin-top{
+        margin-top: -13px;
+     }
+     .strength-label{
+        width: 72%;
+        float: right;
+    }
+     .set-ipin-container .pwd-text{
+        text-align: left;
+        margin-left: 28%;
+        padding-left: 2px;
+    }
+    .set-ipin-container .virtualKybd{
+        margin-left: 0%;
+    }
+    .debit-card-container hdfc-dropdown .input-box .dropdown .ui-select-bootstrap>.ui-select-choices, .ui-select-bootstrap>.ui-select-no-choice {
+        max-height: 140px!important;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        margin-top: -1px;
+    }
+    .verfiy-overlay .mobile-msg-text {
+        font-size: 12px;
+        float: right;
+        width: 72%;
+        color: #999;
+    }
+    .debit-card-container hdfc-dropdown .input-box .dropdown .dropdown-menu{
+        min-width: 136px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width:327px){
+    .set-ipin-container .pwd-text-margin-top{
+        margin-top: -7px;
+        position: relative;
+        padding-left: 0;
+        width: 100%;
+        float: left;
+    }
+
+    .set-ipin-container .pwd-text {
+        text-align: left;
+        margin-left: 1%;
+        padding-left: 2px;
+    }
+
+    .set-ipin-container .virtualKybd {
+        padding: 0px;
+        border: 1px solid #ccc;
+        margin-bottom: 14px;
+        width: 96%;
+        margin-left: 2%;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width:1420px){
+    .set-ipin-container .pwd-text{
+        text-align: left;
+        margin-left: 28%;
+        padding-left: 2px;
+    }
+
+    .set-ipin-container .pwd-text-margin-top{
+        margin-top: -14px;
+     }
+     .credit-card-register-overlay .credit-date .hdfc-dropdown .input-box .dropdown .ui-select-container .btn, .ui-select-container .btn-default {
+             margin-left: 2px;
+     }
+
+     /*.credit-card-register-overlay .date-layout{
+         margin-left: 17%;
+     }*/
+}
+@media only screen and (device-aspect-ratio: 40/71){
+    .credit-card-register-overlay .credit-date .dropdownYear .input-box .dropdown .ui-select-container .ui-select-match .btn{
+           margin-left: 34px;
+    }
+}
+@media only screen and (max-width:970px){
+
+    .verfiy-overlay hdfc-radio-group .radio-custom .radio input[type="radio"]{
+        margin-top : 1px;
+    }
+
+  @media only screen and (max-width:767px){
+      .retrieve-id-container .error-sign-red-width-height{
+            width: 70px;
+            height: 50px;
+            margin-left: 101px;
+        }
+}
+}
+
+/*Open market css ends*/
+

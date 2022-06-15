@@ -1,0 +1,225 @@
+.annual-reports {
+    background-color: #fff;
+    border: 1px solid #dedede;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    padding: 20px;
+}
+.annual-reports  .press-Content h5{
+    font-weight: 600;
+    margin: 20px 0px 10px 0px;
+}
+.annual-reports  .press-Content .press-year-content{
+    margin-bottom: 20px;
+}
+.annual-reports  .press-Content .press-year-content:last-child{
+    margin-bottom: 0px;
+}
+.annual-reports  .press-Content .press-year-content .press-year-sub-content{
+    background: #F2F7FB;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+.annual-reports  .press-Content .press-year-content .press-year-sub-content h2{
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+.annual-reports  .press-Content .press-year-content .press-year-sub-content .press-icon{
+    float: right;
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    font-size: 20px;
+    color: #1d85fe;
+    cursor: pointer;
+}
+.annual-reports  .press-Content .press-inner-content{
+    padding:10px 20px 0px 20px;
+}
+.annual-reports  .press-Content .press-inner-content .quater-sub-content{
+    position: relative;
+}
+.annual-reports  .press-Content .press-inner-content .quater-content{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+}
+.annual-reports  .press-Content .press-inner-content .quater-content:last-child{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+.annual-reports  .press-Content .press-inner-content .quater-sub-content .plus-arrow-icon{
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: -4px;
+    font-size: 20px;
+    color: #1d85fe;
+    cursor: pointer;
+}
+.annual-reports  .press-Content .press-inner-content .quater-sub-content .icon-down-open-big::before {
+    content: '+';
+}
+.annual-reports  .press-Content .press-inner-content .quater-sub-content .icon-up-open-big::before {
+content: '-';
+}
+.annual-reports  .press-Content .press-inner-content .quater-sub-content h4{
+    margin-bottom: 10px;
+}
+.annual-reports .accordian-wrapper{
+    border-bottom:1px solid #ddd;
+    padding-bottom:25px;
+    margin-bottom:10px;
+}
+.annual-reports .main-heading{
+    margin-bottom:10px;
+}
+.annual-reports .seccontblk .section-title{
+    padding-bottom:10px;
+}
+.annual-reports .seccontblk .section-link{
+    display:block;
+    padding-bottom:10px;
+}
+
+.annual-reports .accordian-wrapper .awards-accordion-super .accordion-container .accord-head{
+    border-radius: 3px;
+        box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background: #F2F7FB;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .accordion-container .accord-head h2{
+         font-size: 18px;
+        padding: 10px;
+        margin-bottom: 0;
+        line-height: 23px;
+}
+
+.annual-reports .accordian-wrapper .awards-accordion-super .accordion-container .accord-body table tbody tr{
+        border-bottom: 1px solid #ddd;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .accordion-container .accord-body table {
+        margin-left:14px;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .main-arrow-icon {
+    font-size: 20px;
+    color: #1d85fe;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .icon-down-open-big:before{
+        float: right;
+        margin-top: -27px;
+        margin-right: 15px;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .icon-up-open-big:before{
+        float: right;
+        margin-top: -27px;
+        margin-right: 15px;
+}
+.annual-reports .accordian-wrapper .awards-accordion-super .accord-body table tr td {
+    padding: 10px 15px 10px 15px;
+}
+
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer{
+    border-radius: 3px;
+        box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background: #F2F7FB;
+}
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer .icon-down-open-big.main-arrow-icon{
+    font-size: 20px;
+        color: #1d85fe;
+}
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer .icon-down-open-big.main-arrow-icon:before{
+        float: right;
+        margin-top: -27px;
+        margin-right: 15px;
+}
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer h2{
+        font-size: 18px;
+        padding: 10px;
+        margin-bottom: 0;
+        line-height: 23px;
+}
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer .main-arrow-icon.icon-up-open-big{
+    font-size: 20px;
+    color: #1d85fe;
+}
+.annual-reports .parentAccSortDiv .accdiv .accord-head.add-cursor-pointer .icon-up-open-big.main-arrow-icon:before{
+        float: right;
+        margin-top: -27px;
+        margin-right: 15px;
+}
+.annual-reports .parentAccSortDiv .accdiv .awards-accordion-super .accord-body{
+    display:none;
+}
+.annual-reports .parentAccSortDiv .accdiv .awards-accordion-super .accord-body table{
+        margin-left: 14px;
+        margin-bottom:15px;
+}
+.annual-reports .parentAccSortDiv .accdiv .awards-accordion-super .accord-body table tr{
+    border-bottom: 1px solid #ddd;
+}
+.annual-reports .parentAccSortDiv .accdiv .awards-accordion-super .accord-body table tr td{
+    padding: 10px 15px 10px 15px;
+}
+.annual-reports .pressAccSortDiv .press-year-sub-content{
+    background: #F2F7FB;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+.annual-reports .pressAccSortDiv .press-year-sub-content h2{
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+.annual-reports .pressAccSortDiv .press-year-sub-content .press-icon{
+    float: right;
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    font-size: 20px;
+    color: #1d85fe;
+    cursor: pointer;
+}
+.annual-reports .pressAccSortDiv .quater-sub-content .plus-arrow-icon.icon-down-open-big:before{
+    content:"+";
+}
+.annual-reports .pressAccSortDiv .quater-sub-content .plus-arrow-icon.icon-up-open-big:before{
+   content:"-";
+}
+
+.annual-reports .pressAccDiv{
+    padding: 10px 20px 0px 20px
+}
+
+.annual-reports .pressAccDiv .quater-sub-content{
+    position:relative;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px solid #ddd;
+}
+.annual-reports .pressAccDiv .quater-sub-content .plus-arrow-icon{
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: -4px;
+    font-size: 20px;
+    color: #1d85fe;
+    cursor: pointer;
+}
+.annual-reports .pressAccDiv .press-text{
+    margin-bottom:10px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+}

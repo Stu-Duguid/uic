@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fashion Club an Ecommerce Online Shopping Category Flat Bootstrap responsive Website Template | About </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Fashion Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+<script>
+    var ubxEvents = [],searchKeyword = null;
+</script>
+<!-- Start  UBX GA integration Javascript files -->
+<!-- <script type="text/javascript" src="//commercelibs.ibm.com/qa/common/ubxCapture.js"></script>
+<script type="text/javascript">
+    ubxCapture.setID("7ff7e46c-85b9-4696-bb65-d649c005e027");
+</script> -->
+<!--<script type="text/javascript" src="//commercelibs.ibm.com/common/ubxCapture.js"></script> 
+<script type="text/javascript"> ubxCapture.setID("14eb8979-b7d9-4eea-a017-743011e0bcb6"); </script> -->
+<!-- End of UBX GA integration Javascript files -->
+
+<script type="text/javascript" src="//commercelibs.ibm.com/qa/common/ubxCapture.js"></script>
+<script type="text/javascript"> ubxCapture.setID("bf743e53-f55b-44cc-abb6-f2e438d73d8f"); </script>
+
+<script src="./js/UBXtest.js"></script>
+<!-- Start of  Google Analytics Tracking snippet -->
+<script>
+    // Ga init
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-120048815-1', 'auto');
+    ga('require', 'ec');
+
+    //UBX wrapper around GA
+    var identifiersMapperArray = [];
+    ga(function (tracker) {
+        var clientId = tracker.get('clientId');
+        identifiersMapperArray.push({ "name": "gaClientId", "value": clientId });
+    });
+    ga(function () {
+        var tracker = ga.getByName("t0");
+        var originalSendHitTask = tracker.get("sendHitTask");
+        tracker.set("sendHitTask", function (model) {
+            originalSendHitTask(model);
+            var payLoad = model.get("hitPayload");
+            console.log("model=" + JSON.stringify(model));
+
+            var hitType = model.get("hitType");
+            if (hitType=="pageview"  && searchKeyword !== null)
+            {
+                var searchSiteAttributesMapper = [];
+                searchSiteAttributesMapper.push({"name":"searchTerms", "value": searchKeyword, "type": "string"});
+                searchSiteAttributesMapper.push({"name":"searchType", "value": "2", "type": "string"});
+                searchSiteAttributesMapper.push({"name": "cd1", "value": "channeltenantId", "type": "string" });
+                google_ubx.sendEventFromPayload(payLoad,identifiersMapperArray,"ibmsearchedSite",searchSiteAttributesMapper);
+                
+            }else {
+                google_ubx.sendEventFromPayload(payLoad, identifiersMapperArray);
+            }
+        });
+    });
+
+    function ibmproductView(pid, pname, pprice, pquantity) {
+        console.log("Inside product view")
+        //ga('send', 'event', 'Ecommerce', 'ibmproductView', { 'nonInteraction': 1 });
+        ga("ec:addProduct", {
+            "id": pid,
+            "name": pname,
+            "price": pprice,
+            "brand": "Kiosk",
+            "category": "T-Shirts",
+            "variant": "red",
+            "quantity": pquantity
+        });
+        ga("ec:setAction", "detail");
+        //ga('set', 'dimension1', "abcd1234");
+        ga("send", "event", "detail view", "click", "productview");
+    }
+
+    function cartAdd(pid, pname, pprice, pquantity, pcategory) {
+        ga("ec:addProduct", {
+            "id": pid,
+            "name": pname,
+            "price": pprice,
+            "brand": "any",
+            "category": pcategory,
+            "variant": "red",
+            "dimension1": "M",
+            "quantity": pquantity
+        });
+        ga("ec:setAction", "add");
+        ga("send", "event", "detail view", "click", "addToCart");
+
+    }
+    function ibmcartPurchase() {
+        ga('ec:addProduct', {
+            'id': 'P12345',
+            'name': 'Android Warhol T-Shirt',
+            'category': 'Apparel',
+            'brand': 'Google',
+            'variant': 'black',
+            'price': '29.20',
+            'coupon': 'APPARELSALE',
+            'quantity': 1
+        });
+
+        ga('ec:setAction', 'purchase', {
+            'id': 'T12345',
+            'affiliation': 'Google Store - Online',
+            'revenue': '37.39',
+            'tax': '2.85',
+            'shipping': '5.34',
+            'coupon': 'SUMMER2013'
+        });
+        ga('send', 'event', 'Ecommerce', 'ibmcartPurchase', 'purchase');
+    }
+
+    function ibmcartPurchaseItem() {
+        ga("ec:addProduct", {
+            "id": "57b9d",
+            "name": "Kiosk T-Shirt",
+            "price": "55.00",
+            "brand": "Kiosk",
+            "category": "T-Shirts",
+            "variant": "red",
+            "dimension1": "M",
+            "quantity": 1
+        });
+        ga("ec:setAction", "purchase");
+        ga("send", "event", "detail view", "click", "purchase");
+        ga('send', 'event', 'Ecommerce', 'ibmcartPurchaseItem', { 'nonInteraction': 1 });
+    }
+
+    function ibmelementFormError() {
+        ga('send', 'event', 'Ecommerce', 'ibmelementFormError', { 'nonInteraction': 1 });
+    }
+
+    function search() {
+
+        searchKeyword = $('#searchTerms').val();
+        ga('send', 'pageview', '/search_results.php?q=' + searchKeyword);
+    }
+   
+</script>
+
+
+    
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- css -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        #outlet {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-top-w3layouts">
+        <div class="container">
+            <div class="col-md-6 logo-w3">
+                <a href="index.html"><img src="images/logo2.png" alt=" " />
+                    <h1>FASHION<span>CLUB</span></h1>
+                </a>
+            </div>
+            <div class="col-md-6 phone-w3l">
+                <ul>
+                    <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
+                    <li>+18045403380</li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="header-bottom-w3ls">
+        <div class="container">
+            <div class="col-md-7 navigation-agileits">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="index.html" class="hyper "><span>Home</span></a></li>
+                            <li class="dropdown ">
+                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown"><span>Clothing<b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+
+                                                <li><a href="women.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Women's Clothing</a></li>
+                                                <li><a href="men.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's Clothing</a></li>
+                                                <li>
+                                                    <a href="kids.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Kid's Wear</a>
+                                                </li>
+                                                <li><a href="party.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Party Wear</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="casuals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Casuals</a></li>
+                                                <li><a href="night.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Night Wear</a></li>
+                                                <li><a href="formals.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Formals</a></li>
+                                                <li><a href="inner.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Inner Wear</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4 w3l">
+                                            <a href="women.html"><img src="images/menu1.jpg" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span> Personal Care <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi1">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="jewellery.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Jewellery </a></li>
+                                                <li><a href="watches.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Watches</a></li>
+                                                <li><a href="cosmetics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
+                                                <li><a href="deos.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Perfumes</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="haircare.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a>
+                                                </li>
+                                                <li><a href="shoes.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Shoes</a></li>
+                                                <li><a href="handbags.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Handbags</a></li>
+                                                <li><a href="skincare.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-4 w3l">
+                                            <a href="jewellery.html"><img src="images/menu2.jpg" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class=" active"><a href="about.html" class="hyper"><span>About</span></a></li>
+                            <li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    $(".dropdown").hover(
+                        function() {
+                            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                            $(this).toggleClass('open');
+                        },
+                        function() {
+                            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                            $(this).toggleClass('open');
+                        }
+                    );
+                });
+            </script>
+            <div class="col-md-4 search-agileinfo">
+                <form name="searchForm">
+                    <input type="search" name="search-terms"  id="searchTerms" placeholder="Search for a Product..." required="">
+                    <button onclick="search()" class="btn btn-default search" aria-label="Left Align">
+                        <i class="fa fa-search" aria-hidden="true"> </i>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-1 cart-wthree">
+                <div class="cart">
+                    <form action="#" method="post" class="last">
+                        <input type="hidden" name="cmd" value="_cart" />
+                        <input type="hidden" name="display" value="1" />
+                        <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div id="outlet" class="sub-banner">
+    </div>
+    <div class="about">
+        <div class="container">
+            <h3>About Us</h3>
+            <div class="about-info">
+                <div class="col-md-8 about-grids">
+                    <h4>Our latest collection</h4>
+                    <p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia. </p>
+                    <div class="about-w3ls-row">
+                        <script type="text/javascript">
+                            $(window).load(function() {
+                                $("#flexiselDemo3").flexisel({
+                                    visibleItems: 2,
+                                    animationSpeed: 1000,
+                                    autoPlay: false,
+                                    autoPlaySpeed: 3000,
+                                    pauseOnHover: true,
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 2
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 2
+                                        }
+                                    }
+                                });
+
+                            });
+                        </script>
+                        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                        <ul id="flexiselDemo3">
+                            <li>
+                                <img src="images/a1.jpg" class="img-responsive" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/a2.jpg" class="img-responsive" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/a3.jpg" class="img-responsive" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/a4.jpg" class="img-responsive" alt="" />
+                            </li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-4 about-grids">
+                    <h4>Our Advantages</h4>
+                    <div class="pince">
+                        <div class="pince-left">
+                            <h5>01</h5>
+                        </div>
+                        <div class="pince-right">
+                            <p>Vero vulputate enim non justo posuere phasellus eget mauris.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="pince">
+                        <div class="pince-left">
+                            <h5>02</h5>
+                        </div>
+                        <div class="pince-right">
+                            <p>Vero vulputate enim non justo posuere phasellus eget mauris.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="pince">
+                        <div class="pince-left">
+                            <h5>03</h5>
+                        </div>
+                        <div class="pince-right">
+                            <p>Vero vulputate enim non justo posuere phasellus eget mauris.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="pince">
+                        <div class="pince-left">
+                            <h5>04</h5>
+                        </div>
+                        <div class="pince-right">
+                            <p>Vero vulputate enim non justo posuere phasellus eget mauris.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //about -->
+    <!-- about-bottom -->
+    <div class="about-bottom">
+        <div class="container">
+            <h3> Flat <span>50%</span> Off</h3>
+            <h4>On women Accessories</h4>
+            <a href="Jewellery.html">Shop Now</a>
+        </div>
+    </div>
+    <!-- //about-bottom -->
+    <!--team-->
+    <div class="team" id="team">
+        <div class="container">
+            <h3> Our Team</h3>
+            <div class="team-grids">
+                <div class="col-md-3 team-grid">
+                    <div class="team-img">
+                        <img src="images/t1.jpg" class="img-responsive" alt=" " />
+                        <figcaption class="overlay">
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </figcaption>
+                    </div>
+                    <h4>John Filmr Doe</h4>
+                    <h5>Managing Director</h5>
+                </div>
+                <div class="col-md-3 team-grid">
+                    <div class="team-img">
+                        <img src="images/t3.jpg" class="img-responsive" alt=" " />
+                        <figcaption class="overlay">
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </figcaption>
+                    </div>
+                    <h4>Jaye Smith</h4>
+                    <h5>Lead Developer</h5>
+                </div>
+                <div class="col-md-3 team-grid">
+                    <div class="team-img">
+                        <img src="images/t2.jpg" class="img-responsive" alt=" " />
+                        <figcaption class="overlay">
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </figcaption>
+                    </div>
+                    <h4>Mike Arney</h4>
+                    <h5>Fashion Designer</h5>
+                </div>
+                <div class="col-md-3 team-grid">
+                    <div class="team-img">
+                        <img src="images/t4.jpg" class="img-responsive" alt=" " />
+                        <figcaption class="overlay">
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </figcaption>
+                    </div>
+                    <h4>Michele Lampa</h4>
+                    <h5>fashion Designer</h5>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!--team-->
+    <!-- newsletter -->
+    <div class="newsletter">
+        <div class="container">
+            <div class="col-md-6 w3agile_newsletter_left">
+                <h2>Newsletter</h2>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+            </div>
+            <div class="col-md-6 w3agile_newsletter_right">
+                <form action="#" method="post">
+                    <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                    <input type="submit" value="Subscribe" />
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //newsletter -->
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-3 footer-grids fgd1">
+                <a href="index.html"><img src="images/logo2.png" alt=" " />
+                    <h3>FASHION<span>CLUB</span></h3>
+                </a>
+                <ul>
+                    <li>1234k Avenue, 4th block,</li>
+                    <li>New York City.</li>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd2">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="icons.html">Web Icons</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="faq.html">FAQ's</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd3">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="jewellery.html">Jewellery</a></li>
+                    <li><a href="cosmetics.html">Cosmetics</a></li>
+                    <li><a href="Shoes.html">Shoes</a></li>
+                    <li><a href="deos.html">Deos</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-grids fgd4">
+                <h4>My Account</h4>
+                <ul>
+
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="recommended.html">Recommended </a></li>
+                    <li><a href="payment.html">Payments</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <p class="copy-right">© 2016 Fashion Club . All rights reserved </a>
+            </p>
+        </div>
+    </div>
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script>
+        w3ls1.render();
+
+        w3ls1.cart.on('w3sb1_checkout', function(evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) {
+                    items[i].set('shipping', 0);
+                    items[i].set('shipping2', 0);
+                }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+
+    <script type="text/javascript">
+        function init() {
+            var ubxInformation;
+        if (ubxCapture !== undefined) {
+            Object.keys(ubxCapture['enabledOfferings']['UBXWRTP']).forEach(
+                (key, index) => {
+                    ubxInformation = {
+                        channelTenantId:
+                        ubxCapture['enabledOfferings']['UBXWRTP'][key].config
+                            .channelTenantID,
+                        authKey:
+                        ubxCapture['enabledOfferings']['UBXWRTP'][key].config.ubxAuthKey
+                    };
+                }
+            );
+        }
+
+        google_ubx.googleToUBXAddToCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXCartPurchaseEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXCartPurchaseItemEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXFormErrorEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXPageViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXProductRatingEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXProductReviewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXProductViewEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXRemoveFromCartEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXVideoCompletedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXVideoEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXVideoLaunchedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXVideoPausedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        google_ubx.googleToUBXVideoPlayedEvent.attributesMapper.push({ "googleName": "cd1", "ubxName": "channeltenantId", "type": "string" });
+        ga('set', 'dimension1', ubxInformation.channelTenantId );  
+
+        ibm_ubx.registerCallback("WRTP", function (eventPayload) {
+            if(eventPayload) {
+                ubxEvents.push(eventPayload);
+        }
+        });
+            const WRTP = wrtp.ole.JsWRTP.create();
+            const zoneId = "AboutUsZone";
+            const outlet = "outlet";
+
+            const IMG_CONST = {
+                "6ebdae16-b68f-46ab-8e4f-9fa0aadeb732": "./images/banner2.jpg",
+                "756812fe-aab8-45ca-b1ee-0856b71be824": "./images/menbanner.jpg",
+                "5944577b-4a07-48c3-aa89-98eff460f7c9": "./images/clothsbanner.jpg",
+                "720f8706-f325-4a15-9a97-e08a24d48131": "./images/menbanner.jpg"
+            };
+
+            const outletArea = WRTP.__setOutlet(outlet);
+            WRTP.__getContentId(zoneId).then(
+                // (contentId) => {
+                //     if (contentId == 'DCIDNF404') {
+                //         outletArea.style.background = "url(" + IMG_CONST["6ebdae16-b68f-46ab-8e4f-9fa0aadeb732"] + ") 0px 0px / cover no-repeat";
+                //     } else {
+                //         outletArea.style.background = "url(" + IMG_CONST[contentId] + ") 0px 0px / cover no-repeat";
+                //     }
+                // }
+                (contentId) => {
+                    if (contentId == 'DCIDNF404') {
+                        outletArea.style.background = "url(" + IMG_CONST["6ebdae16-b68f-46ab-8e4f-9fa0aadeb732"] + ") 0px 0px / cover no-repeat";
+                        outletArea.style.opacity = 1;
+                    } else {
+                        outletArea.style.background = "url(" + contentId + ") 0px 0px / cover no-repeat";
+                        outletArea.style.opacity = 1;
+                    }
+                }
+            ).catch((error) => {
+                console.log("WR:JSWRTPError", error);
+            });
+            ga('send', 'pageview');
+        }
+        window.onload = init;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "unified",
+  "version": "1.0.0",
+  "description": "oneapp",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "stuart duguid",
+  "license": "none"
+}

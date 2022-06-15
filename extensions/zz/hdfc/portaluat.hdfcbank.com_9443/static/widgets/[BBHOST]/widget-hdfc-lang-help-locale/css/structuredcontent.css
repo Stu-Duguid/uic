@@ -1,0 +1,103 @@
+.blog-author {
+    position: relative;
+}
+.blog-author .picture {
+    float: left;
+    padding: 10px;
+}
+.blog-author .info {
+    float: right;
+}
+.blog-author .info h5 {
+    margin: 8px 0 6px;
+    color: #699B41;
+    font-size: 23px;
+    line-height: 26px;
+}
+
+.blog-author .info p {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.blog-author .info .contact {
+    display: block;
+    float: left;
+    width: 70%;
+}
+
+.blog-author .info .contact .address-1:before {
+    content: "Home";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .contact .address-2:before {
+    content: "Work";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .enum {
+    display: block;
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+.bd-designMode-true .bd-empty-structured-content,
+.designMode .bd-empty-structured-content {
+    padding: 0;
+}
+
+.bd-designMode-true .bd-structured-content-widget,
+.designMode .bd-structured-content-widget {
+    min-height: 98px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after,
+.bd-over-structured-content .bd-structured-content-widget:after {
+    content: 'Replace ' attr(data-type);
+    display: block;
+    padding: 60px 30px 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    background:#f0f0f0 url(../media/drag-area-inactive.png) no-repeat center 13px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after {
+    content: 'Drop ' attr(data-type) ' here';
+}
+
+.bd-designMode-true .bd-over-structured-content .bd-structured-content-widget:after,
+.designMode .bd-over-structured-content .bd-structured-content-widget:after {
+    background-color: #bbb;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .8;
+    /*padding-top: 28%;*/
+}
+.bd-designMode-true .bd-empty-structured-content .bp-g-include,
+.designMode .bd-empty-structured-content .bp-g-include {
+    display: none;
+}
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.image-text {
+   	width:100%;
+   }
+   .image-text img {
+      display:block;
+      }
+

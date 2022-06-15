@@ -1,0 +1,98 @@
+.confirmation-nb-overlay.cover {
+    display:none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 99999999999;
+    overflow: auto;
+}
+.confirmation-nb-overlay .popup-container.opened {
+    width: 57%;
+    margin: auto;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    overflow: visible;
+    height: 0%;
+    position: relative;
+    top: 20%
+}
+.confirmation-nb-overlay.cover .close-button {
+    position: absolute;
+    right: -15px;
+    top: -16px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+.confirmation-nb-overlay.cover .close-button img {
+    width: 30px;
+    cursor: pointer;
+}
+.confirmation-nb-overlay .popup-container.opened .modal-content {
+    padding: 20px;
+    width: initial;
+}
+.confirmation-nb-overlay .popup-container.opened .modal-content .modal-footer{
+    margin-top:20px;
+    text-align: center;
+}
+.confirmation-nb-overlay .popup-container.opened .modal-content .modal-footer .btn:first-child{
+    margin-bottom: 0px;
+}
+.confirmation-nb-overlay .popup-container.opened .modal-content .modal-body{
+    text-align: center;
+}
+
+/* 60 seconds timer -- css start */
+.confirmation-nb-overlay.cover .session-gif {
+   border: 0;
+   height: 142px;
+}
+.confirmation-nb-overlay .clock-wrapper {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    text-align: center;
+    position: relative;
+}
+.confirmation-nb-overlay .clock {
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+}
+.confirmation-nb-overlay .timer {
+    position: relative;
+    top: -76px;
+    font-size: 15px;
+    z-index: 2;
+    color: #000;
+    -webkit-transition: opacity 350ms linear 0s;
+    font-weight:bold;
+    margin: auto;
+    /*margin: -75px 0 75px 383px;*/
+}
+
+.confirmation-nb-overlay .half_opacity {
+    opacity:0.5;
+}
+/* 60 seconds timer -- css end */
+
+@media (max-width: 767px){
+    .confirmation-nb-overlay .popup-container.opened .modal-content .modal-footer .btn:first-child{
+        margin-bottom: 10px;
+    }
+    .confirmation-nb-overlay .popup-container.opened .modal-content .modal-footer .btn{
+        width: 100%;
+    }
+    .confirmation-nb-overlay .modal-footer .btn+.btn{
+        margin-left: 0px;
+    }
+    .confirmation-nb-overlay .modal-header {
+        display: block;
+    }
+}

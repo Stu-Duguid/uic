@@ -1,0 +1,43 @@
+.header-banner{
+    box-shadow: 0px 5px 11px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 1;
+        margin-top: 15px;
+}
+.header-banner .header-banner-title{
+            margin: 10px 0;
+            font-weight: 500;
+            color: #00337e;
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+}
+
+.header-banner .header-banner-img{
+    margin-bottom:20px;
+}
+
+.header-banner .header-banner-subTitle {
+            color: #1d86ff;
+            font-size: 14px;
+            margin: 0 0 20px;
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            text-align: left;
+            width: 39%;
+}
+
+.header-parent{
+    margin-bottom:10px;
+    padding: 0;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 459px) {
+        .header-banner .header-banner-subTitle {
+         width: 55%;
+      }
+}

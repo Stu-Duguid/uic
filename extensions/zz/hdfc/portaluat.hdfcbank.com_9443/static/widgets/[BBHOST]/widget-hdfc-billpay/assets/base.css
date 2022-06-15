@@ -1,0 +1,340 @@
+  /*----------------------------------------------------------------*/
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+
+/*.lp-widget-hdfc-billpay {
+
+
+  }*/
+
+  /********* Common Css Starts **********/
+  .billpayCommon .padd10{padding: 10px;}
+  .billpayCommon .padbtm0{padding-bottom: 0px;}
+  .billpayCommon .c6{color: #777}
+  .billpayCommon .padTop5{padding-top: 5px;}
+  .billpayCommon .padTop10{padding-top: 10px;}
+  .billpayCommon .padLft45{padding-left: 45px;}
+  .billpayCommon .padRgt0{padding-right: 0;}
+  .billpayCommon .padLft0{padding-left: 0;}
+  .billpayCommon .padd15{padding: 15px;}
+  .billpayCommon .padTopBtm15{padding-bottom: 15px; padding-top: 15px;}
+  .billpayCommon .bdrNone{border:0 !important;}
+  .billpayCommon .mrgn15{margin-left: 15px;margin-right: 15px;}
+  .billpayCommon .padLft6{padding-left: 6px;}
+  .billpayCommon .padLft20{padding-left: 20px;}
+  .billpayCommon .padTop20{padding-top: 20px;}
+  .billpayCommon .padbtm20{padding-bottom: 20px;}
+  .billpayCommon .padbtm10{padding-bottom: 10px;}
+  .billpayCommon .bdrbtm{border-bottom: 1px solid #ccc;}
+  .billpayCommon .bdrtp{border-top: 1px solid #ccc;}
+  .billpayCommon .dropdown-menu{ top: 98% !important;}
+  .billpayCommon .margin-top5{margin-top: 5px}
+  .billpayCommon .close-white {background-size: 17px;background-color: #1d86ff;height: 33px;width:33px;top: 0;background-position-x: 7px;background-position-y: 8px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+  .billpayCommon .outLine{outline:0;}
+  .billpayCommon .padd0{padding: 0;}
+  .billpayCommon .mrgnbtm0{margin-bottom: 0;}
+  .billpayCommon .mrgnTop0{margin-top: 0px;}
+  .regBillersNBMain .imgHgt, .billpayCommon .imgHgt{height: 70px; width:70px;}
+  .billpayCommon .mrgnbtm,.noBillers .input-box{margin-bottom: 2px;}
+  .billpayCommon .pos-rel{position: relative;}
+  .billpayCommon .padTop15{padding-top: 15px;}
+  .billpayCommon .padrgt15{padding-right: 15px;}
+  .billpayCommon a:focus,.billpayCommon a:hover{color: #1d86ff;}
+  .billpayCommon .detail-info .inner-rows .inner-cols li{text-transform: none;}
+  .billpayCommon .modal-header{margin-bottom: 20px;}
+  .billpayCommon .autopay{margin-top: 24px;}
+  .billpayCommon .mrgntop4{margin-top: 4px;}
+  .billpayCommon .padTop4{padding-top: 4px;}
+  .billpayCommon .blue .detail-info .inner-rows .inner-cols li:nth-of-type(1), .custom .detail-info .inner-rows .inner-cols li:nth-of-type(1), .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1), .status-template .detail-info .inner-rows .inner-cols li:nth-of-type(1) {width: 24%;}
+  .billpayCommon hdfc-account-debit-credit-dropdown .ui-select-container .ui-select-match div{word-break: break-all;}
+  .billpayCommon .transform20 .error-msg{margin-top:0px;}
+  .billpayCommon decimal-casing>span:nth-of-type(2){font-size:36px;color:#333;}
+  .billpayCommon table>tbody>tr>td{vertical-align: middle;}
+  .billpayCommon .loader-relative{position: absolute; height: 0px;}
+  .billpayCommon .ui-select-container[theme=bootstrap].direction-up .ui-select-dropdown {box-shadow: 0 -4px 8px rgba(0,0,0,0.05);}
+  .billpayCommon .panel-white .image-text-nb:nth-of-type(1) .success{height: 40px;width: 40px;background-size: 40px;}
+  .billpayCommon .btn-primary,.billpayCommon .btn-primary:active,.billpayCommon .btn-primary:hover,.billpayCommon .btn-primary:visited{color: #fff;}
+  .billpayCommon hdfc-amount  .input-relative:before{content:'₹';position: absolute;top: 8px;left:11px;}
+  .billpayCommon .disabledDiv{opacity: 0.5; pointer-events: none;}
+  .billpayCommon .height-45{height:45px;}
+  .billpayCommon .panel-white .success{width: 70px;height: 70px;background-size: 70px;}
+  .billpayCommon .dynamic-height .ui-select-container span{min-height:35px;}
+  .panel-white .detail-info .inner-rows .inner-cols li.width-72:nth-of-type(2){width:72%;}
+  .billpayCommon .ui-select-bootstrap>.ui-select-choices{max-height:155px !important;}
+  .endByselect .ui-select-bootstrap .ui-select-choices-row>span{word-break:unset !important;}
+  .billpayCommon input:-webkit-autofill {-webkit-box-shadow: 0 0 0 30px white inset;}
+  .billpayCommon .rupeefont{font-family: DejaVu Sans;}
+  .lp-widget-hdfc-billpay .payBill.panel-card{margin: 0 0 100px;}
+  .billpayCommon .margin-top15{margin-top: 15px;}
+  .billpayCommon .margin-bot15{margin-bottom: 15px;}
+.flexbbps {display: inline-flex;}
+.bbps-logo {width: 150px;height: 80px;display: inline-block;}
+.bbpspad{padding-right: 10px;padding-left: 10px;border: 0.5px solid lightgray;display: inline-block;}
+/********* Common Css Ends **********/
+/******** BillPayLanding Css Starts **********/
+  .historyTab .close-white{height: 35px;}
+  .historyTab .iconremove .ui-select-bootstrap .ui-select-toggle>.caret{display: none;}
+  .historyTab .iconremove input{width: 253px;}
+  .schedulesTab tbody tr:nth-child(even),.historyTab tbody tr:nth-child(even) {background: #ececec;}
+  .schedulesTab .textalign,.historyTab .textalign{text-align: right;}
+  .schedulesTab .noWrap,.historyTab .noWrap{white-space:nowrap;}
+  .lp-widget-hdfc-billpay .autoPayCard div p,.billpayCommon .padbtm10{padding-bottom:10px;}
+  .billpayCommon .pos-curr{position: absolute;right: 0;top: 0;}
+  .billpayCommon .crsrptr{cursor:pointer;}
+  .billpayCommon .form-section .form-group .form-field>label {margin:0;}
+  .noBillers .btn{padding: 6px 20px;}
+  .history .padrgt26{padding-right: 26px;}
+  .historySearch .text-search,.historySearch .input-group-addon{background: #fff !important;}
+  .noBillers .padTop2{padding-top: 2px;}
+  .insidebox{position: absolute; top: 3px; right:0;}
+  .paddnine hdfc-alphanumeric md-input-container:not(.md-input-invalid).md-input-focused .md-input ,.paddnine input {padding: 6px 35px!important;}
+  .nineone{position: absolute!important;left: 11px!important;top: 17px!important;font-size: 14px;font-style: inherit;font-family: inherit;}
+  .authhistory{width: 125px;word-wrap: break-word;}
+  .schdHstry .text-left{text-align: left !important; color: #444;}
+  .lp-widget-hdfc-billpay .biller-default {border-radius: 50%;}
+/******** BillPayLanding Css Ends **********/
+/******** PaymentDetails Css Starts *********/
+  .share-bar .share-bar-img{text-align: center;vertical-align: middle;display: inline-block;}
+  .share-bar a{padding-right: 20px;display: inline-block;}
+  .share {background-position-x: 4px; background-position-y: 4px; background-size: 17px;}
+  .download {background-position-x: 6px;background-position-y: 2px;background-size: 14px;}
+/******** PaymentDetails Css Ends *********/
+/******** PayBills Css Starts **********/
+  .lp-widget-hdfc-billpay .payBills .edit{position: absolute;right: 15px;top: 25px;}
+  .lp-widget-hdfc-billpay .color-red{color: red;}
+  .share-bar a:nth-child(3) .icon {height:20px;width: 20px;}
+  .lp-widget-hdfc-billpay .maxWdth{max-width:220px;}
+  .panel-white .payBillsList .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 24.5%;}
+  .lp-widget-hdfc-billpay .ui-state-highlight, .ui-widget-content .ui-state-highlight{background:none; color:#333;}
+  .lp-widget-hdfc-billpay .ui-state-active, .ui-widget-content .ui-state-active{background: #025296 !important; color: #fff !important;}
+/******** PayBills Css Ends **********/
+/******** AddBiller Css Starts **********/
+  .lp-widget-hdfc-billpay .panel-body>div{border-bottom: 0;}
+  .lp-widget-hdfc-billpay .brdrNone{border: 0;}
+  .lp-widget-hdfc-billpay .refDiv .btn{width: 40%;margin-top: 0px !important;}
+  .lp-widget-hdfc-billpay .maskDebit{-webkit-text-security:disc;}
+  .lp-widget-hdfc-billpay .ackHide .panel-footer{padding: 5px;border: none;border-top: 1px solid #1d86ff;border-bottom: 1px solid #ddd;border-radius: 0;}
+  .lp-widget-hdfc-billpay .icon-grid3 .icon-row .custom li { border-bottom: 1px solid #e6e6e6;}
+  .lp-widget-hdfc-billpay .marginLeft{margin-left: 26%;}
+*/  
+  .endByDate .input-box .parent-date{width: 180px;}
+.marginForBiller{margin-left:131px;}
+  .payNowCheckbox .checkbox-custom,.payAmount .input-box,.addbillerConfirm .checkbox-custom{margin-bottom: 0;}
+  .repeatDiv hdfc-dropdown .input-box .dropdown{width: 75px;}
+  .repeatDiv .dropdown-menu{min-width: 69px;}
+  .expirydate .dropdown-menu{min-width: 0px;}
+  .repeatDiv .mrgnLft{margin-left: 24%;}
+  .infoNB .single-dropdown a,.debitCreditDropdown .dropdown a{word-break: break-all;}
+  .payCurrBill .btn{margin-top: 15px;}
+  .addbiller .panel-white .detail-info{margin: 7px auto 0;}
+  .addbillerlist .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 24%;}
+/******** AddBiller Css Ends **********/
+/********** AutoPay Css Starts ************/
+  .lp-widget-hdfc-billpay .radio-tab:not(:first-child){border-left: 1px solid #025296;}
+  .lp-widget-hdfc-billpay .amountDiv{position: absolute;left: 70%;top: 25%;width :35%;transform: translate(-5%,-5%);}
+  .lp-widget-hdfc-billpay .daysDiv{position: absolute;left: 35%;width: 16%;top: 20%;transform: translate(-5%,-5%);}
+  .lp-widget-hdfc-billpay .endby .daysDiv{position: absolute;left: 30%;width: 100%;top: 20%;transform: translate(-5%,-5%);}
+  .lp-widget-hdfc-billpay .paymentDiv{position: absolute;right: 15%;top: 25%;transform: translate(-5%,-5%);}
+  .lp-widget-hdfc-billpay .autoPayMB .amountDiv{left: 50%;top: 0%;}
+  .lp-widget-hdfc-billpay .autoPayMB .daysDiv{position: absolute;left: 53%;width: 30%;top: 15%;transform: translate(-5%,-5%);}
+  .lp-widget-hdfc-billpay .disabled{outline: 0;background-color: #ddd;}
+  .lp-widget-hdfc-billpay .autoDatepicker .input-box md-input-container{margin-top: 7px;}
+  .lp-widget-hdfc-billpay .pos-end{position: relative;top: 3px;}
+  .lp-widget-hdfc-billpay .autoPay .pos-toggle{position: absolute;top: 3px;right: 0;}
+  .lp-widget-hdfc-billpay .billerAlign{height:70px; vertical-align:middle;}
+  .autopayNB .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1),.addbillerlist .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 24%;}
+  .billpayCommon .padbtm16{padding-bottom: 16px;}
+  /********** AutoPay Css Ends ************/
+  /**** loader css ****/
+  .billPayLoader .loader{position: fixed;width: 100%;height: 100%;opacity: 0.7;}
+  .billPayLoader img{position: absolute;left: 40%;top: 50%;transform: translate(-50%, -50%);}
+  .landingloader .billPayLoader img{left: 50%;}
+  .billPayLoaderAutopay img{position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+
+  /****  Loading CSS Ends ****/
+  /*Favourite css Starts*/
+  .margin-bottom38{margin-bottom: 38px;}
+  .favourite-feature-div .view-all{font-size: 14px;color: #00337f;text-transform: uppercase;vertical-align: middle;line-height: 2.3;}
+  .favourite-feature-div .fav-list .hdfc-para-color {color: #00337f;font-size: 10px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 82px;}
+  .favourite-feature-div .fav-bg img {border: 1px solid #00337f;border-radius: 50%;width: 50px;height: 50px;}
+  .favourite-feature-div .panel-white .panel-row .panel-cols:first-child{width:15%;vertical-align:top;padding-top:0px;}
+  .favourite-feature-div .panel-white .panel-row{padding:15px 0px;}
+  .favourite-feature-div .imagemini{width:34px;height:34px;}
+  .favourite-feature-div .imagetab{width:34px;height:34px;margin-right:10px;}
+  .favourite-feature-div .icon {top: 40px;}
+  .favourite-feature-div .panel-cols {vertical-align: top !important;}
+  .favourite-feature-div .panelPadding{padding:0px 20px;}
+  .favourite-feature-div .modal-header{margin-bottom:1px;margin-top:10px;}
+  .favourite-feature-div .panel-footer{border:none;}
+  .favouritePage .currencyHeight{line-height:14px;}
+  .favouritePage .OperatorName{color:#999999;margin:6px 0px;}
+  .iPad .img-text:nth-of-type(1) {display: table-cell;width: 20%;}
+  .iPad .img-text:nth-of-type(2) {display: table-cell;vertical-align: middle;padding-left: 10px;}
+  .status-template .img-circle{text-align:center;}
+  .loader{position: absolute;left:50%;top:50%;}
+/*Favourite css Ends*/
+/******************* NetBanking Css Starts **********************/
+  .lp-widget-hdfc-billpay .gridNB .custom-icon-grid .custom-icon-grid3>div{height: 135px;}
+  .lp-widget-hdfc-billpay .bg-c{background-color: #bedcff;  box-sizing: border-box;}
+  .nbPagination ul.pagination1 li:nth-of-type(2){margin: 0 3%;}
+  .nbPagination ul.pagination1 li:nth-of-type(2) input{padding: 0 3px;}
+  .billpayCommon .deleteBillerPopup .imgHgt{height: 50px;width: 50px;background-size: 50px;margin-top: 10px;}
+  .billpayCommon .modal-footer .btn+.btn{margin-left:auto!important;}
+.payBills .wrd-brk{word-break: break-word; width: 200px;}
+  .expiryMain .monthDiv .input-box .dropdown,.expiryMain .yearDiv .input-box .dropdown{width: 100%;}
+  .autopayRadio .radio-custom div:nth-child(1){margin-right:60px;width: 100%;}
+  .autopayRadio .radio-custom div:nth-child(2){margin-top:10px;width: 100%;}
+  .daysDiv .input-box .ui-select-container{width: 20%;}
+  .daysDiv .parent-date input[type=text]{width: 75%;}
+  .daysDiv .parent-date .date-picker{right: 27%;}
+  .addbillersSearch ul{border: 1px solid #ccc;border-bottom: none;border-radius: 4px;border-top: 0;border-top-left-radius: 0;border-top-right-radius: 0; position: absolute;}
+  .addbillersSearch .greysearch{width: 97%; background-color: #eee;max-height: 150px;overflow-y: scroll;}
+  .billpayCommon .searchBox{z-index: 1;width: 98%;padding: 0px;top: 35px;}
+  .billpayCommon .AddBillsearchBox{z-index: 1;width: 100%;padding: 0px;}
+  .billpayCommon .margin-bottom30{margin-bottom: 30px;}
+  .addbillersSearch ul li{padding: 10px;border-bottom: 1px solid #ccc;}
+  .addbillersSearch ul li:last-child{border-bottom: none;}
+  .enableAutopay .checkbox-custom,.payCurrentbill .input-box,.autopayAmount .input-box label{margin: 0;}
+  .payBillsAck .pos-rel .pos-curr{top: 22px;}
+  .autopayStatus .form-group .radio,.autopayAmount .input-box{margin-bottom: 0;}
+  .autopayAmount md-input-container .md-input,.autopayAmount .input-box md-input-container,.autopayAmount md-input-container:not(.md-input-invalid).md-input-focused .md-input{width: 170px;}
+  .detail-info .inner-rows .inner-cols li>p{color: #444;}
+  .regBillersNBMain .panel-footer{box-shadow: none;border: none;border-top: 1px solid #ccc;}
+  .regBillersNBMain .billerDetails div:last-child{border-bottom: none;}
+  .historyDropdown .input-box .dropdown,.alphaSearch md-input-container .md-input,.alphaSearch md-input-container:not(.md-input-invalid).md-input-focused .md-input{width: 100%;}
+  .alphaSearch .input-box md-input-container{position: absolute;width: 97%;}
+  .stopPay .mrgnLft{margin-left: 24.8%;}
+  .stopPay .mrgnTop20{margin-top: 20px;}
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{position: absolute;left: 70%;top: 8px;border-bottom-style: none;}
+  .infoNB .tooltip {position: relative;display: inline-block;}
+  .infoNB .tooltip .tooltiptext {visibility: hidden;width: 41px;color: #555;text-align: center;font-size: 10px;bottom:125%;right: 0;position: absolute;z-index: 1;}
+  .infoNB .tooltip:hover .tooltiptext {visibility: visible;}
+  .infoNB .tooltip .tooltiptext:after{content: "";position: absolute;top:96%;left: 291%;margin-left: -95px;border-width: 5px;border-style: solid;border-color: #555 transparent transparent;}
+  .lp-widget-hdfc-billpay .regBillersNB .btn {width: 150px;}
+  .lp-widget-hdfc-billpay .billerDetails .btn{margin-top: 10px;width: 160px;}
+  .lp-widget-hdfc-billpay .paymentDonebtn{margin-left: 33%;}
+  .lp-widget-hdfc-billpay .ackNB p{padding-top: 10px;}
+  .billersSearch .test,.historySearch .test,.addbillersSearch .test{position: absolute;top: 3px;z-index: 9999999;right: 18%;outline: none;}
+  .lp-widget-hdfc-billpay .infoTop{top:15px;}
+  .historySearch .test,.addbillersSearch .test{right: 4px;top: 3px;}
+  .addbillersSearch .text-search{background: #eee;box-shadow: none;}
+  .addbillersSearch .input-group-addon:last-child{top: 0;color: #1d86ff;}
+  .paymentdetails .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 27%;}
+  /*border red changes*/  
+  .lp-widget-hdfc-billpay .dropdown .ui-select-container{border:1px solid #c2c2c2; border-bottom-width: 2px; border-radius: 4px;}
+  .lp-widget-hdfc-billpay hdfc-dropdown .dropdown .ui-select-container .btn-default, hdfc-dropdown .ui-select-container .form-control{border: none !important;}
+  .lp-widget-hdfc-billpay .btn-default-focus{border:none !important; box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,255,233,.6);border-radius: 4px;}
+  .lp-widget-hdfc-billpay .border-red{border: 1px solid #dc3226 !important;border-bottom-width: 2px !important;border-radius: 4px;}
+  .lp-widget-hdfc-billpay .dropdown .ui-select-bootstrap>.ui-select-choices{margin-top: 1.5px;}
+    /*END*/
+  .lp-widget-hdfc-billpay .amountDisplay{color: #999!important;}
+/******************* NetBanking Css Ends **********************/
+/*************** Media Queries Starts ****************/
+
+
+@media only screen and (max-width: 768px) and (min-width: 321px){
+    .lp-widget-hdfc-billpay .wordMob{word-break: break-all;}
+    .lp-widget-hdfc-billpay .enableText{display: inline-flex; width: 159px; vertical-align: middle;}
+    .lp-widget-hdfc-billpay .marginLeft2{margin-left: 2px;}
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px)
+and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation:portrait)
+{
+   .lp-widget-hdfc-billpay .wid100{width: 100%;}
+   .lp-widget-hdfc-billpay .wid80{width: 80%; float: right;}
+   .lp-widget-hdfc-billpay .padRgt0 .fr{float: none;}
+   .lp-widget-hdfc-billpay .padRgt0 .text-right,.padRgt0 .text-center{text-align: left;}
+   .lp-widget-hdfc-billpay .billerDetails .btn{width: 100%;}
+
+}
+
+@media only screen and (max-width: 600px) {
+  .panel-white .detail-info .inner-rows .inner-cols li.width-72:nth-of-type(2){width:42%;}
+  .custom-icon-grid .custom-icon-grid3 img, .regBillersNBMain .imgHgt, .billpayCommon .imgHgt{height: 50px;width: 50px;}
+  .custom-icon-grid .custom-icon-grid3 p a{font-size: 10px;}
+  .stopPay .mrgnLft,.autopayStatus .form-group .radio{margin-left: 0;padding-left: 0;}
+  .autopayStatus .form-group .form-field>label{margin-top: 0;}
+  .billersSearch .test{top: 27px;right: 0;}
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{left: 92%;}
+  .daysDiv .input-box .ui-select-container{width: 100%;}
+  .repeatDiv .form-section .form-group .form-field{margin-bottom: 10px;}
+  .lp-widget-hdfc-billpay .daysDiv{top: 0;}
+  .repeatDiv .radio:first-child{margin-top: 5px; width: 100%;}
+  .billPayLoader .loader{width: 100%;}
+  .historyTab .historySearch{margin-bottom: 35px;}
+  .historySearch .test{top: 22px;} 
+  .repeatDiv .mrgnLft{margin-left: 0;} 
+  .mobFloat{float: right;}
+  .noBillers .imgHgt{margin-top:10px;}
+  .noBillers .btn{margin-top:3px;font-size:10px;padding:6px 10px;}
+  .nineone{top:26px;}
+  .noBillers .radio{margin:0px;}
+  .billpayCommon .mobsubtext{word-wrap: break-word; width: 100px;}
+  .billpayCommon .addbillermargintop{margin-top: 31px;}
+  .autopayNB .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1),.addbillerlist .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 50%;}
+  .paymentdetails .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1),.billpayCommon .panel-white .detail-info .inner-rows .inner-cols li:nth-of-type(1){width: 40%;}
+  .infoNB .tooltip .tooltiptext {width: auto;}
+  .billpayCommon .padLftmob0{padding-left: 0;}
+  .expiryDate .error-msg{margin-top: 4px !important;}
+  .billpayCommon .refDiv hdfc-alphanumeric .input-box{margin-top: 3px !important;}
+  .marginForBiller{margin-left: 0px;}
+}
+@media only screen and (max-width: 960px) and (min-width: 768px){
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{left: 97%;}
+  .lp-widget-hdfc-billpay .stopPay .mrgnLft{margin-left: 35.5%;}
+  .lp-widget-hdfc-billpay .paddtop15 {padding-top: 15px;}
+  .lp-widget-hdfc-billpay .wid43{width: 43%;}
+  .repeatDiv .mrgnLft{margin-left: 35%;}
+}
+@media only screen and (min-width: 481px) and (max-width:600px ) and (orientation:landscape){
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{top:8px!important;}
+}
+@media only screen and (max-width: 480px){
+  .lp-widget-hdfc-billpay .marginLeft{margin-left: 0%;}
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{top:25px!important;}
+  .nineone{top:9px!important;}
+}
+@media only screen and (min-width: 481px) and (max-width:767px ) {
+  .container-fluid .nb-portal .container .row .col-sm-6{width:auto!important;}
+}
+@media only screen and (max-width: 767px) and (min-width: 601px){
+  .lp-widget-hdfc-billpay .infoNB .info-tool-tip{left: 94%!important;position: absolute!important;top:8px!important;border-bottom-style: none;}
+  .repeatDiv .mrgnLft{margin-left: 35%;}
+}
+@media only screen and (min-width:768px){
+   .lp-widget-hdfc-billpay .thirdStep .form-section .form-group>label{width: 165px;}
+   
+}
+ 
+@media only screen and (min-width: 568px){
+  .schedulePop .detail-info .inner-rows .inner-cols li:nth-of-type(1) {width:24%;}
+}
+@media only screen and (min-width: 600px){
+  .four-btn>.btn:nth-of-type(1){float: none;}
+  .four-btn>.btn:nth-of-type(3) {margin-top:10px;float: right;}
+  .four-btn>.btn:nth-of-type(2) {margin-top:10px;float: left;margin-right: 2%;}
+  .forAddanotherBiller{float: unset !important;margin-right: auto !important;}
+  .four-btn>.btn:nth-of-type(4) {margin: 54px auto 0;float: none;}
+  .four-btn { margin: 20px auto 0;max-width: 503px;width: 100%;}
+  .four-btn>.btn{max-width: 246px;margin-top: 0;width: 49%;} 
+}
+
+@media only screen and (max-width:960px){
+  .landingloader .gridNB{margin-top: 25px;}
+}
+@media only screen and (max-width: 400px){
+  .billpayCommon table>tbody>tr>td,.billpayCommon table>thead>tr>th{padding: 8px 0px!important;}
+  .lp-widget-hdfc-billpay .billerAlign{height: 53px; vertical-align:middle;}
+  .billpayCommon .pos-curr{width: 27%;}
+  .billpayCommon .pos-curr p.c1 span.f20{font-size: 20px;}
+  .billpayCommon decimal-casing>span:nth-of-type(2){font-size:25px;}
+  .billpayCommon .pos-curr p.c2.f4{font-size: 12px; margin-left: 6px;}
+}
+@media only screen and (max-width:440px){
+	.payBills .wrd-brk{word-break: break-word; width: 125px!important;}
+}
+/*************** Media Queries Ends ****************/

@@ -1,0 +1,744 @@
+.blog-author {
+    position: relative;
+}
+.blog-author .picture {
+    float: left;
+    padding: 10px;
+}
+.blog-author .info {
+    float: right;
+}
+.blog-author .info h5 {
+    margin: 8px 0 6px;
+    color: #699B41;
+    font-size: 23px;
+    line-height: 26px;
+}
+
+.blog-author .info p {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.blog-author .info .contact {
+    display: block;
+    float: left;
+    width: 70%;
+}
+
+.blog-author .info .contact .address-1:before {
+    content: "Home";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .contact .address-2:before {
+    content: "Work";
+    color: #999;
+    padding-right: 20px;
+}
+
+.blog-author .info .enum {
+    display: block;
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+.bd-designMode-true .bd-empty-structured-content,
+.designMode .bd-empty-structured-content {
+    padding: 0;
+}
+
+.bd-designMode-true .bd-structured-content-widget,
+.designMode .bd-structured-content-widget {
+    min-height: 98px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after,
+.bd-over-structured-content .bd-structured-content-widget:after {
+    content: 'Replace ' attr(data-type);
+    display: block;
+    padding: 60px 30px 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    background:#f0f0f0 url(../media/drag-area-inactive.png) no-repeat center 13px;
+}
+
+.bd-designMode-true .bd-empty-structured-content .bd-structured-content-widget:after,
+.designMode .bd-empty-structured-content .bd-structured-content-widget:after {
+    content: 'Drop ' attr(data-type) ' here';
+}
+
+.bd-designMode-true .bd-over-structured-content .bd-structured-content-widget:after,
+.designMode .bd-over-structured-content .bd-structured-content-widget:after {
+    background-color: #bbb;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .8;
+    /*padding-top: 28%;*/
+}
+.bd-designMode-true .bd-empty-structured-content .bp-g-include,
+.designMode .bd-empty-structured-content .bp-g-include {
+    display: none;
+}
+
+/*CustomCSS*/
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.image-text {
+   	width:100%;
+   }
+   .image-text img {
+      display:block;
+      }
+
+
+
+.image-text.banner-right p{
+    line-height: normal;
+}
+
+.sampledrop{
+display:none;
+}
+
+.wayto{
+display:none;
+}
+.Identify{
+display:none
+}
+
+.selectCSS {
+margin-bottom:5px !important;
+}
+.iconSmall{
+
+    display: inline-block;
+    word-wrap: break-word;
+}
+.buttonDiv{
+padding: 0px;
+    margin-right:5px;
+}
+
+.btn-primary-custom:hover{
+        background-color: #fff;
+        color: #1d86ff;
+        border:1px solid #1d86ff;
+}
+.btn-primary-custom {
+    background: #1d86ff;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 6px 20px;
+}
+.btn-custom {
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    border-radius: 3px;
+
+   margin-top:5px;
+}
+.myButton{
+
+width: 100%;
+
+}
+/* Start Css for what are you looking for?*/
+.banner-right{
+
+    border: 1px solid #dedede;
+    background: #fff;
+    padding: 16px 12px 10px 12px;
+}
+
+.text-link{
+    float: right;
+        margin-top: -40px;
+        margin-right: 66px;
+        width: 107px;
+}
+
+/*End css for what are you looking for?*/
+/*Start CSS for Card Details*/
+.backGround{
+    background-color:#ffffff;
+    width:83%;
+}
+.title{
+    font-weight:700;
+}
+
+ul.tabs li.active {
+    border-top: 5px solid #00337e;
+}
+
+ul.tabs li {
+    width: 24%;
+    border-top: 5px solid transparent;
+}
+
+ul.tabs li:first-child.active a{
+    border-left: 0px solid #00337e;
+}
+
+ul.tabs li.active a {
+    border-radius: 0;
+    color: #00337e;
+    font-weight: 700;
+    margin-right: 0;
+    border-top: 1px solid transparent;
+}
+
+ul.tabs li a{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #333333;
+    text-align: center;
+}
+
+.accordion {
+    list-style: none;
+    padding: 0 0 0 0;
+
+}
+
+.hideForLarge{
+    display:none;
+}
+
+
+.header{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.contentBody{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+    margin-left: -5px;
+    margin-right: -5px;
+    position: relative;
+}
+
+.nav-tabs.allMilesTabs{
+    border-bottom:1px solid #ddd;
+}
+
+.mainHeader{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    margin-left: 15px;
+    padding-top: 15px;
+}
+
+/*.sub-content{
+    margin-top: 20px;
+    padding:20px;
+}*/
+/*.contentBody2{
+    margin-left:-15px;
+}
+.ww{
+    width:69%;
+}
+.link{
+color:#1d86ff;
+}
+
+.banner{
+    background-color: #99ccff;
+    height: 68px;
+    width: 451px;
+    max-width: 100%;
+    position: relative;
+    border: 1px solid #ddd;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+    margin-top: 30px;
+}
+.imge{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 107px;
+    height: 83px;
+}
+ .quote{
+    padding: 10px 20px 15px 130px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: #00337e;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+
+@media(max-width:320px){
+.quote{
+    font-size:8px;
+}
+}
+
+@media (max-width:768px)
+{
+.allMilesTabs{
+    display:none;
+}
+
+.hideForLarge{
+    display:none;
+}
+.showForSmall{
+display:block;
+}
+.header {
+    margin-bottom: 0;
+    padding-right: 30px;
+    position: relative;
+    font-size: 15px;
+    background: #f2f7fd;
+    padding: 10px;
+    text-transform: uppercase;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+.arrowIcon{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #00b6ff;
+}
+.sub-content{
+display:none;
+}
+
+.contentBody{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.contentBody p{
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+}
+@media(max-width:960px){
+.ww{
+width:71%
+}
+.backGround{
+width:115%
+}
+}
+@media(min-width:768px)
+{
+    *//*.banner-right{
+        width:234px;
+
+    }*//*
+}
+
+*//*END CSS for Card Details*//*
+
+@media (max-width:768px){
+
+*//*.imageLink{
+
+    height:50%;
+
+}*//*
+}
+.card-offer-contr {
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+    float: left;
+}
+.mB20 {
+    margin-bottom: 20px;
+}
+.mB0 {
+    margin-bottom: 0!important;
+}
+
+.mT0 {
+    margin-top: 0!important;
+}
+.mTn10 {
+    margin-top: -10px;
+}
+@media screen and (max-width: 767px){
+
+    .pull-left{
+
+        float: none !important;
+    }
+    .card-offer-contr .full-contr  {
+        width: 150px;
+    }
+
+    .card-offer-contr .rating-contr-sml .full-contr {
+        width: 100%;
+    }
+
+    .card-offer-contr .rating-contr-sml     .show-for-small{
+        padding-left: 15px;
+        float: left;
+        width: 50%;
+        display: block;
+    }
+    .card-offer-contr  {
+        margin-bottom: 10px!important;
+    }
+    .hide-for-large {
+        display: block;
+    }
+    .show-for-small {
+        display: block;
+    }
+    .hide-for-small{
+
+        display: none;
+    }
+}
+.pull-right {
+    float: right!important;
+}
+.full-contr {
+    width: 100%;
+    float: left;
+}
+
+.mB5 {
+    margin-bottom: 5px;
+}
+.hide-for-large {
+    display: none;
+}
+.fs13 {
+    font-size: 13px;
+}
+
+.mT10 {
+    margin-top: 10px!important;
+}
+.mL5 {
+    margin-left: 5px;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.mR5 {
+    margin-right: 5px;
+}
+
+.mT2 {
+    margin-top: 2px!important;
+}
+
+.pull-left {
+    float: left;
+}
+.user-number {
+    font-size: 12px;
+    color: #337ab7;
+}
+.offer-dtl {
+    width: 100%;
+    float: left;
+}
+.mB10 {
+    margin-bottom: 10px!important;
+}
+.offer-dtl ul li i.offer-icon {
+    position: absolute;
+left: 0;
+    top:0;
+}
+.offer-dtl ul li {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 0 0 30px;
+}
+*//*@media screen and (max-width: 539px) and (min-width: 480px){*//*
+    *//*.btn-primary {*//*
+        *//*width: 208px;*//*
+    *//*}}*//*
+*//*@media screen and (max-width: 368px){*//*
+    *//*.btn-primary {*//*
+        *//*width: 208px;*//*
+    *//*}}*//*
+.mybtn{
+
+    width: 48%;
+}
+.cardTitle{
+
+    margin-top: 0px;
+}
+.panel-custom{
+
+    border-radius: 4px;
+}
+.brdr-gray {
+    border: 1px solid #dedede!important;
+}
+
+.panel-heading-custom {
+    background: #D6E9FC;
+    padding: 15px;
+    position: relative;
+}
+.icon-down-open-big {
+    float: right;
+    position: absolute;
+    top: 22%;
+    right: 10px;
+    font-size: 20px;
+    color: #1d85fe;
+    cursor: pointer;
+}
+.panel-body-custom{
+
+    padding: 20px;
+}
+.arrowRotate{
+
+    transform: rotate(180deg);
+}
+.panel-custom h5{
+
+    font-weight: 700;
+}.panel-custom h4{
+     margin-bottom: 0;
+     font-weight: 600;
+     text-transform: capitalize;
+     line-height: 22px;
+     margin: 0;
+     padding: 0;
+
+     font-size: 16px;
+ }
+
+ .panel-custom input{
+
+     position: relative;
+     display: block;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.checkbox label, .radio label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+}
+.LeftArrow{
+
+    display: none;
+}
+ .RightArrow{
+
+    display: none;
+}
+.checkbox input[type=checkbox], .radio input[type=radio]{
+
+    top: -5px;
+}
+.scrollableArea{
+
+    transform: translate3d(0px, 0px, 0px);
+}
+@media screen and (max-width: 599px) and (min-width: 481px) {
+    .panel-custom .col-sm-4{
+
+
+    }
+    .suggest-scrl {
+        width: 138px;
+        float: left;
+        padding-right: 0px ;
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 600px)
+{
+    .suggest-scrl {
+        width: 195px;
+        float: left;
+    }}
+
+.suggest-scrl {
+
+    padding-right: 0px ;
+}
+
+@media (max-width: 480px)and (min-width: 321px){
+    .scrollableArea{
+
+        position: relative;
+    }
+   *//* .btn-primary-custom{
+
+        width: 273px;
+    }*//*
+.RightArrow{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+cursor: pointer;
+}
+    .buttonContainer{
+
+        text-align: center;
+        width:100%;
+    }
+    .LeftArrow {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        cursor: pointer;
+    }
+    .panel-body-custom{
+
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+    .suggest-scrl{
+
+        display: inline-block;
+        width: 100%;
+    }
+
+}*/
+
+/*.pop-up-BankingOmbudsman{
+    display:none;
+}*/
+.BankingOmbudsman-parent {
+    margin-bottom: 0px;
+}
+.BankingOmbudsman-parent .links li{
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 0 0 30px;
+}
+.BankingOmbudsman-parent .links li img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.pop-up-BankingOmbudsman{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 99999999;
+    overflow: auto;
+    display:none;
+}
+.pop-up-BankingOmbudsman .pop-up-content{
+    width: 900px;
+    position: relative;
+    background: #fff;
+    top: 9%;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    overflow: visible;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman{
+    height: 355px;
+    overflow-y: scroll;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .BankingOmbudsmanHeading{
+    padding: 17px 0 0;
+    color: #005593;
+    font-size: 1em;
+    border-bottom: 1px solid #d0d0d0;
+    clear: both;
+    margin: 0 0 10px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .link{
+display:inline;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .link li {
+display:inline;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .link li{
+padding-right:150px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .link li:before{
+    background:url(../media/arrow-left.png) 0 0 no-repeat;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman  .nodal-officer{
+border-bottom:1px solid #ddd;
+margin-bottom:30px;
+margin-top:20px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman table{
+border:1px solid #D6D6D6;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman table tr td{
+border-right:1px solid #c6c6c6;
+border-top:1px solid #c6c6c6;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman table tr th{
+border-right:1px solid #c6c6c6;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .table-banking{
+    margin-top:14px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .BankingOmbudsman .table-banking table tbody tr th{
+    color:#fff;
+}
+
+.pop-up-BankingOmbudsman .pop-up-content .close-button{
+      position: absolute;
+      right: -11px;
+      top: -17px;
+}
+.pop-up-BankingOmbudsman .pop-up-content .close-button img{
+    width: 30%;
+    background: #fff;
+    border-radius: 50%;
+}

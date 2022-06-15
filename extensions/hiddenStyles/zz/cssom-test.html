@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=100%, initial-scale=1.0">
+  <title>cssom test</title>
+  <script>
+    window.TLT = {};
+    window.TLT.addModule = function (name, modfunc) {
+      console.log("addModule: "+name);
+      TLT[name] = modfunc(null);
+    }
+  </script>
+  <script src="../uic/extensions/cssom.sd.js"></script>
+  <style id="stylenode"></style>
+  <style id="stylenode2"></style>
+  <style id="stylenode3"></style>
+</head>
+<body>
+  <h2>CSSOM test</h2>
+  <p>some text to show style</p>
+  <script>
+    // test cssom style node existing before init
+    var n = document.getElementById("stylenode");
+    n.sheet.insertRule("p { color: red; }");
+    TLT.hiddenStyles.init();
+    // test cssom style node created after init
+    var n3 = document.getElementById("stylenode3");
+    n3.sheet.insertRule("h2 { color: green; }");
+  </script>
+  <p>add and remove rules in CSSOM</p>
+  <button onclick="n.sheet.insertRule('p { color: blue; }');">Make paragraph blue</button>
+  <button onclick="n.sheet.insertRule('p { color: yellow; }');">Make paragraph yellow</button>
+  <button onclick="n3.sheet.insertRule('h2 { color: blue; }');">Make heading blue</button>
+  <button onclick="n.sheet.deleteRule(0);">remove rule 0 on paragraph</button>
+  <button onclick="n.sheet.deleteRule(1);">remove rule 1 on paragraph</button>
+  <button onclick="n.sheet.deleteRule(2);">remove rule 2 on paragraph</button>
+</body>
+</html>

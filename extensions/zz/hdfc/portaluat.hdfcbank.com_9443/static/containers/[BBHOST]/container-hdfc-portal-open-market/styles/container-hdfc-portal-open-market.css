@@ -1,0 +1,18 @@
+html.bd-designMode-true .container-hdfc-portal-open-market--area {
+	min-height: 100px;
+}
+.bd-designMode-true .template-hdfc-portal-open-market{
+    padding : 10px 0px;
+}
+.template-hdfc-portal-open-market .container{
+    margin-top: 0px;
+}
+.bd-designMode-true .bp-area.template-hdfc-portal-open-market--area{
+    display : block
+}
+.bp-area.template-hdfc-portal-open-market--area{
+    display : none
+}
+.bp-area.template-hdfc-portal-open-market--area.valid-customer{
+    display : block
+}

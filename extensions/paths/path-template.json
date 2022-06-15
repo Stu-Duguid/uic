@@ -1,0 +1,307 @@
+{
+  "events" : [ {
+    "displayName" : "Path Stone",
+    "internalName" : "E_PATH_STONE_1615618648559",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "path" ],
+    "description" : "Looks for a new stepping stone in the path via session attribute Path Stone Found, then sets session attributes Path Stone & Path.\nStores path in object and fires Path Time event with duration since last stone.",
+    "trigger" : "AfterEveryStep",
+    "publish" : "Immediate",
+    "mode" : "Advanced",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_PATH_STONE_1615618648559()\n{\n    // check if new stone found\n    var stone = $S.getCustomVar(\"SSV_1042\"); // Path Stone Found\n    if (stone !== \"\")\n    {\n        // blank found flag event\n        $S.setCustomVar(\"SSV_1042\", \"\");\n        $S.setCustomVar(\"SSV_1041\", stone); // Path Stone\n    \n        // set path\n        var pathObj = $S.getCustomJSObj(\"path\") || { msgs: [] };\n        pathObj.msgs.push(stone);\n        $S.setCustomJSObj(\"path\", pathObj);\n        // set session path object\n        $S.setCustomVar(\"SSV_1040\", pathObj.msgs.join(\" > \")); // Path\n    \n        // check if previous stone\n        var lastStone, lastStoneTime;\n        if ($F.getEventCount(\"E_PATH_STONE_1615618648559\") === 0)\n        {\n            // first stone in path\n            lastStone = \"empty\";\n            lastStoneTime = 0;\n        }\n        else\n        {\n            lastStone = $F.getLastEventValue(\"E_PATH_STONE_1615618648559\");\n            lastStoneTime = Math.round(($S.LastHitEpoch - $F.getLastHitTime(\"E_PATH_STONE_1615618648559\"))/1000);\n            // separate event to get time as numeric value\n            $F.setFacts(\"E_PATH_TIME_1615618745280\", lastStoneTime, { \"DIM_PATH_STONE_1615619521345\": lastStone, \"DIM_PATH_STONE_TIME_1615619612227\": lastStoneTime });\n        }\n    \n        // set event with value=stone, dim=lastStone+timing\n        $F.setFacts(\"E_PATH_STONE_1615618648559\", stone, { \"DIM_PATH_STONE_1615619521345\": lastStone, \"DIM_PATH_STONE_TIME_1615619612227\": lastStoneTime });\n    }\n}\n",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Path Stone Found",
+          "internalName" : "SSV_1042",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionStateVariable",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "pathstonefound",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Path Stone",
+          "internalName" : "SSV_1041",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionStateVariable",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "pathstone",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Path",
+          "internalName" : "SSV_1040",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionStateVariable",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "path",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Path Time",
+          "internalName" : "E_PATH_TIME_1615618745280",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "Value",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "pathtime",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : false,
+    "buildingBlockOnly" : false,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : {
+      "Path Times" : false
+    }
+  }, {
+    "displayName" : "Path Time",
+    "internalName" : "E_PATH_TIME_1615618745280",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "path" ],
+    "description" : "Fired from Path Stone event. Records the time spent between stepping stones on the path.",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_PATH_TIME_1615618745280()\n{\n    if (($S.FirstScreenView.toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PATH_TIME_1615618745280\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "First ScreenView of Session",
+          "internalName" : "S_FIRST_SCREENVIEW",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionAttribute",
+        "conditionOperator" : "IsEmpty",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Numeric",
+    "storeMetrics" : "CountAndValueMetrics",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : false,
+    "buildingBlockOnly" : false,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : {
+      "Path Times" : false
+    }
+  }, {
+    "displayName" : "Path",
+    "internalName" : "E_PATH_1615618803587",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "path" ],
+    "description" : "End of session summary event for reporting on path seen in session",
+    "trigger" : "AtSessionEnd",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_PATH_1615618803587()\n{\n    if ($F.getEventCount(\"E_PATH_STONE_1615618648559\") > 0)\n    {\n        $F.setFacts(\"E_PATH_1615618803587\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Path Stone",
+          "internalName" : "E_PATH_STONE_1615618648559",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : false,
+    "buildingBlockOnly" : false,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : {
+      "Path" : false
+    }
+  }, {
+    "displayName" : "Blank for Advanced Mode",
+    "internalName" : "E_ADVANCED_MODE_1615619107032",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "path" ],
+    "description" : "Never firing event used as placeholder to populate session attributes and trigger events that are done through advanced mode",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_ADVANCED_MODE_1615619107032()\n{\n    if (($S.FirstScreenView.toUpperCase() == \"\"))\n    {\n        $F.setFacts(\"E_ADVANCED_MODE_1615619107032\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "First ScreenView of Session",
+          "internalName" : "S_FIRST_SCREENVIEW",
+          "type" : "SessionAttribute"
+        },
+        "leftOperandValueType" : "SessionAttribute",
+        "conditionOperator" : "IsEmpty",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : false,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  } ],
+  "dimensions" : [ {
+    "displayName" : "Path",
+    "internalName" : "DIM_PATH_1615619467485",
+    "tags" : [ "path" ],
+    "description" : "Path of stepping stones seen in session. Set as a string A > B > C",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : {
+      "displayName" : "Path",
+      "internalName" : "SSV_1040",
+      "type" : "SessionAttribute"
+    },
+    "defaultValue" : "TLT$OTHERS",
+    "publish" : "Immediate",
+    "whiteList" : [ ],
+    "valueToRecord" : "WhiteListPlusObservedValues",
+    "maxObservedValues" : 1000,
+    "turnOnLogging" : false
+  }, {
+    "displayName" : "Path Stone",
+    "internalName" : "DIM_PATH_STONE_1615619521345",
+    "tags" : [ "path" ],
+    "description" : "The name of a stepping stone in the path.\nSet in advanced mode by the Path Stone event.",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : {
+      "displayName" : "Blank for Advanced Mode",
+      "internalName" : "E_ADVANCED_MODE_1615619107032",
+      "type" : "Event"
+    },
+    "populateWith" : "FirstValueInSession",
+    "defaultValue" : "empty",
+    "publish" : "Immediate",
+    "whiteList" : [ ],
+    "valueToRecord" : "WhiteListPlusObservedValues",
+    "maxObservedValues" : 1000,
+    "turnOnLogging" : false
+  }, {
+    "displayName" : "Path Stone Time",
+    "internalName" : "DIM_PATH_STONE_TIME_1615619612227",
+    "tags" : [ "path" ],
+    "description" : "The time on a stepping stone in the path. Set in advanced mode by the Path Stone event.",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : {
+      "displayName" : "Blank for Advanced Mode",
+      "internalName" : "E_ADVANCED_MODE_1615619107032",
+      "type" : "Event"
+    },
+    "populateWith" : "FirstValueInSession",
+    "defaultValue" : "0",
+    "publish" : "Immediate",
+    "whiteList" : [ ],
+    "valueToRecord" : "WhiteListPlusObservedValues",
+    "maxObservedValues" : 10000,
+    "turnOnLogging" : false
+  } ],
+  "dimensionGroups" : [ {
+    "displayName" : "Path",
+    "internalName" : "DG_PATH_1615619770475",
+    "tags" : [ "path" ],
+    "description" : "The stepping stones seen in the path. Can filter by if particular stepping stones are seen.",
+    "active" : true,
+    "dimensions" : [ "Path", "Path Stone" ]
+  }, {
+    "displayName" : "Path Times",
+    "internalName" : "DG_PATH_TIMES_1615619833736",
+    "tags" : [ "path" ],
+    "description" : "The time spent on stepping stones in the path. Can filter by if a stone is seen.",
+    "active" : true,
+    "dimensions" : [ "Path Stone Time", "Path Stone" ]
+  } ],
+  "sessionAttributes" : [ {
+    "displayName" : "Path",
+    "internalName" : "SSV_1040",
+    "tags" : [ "path" ],
+    "description" : "Path of stepping stones seen in session.\nSet from Path Stone event.",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : [ {
+      "displayName" : "Blank for Advanced Mode",
+      "internalName" : "E_ADVANCED_MODE_1615619107032",
+      "type" : "Event"
+    } ],
+    "identityType" : "None"
+  }, {
+    "displayName" : "Path Stone",
+    "internalName" : "SSV_1041",
+    "tags" : [ "path" ],
+    "description" : "The name of the most recent stepping stone seen on the path",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : [ {
+      "displayName" : "Blank for Advanced Mode",
+      "internalName" : "E_ADVANCED_MODE_1615619107032",
+      "type" : "Event"
+    } ],
+    "identityType" : "None"
+  }, {
+    "displayName" : "Path Stone Found",
+    "internalName" : "SSV_1042",
+    "tags" : [ "path" ],
+    "description" : "Add events here which are stepping stones on the path to be measured.\nThe events should have a value equal to the name to be displayed in the path.",
+    "active" : true,
+    "capturePersonalData" : false,
+    "populatedBy" : [ {
+      "displayName" : "Blank for Advanced Mode",
+      "internalName" : "E_ADVANCED_MODE_1615619107032",
+      "type" : "Event"
+    } ],
+    "identityType" : "None"
+  } ],
+  "hitAttributes" : [ ],
+  "stepAttributes" : [ ]
+}

@@ -1,0 +1,121 @@
+/************ Change ipin css starts *************/
+.changeIpin md-input-container .border-red {
+    border:1px solid red!important;
+}
+.changeIpin .panel {
+    border: none;
+    margin-bottom:0px;
+}
+.changeIpin .margin-bottom30 {
+    margin-bottom:30px;
+}
+.changeIpin .margin-bottom10 {
+    margin-bottom:10px;
+}
+.changeIpin .margin-top20 {
+    margin-top:20px;
+}
+.changeIpin .passwordText {
+    margin-right:78px;
+}
+.changeIpin .confirmNewIpin .input-box{
+    margin-bottom:0px;
+}
+.changeIpin .confirmNewIpin .error-msg
+{
+    margin-bottom:10px;
+}
+.changeIpin .panel-card {
+    margin:0 0 0px;
+}
+.changeIpin .statictext {
+    margin-left:183px;
+}
+.changeIpin hdfc-specialchar .input-box label {
+    width: 180px;
+}
+.changeIpin ul#strength {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:5px 0;
+    vertical-align:2px;
+    margin-left: 183px;
+}
+.changeIpin ul#strength label {
+    font-size:12px;
+    font-weight:normal;
+    margin-right:5px;
+}
+.changeIpin label#remarks {
+    margin-left:5px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .changeIpin .statictext{
+        margin-bottom:10px;
+    }
+}
+@supports (-ms-ime-align: auto) {
+    .changeIpin .statictext{
+        margin-bottom:10px;
+    }
+}
+@-moz-document url-prefix() {
+    .changeIpin .statictext{
+        margin-bottom:10px;
+    }
+}
+.changeIpinStatus .margin-top20 {
+    margin-top: 20px;
+}
+.changeIpinStatus .margin-top40 {
+    margin-top: 40px;
+}
+.changeIpinStatus .margin-bottom35 {
+    margin-bottom: 35px;
+}
+.changeIpinStatus .margin-bottom40 {
+    margin-bottom: 40px;
+}
+@media screen and (max-width: 767px) {
+    .changeIpin .statictext {
+        margin-left:0px;
+        margin-bottom: 16px;
+    }
+    .changeIpin ul#strength {
+        margin-left:0px;
+    }
+    .changeIpin .passwordText {
+          margin-right: 75%;
+           }
+}
+
+@media only screen and (min-device-width: 480px) and (max-device-width:766px) {
+    .changeIpin .passwordText {
+     margin: auto;
+     width: auto;
+     text-align: unset;
+     margin-bottom: 10px;
+    }
+}
+@media only screen and (min-device-width: 416px) and (max-device-width:479px) {
+    .changeIpin .passwordText {
+     margin: auto;
+      width: auto;
+      text-align: unset;
+      margin-bottom: 10px;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width:415px) {
+    .changeIpin .passwordText {
+         margin: auto;
+         width: auto;
+         text-align: unset;
+         margin-bottom: 10px;
+    }
+}
+.changeIpinStatus .btn-default, .btn-default-grey, .btn-primary{
+    font-size: 16px;
+}
+
+/************ Change ipin css ends *************/

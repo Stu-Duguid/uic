@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+
+  </head>
+  <body style="height=667">
+    <h2> test page - iframe in replay and heatmap </h2>
+    <p> some text </p>
+    <div style="height: 300px; overflow: scroll;">
+      <p>
+        <a href="" onclick="document.getElementById('london').removeAttribute('hidden');document.getElementById('paris').setAttribute('hidden', '');document.getElementById('tokyo').setAttribute('hidden', '');return false;">London</a>
+        <a href="" onclick="document.getElementById('london').setAttribute('hidden', '');document.getElementById('paris').removeAttribute('hidden');document.getElementById('tokyo').setAttribute('hidden', '');return false;">Paris</a>
+        <a href="" onclick="document.getElementById('london').setAttribute('hidden', '');document.getElementById('paris').setAttribute('hidden', '');document.getElementById('tokyo').removeAttribute('hidden');return false;">Tokyo</a>
+      </p>
+      <div id=london>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+        <p>london... london london london london london london london london london london london london london london london london london london london </p>
+      </div>
+      <div id=paris hidden>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+        <p>paris... paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris paris </p>
+      </div>
+      <div id=tokyo hidden>
+        <p>tokoyo... tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo </p>
+        <p>tokoyo... tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo </p>
+        <p>tokoyo... tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo tokyo </p>
+      </div>
+    </div>
+    <p> some other text </p>
+  </body>
+</html>
