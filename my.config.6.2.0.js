@@ -100,6 +100,9 @@
             { name: "error", target: window },
             { name: "visibilitychange" }
           ]
+        },
+        hiddenStyles: {
+          enabled: true
         }
       },
       // normalization: { // defaults as empty
