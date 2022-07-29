@@ -21,7 +21,6 @@
       TLT.terminationReason = "Unsupported browser";
       return;
   }
-  var iOSversion = /(?:iPhone|iPad|iPod).+? OS (\d+)_(\d+)/.exec(navigator.userAgent);
 
   var config = {
     core: {
@@ -124,7 +123,7 @@
       queue: {
         // tltWorker: null, // default not used
         asyncReqOnUnload: /WebKit/i.test(navigator.userAgent),
-        useBeacon: (iOSversion && iOSversion[1] + "." + iOSversion[2] >= 13.0), // default true
+        // useBeacon: true, // default true
         // useFetch: true, // default true
         queues: [{
           qid: "DEFAULT",
@@ -144,19 +143,6 @@
             targets: [ "input[type=password]" ],
             maskType: 2
           },
-          // {
-          //   targets: [
-          //     "input[autocomplete^=cc-]", "input[id^=cc-]", "input[name^=cc-]",
-          //     "#number", "#expiry", "#cvv", // credit cards
-          //     { id: { regex: "(card|credit)", flags: "g" }, idType: -1 } // anything with card or credit in id
-          //   ],
-          //   maskType: 3
-          // },
-          {
-            targets: [ "input[type=email]", "input[id*=email]" ],
-            maskType: 4, // mask the username and the initial domain name part
-            maskFunction: function(value) { return value.replace(/^[^@]+(@|$)/, "[user]$1").replace(/@[^.]+/, "@[domain]"); }
-          },
           {
             targets: [ "input[id*=phone]", "input[name*=phone]" ],
             maskType: 4, // replace all digits with X except last 3
@@ -170,7 +156,6 @@
               "input[type=hidden]", "input[type=radio]", "input[type=checkbox]", "input[type=submit]", "input[type=button]", "input[type=search]",
               // already mentioned so avoid twice masking
               "input[type=password]",
-              "input[type=email]", "input[id*=email]",
               "input[id*=phone]", "input[name*=phone]",
             ],
             maskType: 4, // replace all alphas with X and digits with 9
@@ -178,70 +163,23 @@
               return value.replace(/[a-z]/gi, "X").replace(/[0-9]/g, "9");
             }
           },
-          // {
-          //   targets: [
-          //     "div.tt-suggestion", "div.summary__detail--wrap div p"
-          //   ],
-          //   maskType: 4,
-          //   maskFunction: function (val, element) {
-          //     if (element && element.innerText) {
-          //       element.innerText = "[masked]";
-          //     }
-          //     // Return unmasked value. May choose to apply masking to the value as appropriate.
-          //     return val;
-          //   }
-          // }
+          {
+            targets: [
+              // "div.someclass p:nth-child(2)"
+            ],
+            maskType: 4,
+            maskFunction: function (value, element) {
+              if (element && element.innerText) {
+                element.innerText = element.innerText.replace(/[a-z]/gi, "X").replace(/[0-9]/g, "9");
+              }
+              return value;
+            }
+          }
         ],
-        privacyPatterns: [
-          // can use replacement: "$1"
-          //
-          // replace content inside tag with class pii-x with an X for each character
-          // {
-          //   pattern: { regex: /(class=".*?pii-x.*?>)(.*?)</, flags: "g" },
-          //   replacement: function(match, p1, p2) { return p1+p2.replace(/./g, 'X')+"<"; }
-          // },
-          // replace content inside tag with class pii-f with a fixed message
-          // {
-          //   pattern: { regex: /(class=".*?pii-f.*?>)(.*?)</, flags: "g" },
-          //   replacement: function(match, p1, p2) { return p1+"#pii"+"<"; }
-          // },
-          // {
-          //   // replace any innnerText inside pii tag or child tags with an X for each character
-          //   pattern: { regex: /<([a-z]+) [^>]*?pii-mask[^>]*>(.|\n)*?<\/\1>/, flags: "g" },
-          //   replacement: function(match) {
-          //     function swapX(s) { return s.replace(/[^<>\s]/g, 'X'); }
-          //     return match.replace(/>[^<]+</g, swapX);
-          //   }
-          // },
-          // data-piiexclude matching for spans
-          // {
-          //   pattern: { regex: /(<span [^>]*?data-piix[^>]*?>)([^\0]*?)(<\/span>)/, flags: "g" },
-          //   replacement: function(match, p1, p2, p3) { return p1+p2.replace(/./g, 'X')+p3; }
-          // },
-          // data-piiexclude class matching for paragraphs
-          // {
-          //   pattern: { regex: /(<p [^>]*?data-piix[^>]*?>)([^\0]*?)(<\/p>)/, flags: "g" },
-          //   replacement: function(match, p1, p2, p3) { return p1+p2.replace(/./g, 'X')+p3; }
-          // },
-          // data-piiexclude class matching for divs
-          // {
-          //   pattern: { regex: /(<div [^>]*?data-piix[^>]*?>)([^\0]*?)(<\/div>)/, flags: "g" },
-          //   replacement: function(match, p1, p2, p3) { return p1+p2.replace(/./g, 'X')+p3; }
-          // }
-          // to remove suggested addresses in drop down - matches complete list and replaces items
-          // {
-          //   pattern: { regex: /Select your address from the results below.*?Can't find a match/, flags: "g" },
-          //   replacement: function (fullMatch) {
-          //     return fullMatch.replace(/<li>.*?</g, "<li>(address masked)<");
-          //   }
-          // },
-        ]
+        privacyPatterns: []
       },
       encoder: {
-        gzip: {
-          encode: "window.pako.gzip",
-          defaultEncoding: "gzip"
-        }
+        gzip: { encode: "window.pako.gzip", defaultEncoding: "gzip" }
       },
       domCapture: {
         // diffEnabled: true, // default true
@@ -260,12 +198,9 @@
         // normalizeTargetToParentLink: true, // default true
         // blacklist: [ "duplicateid", {regex: /snerklex/, flags: "gi"} ],
         // customid: [ "tlf" ] // default []
-      }
+      } 
     },
     modules: {
-      // overstat: {
-      //   hoverThreshold: 1000 // default 1000
-      // },
       performance: {
         calculateRenderTime: true, // default false
         renderTimeThreshold: 600000,
@@ -287,7 +222,6 @@
             // { event: "load", delayUntil: { selector: "html.async-hide", exists: false, timeout: 3000 }},
             // { event: "click", targets: ["button#btnSubmit"], delay: 500 },
             { event: "click" },
-            //{ event: "click", targets: ["a", "a *", "button", "button *"] },
             { event: "change" },
             { event: "visibilitychange" },
             { event: "unload" } // usually not for production
@@ -307,8 +241,7 @@
         // samesite: "None", // default is Strict
         // sessionIDUsesStorage, sessionIDUsesCookie
         // sessionizationCookieName for using other cookie instead of TLTSID
-        tlAppKey: "2b5f323f11804851beb8617eee293042" // syd [austeampilots]:[stu demos]
-        // use test appkey here as code at the bottom looks for prod domain and adds prod appkey
+        tlAppKey: "set below"
       },
       ajaxListener: {
         urlBlocklist: [
@@ -321,12 +254,7 @@
             //method: { regex: "GET", flags: "i" },
             //url: { regex: "api", flags: "i" },
             //status: { regex: "4\\d\\d", flags: "" },
-            log: {
-              requestHeaders: true,
-              requestData: true,
-              responseHeaders: true,
-              responseData: true
-            }
+            log: { requestHeaders: true, requestData: true, responseHeaders: true, responseData: true }
           }
         ]
       },
@@ -338,17 +266,13 @@
   };
 
   function afterInit() {
-    if (TLT.getState() === "destroyed") {
-      return;
-    }
+    if (TLT.getState() === "destroyed") { return; }
     
-    function gtagtl() {window.dataLayer.push(arguments)}
-
     if (window.google_optimize) {
-      console.debug("optimize: found");
-      gtagtl('event', 'optimize.callback', {callback: optimizeLogTL});
-    } else {
-      console.debug("optimize: not found");
+      window.TLT.logGOptimize = function (val, name) {
+        window.TLT.logCustomEvent("optimize", { description: "Optimize", experiment: name, variant: val });
+      }
+      (function () { window.dataLayer.push(arguments) } ('event', 'optimize.callback', { callback: window.TLT.logGOptimize }));
     }
 
     if (("optimizely" in window) && (window.optimizely !== null)) {
@@ -378,23 +302,17 @@
       }
     } ]);
     
-    // decorate outgoing links -----------
+    // session stitching --- outgoing links
     var destDomain = "www.seconddomain.com";
-    var sessionCookieName = 'TLTSID';
+    var sessionCookieName = "TLTSID";
 
-    // check if not in dest domain so needed
     if (location.hostname.indexOf(destDomain) === -1) {
-      // get TLTSID cookie
       var sessionCookieValue = TLT.utils.getCookieValue(sessionCookieName);
-      
-      if (sessionCookieValue === null) {
-        console.debug("addCookieToLinks: no cookie");
-      } else {
-        var outAnchors = document.querySelectorAll("a[href*='" + destDomain + "']");
+      if (sessionCookieValue !== null) {
+        var outAnchors = document.querySelectorAll("a[href*='"+destDomain+"']");
         for (var i = 0; i < outAnchors.length; i++) {
           outAnchors[ i ].addEventListener('click', addCookieToLink);
         }
-        // add TLTSID to outgoing links in the domain
         function addCookieToLink(e) {
           e.target.search = e.target.search + "&" + sessionCookieName + "=" + sessionCookieValue;
         }
@@ -402,58 +320,40 @@
     }
   }
 
-  // if TLTSID in query string, use as cookie
+  // session stitching --- incoming query string value
   var sessionCookieName = config.modules.TLCookie.sessionizationCookieName;
   var secureTLTSID = config.modules.TLCookie.secureTLTSID;
-  var qsCookieValue = TLT.utils.getQueryStringValue(sessionCookieName);
-
-  if (qsCookieValue) {
-    console.debug("addCookieToLinks: set from query");
-    TLT.utils.setCookie(sessionCookieName, qsCookieValue, undefined, undefined, undefined, secureTLTSID);
+  var queryCookieValue = TLT.utils.getQueryStringValue(sessionCookieName);
+  if (queryCookieValue) {
+    TLT.utils.setCookie(sessionCookieName, queryCookieValue, undefined, undefined, undefined, secureTLTSID);
   }
 
-  var runTealeaf = true;
-  var captureURL = window.location.pathname;
-  var captureHost = window.location.hostname;
-
-  // to not run on these pages
-  // if ((captureURL === "/page/to/not/capture") || (captureURL.indexOf("otherbitinpagename") > -1)) {
-  //   runTealeaf = false;
-  // }
-
-  // to change settings on these pages
-  // if ((captureURL === "/page/to/alter") || (captureURL.indexOf("otherbitinalterpagename") > -1)) {
-  //   config.core.screenviewAutoDetect = false;
-  // }
-
-  // to run content filters only on particular pages
-  // if (captureURL === "/some-page/to/filter") {
-  //   config.services.message.privacyPatterns.push({
-  //     pattern: { regex: "sample", flags: "g" },
-  //     replacement: "[ $1 ] was matched"
-  //   })
-  // }
-
-  // var uaMatch = /(?:iPhone|iPad|iPod).+? OS (\d+)_(\d+)/.exec(navigator.userAgent);
-  // if (uaMatch && uaMatch[1] + "." + uaMatch[2] < 13.0) {
-  //   config.services.queue.useBeacon = false;
-  // }
-
-  if (captureHost === "www.prod.com" || captureHost === "other.prod.com") {
+  // turn off beacon for old safari
+  if (TLT.utils.isiOS) {
+    var iOSVersion = / OS (\d+)_(\d+)/.exec(navigator.userAgent);
+    config.services.queue.useBeacon = iOSVersion && (iOSVersion[1] + "." + iOSVersion[2]) >= 12.2;
+  }
+  
+  // turn off options for old IE
+  if (document.documentMode) {
+    config.services.queue.useFetch = false;
+    config.services.queue.useBeacon = false;
+    config.services.queue.useWorker = false;
+    if (document.documentMode === 10) {
+      config.services.domCapture.diffEnabled = false;
+      config.modules.replay.domCapture.triggers.unshift({ event: "click", targets: [ 'a', 'a *', 'button', 'button *' ] });
+    } else if (document.documentMode === 9) {
+      config.modules.replay.domCapture.enabled = false;
+      config.services.domCapture.diffEnabled = false;
+    }
+  }
+  
+  if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
     config.modules.TLCookie.tlAppKey = "xxx"; // production
   } else {
-    config.modules.TLCookie.tlAppKey = "2b5f323f11804851beb8617eee293042"; // test --syd [austeampilots]:[stu demos]
+    config.modules.TLCookie.tlAppKey = "2b5f323f11804851beb8617eee293042";
   }
 
   // initialize Tealeaf
-  if (runTealeaf) {
-    TLT.init(config, afterInit);
-  }
+  TLT.init(config, afterInit);
 }());
-
-// google optimize tealeaf integration -----------
-
-function optimizeLogTL(val, name) {
-  console.debug("optimize: ["+name+", "+val+"]");
-  window.TLT.logCustomEvent("optimize", { description: "Optimize", experiment: name, variant: val });
-}
