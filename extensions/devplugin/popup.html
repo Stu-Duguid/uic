@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css"/>
+  </head>
+<body>
+  <table id="status">
+    <tr>
+      <td>Tealeaf:</td>
+      <td><span id="statusIcon">?</span></span></td>
+    </tr>
+    <tr>
+      <td>Org:</td>
+      <td><a id="orgName" href="">?</a></td>
+      <!-- if no app data, prompt to visit app page -->
+    </tr>
+    <tr>
+      <td>AppName:</td>
+      <td><a id="appName" href="">?</a></td>
+      <!-- if no app data, prompt to visit app page -->
+    </tr>
+    <tr>
+      <td>AppKey:</td>
+      <td><a id="appKey" href="">?</a></td>
+    </tr>
+    <tr>
+      <td>Session:</td>
+      <td><a href="" id="sessionId">?</a> <a href="">📄</a></td>
+    </tr>
+    <tr>
+      <td>Version:</td>
+      <td><span id="version">?</span></td>
+    </tr>
+    <tr>
+      <td>Messages:</td>
+      <td><span id="messages">?</span> - <span id="contentLength">?</span> kb</td>
+    </tr>
+  </table>
+  <script src="popup.js"></script>
+</body>
+</html>

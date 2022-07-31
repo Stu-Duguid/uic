@@ -1,0 +1,17 @@
+/* General styling */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 20px;
+}
+
+body {
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+}

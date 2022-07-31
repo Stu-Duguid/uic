@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "Tealeaf",
+	"version": "1.0",
+	"description": "shows status of Tealeaf from reading posts",
+	"icons": {
+		"48": "icons/tl.jpg"
+	},
+	"permissions": [
+		"<all_urls>",
+		"https://lib-ap-1.brilliantcollector.com/collector/collectorPost",
+		"webRequest",
+		"webRequestBlocking",
+		"storage"
+	],
+	"web_accessible_resources": [],
+	"browser_action": {
+		"default_icon": {
+			"32": "icons/tl.jpg"
+		},
+		"default_title": "Tealeaf Dev",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	}
+}
