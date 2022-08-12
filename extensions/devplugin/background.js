@@ -13,32 +13,34 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 
 function postListener(details) {
 	console.debug("running postListener")
-	const store = {};
+	const tabInfo = {};
 	details.requestHeaders.forEach(header => {
 		switch (header.name) {
 			case "Content-Encoding":
-				store.compression = header.value;
+				tabInfo.compression = header.value;
 				break;
 			case "Content-Length":
-				store.contentLength = header.value;
+				tabInfo.contentLength = header.value;
 				break;
 			case "Host":
-				store.host = header.value;
+				tabInfo.host = header.value;
 				break;
 			case "X-Tealeaf":
-				store.version = header.value;
+				tabInfo.version = header.value;
 				break;
 			case "X-Tealeaf-MessageTypes":
-				store.messages = header.value;
+				tabInfo.messages = header.value;
 				break;
 			case "X-Tealeaf-SaaS-AppKey":
-				store.appKey = header.value;
+				tabInfo.appKey = header.value;
 				break;
 			case "X-Tealeaf-SaaS-TLTSID":
-				store.sessionId = header.value;
+				tabInfo.sessionId = header.value;
 		}
 	});
-	if (store.version) {
+	if (tabInfo.version) {
+		const store = {};
+		store[details.tabId] = tabInfo;
 		console.debug(store);
 		browser.storage.local.set(store);
 	}
@@ -49,7 +51,12 @@ function postListener(details) {
 console.debug("adding listener for apps")
 browser.webRequest.onBeforeRequest.addListener(
 	appListener,
-	{urls: ["https://tealeaf-ap-1.goacoustic.com/webapp/api/orgs/*/apps?*"]},
+	{
+		urls: [
+			"https://tealeaf-ap-1.goacoustic.com/webapp/api/orgs/*/apps?*",
+			"https://tealeaf-ap-1.goacoustic.com/webapp/api/orgs/timeZone?*"
+		]
+	},
 	["blocking"]
 );
 
@@ -81,9 +88,10 @@ function appListener(details) {
 		filter.write(encoder.encode(str));
 		filter.close();
 		
-		console.debug("parsing apps");
+		console.debug("parsing apps " + details.url);
 		const response = JSON.parse(str);
-		if (response.appList) {
+		if (response.appList !== undefined) {
+			console.debug("found appList");
 			const store = {};
 			for (const n in response.appList) {
 				const app = response.appList[n].app;
@@ -95,6 +103,12 @@ function appListener(details) {
 				}
 				store[app.appKey] = appInfo;
 			}
+			console.debug(store);
+			browser.storage.local.set(store);
+		} else if (response.orgInfo !== undefined) {
+			console.debug("found orgName");
+			const store = {};
+			store[response.orgInfo.orgCode] = { orgName: response.orgInfo.displayName }
 			console.debug(store);
 			browser.storage.local.set(store);
 		}
