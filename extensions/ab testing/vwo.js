@@ -2,26 +2,30 @@
 
 /* global TLT, _vwo_exp */
 
-// must check to run before callback needed
-// and wait for TLT
+// insert via tag manager to run before VWO mod is applied
 
-window.VWO.push(['onVariationApplied', function (data) {
-	if (!data) {
-		return;
+if (window.VWO) {
+	window.VWO.push(['onVariationApplied', function (data) {
+		if (!data) {
+			return;
+		}
+		var expId = data[1], variationId = data[2];
+		if (expId && variationId && window._vwo_exp && window._vwo_exp[expId] && window._vwo_exp[expId].comb_n && typeof (window._vwo_exp[expId].comb_n[variationId]) !== 'undefined') {
+			tryPost(expId, variationId);
+		}
+	}]);
+	
+	function tryPost(expId, variationId) {
+		if (window.TLT && window.TLT.isInitialized()) {
+			window.TLT.logCustomEvent("abTest", {
+				description: "VWO",
+				experimentId: expId,
+				experiment: window._vwo_exp[expId].name,
+				variantId: variationId,
+				variant: window._vwo_exp[expId].comb_n[variationId]
+			});
+		} else {
+			setTimeout(tryPost, 200, expId, variationId);
+		}
 	}
-	var expId = data[1], variationId = data[2];
-	if (typeof (_vwo_exp[expId].comb_n[variationId]) !== 'undefined') {
-		console.debug(`vwo: data [${data}]`);
-		console.debug(`vwo: expId [${expId}], expName [${_vwo_exp[expId].name}]`);
-		console.debug(`vwo: variantId [${variationId}], variant [${_vwo_exp[expId].comb_n[variationId]}]`);
-	}
-}]);
-	// TLT.logCustomEvent("vwo",
-	// 	{
-	// 		description: "VWO",
-	// 		experimentId: expId,
-	// 		experiment: _vwo_exp[expId].name,
-	// 		variantId: variationId,
-	// 		variant: _vwo_exp[expId].comb_n[variationId]
-	// 	}
-	// );
+}
