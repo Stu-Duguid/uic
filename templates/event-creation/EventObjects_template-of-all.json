@@ -1,0 +1,117 @@
+{
+	"events": [
+		{
+			"displayName": "{event-template}",
+			"internalName": "E_EVENT_TEMPLATE",
+			"capturePersonalData": false,
+			"active": false,
+			"tags": [
+				"template"
+			],
+			"trigger": "EveryStep",
+			"publish": "Immediate",
+			"mode": "Basic",
+			"javascript": "// NOTE: Do not change event name\nfunction E_EVENT_TEMPLATE()\n{\n    return;\n}",
+			"conditionGroup": {
+				"conditionOperator": "And",
+				"distanceOperator": "GreaterThan",
+				"conditions": [],
+				"lowerBound": 0.0,
+				"upperBound": 0.0
+			},
+			"referenceValueType": "Custom",
+			"valueType": "Text",
+			"storeMetrics": "Count",
+			"track": "FirstOccurrence",
+			"forSupportUserOnly": true,
+			"buildingBlockOnly": true,
+			"discardSession": false,
+			"geoAnalyticsEnabled": false,
+			"dimensionGroups": {}
+		}
+	],
+	"dimensions": [
+		{
+			"displayName": "{dimension-template}",
+			"internalName": "DIM_DIMENSION_TEMPLATE",
+			"tags": [
+				"template"
+			],
+			"active": false,
+			"capturePersonalData": false,
+			"populatedBy": {
+				"displayName": "{event-template}",
+				"internalName": "E_EVENT_TEMPLATE",
+				"type": "Event"
+			},
+			"populateWith": "FirstValueInSession",
+			"defaultValue": "TLT$OTHERS",
+			"publish": "Immediate",
+			"whiteList": [],
+			"valueToRecord": "JustWhiteList",
+			"maxObservedValues": 1000,
+			"turnOnLogging": false
+		}
+	],
+	"dimensionGroups": [
+		{
+			"displayName": "{dimension-group-template}",
+			"internalName": "DG_DIMENSION_GROUP_TEMPLATE",
+			"tags": [
+				"template"
+			],
+			"active": false,
+			"dimensions": [
+				"{dimension-template}"
+			]
+		}
+	],
+	"sessionAttributes": [
+		{
+			"displayName": "{session-attribute-template}",
+			"internalName": "SSV_1103",
+			"tags": [
+				"template"
+			],
+			"active": false,
+			"capturePersonalData": false,
+			"populatedBy": [
+				{
+					"displayName": "{event-template}",
+					"internalName": "E_EVENT_TEMPLATE",
+					"type": "Event"
+				}
+			],
+			"identityType": "None"
+		}
+	],
+	"hitAttributes": [
+		{
+			"displayName": "{hit-attribute-template}",
+			"internalName": "P_HIT_ATTRIBUTE_TEMPLATE",
+			"tags": [
+				"template"
+			],
+			"active": false,
+			"match": "Request",
+			"use": "ExactMatch",
+			"pattern": "zzzz",
+			"useRegex": false,
+			"blockReplace": false,
+			"displayCase": "NoChange"
+		}
+	],
+	"stepAttributes": [
+		{
+			"displayName": "{step-attribute-template}",
+			"internalName": "P_STEP_ATTRIBUTE_TEMPLATE",
+			"tags": [
+				"template"
+			],
+			"active": false,
+			"stepPatternPath": "zzz",
+			"useRegex": false,
+			"displayCase": "NoChange"
+		}
+	]
+}

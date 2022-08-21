@@ -1,0 +1,954 @@
+{
+  "events" : [ {
+    "displayName" : "[AMI c1.address search success in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_SUCCESS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_SUCCESS_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_ADDRESS_SEARCH_SUCCESS\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_SUCCESS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search success]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_SUCCESS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address dwell-time]",
+    "internalName" : "E_AMI_C1_ADDRESS_DWELL_TIME",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_DWELL_TIME()\n{\n    if ($P[\"TL.STEP_TARGET_ID\"].firstValue().toUpperCase() == \"GARAGINGADDRESS_FULLADDRESS\" && $P[\"TL.STEP_TARGET_DWELL_TIME\"].firstValue().toUpperCase() != \"1\" && $P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CHANGE\" && $F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_DWELL_TIME\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - Target ID",
+          "internalName" : "STEP_TARGET_ID",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "garagingAddress_fullAddress",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Target Dwell Time",
+          "internalName" : "STEP_TARGET_DWELL_TIME",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "NotEqual",
+        "rightOperandValue" : "1",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Event Type",
+          "internalName" : "STEP_EVENT_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "change",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "EventObjects",
+    "valueType" : "Numeric",
+    "valueSource" : {
+      "displayName" : "Step - Target Dwell Time",
+      "internalName" : "STEP_TARGET_DWELL_TIME",
+      "type" : "StepAttribute"
+    },
+    "valueSourceMethod" : "firstValue()",
+    "storeMetrics" : "CountAndValueMetrics",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address manual change]",
+    "internalName" : "E_AMI_C1_ADDRESS_MANUAL_CHANGE",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_MANUAL_CHANGE()\n{\n    if ($P[\"TL.STEP_TARGET_ID\"].firstValue().toUpperCase().indexOf(\"GARAGINGADDRESS_MANUAL\") >= 0 && $P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CHANGE\" && $F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_MANUAL_CHANGE\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - Target ID",
+          "internalName" : "STEP_TARGET_ID",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Includes",
+        "rightOperandValue" : "garagingAddress_manual",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Event Type",
+          "internalName" : "STEP_EVENT_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "change",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address manual success]",
+    "internalName" : "E_AMI_C1_ADDRESS_MANUAL_SUCCESS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "description" : "last field suburb suggest chosen by change with low dwell time",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Advanced",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_MANUAL_SUCCESS()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_MANUAL_CHANGE\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_MANUAL_CHANGE\") == $H.StepNumber \n    && $S.tryParseDouble($P[\"TL.STEP_TARGET_DWELL_TIME\"].firstValue()) < 10)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address manual change]",
+          "internalName" : "E_AMI_C1_ADDRESS_MANUAL_CHANGE",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Target Dwell Time",
+          "internalName" : "STEP_TARGET_DWELL_TIME",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "10",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address success]",
+    "internalName" : "E_AMI_C1_ADDRESS_SUCCESS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SUCCESS()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_SEARCH_SUCCESS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_SEARCH_SUCCESS\") == $H.StepNumber || $F.getLastHitNumber(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SUCCESS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "Or",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search success]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_SUCCESS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address manual success]",
+          "internalName" : "E_AMI_C1_ADDRESS_MANUAL_SUCCESS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address manual success in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_MANUAL_SUCCESS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_MANUAL_SUCCESS_IN_SESSION()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_MANUAL_SUCCESS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address manual success]",
+          "internalName" : "E_AMI_C1_ADDRESS_MANUAL_SUCCESS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address success in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_SUCCESS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SUCCESS_IN_SESSION()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_SUCCESS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_SUCCESS\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SUCCESS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address success]",
+          "internalName" : "E_AMI_C1_ADDRESS_SUCCESS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1]",
+    "internalName" : "E_AMI_C1",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "description" : "AMI car step 1",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1()\n{\n    if ($F.getLastEventValue(\"E_WEB_PAGE_HOST_PATH\").toUpperCase() == \"SECURE.AMI.CO.NZ/CSS/CAR/STEP1\" || $F.getLastEventValue(\"E_WEB_PAGE_HOST_PATH\").toUpperCase() == \"SECURE.AMI.CO.NZ/CSS/CAR/\" || $F.getLastEventValue(\"E_WEB_PAGE_HOST_PATH\").toUpperCase() == \"SECURE.AMI.CO.NZ/CSS/CAR\")\n    {\n        $F.setFacts(\"E_AMI_C1\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "Or",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Web Page Host/Path",
+          "internalName" : "E_WEB_PAGE_HOST_PATH",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "Value",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "secure.ami.co.nz/css/car/step1",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Web Page Host/Path",
+          "internalName" : "E_WEB_PAGE_HOST_PATH",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "Value",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "secure.ami.co.nz/css/car/",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Web Page Host/Path",
+          "internalName" : "E_WEB_PAGE_HOST_PATH",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "Value",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "secure.ami.co.nz/css/car",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { },
+    "customValue" : "AMI c1"
+  }, {
+    "displayName" : "[AMI c1.address manual focus]",
+    "internalName" : "E_AMI_C1_ADDRESS_MANUAL_FOCUS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_MANUAL_FOCUS()\n{\n    if ($P[\"TL.STEP_TARGET_ID\"].firstValue().toUpperCase() == \"GARAGINGADDRESS_AUTOMANUALRADIO\" && $P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"4\" && $F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_MANUAL_FOCUS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - Target ID",
+          "internalName" : "STEP_TARGET_ID",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "garagingAddress_autoManualRadio",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Message Type",
+          "internalName" : "STEP_MESSAGE_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "4",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address search focus]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_FOCUS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_FOCUS()\n{\n    if ($P[\"TL.STEP_TARGET_ID\"].firstValue().toUpperCase() == \"GARAGINGADDRESS_FULLADDRESS\" && $P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"4\" && $F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_FOCUS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - Target ID",
+          "internalName" : "STEP_TARGET_ID",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "garagingAddress_fullAddress",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Message Type",
+          "internalName" : "STEP_MESSAGE_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "4",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1 loaded]",
+    "internalName" : "E_AMI_C1_LOAD",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_LOAD()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber && $P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        $F.setFacts(\"E_AMI_C1_LOAD\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - ScreenView Type",
+          "internalName" : "STEP_SCREENVIEW_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "load",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address search change]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_CHANGE",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_CHANGE()\n{\n    if ($P[\"TL.STEP_TARGET_ID\"].firstValue().toUpperCase() == \"GARAGINGADDRESS_FULLADDRESS\" && $P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CHANGE\" && $F.getLastHitNumber(\"E_AMI_C1\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_CHANGE\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "Step - Target ID",
+          "internalName" : "STEP_TARGET_ID",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "garagingAddress_fullAddress",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Event Type",
+          "internalName" : "STEP_EVENT_TYPE",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "change",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1]",
+          "internalName" : "E_AMI_C1",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address manual focus in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_MANUAL_FOCUS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_MANUAL_FOCUS_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_ADDRESS_MANUAL_FOCUS\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_MANUAL_FOCUS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address manual focus]",
+          "internalName" : "E_AMI_C1_ADDRESS_MANUAL_FOCUS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1 loaded in session]",
+    "internalName" : "E_AMI_C1_LOAD_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_LOAD_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_LOAD\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_LOAD_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1 loaded]",
+          "internalName" : "E_AMI_C1_LOAD",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address focus]",
+    "internalName" : "E_AMI_C1_ADDRESS_FOCUS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_FOCUS()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_SEARCH_FOCUS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_SEARCH_FOCUS\") == $H.StepNumber || $F.getLastHitNumber(\"E_AMI_C1_ADDRESS_MANUAL_FOCUS\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_MANUAL_FOCUS\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_FOCUS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "Or",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search focus]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_FOCUS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address manual focus]",
+          "internalName" : "E_AMI_C1_ADDRESS_MANUAL_FOCUS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address search change in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_CHANGE_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_CHANGE_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_ADDRESS_SEARCH_CHANGE\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_CHANGE_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search change]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_CHANGE",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address search focus in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_FOCUS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_FOCUS_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_ADDRESS_SEARCH_FOCUS\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_FOCUS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search focus]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_FOCUS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address focus in session]",
+    "internalName" : "E_AMI_C1_ADDRESS_FOCUS_IN_SESSION",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Basic",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_FOCUS_IN_SESSION()\n{\n    if ($F.getEventCount(\"E_AMI_C1_ADDRESS_FOCUS\") > 0)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_FOCUS_IN_SESSION\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address focus]",
+          "internalName" : "E_AMI_C1_ADDRESS_FOCUS",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "existsSession",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "FirstOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  }, {
+    "displayName" : "[AMI c1.address search success]",
+    "internalName" : "E_AMI_C1_ADDRESS_SEARCH_SUCCESS",
+    "capturePersonalData" : false,
+    "active" : true,
+    "tags" : [ "[AMI c1.address]" ],
+    "description" : "change with a dwell time < 10",
+    "trigger" : "EveryStep",
+    "publish" : "Immediate",
+    "mode" : "Advanced",
+    "javascript" : "// NOTE: Do not change event name\nfunction E_AMI_C1_ADDRESS_SEARCH_SUCCESS()\n{\n    if ($F.getLastHitNumber(\"E_AMI_C1_ADDRESS_SEARCH_CHANGE\") == $H.HitNumber && $F.getLastStepNumber(\"E_AMI_C1_ADDRESS_SEARCH_CHANGE\") == $H.StepNumber \n    && $S.tryParseDouble($P[\"TL.STEP_TARGET_DWELL_TIME\"].firstValue()) < 10)\n    {\n        $F.setFacts(\"E_AMI_C1_ADDRESS_SEARCH_SUCCESS\");\n    }\n}",
+    "conditionGroup" : {
+      "conditionOperator" : "And",
+      "distanceOperator" : "GreaterThan",
+      "conditions" : [ {
+        "leftOperand" : {
+          "displayName" : "[AMI c1.address search change]",
+          "internalName" : "E_AMI_C1_ADDRESS_SEARCH_CHANGE",
+          "type" : "Event"
+        },
+        "leftOperandValueType" : "Fact",
+        "method" : "ExistsOnStep",
+        "conditionOperator" : "IsTrue",
+        "rightOperandValue" : "",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      }, {
+        "leftOperand" : {
+          "displayName" : "Step - Target Dwell Time",
+          "internalName" : "STEP_TARGET_DWELL_TIME",
+          "type" : "StepAttribute"
+        },
+        "leftOperandValueType" : "Pattern",
+        "method" : "firstValue()",
+        "conditionOperator" : "Equal",
+        "rightOperandValue" : "1",
+        "rightOperandValueType" : "TextLiteral",
+        "caseSensitive" : false
+      } ],
+      "lowerBound" : 0.0,
+      "upperBound" : 0.0
+    },
+    "referenceValueType" : "Custom",
+    "valueType" : "Text",
+    "storeMetrics" : "Count",
+    "track" : "AllOccurrence",
+    "forSupportUserOnly" : true,
+    "buildingBlockOnly" : true,
+    "discardSession" : false,
+    "geoAnalyticsEnabled" : false,
+    "dimensionGroups" : { }
+  } ],
+  "dimensions" : [ ],
+  "dimensionGroups" : [ ],
+  "sessionAttributes" : [ ],
+  "hitAttributes" : [ ],
+  "stepAttributes" : [ ]
+}

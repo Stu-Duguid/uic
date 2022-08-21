@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate a file to import events into Tealeaf</title>
+    <style>
+        td { vertical-align: top;}
+    </style>
+</head>
+<body>
+    <h1>Tealeaf event object file creator</h1>
+    <form action="break;">
+        <table>
+            <tr>
+                <td>
+                    <p>Prefix</p>
+                    <input name="" id="prefix" cols="48" rows="1">
+                </td>
+                <td>
+                    <p>Braces</p>
+                    <input name="" id="braces" cols="48" rows="1" value="[]">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Events</p>
+                    <textarea name="" id="events" cols="48" rows="4"></textarea>
+                </td>
+                <td>
+                    <p>Session Attributes</p>
+                    <textarea name="" id="sessionAttributes" cols="48" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Dimensions</p>
+                    <textarea name="" id="dimensions" cols="48" rows="4"></textarea>
+                </td>
+                <td>
+                    <p>Dimension Groups</p>
+                    <textarea name="" id="dimensionGroups" cols="48" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Step Attributes</p>
+                    <textarea name="" id="stepAttributes" cols="48" rows="4"></textarea>
+                </td>
+                <td>
+                    <p>Hit Attributes</p>
+                    <textarea name="" id="hitAttributes" cols="48" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="generateData(); return false;">Generate data</button></td>
+                <td><button onclick="populateData(); return false;">Populate fields from data</button></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p>File generated for import</p>
+                    <textarea name="" id="data" cols="80" rows="10"></textarea>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="create-events.js"></script>
+</body>
+</html>
