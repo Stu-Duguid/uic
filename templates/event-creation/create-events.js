@@ -51,8 +51,8 @@ function generateData() {
                 let internalName = `${prefixInt}_${entry.replace(/[^a-z0-9]/gi, '_').toUpperCase()}`;
                 switch (dataType) {
                     case "events":
-                        internalName = `E_${internalName}`;
-                        data.events.push(
+                        internalName = `E_${internalName}_666`;
+                           data.events.push(
                             {
                                 "displayName": displayName,
                                 "internalName": internalName,
@@ -86,13 +86,13 @@ function generateData() {
                         data.dimensions.push(
                             {
                                 "displayName": displayName,
-                                "internalName": `DIM_${internalName}`,
+                                "internalName": `DIM_${internalName}_666`,
                                 "tags": [ tag, "#import-empty-defs#" ],
                                 "active": false,
                                 "capturePersonalData": false,
                                 "populatedBy": {
-                                    "displayName": "{event-template}",
-                                    "internalName": "E_EVENT_TEMPLATE",
+                                    "displayName": "screenview count - replace",
+                                    "internalName": "E_EVERY_SCREEN_VIEW",
                                     "type": "Event"
                                 },
                                 "populateWith": "FirstValueInSession",
@@ -109,7 +109,7 @@ function generateData() {
                         data.dimensionGroups.push(
                             {
                                 "displayName": displayName,
-                                "internalName": `DG_DIMENSION_GROUP_${internalName}`,
+                                "internalName": `DG_DIMENSION_GROUP_${internalName}_666`,
                                 "tags": [ tag, "#import-empty-defs#" ],
                                 "active": false,
                                 "dimensions": [ ]
@@ -120,7 +120,7 @@ function generateData() {
                         data.stepAttributes.push(
                             {
                                 "displayName": displayName,
-                                "internalName": `P_STEP_ATTRIBUTE_${internalName}`,
+                                "internalName": `P_STEP_ATTRIBUTE_${internalName}_666`,
                                 "tags": [ tag, "#import-empty-defs#" ],
                                 "active": false,
                                 "stepPatternPath": "zzz",
@@ -133,7 +133,7 @@ function generateData() {
                         data.hitAttributes.push(
                             {
                                 "displayName": displayName,
-                                "internalName": `P_HIT_ATTRIBUTE_${internalName}`,
+                                "internalName": `P_HIT_ATTRIBUTE_${internalName}_666`,
                                 "tags": [ tag, "#import-empty-defs#" ],
                                 "active": false,
                                 "match": "Request",
@@ -149,7 +149,7 @@ function generateData() {
                         data.sessionAttributes.push(
                             {
                                 "displayName": displayName,
-                                "internalName": `SSV_${internalName}`,
+                                "internalName": `SSV_${internalName}_666`,
                                 "tags": [ tag, "#import-empty-defs#" ],
                                 "active": false,
                                 "capturePersonalData": false,

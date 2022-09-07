@@ -1,0 +1,339 @@
+{
+    "events": [
+        {
+            "displayName": "[page view]",
+            "internalName": "E_SD_PAGE_VIEW",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_VIEW(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page bounce]",
+            "internalName": "E_SD_PAGE_BOUNCE",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_BOUNCE(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page first in session]",
+            "internalName": "E_SD_PAGE_FIRST_IN_SESSION",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_FIRST_IN_SESSION(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page last in session]",
+            "internalName": "E_SD_PAGE_LAST_IN_SESSION",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_LAST_IN_SESSION(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page view in session]",
+            "internalName": "E_SD_PAGE_VIEW_IN_SESSION",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_VIEW_IN_SESSION(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page dwell]",
+            "internalName": "E_SD_PAGE_DWELL",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_DWELL(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page reload]",
+            "internalName": "E_SD_PAGE_RELOAD",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_RELOAD(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page back]",
+            "internalName": "E_SD_PAGE_BACK",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_BACK(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page referrer]",
+            "internalName": "E_SD_PAGE_REFERRER",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_REFERRER(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page path in]",
+            "internalName": "E_SD_PAGE_PATH_IN",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_PATH_IN(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "[page path out]",
+            "internalName": "E_SD_PAGE_PATH_OUT",
+            "capturePersonalData": false,
+            "active": false,
+            "tags": [
+                "[page]",
+                "#import-empty-defs#"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "function E_SD_PAGE_PATH_OUT(){ return; }",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": true,
+            "buildingBlockOnly": true,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        }
+    ],
+    "dimensions": [],
+    "dimensionGroups": [],
+    "stepAttributes": [],
+    "hitAttributes": [],
+    "sessionAttributes": []
+}
