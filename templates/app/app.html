@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TF sites</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="page">
+        <div id="config">
+            <h1>Tealeaf Event Builder</h1>
+            <details id="sitePanel" open>
+                <summary>Site: <span id="sitePanelText">not set</span></summary>
+                <section>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input type="text" name="sitename" id="sitename"></td>
+                        </tr>
+                        <tr>
+                            <td>Code:</td>
+                            <td><input type="text" name="sitecode" id="sitecode"></td>
+                        </tr>
+                        <tr>
+                            <td>Hostname:</td>
+                            <td><input type="text" name="sitehost" id="sitehost"></td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td><textarea name="sitedesc" id="sitedesc" cols="22" rows="2"></textarea></td>
+                        </tr>
+                    </table>
+                    <div><button id="saveSiteButton">Save</button><button id="loadSiteButton">Load</button><button id="resetSiteButton">Reset</button></div>
+                </section>
+            </details>
+            <details id="pagePanel">
+                <summary>Page: <span id="pagePanelText">not set</span></summary>
+                <section>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input type="text" name="pagename" id="pagename"></td>
+                        </tr>
+                        <tr>
+                            <td>Code:</td>
+                            <td><input type="text" name="pagecode" id="pagecode"></td>
+                        </tr>
+                        <tr>
+                            <td>URL(s):</td>
+                            <td><input type="text" name="pagepath" id="pagepath"> <img src="icons/delete.png" alt="delete path" class="icon delete"> <img src="icons/external-link.png" alt="open in frame" class="icon"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="subtext"><a href="">+ Add URL</a></td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td><textarea name="pagedesc" id="pagedesc" cols="22" rows="2"></textarea></td>
+                        </tr>
+                    </table>
+                </section>
+                <div><button id="savePageButton">Save</button><button id="updatePageButton">Update</button><button id="deletePageButton">Delete</button></div>
+            </details>
+            <details id="compPanel">
+                <summary>Component: <span id="compPanelText">not set</span></summary>
+                <section>
+                    <table>
+                        <tr>
+                            <td><a href="component.html?code=x">name</a></td>
+                        </tr>
+                    </table>
+                    <div><button id="addCompButton">Add</button></div>
+                </section>
+            </details>
+        </div>
+        <div id="events">
+            <h3>Events</h3>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
