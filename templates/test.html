@@ -4,43 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>event field tester</title>
+    <style>
+        input:invalid {
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        input:focus:invalid {
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
     <form action=test.html>
         <p>
-            <label for="fText">text</label>
-            <input type="text" name="" id="fText" required>
+            <label for="text">text</label>
+            <input type="text" name="" id="text" minlength="2"
+                onblur="document.getElementById('textError').style.display=(this.validity.tooShort)?'block':'none'" )>
+        <p id="textError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fButton">button</label>
-            <input type="button" value="button" id="fButton">
+            <label for="button">button</label>
+            <input type="button" value="button" id="button"
+                onblur="document.getElementById('buttonError').style.display=(this.validity.tooShort)?'block':'none'" )>
+        <p id="buttonError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fCheck">checkboxes</label>
-            <input type="checkbox" name="fCheck" id="fCheck1" value="a">
-            <input type="checkbox" name="fCheck" id="fCheck2" value="b">
+            <label for="check">checkboxes</label>
+            <input type="checkbox" name="check" id="check1" value="a"
+                onblur="document.getElementById('checkboxError').style.display=(this.validity.tooShort)?'block':'none'" )>
+            <input type="checkbox" name="check" id="check2" value="b" required
+                onblur="document.getElementById('checkboxError').style.display=(this.validity.valueMissing)?'block':'none'" )>
+        <p id="checkboxError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fRadio">radio</label>
-            <input type="radio" name="fRadio" id="fRad1" value="on">
-            <input type="radio" name="fRadio" id="fRad2" value="off">
+            <label for="radio">radio</label>
+            <input type="radio" name="radio" id="radio1" value="on"
+                onblur="document.getElementById('radioError').style.display=(this.validity.tooShort)?'block':'none'" )>
+            <input type="radio" name="radio" id="radio2" value="off" required
+                onblur="document.getElementById('radioError').style.display=(this.validity.valueMissing)?'block':'none'" )>
+        <p id="radioError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fSelect">select</label>
-            <select name="fSelect" id="fSelect">
-                <option value="fOption1">fOption1</option>
-                <option value="fOption2">fOption2</option>
+            <label for="select">select</label>
+            <select name="select" id="select"
+                onblur="document.getElementById('selectError').style.display=(this.validity.tooShort)?'block':'none'" )>
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
             </select>
+        <p id="selectError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fLInk">
-                <a href="#fSubmit">link</a>
+            <label for="link">
+                <a href="#submit">link</a>
             </label>
+        <p id="linkError" style="display: none;">field is in error</p>
         </p>
         <p>
-            <label for="fSubmit">submit</label>
-            <input type="submit" value="submit" id="fSubmit">
+            <label for="submit">submit</label>
+            <input type="submit" value="submit" id="submit">
+        <p id="submitError" style="display: none;">field is in error</p>
         </p>
     </form>
 </body>
+
 </html>

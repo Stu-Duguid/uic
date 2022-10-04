@@ -85,7 +85,7 @@
     },
     {
       "displayName": "Step - Message Count",
-      "internalName": "P_STEP_MESSAGE_COUNT",
+      "internalName": "P_STEP_MESSAGE_COUNT_666",
       "tags": [
         "generic"
       ],
@@ -95,8 +95,8 @@
       "displayCase": "NoChange"
     },
     {
-      "displayName": "Step - Message ScreenviewOffset",
-      "internalName": "P_STEP_MESSAGE_SCREENVIEWOFFSET_666",
+      "displayName": "Step - Message Screenview Offset",
+      "internalName": "P_STEP_MESSAGE_SCREENVIEW_OFFSET_666",
       "tags": [
         "generic"
       ],
@@ -118,7 +118,7 @@
     },
     {
       "displayName": "Step - Screenview Title",
-      "internalName": "P_STEP_TITLE_OF_PAGE_666",
+      "internalName": "P_STEP_SCREENVIEW_TITLE_666",
       "tags": [
         "generic"
       ],
@@ -129,7 +129,7 @@
     },
     {
       "displayName": "Step - Screenview Original URL",
-      "internalName": "P_STEP_ORIGINAL_URL_666",
+      "internalName": "P_STEP_SCREENVIEW_ORIGINAL_URL_666",
       "tags": [
         "generic"
       ],
@@ -140,7 +140,7 @@
     },
     {
       "displayName": "Step - Screenview URL",
-      "internalName": "P_STEP_URL_666",
+      "internalName": "P_STEP_SCREENVIEW_URL_666",
       "tags": [
         "generic"
       ],
@@ -172,7 +172,7 @@
       "displayCase": "NoChange"
     },
     {
-      "displayName": "Step - Target Current Innertext",
+      "displayName": "Step - Target Current InnerText",
       "internalName": "P_STEP_TARGET_CURRENT_INNERTEXT_666",
       "tags": [
         "generic"
@@ -181,6 +181,6 @@
       "stepPatternPath": ".sessions[0].message.target.currState.innerText",
       "useRegex": false,
       "displayCase": "NoChange"
-    },
+    }
   ]
 }

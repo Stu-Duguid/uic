@@ -1,164 +1,184 @@
 {
-  "events" : [ {
-    "displayName" : "Web Page Host",
-    "internalName" : "E_WEB_PAGE_HOST",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "generic" ],
-    "description" : "Includes protocol://hostname",
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Basic",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_PAGE_HOST()\n{\n    if ($P[\"P_STEP_SCREENVIEW_HOST\"].patternFound())\n    {\n        $F.setFacts(\"E_WEB_PAGE_HOST\");\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - ScreenView Host",
-          "internalName" : "P_STEP_SCREENVIEW_HOST",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "patternFound()",
-        "conditionOperator" : "IsTrue",
-        "rightOperandValue" : "",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  "events": [
+    {
+      "displayName": "Web Page Host",
+      "internalName": "E_WEB_PAGE_HOST",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "generic"
+      ],
+      "description": "Includes protocol://hostname",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_PAGE_HOST()\n{\n    if ($P[\"P_STEP_SCREENVIEW_HOST_666\"].patternFound())\n    {\n        $F.setFacts(\"E_WEB_PAGE_HOST\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Host",
+              "internalName": "P_STEP_SCREENVIEW_HOST_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - ScreenView Host",
+        "internalName": "P_STEP_SCREENVIEW_HOST_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     },
-    "referenceValueType" : "EventObjects",
-    "valueType" : "Text",
-    "valueSource" : {
-      "displayName" : "Step - ScreenView Host",
-      "internalName" : "P_STEP_SCREENVIEW_HOST",
-      "type" : "StepAttribute"
+    {
+      "displayName": "Web Page Path",
+      "internalName": "E_WEB_PAGE_PATH",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "generic"
+      ],
+      "description": "Includes /path only",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_PAGE_PATH()\n{\n    if ($P[\"P_STEP_SCREENVIEW_URL_666\"].patternFound())\n    {\n        $F.setFacts(\"E_WEB_PAGE_PATH\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Screenview URL",
+              "internalName": "P_STEP_SCREENVIEW_URL_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Screenview URL",
+        "internalName": "P_STEP_SCREENVIEW_URL_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     },
-    "valueSourceMethod" : "firstValue()",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  }, {
-    "displayName" : "Web Page Path",
-    "internalName" : "E_WEB_PAGE_PATH",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "generic" ],
-    "description" : "Includes /path only",
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Basic",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_PAGE_PATH()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_URL\"].patternFound())\n    {\n        $F.setFacts(\"E_WEB_PAGE_PATH\");\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - Screenview URL",
-          "internalName" : "STEP_SCREENVIEW_URL",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "patternFound()",
-        "conditionOperator" : "IsTrue",
-        "rightOperandValue" : "",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+    {
+      "displayName": "Web Page Path#Fragment",
+      "internalName": "E_WEB_PAGE_PATH_FRAGMENT",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "generic"
+      ],
+      "description": "Includes /path#fragment",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_PAGE_PATH_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        frag = (frag === \"root\")? \"\":frag;\n        $F.setFacts(\"E_WEB_PAGE_PATH_FRAGMENT\", $P[\"P_STEP_SCREENVIEW_URL_666\"].firstValue()+frag);\n    }\n}\n",
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     },
-    "referenceValueType" : "EventObjects",
-    "valueType" : "Text",
-    "valueSource" : {
-      "displayName" : "Step - Screenview URL",
-      "internalName" : "STEP_SCREENVIEW_URL",
-      "type" : "StepAttribute"
+    {
+      "displayName": "Web Page Fragment",
+      "internalName": "E_WEB_PAGE_FRAGMENT",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "generic"
+      ],
+      "description": "Includes #fragment part of web url - empty string if root",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_PAGE_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_NAME\"].patternFound())\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        $F.setFacts(\"E_WEB_PAGE_FRAGMENT\", (frag === \"root\")? \"\":frag);\n    }\n}",
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - ScreenView Name",
+        "internalName": "STEP_SCREENVIEW_NAME",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     },
-    "valueSourceMethod" : "firstValue()",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  }, {
-    "displayName" : "Web Page Path#Fragment",
-    "internalName" : "E_WEB_PAGE_PATH_FRAGMENT",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "generic" ],
-    "description" : "Includes /path#fragment",
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_PAGE_PATH_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        frag = (frag === \"root\")? \"\":frag;\n        $F.setFacts(\"E_WEB_PAGE_PATH_FRAGMENT\", $P[\"TL.STEP_SCREENVIEW_URL\"].firstValue()+frag);\n    }\n}\n",
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  }, {
-    "displayName" : "Web Page Fragment",
-    "internalName" : "E_WEB_PAGE_FRAGMENT",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "generic" ],
-    "description" : "Includes #fragment part of web url - empty string if root",
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_PAGE_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_NAME\"].patternFound())\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        $F.setFacts(\"E_WEB_PAGE_FRAGMENT\", (frag === \"root\")? \"\":frag);\n    }\n}",
-    "referenceValueType" : "EventObjects",
-    "valueType" : "Text",
-    "valueSource" : {
-      "displayName" : "Step - ScreenView Name",
-      "internalName" : "STEP_SCREENVIEW_NAME",
-      "type" : "StepAttribute"
-    },
-    "valueSourceMethod" : "firstValue()",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  }, {
-    "displayName" : "Web Page Host/Path#Fragment",
-    "internalName" : "E_WEB_PAGE_HOST_PATH_FRAGMENT",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "generic" ],
-    "description" : "Includes protocol://hostname/path#fragment",
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_PAGE_HOST_PATH_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        frag = (frag === \"root\")? \"\":frag;\n        $F.setFacts(\"E_WEB_PAGE_HOST_PATH_FRAGMENT\", $P[\"P_STEP_SCREENVIEW_HOST\"].firstValue()+$P[\"TL.STEP_SCREENVIEW_URL\"].firstValue()+frag);\n    }\n}\n",
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  } ],
-  "dimensions" : [ ],
-  "dimensionGroups" : [ ],
-  "sessionAttributes" : [ ],
-  "hitAttributes" : [ ],
-  "stepAttributes" : [ ]
+    {
+      "displayName": "Web Page Host/Path#Fragment",
+      "internalName": "E_WEB_PAGE_HOST_PATH_FRAGMENT",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "generic"
+      ],
+      "description": "Includes protocol://hostname/path#fragment",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_PAGE_HOST_PATH_FRAGMENT()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        var frag = $P[\"TL.STEP_SCREENVIEW_NAME\"].firstValue();\n        frag = (frag === \"root\")? \"\":frag;\n        $F.setFacts(\"E_WEB_PAGE_HOST_PATH_FRAGMENT\", $P[\"P_STEP_SCREENVIEW_HOST_666\"].firstValue()+$P[\"P_STEP_SCREENVIEW_URL\"].firstValue()+frag);\n    }\n}\n",
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    }
+  ],
+  "dimensions": [],
+  "dimensionGroups": [],
+  "sessionAttributes": [],
+  "hitAttributes": [],
+  "stepAttributes": []
 }
