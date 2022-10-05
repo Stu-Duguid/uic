@@ -1,38 +1,39 @@
-// on load, check the storage and initialise
-
-let siteJSON = localStorage.getItem('site');
-let site = siteJSON ? JSON.parse(siteJSON) : { sitename: '', sitecode: '', sitehost: '', sitedesc: '' };
-
 const sitePanel = document.getElementById('sitePanel');
 const pagePanel = document.getElementById('pagePanel');
 const compPanel = document.getElementById('compPanel');
 
 // Site panel
 
+// on load, check the storage and initialise
+let sitesJSON = localStorage.getItem('sites');
+let sites = sitesJSON ? JSON.parse(sitesJSON) : {};
+let currentsitecode = '';
+let currenthostname = '';
+
 const sitePanelText = document.getElementById('sitePanelText');
-sitePanelText.innerText = site.sitename;
+const sitecodeElem = document.getElementById('sitecode');
+const sitehostElem = document.getElementById('sitehost');
 
-const sitename = document.getElementById('sitename');
-const sitecode = document.getElementById('sitecode');
-const sitehost = document.getElementById('sitehost');
-const sitedesc = document.getElementById('sitedesc');
-
-sitename.value = site.sitename;
-sitecode.value = site.sitecode;
-sitehost.value = site.sitehost;
-sitedesc.value = site.sitedesc;
+// iterate through known site hosts/patterns looking for a match to the current page
+for (const hostkey in sites) {
+    if (hostkey === window.location.hostname || window.location.hostname.match(hostkey.replaceAll('*', '.*'))) {
+        currentsitecode = sites[hostkey];
+        currenthostname = hostkey;
+        sitecodeElem.value = currentsitecode;
+        sitehostElem.value = currenthostname;
+        sitePanelText.innerText = currentsitecode;
+        pagePanel.style.opacity = 1;
+        break;
+    }
+}
 
 sitePanel.addEventListener('change', (e) => {
-    switch (e.target.id) {
-        case 'sitecode':
-            pagePanel.style.opacity = (e.target.value === '') ? 0.4 : 1;
-        case 'sitename':
-        case 'sitehost':
-        case 'sitedesc':
-            site[e.target.id] = e.target.value;
-            sitePanelText.innerText = site.sitename;
-            localStorage.setItem('site', JSON.stringify(site));
-            break;
+    if (e.target.id === 'sitecode' || e.target.id === 'sitehost') {
+        if (sitecodeElem.value !== '' && sitehostElem.value !== '') {
+            
+        }
+        pagePanel.style.opacity = (e.target.value === '') ? 0.4 : 1;
+        localStorage.setItem('site', JSON.stringify(site));
     }
 });
 

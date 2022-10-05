@@ -3,6 +3,11 @@
     src: url("fonts/National2-Regular.woff") format("woff")
 }
 
+html {
+    width: 480px;
+    margin: auto;
+}
+
 body {
     font: 1em "National";
     margin: auto;
@@ -65,6 +70,17 @@ summary {
 
 summary > span[id] {
     color: #047D71;
+}
+
+span.tooltip:hover::after {
+    background-color: #047D71;
+    border-radius: 4px;
+    padding: 1em;
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    z-index: 10;
+    color: white;
 }
 
 #pagePanel, #compPanel {
