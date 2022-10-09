@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TF sites</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Tealeaf Event Builder</h1>
+    <img id="settingsIcon" src="icons/settings.png" alt="">
+    <details id="pagePanel">
+        <summary>Page: <span id="pagePanelText">not set</span></summary>
+        <section>
+            <table>
+                <tr>
+                    <td>Hostname:</label></td>
+                    <td>
+                        <span id="hostname">unknown</span>
+                        <span class="tooltip" data-tooltip="Separate config is saved for eacn unique hostname."><img
+                                src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="sitecode">Site Code:</label></td>
+                    <td>
+                        <input type="text" name="sitecode" id="sitecode" size="8">
+                        <span class="tooltip"
+                            data-tooltip="Codes are added to the end of the name of generated events to show their context. Use only a short name."><img
+                                src="icons/help.png" class="icon" alt=""></span>
+                        <span id="deleteSite" class="tooltip warning"
+                            data-tooltip="Delete ALL config for this site and ALL pages!!!"><img
+                                src="icons/delete.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr id="pagepathRow">
+                    <td><label for="pagepath">Path:</label></td>
+                    <td>
+                        <input type="text" name="pagepath" id="pagepath" size="28">
+                        <span class="tooltip" data-tooltip="Can be an exact path or a pattern using * to match anything in one or more parts"><img
+                                src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr id="pagecodeRow">
+                    <td><label for="pagecode">Page Code:</label></td>
+                    <td>
+                        <input type="text" name="pagecode" id="pagecode" size="8">
+                        <span class="tooltip" data-tooltip="Add a new code here or select from the suggestions to edit an existing page."><img src="icons/help.png" class="icon" alt=""></span>
+                        <span id="deletePage" class="tooltip warning"
+                            data-tooltip="Delete ALL config for this page and don't track it!!"><img
+                                src="icons/delete.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </details>
+    <details id="compPanel">
+        <summary>Component: <span id="compPanelText">not set</span></summary>
+        <section>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" id="name">
+                        <span class="tooltip" data-tooltip="Add a new component here or select from the suggestions to edit an existing component."><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td><select name="type" id="type">
+                            <option value="text">text</option>
+                        </select>
+                        <span class="tooltip" data-tooltip="The type controls what events are created and inputs needed"><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Focus:</td>
+                    <td>
+                        <input type="text" name="focus" id="focus">
+                        <span class="tooltip" data-tooltip="This id/pattern should match any interaction/focus on the component"><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Click:</td>
+                    <td>
+                        <input type="text" name="click" id="click">
+                        <span class="tooltip" data-tooltip="This id/pattern should match any click on the component"><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change:</td>
+                    <td>
+                        <input type="text" name="change" id="change">
+                        <span class="tooltip" data-tooltip="This id/pattern should match any change in value of the component"><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Error:</td>
+                    <td>
+                        <input type="text" name="error" id="error">
+                        <span class="tooltip" data-tooltip="This id/pattern should match any error message related to the component"><img src="icons/help.png" class="icon" alt=""></span>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </details>
+    <script src="popup.js></script>
+</body>
+
+</html>

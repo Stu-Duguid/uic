@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "National";
+    src: url("fonts/National2-Regular.woff") format("woff")
+}
+
+html {
+    min-width: 400px;
+    margin: auto;
+}
+
+body {
+    font: 1em "National";
+    margin: auto;
+    width: fit-content;
+    padding: 0;
+}
+
+input:disabled, button:disabled {
+    opacity: 0.4;
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: bold;
+    min-width: 400px;
+}
+
+#settingsIcon {
+    text-align: right;
+}
+
+details {
+    background-color: lightgrey;
+    border-color: lightgrey;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+details > section {
+    background-color: white;
+    padding: 8px;
+}
+
+summary::before {
+    content: "＋ ";
+}
+
+details[open] > summary::before {
+    content: "－ ";
+}
+
+summary {
+    background-color: lightgrey;
+    font-size: large;
+    list-style: none;
+    padding: 5px;
+}
+
+summary > span[id] {
+    color: #047D71;
+}
+
+span.tooltip:hover::after {
+    background-color: #047D71;
+    border-radius: 4px;
+    padding: 1em;
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    z-index: 10;
+    color: white;
+}
+
+span.tooltip.warning:hover::after {
+    background-color: red;
+}
+
+#compPcanel {
+    opacity: 0.4;
+}
+
+.subtext {
+    font-size: smaller;
+}
+
+td {
+    padding-block: 4px;
+    padding-inline: 10px;
+    vertical-align: top;
+}
+
+a {
+    color: #047D71;
+}
+
+button {
+    font: 1em "National";
+    font-weight: 400;
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: rgb(4, 125, 113);
+    color: white;
+    border: 1px solid #047D71;;
+    border-radius: 0;
+    padding: 0 20px;
+    line-height: 26px;
+    height: 30px;
+}
+
+select { 
+    border: 1px solid #a9a9a9;
+    background-color: #eee;
+    color: #484848;
+    padding: 3px;
+    min-width: 160px;
+} 
+
+.icon {
+    height: 16px;
+}
