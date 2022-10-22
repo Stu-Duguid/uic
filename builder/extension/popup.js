@@ -26,8 +26,19 @@ const pagecodeRow = document.getElementById('pagecodeRow');
 const pagepathinput = document.getElementById('pagepath');
 const pagecodeInput = document.getElementById('pagecode');
 
-const hostname = window.location.hostname;
-const pathname = window.location.pathname;
+let hostname;
+let pathname;
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.hostname) {
+        hostname = request.hostname;
+        pathname = request.pathname;
+        console.debug(`got msg ${request.hostname}${request.pathname}`)
+    }
+    if (request.eventtype) {
+        console.debug(`got msg ${request.eventtype}:${request.id}`)
+    }
+});
 
 // on load, check the storage and initialise
 let configJSON = localStorage.getItem(hostname);
@@ -126,3 +137,39 @@ deletePage.addEventListener('click', () => {
 //     {color: [0, 255, 0, 0]},  // Green
 //     () => { /* ... */ },
 //   );
+
+// chrome.tabs.sendMessage(
+//     tabId: number,
+//     message: any,
+//     options?: object,
+//     callback?: function,
+//   )
+
+// chrome.tabs.onUpdated.addListener(
+//     callback: function,
+// )
+// (tabId: number, changeInfo: object, tab: Tab) => void
+
+// chrome.storage.local.set({key: value}, function() {
+//     console.log('Value is set to ' + value);
+//   });
+  
+//   chrome.storage.local.get(['key'], function(result) {
+//     console.log('Value currently is ' + result.key);
+//   });
+
+// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//     chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+//       console.log(response.farewell);
+//     });
+// });
+  
+// chrome.runtime.onMessage.addListener(
+//     function(request, sender, sendResponse) {
+//       console.log(sender.tab ?
+//                   "from a content script:" + sender.tab.url :
+//                   "from the extension");
+//       if (request.greeting === "hello")
+//         sendResponse({farewell: "goodbye"});
+//     }
+// );
