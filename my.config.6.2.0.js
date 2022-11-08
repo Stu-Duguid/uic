@@ -184,16 +184,16 @@
 			},
 			domCapture: {
 				// diffEnabled: true, // default true
-				// options: {
-				// maxMutations: 100, // default 100
-				// maxLength: 2000000, // default 1000000
-				// captureFrames: false // default false
-				// captureShadowDOM: false, // default false
-				// captureStyle: true, // default true
-				// discardBase64: 20000, // default true
-				// removeScripts: true, // default true
-				// removeComments: true, // default true
-				// }
+				options: {
+					// maxMutations: 100, // default 100
+					// maxLength: 2000000, // default 1000000
+					// captureFrames: false // default false
+					// captureShadowDOM: false, // default false
+					// captureStyle: true, // default true
+					// discardBase64: 20000, // default true
+					// removeScripts: true, // default true
+					// removeComments: true, // default true
+				}
 			},
 			browser: {
 				// normalizeTargetToParentLink: true, // default true
