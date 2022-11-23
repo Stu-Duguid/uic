@@ -246,9 +246,11 @@
 			},
 			ajaxListener: {
 				urlBlocklist: [
-					{regex: "collectorpost", flags: "i"},
-					{regex: "doubleclick", flags: "i"},
-					{regex: "google", flags: "i"}
+					{ regex: "clarity", flags: "i" },
+					{ regex: "collectorpost", flags: "i"},
+					{ regex: "crazyegg", flags: "i" },
+					{ regex: "doubleclick", flags: "i"},
+					{ regex: "google", flags: "i" },
 				],
 				filters: [
 					{
@@ -312,10 +314,7 @@
 			if (sessionCookieValue !== null) {
 				var outAnchors = document.querySelectorAll("a[href*='" + destDomain + "']");
 				for (var i = 0; i < outAnchors.length; i++) {
-					outAnchors[i].addEventListener('click', addCookieToLink);
-				}
-				function addCookieToLink(e) {
-					e.target.search = e.target.search + "&" + sessionCookieName + "=" + sessionCookieValue;
+					outAnchors[i].search = outAnchors[i].search + "&" + sessionCookieName + "=" + sessionCookieValue;
 				}
 			}
 		}
