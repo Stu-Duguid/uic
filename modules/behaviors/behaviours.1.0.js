@@ -17,6 +17,9 @@
 
 /* global TLT */
 
+// make function nicename which passed an element (target of an event) returns the innertext, name, ariaDescription if relevant
+// for the description in custom event name
+
 TLT.addModule("behaviours", function (context) {
     "use strict";
     var moduleLoaded, moduleConfig, rageclick, deadclick, errorclick, excessscroll, thrashing;
@@ -25,16 +28,17 @@ TLT.addModule("behaviours", function (context) {
         //
         // RAGE CLICKS
         //
-        // more than 'clicks' without moving more that 'area' pixels high and wide in under 'time' ms
+        // more than 'clicks' without moving more that 'distance' pixels between clicks in under 'time' ms
         //
         rageclick = moduleConfig.rageclick || { enable: false };
         if (rageclick.enable) {
-            rageclick.clicks = moduleConfig.rageclick.clicks || 6;
-            rageclick.area = moduleConfig.rageclick.area || 80;
-            rageclick.time = moduleConfig.rageclick.time || 4000;
+            rageclick.clicks = moduleConfig.rageclick.clicks || 4;
+            rageclick.distance = moduleConfig.rageclick.distance || 20;
+            rageclick.time = moduleConfig.rageclick.time || 800;
             rageclick.blocklist = moduleConfig.rageclick.blocklist || [];
             // the clicks in the rage time
-            rageclick.seen = [];
+            rageclick.count = 0;
+            rageclick.lastTime = 0;
             moduleLoaded = true;
         }
     }
@@ -43,7 +47,7 @@ TLT.addModule("behaviours", function (context) {
         // sees click events and unloads
 
         if (event.type === 'unload') {
-            rageclick.seen = [];
+            rageclick.count = 0;
             return;
         }
         // ignore if on blocklist of targets
@@ -52,25 +56,18 @@ TLT.addModule("behaviours", function (context) {
                 return;
             }
         }
-        // console.debug(`seen ${rageclick.seen.length} at (${event.position.x},${event.position.y}) diff (${event.position.x - rageclick.x},${event.position.y - rageclick.y})`);
-        // save if first click and reset - also if too much distance moved, or if too much time passed
-        if (rageclick.seen.length === 0 || Math.abs(event.position.x - rageclick.x) > rageclick.area || Math.abs(event.position.y - rageclick.y) > rageclick.area || event.timeStamp - rageclick.seen[0] > rageclick.time) {
+        // save if first click and reset - also if too much distance moved, or if too much time passed between clicks
+        if (rageclick.count === 0 || Math.abs(event.position.x - rageclick.x) > rageclick.distance || Math.abs(event.position.y - rageclick.y) > rageclick.distance || event.timestamp - rageclick.lastTime > rageclick.time) {
             rageclick.x = event.position.x;
             rageclick.y = event.position.y;
-            rageclick.seen = [event.timeStamp];
+            rageclick.count = 1;
             return;
         }
-        // add a click to the list at the end
-        console.debug(`behaviour: potential click`);
-        rageclick.seen.push(event.timeStamp);
+        // console.debug(`behaviour: potential click`);
+        rageclick.count++;
         rageclick.x = event.position.x;
         rageclick.y = event.position.y;
-        // remove clicks that were too long ago and reduce count
-        while (rageclick.seen.length > 1 && event.timeStamp - rageclick.seen[0] > rageclick.time) {
-            console.debug(`behaviour: remove potential click`);
-            rageclick.seen.shift();
-        }
-        if (rageclick.seen.length === rageclick.clicks) { // yes this can trigger on the way down but very unlikely and no consequence
+        if (rageclick.count === rageclick.clicks) {
             // log a rage event
             console.debug(`behaviour: rage clicks seen`);
             context.post({
@@ -85,7 +82,7 @@ TLT.addModule("behaviours", function (context) {
                     }
                 }
             });
-            // rageclick.seen = [];
+            rageclick.count = 0;
         }
     }
 
@@ -100,7 +97,7 @@ TLT.addModule("behaviours", function (context) {
             deadclick.time = moduleConfig.deadclick.time || 2000;
             deadclick.blocklist = moduleConfig.deadclick.blocklist || [];
             // candidate click status
-            deadclick.waitforreaction = false;
+            deadclick.unresolvedClick = false;
             // time of the most recent click
             deadclick.lastTime = 0;
             moduleLoaded = true;
@@ -112,27 +109,31 @@ TLT.addModule("behaviours", function (context) {
         var timer = null;
         var observer = null;
 
-        // when a click seen, set waitforreaction, set timeout to check flag
+        // when a click seen, set unresolvedClick, set timeout to check flag
         if (event.type === 'click') {
+            // ignore another click if already waiting
+            if (timer) {
+                return;
+            }
+            // ignore if an input field - as expecting a dead click to get focus or set
+            if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select") {
+                return;
+            }
             // ignore if on blocklist of targets
             for (var i = 0; i < deadclick.blocklist.length; i++) {
                 if (event.target.id.match(deadclick.blocklist[i])) {
                     return;
                 }
             }
-            // ignore another click if already waiting
-            if (timer) {
-                return;
-            }
-            deadclick.waitforreaction = true;
+            deadclick.unresolvedClick = true;
             deadclick.target = event.target.id;
             
-            observer = new MutationObserver(function () { deadclick.waitforreaction = false; observer.disconnect(); });
+            observer = new MutationObserver(function () { deadclick.unresolvedClick = false; observer.disconnect(); });
             observer.observe(document.body, { subtree: true, childList: true, attributeFilter: ["style", "class"] });
 
             timer = setTimeout(
                 function deadTimeCheck() {
-                    if (deadclick.waitforreaction) {
+                    if (deadclick.unresolvedClick) {
                         // log a rage event
                         console.debug(`behaviour: dead click seen`);
                         context.post({
@@ -149,7 +150,7 @@ TLT.addModule("behaviours", function (context) {
                         });
                     }
                     timer = null;
-                    deadclick.waitforreaction = false;
+                    deadclick.unresolvedClick = false;
                 },
                 deadclick.time
             );
@@ -160,7 +161,7 @@ TLT.addModule("behaviours", function (context) {
             if (timer) {
                 clearTimeout(timer);
                 timer = null;
-                deadclick.waitforreaction = false;
+                deadclick.unresolvedClick = false;
             }
         }
     }
@@ -187,7 +188,7 @@ TLT.addModule("behaviours", function (context) {
         // sees click and error events only
         if (event.type === 'click') {
             errorclick.target = event.target.id;
-            errorclick.clickTime = event.nativeEvent.timestamp;
+            errorclick.clickTime = event.timestamp;
             return;
         }
         if (event.type === 'error') {
@@ -197,8 +198,8 @@ TLT.addModule("behaviours", function (context) {
                     return;
                 }
             }
-            if (errorclick.target) {
-                if (event.nativeEvent.timeStamp - errorclick.clickTime < errorclick.time) {
+            if (errorclick.target && event.nativeEvent.message) {
+                if (event.timestamp - errorclick.clickTime < errorclick.time) {
                     // log an error click event
                     console.debug(`behaviour: error click seen`);
                     context.post({
@@ -235,11 +236,10 @@ TLT.addModule("behaviours", function (context) {
         //
         excessscroll = moduleConfig.excessscroll || { enable: false };
         if (excessscroll.enable) {
-            excessscroll.scale = moduleConfig.excessscroll.scale || 2;
+            excessscroll.scale = moduleConfig.excessscroll.scale || 2.4;
             excessscroll.blocklist = moduleConfig.excessscroll.blocklist || [];
             // cumulative scroll distance (vertical only)
             excessscroll.distance = 0;
-            excessscroll.threshold = document.body.scrollHeight * excessscroll.scale;
             excessscroll.lastpos = 0;
             moduleLoaded = true;
         }
@@ -256,7 +256,7 @@ TLT.addModule("behaviours", function (context) {
         if (event.type === 'scroll') {
             excessscroll.distance += Math.abs(window.scrollY - excessscroll.lastpos);
             excessscroll.lastpos = window.scrollY;
-            if (excessscroll.distance > excessscroll.threshold) {
+            if (excessscroll.distance > document.body.scrollHeight * excessscroll.scale) {
                 // log an error click event
                 console.debug(`behaviour: excess scroll seen`);
                 context.post({
@@ -277,10 +277,10 @@ TLT.addModule("behaviours", function (context) {
             }
             return;
         }
-        if (event.type === 'resize' || event.type === 'orientationchange') {
-            excessscroll.threshold = document.body.scrollHeight * excessscroll.scale;
+        if (event.type === 'orientationchange') {
             excessscroll.distance = window.scrollY;
             excessscroll.lastpos = window.scrollY;
+            return;
         }
         if (event.type === 'unload') {
             excessscroll.distance = 0;
@@ -336,13 +336,13 @@ TLT.addModule("behaviours", function (context) {
             var delta = (thrashing.seen.length > 0) ? Math.abs((theta - thrashing.lastDirection) % Math.PI) : 0;
             thrashing.lastDirection = theta;
             thrashing.total += delta;
-            thrashing.seen.push({ time: event.nativeEvent.timeStamp, delta: delta });
+            thrashing.seen.push({ time: event.timestamp, delta: delta });
             // remove elements of the array outside the time window
-            while (thrashing.seen.length > 1 && event.nativeEvent.timeStamp - thrashing.seen[0].time > thrashing.time) {
+            while (thrashing.seen.length > 1 && event.timestamp - thrashing.seen[0].time > thrashing.time) {
                 thrashing.total -= thrashing.seen[0].delta;
                 thrashing.seen.shift();
             }
-            console.debug(`behaviour: thrash time ${event.nativeEvent.timeStamp}, delta ${delta}, total ${thrashing.total} length ${thrashing.seen.length}`);
+            // console.debug(`behaviour: thrash time ${event.timestamp}, delta ${delta}, total ${thrashing.total} length ${thrashing.seen.length}`);
             if (thrashing.total > thrashing.threshold) {
                 // log a thrashing event
                 console.debug(`behaviour: thrashing seen`);
@@ -401,7 +401,7 @@ TLT.addModule("behaviours", function (context) {
                 checkForError(event);
                 return;
             }
-            if (event.type === 'scroll' || event.type === 'resize' || event.type === 'orientationchange') {
+            if (event.type === 'scroll' || event.type === 'orientationchange') {
                 checkForScroll(event);
                 return;
             }
@@ -431,7 +431,6 @@ TLT.addModule("behaviours", function (context) {
 //         { name: "change", attachToShadows: true, recurseFrames: true },
 //         { name: "click", recurseFrames: true },
 //         { name: "unload", target: window},
-//         { name: "resize", target: window},
 //         { name: "scroll", target: window},
 //         { name: "mousemove", recurseFrames: true },
 //         { name: "orientationchange", target: window},
@@ -444,15 +443,15 @@ TLT.addModule("behaviours", function (context) {
 // behaviours: {
 //     rageclick: {
 //         enable: false,
-//         clicks: 6,
-//         area: 80,
-//         time: 4000,
+//         clicks: 4,
+//         distance: 20,
+//         time: 800,
 //         blocklist: []
 //     },
 //     deadclick: {
 //         enable: false,
 //         time: 2000,
-//         blocklist: []
+//         blocklist: ['[["html",0],["body",0]]']
 //     },
 //     errorclick: {
 //         enable: false,
@@ -461,7 +460,7 @@ TLT.addModule("behaviours", function (context) {
 //     },
 //     excessscroll: {
 //         enable: false,
-//         scale: 2,
+//         scale: 2.4,
 //         blocklist: []
 //     },
 //     thrashing: {

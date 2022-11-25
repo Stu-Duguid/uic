@@ -281,7 +281,7 @@
             behaviours: {
                 rageclick: {
                     enable: true,
-                    clicks: 4,
+                    clicks: 6,
                     area: 80,
                     time: 4000,
                     blocklist: []
@@ -303,7 +303,7 @@
                 },
                 thrashing: {
                     enable: true,
-                    time: 4000,
+                    time: 3000,
                     blocklist: []
                 },
             }
