@@ -56,7 +56,13 @@ TLT.addModule("dataListener", function (context) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
               if (!dataAllowList || dataAllowList.indexOf(key) !== -1) {
-                // console.log("dataListener: data log - "+JSON.stringify(dataLayer[i]))
+                for (var prop in dataLayer[i]) {
+                  if (prop.match(/\./)) {
+                    var renamed = prop.replace(/\./, '-');
+                    dataLayer[renamed] = dataLayer[prop];
+                    delete dataLayer[prop];
+                  };
+                }
                 TLT.logDataLayer(dataLayer[i]);
                 // TLT.logCustomEvent("gtm", { description: "GTM Events", value: dataLayer[i] });
               }
@@ -67,6 +73,6 @@ TLT.addModule("dataListener", function (context) {
       }
     },
 
-    version: "1.1"
+    version: "1.2" // added rename of elements with dot in name 
   };
 });
