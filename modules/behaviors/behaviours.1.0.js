@@ -20,6 +20,7 @@
 // make function nicename which passed an element (target of an event) returns the innertext, name, ariaDescription if relevant
 // for the description in custom event name
 
+// @ts-ignore
 TLT.addModule("behaviours", function (context) {
     "use strict";
     var moduleLoaded, moduleConfig, rageclick, deadclick, errorclick, excessscroll, thrashing;
@@ -116,7 +117,7 @@ TLT.addModule("behaviours", function (context) {
                 return;
             }
             // ignore if an input field - as expecting a dead click to get focus or set
-            if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select") {
+            if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select" || event.target.type === "label") {
                 return;
             }
             // ignore if on blocklist of targets
@@ -156,7 +157,6 @@ TLT.addModule("behaviours", function (context) {
             );
             return;
         }
-        // code here sets flag (and clears timeout) on beforeunload
         if (event.type === 'unload') {
             if (timer) {
                 clearTimeout(timer);
@@ -249,7 +249,7 @@ TLT.addModule("behaviours", function (context) {
         // sees scroll events only
         // ignore if on blocklist of page urls
         for (var i = 0; i < excessscroll.blocklist.length; i++) {
-            if (document.location.match(excessscroll.blocklist[i])) {
+            if (document.location.href.match(excessscroll.blocklist[i])) {
                 return;
             }
         }
@@ -268,7 +268,7 @@ TLT.addModule("behaviours", function (context) {
                             value: {
                                 distance: excessscroll.distance,
                                 pageheight: document.body.scrollHeight,
-                                viewport: window.visualViewport.height
+                                viewport: window.visualViewport && window.visualViewport.height ? window.visualViewport.height : 0
                             }
                         }
                     }
@@ -314,7 +314,7 @@ TLT.addModule("behaviours", function (context) {
         // sees mousemove events only
         // ignore if on blocklist of page urls
         for (var i = 0; i < thrashing.blocklist.length; i++) {
-            if (document.location.match(thrashing.blocklist[i])) {
+            if (document.location.href.match(thrashing.blocklist[i])) {
                 return;
             }
         }
