@@ -56,15 +56,12 @@ TLT.addModule("dataListener", function (context) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
               if (!dataAllowList || dataAllowList.indexOf(key) !== -1) {
+                var sendData = {};
                 for (var prop in dataLayer[i]) {
-                  if (prop.match(/\./)) {
-                    var renamed = prop.replace(/\./, '-');
-                    dataLayer[renamed] = dataLayer[prop];
-                    delete dataLayer[prop];
-                  };
+                  sendData[prop.replace(/\./, '-')] = dataLayer[i][prop];
                 }
-                TLT.logDataLayer(dataLayer[i]);
-                // TLT.logCustomEvent("gtm", { description: "GTM Events", value: dataLayer[i] });
+                // TLT.logDataLayer(send);
+                TLT.logCustomEvent("gtm", { description: "GTM Events", value: sendData });
               }
             }
           }
