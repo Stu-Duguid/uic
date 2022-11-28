@@ -10,9 +10,9 @@
  */
 
 /**
- * @fileOverview The Behaviours module implements tracking of struggles
+ * @fileOverview The frictionSigns module implements tracking of struggles
  * including rage clicks, dead clicks, & excessive scrolling
- * @exports behaviours
+ * @exports frictionSigns
  */
 
 /* global TLT */
@@ -21,7 +21,7 @@
 // for the description in custom event name
 
 // @ts-ignore
-TLT.addModule("behaviours", function (context) {
+TLT.addModule("frictionSigns", function (context) {
     "use strict";
     var moduleLoaded, moduleConfig, rageclick, deadclick, errorclick, excessscroll, thrashing;
 
@@ -64,13 +64,13 @@ TLT.addModule("behaviours", function (context) {
             rageclick.count = 1;
             return;
         }
-        // console.debug(`behaviour: potential click`);
+        // console.debug(`frictionSigns: potential click`);
         rageclick.count++;
         rageclick.x = event.position.x;
         rageclick.y = event.position.y;
         if (rageclick.count === rageclick.clicks) {
             // log a rage event
-            console.debug(`behaviour: rage clicks seen`);
+            console.debug(`frictionSigns: rage clicks seen`);
             context.post({
                 type: 5,
                 customEvent: {
@@ -136,7 +136,7 @@ TLT.addModule("behaviours", function (context) {
                 function deadTimeCheck() {
                     if (deadclick.unresolvedClick) {
                         // log a rage event
-                        console.debug(`behaviour: dead click seen`);
+                        console.debug(`frictionSigns: dead click seen`);
                         context.post({
                             type: 5,
                             customEvent: {
@@ -201,7 +201,7 @@ TLT.addModule("behaviours", function (context) {
             if (errorclick.target && event.nativeEvent.message) {
                 if (event.timestamp - errorclick.clickTime < errorclick.time) {
                     // log an error click event
-                    console.debug(`behaviour: error click seen`);
+                    console.debug(`frictionSigns: error click seen`);
                     context.post({
                         type: 5,
                         customEvent: {
@@ -258,7 +258,7 @@ TLT.addModule("behaviours", function (context) {
             excessscroll.lastpos = window.scrollY;
             if (excessscroll.distance > document.body.scrollHeight * excessscroll.scale) {
                 // log an error click event
-                console.debug(`behaviour: excess scroll seen`);
+                console.debug(`frictionSigns: excess scroll seen`);
                 context.post({
                     type: 5,
                     customEvent: {
@@ -342,10 +342,10 @@ TLT.addModule("behaviours", function (context) {
                 thrashing.total -= thrashing.seen[0].delta;
                 thrashing.seen.shift();
             }
-            // console.debug(`behaviour: thrash time ${event.timestamp}, delta ${delta}, total ${thrashing.total} length ${thrashing.seen.length}`);
+            // console.debug(`frictionSigns: thrash time ${event.timestamp}, delta ${delta}, total ${thrashing.total} length ${thrashing.seen.length}`);
             if (thrashing.total > thrashing.threshold) {
                 // log a thrashing event
-                console.debug(`behaviour: thrashing seen`);
+                console.debug(`frictionSigns: thrashing seen`);
                 context.post({
                     type: 5,
                     customEvent: {
@@ -425,7 +425,7 @@ TLT.addModule("behaviours", function (context) {
 
 // moduleConfig.core.modules
 //
-// behaviours: {
+// frictionSigns: {
 //     enabled: true,
 //     events: [
 //         { name: "change", attachToShadows: true, recurseFrames: true },
@@ -440,7 +440,7 @@ TLT.addModule("behaviours", function (context) {
 
 // moduleConfig.modules
 //
-// behaviours: {
+// frictionSigns: {
 //     rageclick: {
 //         enable: false,
 //         clicks: 4,
