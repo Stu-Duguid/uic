@@ -14,6 +14,17 @@ TLT.addModule("frictionSigns", function (context) {
     "use strict";
     var moduleLoaded, moduleConfig, rageclick, deadclick, errorclick, excessscroll, thrashing;
 
+    // check if target is in (block)list where entries could be strings or regexes
+    function inList(target, list) {
+        for (var i = 0; i < list.length; i++) {
+            // string or object (regex)
+            if ((typeof list[i] === 'string') ? target.indexOf(list[i]) != -1 : target.match(list[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function initRage(event) {
         //
         // RAGE CLICKS
@@ -40,12 +51,8 @@ TLT.addModule("frictionSigns", function (context) {
             rageclick.count = 0;
             return;
         }
-        // ignore if on blocklist of targets
-        for (var i = 0; i < rageclick.blocklist.length; i++) {
-            if (event.target.id.match(rageclick.blocklist[i])) {
-                return;
-            }
-        }
+        if (inList(rageclick.blocklist, event.target.id)) return;
+        
         // save if first click and reset - also if too much distance moved, or if too much time passed between clicks
         if (rageclick.count === 0 || Math.abs(event.position.x - rageclick.x) > rageclick.distance || Math.abs(event.position.y - rageclick.y) > rageclick.distance || event.timestamp - rageclick.lastTime > rageclick.time) {
             rageclick.x = event.position.x;
@@ -94,18 +101,14 @@ TLT.addModule("frictionSigns", function (context) {
     function checkForDead(event) {
         // sees click events and looks for dom captures or unloads within timeout or logs click as dead
         
-        // when a click seen, set unresolvedClick, set timeout to check flag
         if (event.type === 'click') {
+
             // ignore if an input field - as expecting a dead click to get focus or set
             if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select" || event.target.type === "label") {
                 return;
             }
-            // ignore if on blocklist of targets
-            for (var i = 0; i < deadclick.blocklist.length; i++) {
-                if (event.target.id.match(deadclick.blocklist[i])) {
-                    return;
-                }
-            }
+            if (inList(deadclick.blocklist, event.target.id)) return;
+
             // set up to watch for a reaction
             var unresolvedClick = true;
             var target = event.target.id;
@@ -166,12 +169,8 @@ TLT.addModule("frictionSigns", function (context) {
             return;
         }
         if (event.type === 'error') {
-            // ignore if on blocklist of error messages
-            for (var i = 0; i < errorclick.blocklist.length; i++) {
-                if (event.nativeEvent.message.match(errorclick.blocklist[i])) {
-                    return;
-                }
-            }
+            if (inList(errorclick.blocklist, event.target.id)) return;
+            
             if (errorclick.target && event.nativeEvent.message) {
                 if (event.timestamp - errorclick.clickTime < errorclick.time) {
                     // log an error click event
@@ -221,12 +220,8 @@ TLT.addModule("frictionSigns", function (context) {
 
     function checkForScroll(event) {
         // sees scroll events only
-        // ignore if on blocklist of page urls
-        for (var i = 0; i < excessscroll.blocklist.length; i++) {
-            if (document.location.href.match(excessscroll.blocklist[i])) {
-                return;
-            }
-        }
+        if (inList(excessscroll.blocklist, event.target.id)) return;
+        
         if (event.type === 'scroll') {
             excessscroll.distance += Math.abs(window.scrollY - excessscroll.lastpos);
             excessscroll.lastpos = window.scrollY;
@@ -286,12 +281,7 @@ TLT.addModule("frictionSigns", function (context) {
 
     function checkForThrash(event) {
         // sees mousemove events only
-        // ignore if on blocklist of page urls
-        for (var i = 0; i < thrashing.blocklist.length; i++) {
-            if (document.location.href.match(thrashing.blocklist[i])) {
-                return;
-            }
-        }
+        if (inList(excessscroll.blocklist, event.target.id)) return;
 
         if (event.type === 'mousemove') {
             // calculate the direction from the last mouse position to this one
