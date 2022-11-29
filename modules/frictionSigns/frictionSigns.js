@@ -1,14 +1,3 @@
-/*!
- * Copyright (c) 2021 Acoustic, L.P. All rights reserved.
- *
- * NOTICE: This file contains material that is confidential and proprietary to
- * Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
- * industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
- * Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
- * prohibited.
- *
- */
-
 /**
  * @fileOverview The frictionSigns module implements tracking of struggles
  * including rage clicks, dead clicks, & excessive scrolling
@@ -62,6 +51,7 @@ TLT.addModule("frictionSigns", function (context) {
             rageclick.x = event.position.x;
             rageclick.y = event.position.y;
             rageclick.count = 1;
+            rageclick.lastTime = event.timestamp;
             return;
         }
         // console.debug(`frictionSigns: potential click`);
@@ -97,25 +87,15 @@ TLT.addModule("frictionSigns", function (context) {
         if (deadclick.enable) {
             deadclick.time = moduleConfig.deadclick.time || 2000;
             deadclick.blocklist = moduleConfig.deadclick.blocklist || [];
-            // candidate click status
-            deadclick.unresolvedClick = false;
-            // time of the most recent click
-            deadclick.lastTime = 0;
             moduleLoaded = true;
         }
     }
 
     function checkForDead(event) {
         // sees click events and looks for dom captures or unloads within timeout or logs click as dead
-        var timer = null;
-        var observer = null;
-
+        
         // when a click seen, set unresolvedClick, set timeout to check flag
         if (event.type === 'click') {
-            // ignore another click if already waiting
-            if (timer) {
-                return;
-            }
             // ignore if an input field - as expecting a dead click to get focus or set
             if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select" || event.target.type === "label") {
                 return;
@@ -126,43 +106,37 @@ TLT.addModule("frictionSigns", function (context) {
                     return;
                 }
             }
-            deadclick.unresolvedClick = true;
-            deadclick.target = event.target.id;
+            // set up to watch for a reaction
+            var unresolvedClick = true;
+            var target = event.target.id;
             
-            observer = new MutationObserver(function () { deadclick.unresolvedClick = false; observer.disconnect(); });
+            var observer = new MutationObserver(function () {
+                unresolvedClick = false; observer.disconnect();
+            });
             observer.observe(document.body, { subtree: true, childList: true, attributeFilter: ["style", "class"] });
 
-            timer = setTimeout(
+            setTimeout(
                 function deadTimeCheck() {
-                    if (deadclick.unresolvedClick) {
-                        // log a rage event
+                    if (unresolvedClick) {
+                        // log a dead event
                         console.debug(`frictionSigns: dead click seen`);
                         context.post({
                             type: 5,
                             customEvent: {
                                 name: "deadclick",
                                 data: {
-                                    description: "Dead click - " + deadclick.target,
+                                    description: "Dead click - " + target,
                                     value: {
-                                        target: deadclick.target
+                                        target: target
                                     }
                                 }
                             }
                         });
                     }
-                    timer = null;
-                    deadclick.unresolvedClick = false;
                 },
                 deadclick.time
             );
             return;
-        }
-        if (event.type === 'unload') {
-            if (timer) {
-                clearTimeout(timer);
-                timer = null;
-                deadclick.unresolvedClick = false;
-            }
         }
     }
 
