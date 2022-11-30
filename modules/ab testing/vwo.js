@@ -4,7 +4,11 @@
 
 // insert via tag manager to run before VWO mod is applied
 
-if (window.VWO) {
+function listenToVWO() {
+	if (!window.VWO) {
+		setTimeout(listenToVWO(), 40);
+		return;
+	}
 	window.VWO.push(['onVariationApplied', function (data) {
 		if (!data) {
 			return;
@@ -29,3 +33,4 @@ if (window.VWO) {
 		}
 	}
 }
+listenToVWO();
