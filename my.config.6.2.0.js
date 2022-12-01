@@ -286,7 +286,7 @@
 
 		if (window.google_optimize) {
 			window.TLT.logGOptimize = function (val, name) {
-				window.TLT.logCustomEvent("optimize", {description: "Optimize", experiment: name, variant: val});
+				window.TLT.logCustomEvent("abTest", {description: "Optimize", experiment: name, variant: val});
 			}
 			(function () {window.dataLayer.push(arguments)}('event', 'optimize.callback', {callback: window.TLT.logGOptimize}));
 		}
@@ -296,14 +296,28 @@
 			var campaignId, campaignData;
 			for (campaignId in optim) {
 				campaignData = window.optimizely.get("state").getDecisionObject({campaignId: campaignId});
-				TLT.logCustomEvent("optimizely", {description: "Optimizely", value: campaignData});
+				TLT.logCustomEvent("abTest", {description: "Optimizely", value: campaignData});
 			}
 		}
 		
 		if (("ABTasty" in window) && (window.ABTasty !== null)) {
 			var abtests = window.ABTasty.getTestsOnPage();
 			for (var abtest in abtests) {
-				TLT.logCustomEvent("abtasty", {description: "ABTasty", value: { experiment: abtests[abtest].name, experimentId: abtest, variant: abtests[abtest].variationName, variantId: abtests[abtest].variationID }});
+				TLT.logCustomEvent("abTest", {description: "ABTasty", value: { experiment: abtests[abtest].name, experimentId: abtest, variant: abtests[abtest].variationName, variantId: abtests[abtest].variationID }});
+			}
+		}
+
+		var expId = window._vis_opt_experiment_id;
+		if (expId && expId !== 0 && window._vwo_exp && window._vwo_exp[expId]) {
+			var expData = window._vwo_exp[expId];
+			if (expData && expData.name && expData.combination_chosen && expData.comb_n) {
+				window.TLT.logCustomEvent("abTest", {
+					description: "VWO",
+					experimentId: expId,
+					experiment: expData.name,
+					variantId: expData.combination_chosen,
+					variant: expData.comb_n[expData.combination_chosen]
+				});
 			}
 		}
 
