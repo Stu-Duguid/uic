@@ -12,7 +12,7 @@ TLT.addModule("dataListener", function (context) {
 
   var moduleConfig = {};
   var moduleLoaded = false;
-  var dataLayer, dataBlocklist, dataAllowList, dataKey;
+  var dataLayer, dataBlocklist, dataAllowlist, dataPropBlocklist, dataKey;
   var nextElem = 0;
 
   return {
@@ -26,7 +26,8 @@ TLT.addModule("dataListener", function (context) {
           //console.log("dataListener: module loaded");
           moduleLoaded = true;
           dataBlocklist = moduleConfig.dataBlocklist || null;
-          dataAllowList = moduleConfig.dataAllowList || null;
+          dataAllowlist = moduleConfig.dataAllowlist || null;
+          dataPropBlocklist = moduleConfig.dataPropBlocklist || null;
           dataKey = moduleConfig.dataKey || "event";
         }
       }
@@ -44,10 +45,13 @@ TLT.addModule("dataListener", function (context) {
           if (key) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
-              if (!dataAllowList || dataAllowList.indexOf(key) !== -1) {
+              if (!dataAllowlist || dataAllowlist.indexOf(key) !== -1) {
                 var sendData = {};
                 for (var prop in dataLayer[i]) {
-                  sendData[prop.replace(/\./, '_')] = dataLayer[i][prop];
+                  if (!dataPropBlocklist || dataPropBlocklist.indexOf(prop) === -1)
+                  {
+                    sendData[prop.replace(/\./, '_')] = dataLayer[i][prop];
+                  }
                 }
                 TLT.logDataLayer(sendData);
                 // TLT.logCustomEvent("gtm", { description: "GTM Events", value: sendData });
