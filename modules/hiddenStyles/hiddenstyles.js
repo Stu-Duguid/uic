@@ -92,7 +92,7 @@ TLT.addModule("hiddenStyles", function (context) {
   function insertRuleProxy(rule, index) {
     // proxied action
     var newIndex = this.insertRuleOriginal(rule, index);
-    console.log("proxy: insertRule: type=["+this.cssRules[newIndex].type+"] index=["+index+"], "+rule);
+    // console.debug("proxy: insertRule: type=["+this.cssRules[newIndex].type+"] index=["+index+"], "+rule);
     // get dest
     var dest = getDestfromSourceTag(this.ownerNode);
     // insertRuleInTag(dest, rule, index);
@@ -102,7 +102,7 @@ TLT.addModule("hiddenStyles", function (context) {
   function deleteRuleProxy(index) {
     // proxied action
     this.deleteRuleOriginal(index);
-    console.log("proxy: deleteRule: ["+index+"]");
+    // console.debug("proxy: deleteRule: ["+index+"]");
     // get dest
     var dest = getDestfromSourceTag(this.ownerNode);
     deleteRuleInTag(dest, index);
