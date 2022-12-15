@@ -31,7 +31,7 @@ TLT.addModule("frictionSigns", function (context) {
         //
         // more than 'clicks' without moving more that 'distance' pixels between clicks in under 'time' ms
         //
-        rageclick = moduleConfig.rageclick || { enable: false };
+        rageclick = moduleConfig.rageclick || { enable: true };
         if (rageclick.enable) {
             rageclick.clicks = moduleConfig.rageclick.clicks || 4;
             rageclick.distance = moduleConfig.rageclick.distance || 20;
@@ -90,7 +90,7 @@ TLT.addModule("frictionSigns", function (context) {
         //
         // a click followed by no dom capture or unload within 'time' ms
         //
-        deadclick = moduleConfig.deadclick || { enable: false };
+        deadclick = moduleConfig.deadclick || { enable: true };
         if (deadclick.enable) {
             deadclick.time = moduleConfig.deadclick.time || 2000;
             deadclick.blocklist = moduleConfig.deadclick.blocklist || [];
@@ -149,7 +149,7 @@ TLT.addModule("frictionSigns", function (context) {
         //
         // a script error with a click happening within 'time' ms before it
         //
-        errorclick = moduleConfig.errorclick || { enable: false };
+        errorclick = moduleConfig.errorclick || { enable: true };
         if (errorclick.enable) {
             errorclick.time = moduleConfig.errorclick.time || 200;
             errorclick.blocklist = moduleConfig.errorclick.blocklist || [];
@@ -207,7 +207,7 @@ TLT.addModule("frictionSigns", function (context) {
         //
         // total scrolled distance is more than (page-height-viewport-height)*'scale'
         //
-        excessscroll = moduleConfig.excessscroll || { enable: false };
+        excessscroll = moduleConfig.excessscroll || { enable: true };
         if (excessscroll.enable) {
             excessscroll.scale = moduleConfig.excessscroll.scale || 2.4;
             excessscroll.blocklist = moduleConfig.excessscroll.blocklist || [];
@@ -263,7 +263,7 @@ TLT.addModule("frictionSigns", function (context) {
         //
         // cursor changes direction more than 10 times in under 'time' ms
         //
-        thrashing = moduleConfig.thrashing || { enable: false };
+        thrashing = moduleConfig.thrashing || { enable: true };
         if (thrashing.enable) {
             thrashing.time = moduleConfig.thrashing.time || 4000;
             thrashing.blocklist = moduleConfig.thrashing.blocklist || [];
