@@ -33,10 +33,10 @@ TLT.addModule("frictionSigns", function (context) {
         //
         rageclick = moduleConfig.rageclick || { enable: true };
         if (rageclick.enable) {
-            rageclick.clicks = moduleConfig.rageclick.clicks || 4;
-            rageclick.distance = moduleConfig.rageclick.distance || 20;
-            rageclick.time = moduleConfig.rageclick.time || 800;
-            rageclick.blocklist = moduleConfig.rageclick.blocklist || [];
+            rageclick.clicks = rageclick.clicks || 4;
+            rageclick.distance = rageclick.distance || 20;
+            rageclick.time = rageclick.time || 800;
+            rageclick.blocklist = rageclick.blocklist || [];
             // the clicks in the rage time
             rageclick.count = 0;
             rageclick.lastTime = 0;
@@ -92,8 +92,8 @@ TLT.addModule("frictionSigns", function (context) {
         //
         deadclick = moduleConfig.deadclick || { enable: true };
         if (deadclick.enable) {
-            deadclick.time = moduleConfig.deadclick.time || 2000;
-            deadclick.blocklist = moduleConfig.deadclick.blocklist || [];
+            deadclick.time = deadclick.time || 2000;
+            deadclick.blocklist = deadclick.blocklist || [];
             moduleLoaded = true;
         }
     }
@@ -151,8 +151,8 @@ TLT.addModule("frictionSigns", function (context) {
         //
         errorclick = moduleConfig.errorclick || { enable: true };
         if (errorclick.enable) {
-            errorclick.time = moduleConfig.errorclick.time || 200;
-            errorclick.blocklist = moduleConfig.errorclick.blocklist || [];
+            errorclick.time = errorclick.time || 200;
+            errorclick.blocklist = errorclick.blocklist || [];
             // candidate error status
             errorclick.target = null;
             // time of the most recent error
@@ -209,8 +209,8 @@ TLT.addModule("frictionSigns", function (context) {
         //
         excessscroll = moduleConfig.excessscroll || { enable: true };
         if (excessscroll.enable) {
-            excessscroll.scale = moduleConfig.excessscroll.scale || 2.4;
-            excessscroll.blocklist = moduleConfig.excessscroll.blocklist || [];
+            excessscroll.scale = excessscroll.scale || 2.4;
+            excessscroll.blocklist = excessscroll.blocklist || [];
             // cumulative scroll distance (vertical only)
             excessscroll.distance = 0;
             excessscroll.lastpos = 0;
@@ -265,8 +265,8 @@ TLT.addModule("frictionSigns", function (context) {
         //
         thrashing = moduleConfig.thrashing || { enable: true };
         if (thrashing.enable) {
-            thrashing.time = moduleConfig.thrashing.time || 4000;
-            thrashing.blocklist = moduleConfig.thrashing.blocklist || [];
+            thrashing.time = thrashing.time || 4000;
+            thrashing.blocklist = thrashing.blocklist || [];
             thrashing.threshold = Math.PI * 10;
             // rolling window of recent deltas in mouse direction
             thrashing.moves = 0;
