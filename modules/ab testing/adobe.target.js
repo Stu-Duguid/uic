@@ -1,7 +1,7 @@
 
 // Tealeaf Adobe Target data capture
 
-console.log("Tealeaf Adobe Target data capture: start");
+console.debug("Tealeaf Adobe Target data capture: start");
 
 /* global adobe */
 document.addEventListener(adobe.target.event.REQUEST_SUCCEEDED, function (e) {
@@ -9,11 +9,11 @@ document.addEventListener(adobe.target.event.REQUEST_SUCCEEDED, function (e) {
   var tokens = e.detail.responseTokens;
 
 	if (tokens && tokens.length & tokens.length > 0) {
-		console.log("Tealeaf Adobe Target data capture: found tokens = ");
+		console.debug("Tealeaf Adobe Target data capture: found tokens = ");
     tryPost(distinct(tokens));
   }
 	else {
-		console.log("Tealeaf Adobe Target data capture: no tokens");
+		console.debug("Tealeaf Adobe Target data capture: no tokens");
 	}
 
   // helper functions 
@@ -39,18 +39,18 @@ document.addEventListener(adobe.target.event.REQUEST_SUCCEEDED, function (e) {
 
   function tryPost(tokens) {
     if (window.TLT && window.TLT.isInitialized()) {
-			console.log("Tealeaf Adobe Target data capture: sending");
+			console.debug("Tealeaf Adobe Target data capture: sending");
       tokens.forEach(function (token) {
         window.TLT.logCustomEvent("abTest", {
             description: "Adobe Target",
             experiment: token["activity.name"],
             variant: token["experience.name"]
           });
-				console.log("Tealeaf Adobe Target data capture: token = "+token["activity.name"]+" --- "+token["experience.name"]);
+				console.debug("Tealeaf Adobe Target data capture: token = "+token["activity.name"]+" --- "+token["experience.name"]);
       });
     }
     else {
-			console.log("Tealeaf Adobe Target data capture: waiting");
+			console.debug("Tealeaf Adobe Target data capture: waiting");
       var waitMoreTimer = setTimeout(tryPost, 200, tokens);
     }
   }
