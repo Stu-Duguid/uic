@@ -355,7 +355,7 @@
 	}
 
 	// session stitching --- incoming query string value
-	var sessionCookieName = config.modules.TLCookie.sessionizationCookieName;
+	var sessionCookieName = "TLTSID";
 	var secureTLTSID = config.modules.TLCookie.secureTLTSID;
 	var queryCookieValue = TLT.utils.getQueryStringValue(sessionCookieName);
 	if (queryCookieValue) {
