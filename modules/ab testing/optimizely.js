@@ -1,6 +1,6 @@
 // Optimizely
 
-if (("optimizely" in window) && (window.optimizely !== null)) {
+if (("optimizely" in window) && window.optimizely !== null && typeof window.optimizely.get === 'function') {
 	var optim = window.optimizely.get('state').getCampaignStates({ isActive: true });
 	var campaignId, campaignData;
 	for (campaignId in optim) {
