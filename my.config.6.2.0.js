@@ -246,6 +246,7 @@
 					{ regex: "crazyegg", flags: "i" },
 					{ regex: "doubleclick", flags: "i" },
 					{ regex: "google", flags: "i" },
+					{ regex: "yimg", flags: "i" },
 				],
 				filters: [
 					{
