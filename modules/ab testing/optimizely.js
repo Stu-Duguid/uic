@@ -5,6 +5,6 @@ if (("optimizely" in window) && window.optimizely !== null && typeof window.opti
 	var campaignId, campaignData;
 	for (campaignId in optim) {
 		campaignData = window.optimizely.get("state").getDecisionObject({ campaignId: campaignId });
-		TLT.logCustomEvent("optimizely", { description: "Optimizely", value: campaignData });
+		TLT.logCustomEvent("optimizely", { description: "Optimizely", experiment: campaignData.experiment, variant: campaignData.variation });
 	}
 }
