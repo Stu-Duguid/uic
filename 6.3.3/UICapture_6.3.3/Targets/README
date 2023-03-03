@@ -1,0 +1,8 @@
+NOTE: These are sample pages. Please review and modify before deploying to your production server
+to avoid any security threats as per your organization specific policies.
+
+The Target Page needs to receive the full POST content from the UI SDK client before writing the
+response.  This is required for correct PCA operation.
+
+As long as the Target Page is configured to do so, you may change the page to suit your
+organizational policies.
