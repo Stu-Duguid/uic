@@ -11,7 +11,7 @@
 
 	var config = {
 		core: {
-			buildNote: "stu 2022.11",
+			buildNote: "stu 2023.03",
 			// blockedElements: [], // default []
 			// blockedUserAgents: [
 			// { regex: "(Google|Bing|Face|DuckDuck|Yandex|Exa)bot", flags: "i" },
@@ -100,9 +100,9 @@
 						{ name: "error", target: window },
 					]
 				},
-				hiddenStyles: {
-					enabled: true
-				},
+				// hiddenStyles: {
+					// enabled: true
+				// },
 			},
 			// normalization: { urlFunction: function (urlOrPath, messageType) { return urlOrPath; }
 			// sessionDataEnabled: false, // defaults as false and data defaults as empty
@@ -188,6 +188,8 @@
 					// discardBase64: 20000, // default true
 					// removeScripts: true, // default true
 					// removeComments: true, // default true
+					captureDynamicStyles: true, // default false
+					// captureHREFStyles: true, // default false
 				}
 			},
 			browser: {
