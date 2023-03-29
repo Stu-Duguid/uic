@@ -88,6 +88,11 @@
 						{ name: "visibilitychange" }
 					]
 				},
+				flushQueue: {
+					events: [
+						{ name: "visibilitychange" }
+					]
+				},
 				frictionSigns: {
 					enabled: true,
 					events: [
@@ -151,17 +156,17 @@
 						],
 						maskType: 4, // replace all alphas with X and digits with 9
 						maskFunction: function (value) {
-							return value.replace(/[a-z]/gi, "X").replace(/[0-9]/g, "9");
+							return value.replace(/[A-Z]/g, "X").replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
 						}
 					},
 					{
 						targets: [
-							// "div.someclass p:nth-child(2)"
+							".tlPrivate"
 						],
 						maskType: 4,
 						maskFunction: function (value, element) {
 							if (element && element.innerText) {
-								element.innerText = element.innerText.replace(/[a-z]/gi, "X").replace(/[0-9]/g, "9");
+								element.innerText = element.innerText.replace(/[A-Z]/g, 'X').replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
 							}
 							return value;
 						}
