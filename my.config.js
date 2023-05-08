@@ -20,7 +20,7 @@
 			// "PhantomJS"
 			// ],
 			// ieExcludedLinks: ["a[href^=javascript]", "a.ignore"],
-			inactivityTimeout: 29 * 60 * 1000,
+			inactivityTimeout: 0,
 			modules: {
 				overstat: {
 					events: [
@@ -118,16 +118,16 @@
 		services: {
 			queue: {
 				// tltWorker: null, // default not used
-				asyncReqOnUnload: /WebKit/i.test(navigator.userAgent),
+				asyncReqOnUnload: true,  // /WebKit/i.test(navigator.userAgent),
 				// useBeacon: true, // default true
 				// useFetch: true, // default true
 				queues: [{
 					qid: "DEFAULT",
 					endpoint: "https://lib-ap-1.brilliantcollector.com/collector/collectorPost",
 					// endpoint: "https://teabooster-eu.acoustic-demo.com/collector/sduguid/sydney/collectorPost",
-					maxEvents: 50,
-					timerInterval: 30000, // default 0
-					maxSize: 300000, // default 0
+					maxEvents: 10,
+					timerInterval: 10000, // default 0
+					maxSize: 100000, // default 0
 					checkEndpoint: false,
 					// endpointCheckTimeout: 3000, // default 3000
 					encoder: "gzip" // enable for prod
@@ -284,8 +284,8 @@
 				},
 				thrashing: {
 					enable: true, // time: 3000, // blocklist: []
-				},
-			},
+				}
+			}
 		}
 	};
 
@@ -330,22 +330,22 @@
 		}
 
 		// add callback to alter messages (sample)
-		TLT.registerBridgeCallbacks([{
-			enabled: false,
-			cbType: "messageRedirect",
-			cbFunction: function (_msg, msgObj) {
-				if (msgObj) {
-					if (!msgObj.screenviewDone) {
-						msgObj.screenviewDone = true; // to prevent endless loop
-						// to remove innertext on anchor targets
-						if (msgObj.type === 4 && msgObj.target.type === "a" && msgObj.target.currState && msgObj.target.currState.innerText) {
-							msgObj.target.currState.innerText = msgObj.target.currState.innerText.replace(/[^<>\s]/g, 'X');
-						}
-					}
-				}
-				return msgObj;
-			}
-		}]);
+		// TLT.registerBridgeCallbacks([{
+		// 	enabled: false,
+		// 	cbType: "messageRedirect",
+		// 	cbFunction: function (_msg, msgObj) {
+		// 		if (msgObj) {
+		// 			if (!msgObj.screenviewDone) {
+		// 				msgObj.screenviewDone = true; // to prevent endless loop
+		// 				// to remove innertext on anchor targets
+		// 				if (msgObj.type === 4 && msgObj.target.type === "a" && msgObj.target.currState && msgObj.target.currState.innerText) {
+		// 					msgObj.target.currState.innerText = msgObj.target.currState.innerText.replace(/[^<>\s]/g, 'X');
+		// 				}
+		// 			}
+		// 		}
+		// 		return msgObj;
+		// 	}
+		// }]);
 
 		// session stitching --- outgoing links
 		var destDomain = "www.seconddomain.com";
@@ -369,13 +369,7 @@
 	if (queryCookieValue) {
 		TLT.utils.setCookie(sessionCookieName, queryCookieValue, undefined, undefined, undefined, secureTLTSID);
 	}
-
-	// turn off beacon for old safari
-	if (TLT.utils.isiOS) {
-		var iOSVersion = / OS (\d+)_(\d+)/.exec(navigator.userAgent);
-		config.services.queue.useBeacon = iOSVersion && (iOSVersion[1] + "." + iOSVersion[2]) >= 12.2;
-	}
-
+	
 	// turn off options for old IE
 	if (document.documentMode) {
 		config.services.queue.useFetch = false;
@@ -387,7 +381,15 @@
 		} else if (document.documentMode === 9) {
 			config.modules.replay.domCapture.enabled = false;
 			config.services.domCapture.diffEnabled = false;
+			config.modules.ajaxListener.enabled = false;
 		}
+	}
+	
+	// turn off beacon for old safari
+	if (TLT.utils.isiOS) {
+		var iOSVersion = / OS (\d+)_(\d+)/.exec(navigator.userAgent);
+		// disable Beacon in iOS 12 and earlier due to Safari on iOS bug
+		config.services.queue.useBeacon = iOSVersion && (iOSVersion[1] + "." + iOSVersion[2]) >= 12.2;
 	}
 
 	if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
