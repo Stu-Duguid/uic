@@ -42,6 +42,7 @@ TLT.addModule("dataListener", function (context) {
         //console.log("dataListener: webevent type - "+webEvent.type)
         for (var i = nextElem; dataLayer.length > i; i++) {
           var key = dataLayer[i][dataKey];
+          // todo: add option to log if no key
           if (key) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
