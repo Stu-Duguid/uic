@@ -1,0 +1,525 @@
+{
+  "events": [
+    {
+      "displayName": "Test Variant",
+      "internalName": "E_TEST_VARIANT_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "a/b testing"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEST_VARIANT_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"ABTEST\")\n    {\n        $F.setFacts(\"E_TEST_VARIANT_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "abTest",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Test Variant",
+        "internalName": "P_STEP_TEST_VARIANT_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Test A/B",
+      "internalName": "E_TEST_A_B_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "a/b testing"
+      ],
+      "trigger": "AfterEveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEST_A_B_666()\n{\n    if ($F.getLastHitNumber(\"E_TEST_EXPERIMENT_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_TEST_EXPERIMENT_666\") == $H.StepNumber)\n    {\n        var eId = ($F.getLastHitNumber(\"E_TEST_EXPERIMENT_ID_666\") == $H.HitNumber\n            && $F.getLastStepNumber(\"E_TEST_EXPERIMENT_ID_666\") == $H.StepNumber) ? $F.getLastEventValue(\"E_TEST_EXPERIMENT_ID_666\") : 'none';\n        var vId = ($F.getLastHitNumber(\"E_TEST_VARIANT_ID_666\") == $H.HitNumber\n            && $F.getLastStepNumber(\"E_TEST_VARIANT_ID_666\") == $H.StepNumber) ? $F.getLastEventValue(\"E_TEST_VARIANT_ID_666\") : 'none';\n        $F.setFacts(\"E_TEST_A_B_666\", eId+':'+vId);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Test Experiment",
+              "internalName": "E_TEST_EXPERIMENT_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Test Experiment Id",
+              "internalName": "E_TEST_EXPERIMENT_ID_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Test Variant Id",
+              "internalName": "E_TEST_VARIANT_ID_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Test Experiment Id",
+              "internalName": "E_TEST_EXPERIMENT_ID_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "Value",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "1",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Test Variant Id",
+              "internalName": "E_TEST_VARIANT_ID_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "Value",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "1",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Test context": false
+      }
+    },
+    {
+      "displayName": "Test Experiment",
+      "internalName": "E_TEST_EXPERIMENT_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "a/b testing"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEST_EXPERIMENT_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"ABTEST\")\n    {\n        $F.setFacts(\"E_TEST_EXPERIMENT_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "abTest",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Test Experiment",
+        "internalName": "P_STEP_TEST_EXPERIMENT_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Test Variant Id",
+      "internalName": "E_TEST_VARIANT_ID_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "a/b testing"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEST_VARIANT_ID_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"ABTEST\" && $P[\"P_STEP_TEST_VARIANT_ID_666\"].patternFound())\n    {\n        $F.setFacts(\"E_TEST_VARIANT_ID_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "abTest",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Test Variant Id",
+              "internalName": "P_STEP_TEST_VARIANT_ID_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Test Variant Id",
+        "internalName": "P_STEP_TEST_VARIANT_ID_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Test Experiment Id",
+      "internalName": "E_TEST_EXPERIMENT_ID_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "a/b testing"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEST_EXPERIMENT_ID_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"ABTEST\" && $P[\"P_STEP_TEST_EXPERIMENT_ID_666\"].patternFound())\n    {\n        $F.setFacts(\"E_TEST_EXPERIMENT_ID_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "abTest",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Test Experiment Id",
+              "internalName": "P_STEP_TEST_EXPERIMENT_ID_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Test Experiment Id",
+        "internalName": "P_STEP_TEST_EXPERIMENT_ID_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    }
+  ],
+  "dimensions": [
+    {
+      "displayName": "Test Experiment",
+      "internalName": "DIM_TEST_EXPERIMENT_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Test Experiment",
+        "internalName": "E_TEST_EXPERIMENT_666",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Test Variant",
+      "internalName": "DIM_TEST_VARIANT_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Test Variant",
+        "internalName": "E_TEST_VARIANT_666",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Test Experiment Id",
+      "internalName": "DIM_TEST_EXPERIMENT_ID_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Test Experiment Id",
+        "internalName": "E_TEST_EXPERIMENT_ID_666",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Test Variant Id",
+      "internalName": "DIM_TEST_VARIANT_ID_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Test Variant Id",
+        "internalName": "E_TEST_VARIANT_ID_666",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    }
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Test context",
+      "internalName": "DG_TEST_CONTEXT_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "dimensions": [
+        "Test Experiment",
+        "Test Variant",
+        "Test Experiment Id",
+        "Test Variant Id"
+      ]
+    }
+  ],
+  "sessionAttributes": [
+    {
+      "displayName": "Test Experiment",
+      "internalName": "SSV_TEST_EXPERIMENT",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": [
+        {
+          "displayName": "Test Experiment",
+          "internalName": "E_TEST_EXPERIMENT_666",
+          "type": "Event"
+        }
+      ],
+      "identityType": "None"
+    },
+    {
+      "displayName": "Test Variant",
+      "internalName": "SSV_TEST_VARIANT",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": [
+        {
+          "displayName": "Test Variant",
+          "internalName": "E_TEST_VARIANT_666",
+          "type": "Event"
+        }
+      ],
+      "identityType": "None"
+    },
+    {
+      "displayName": "Test A/B",
+      "internalName": "SSV_TEST_AB",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": [
+        {
+          "displayName": "Test A/B",
+          "internalName": "E_TEST_A_B_666",
+          "type": "Event"
+        }
+      ],
+      "identityType": "None"
+    }
+  ],
+  "hitAttributes": [],
+  "stepAttributes": [
+    {
+      "displayName": "Step - Test Experiment",
+      "internalName": "P_STEP_TEST_EXPERIMENT_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.customEvent.data.experiment",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
+      "displayName": "Step - Test Variant",
+      "internalName": "P_STEP_TEST_VARIANT_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.customEvent.data.variant",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
+      "displayName": "Step - Test Experiment Id",
+      "internalName": "P_STEP_TEST_EXPERIMENT_ID_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.customEvent.data.experimentId",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
+      "displayName": "Step - Test Variant Id",
+      "internalName": "P_STEP_TEST_VARIANT_ID_666",
+      "tags": [
+        "a/b testing"
+      ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.customEvent.data.variantId",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    }
+  ]
+}

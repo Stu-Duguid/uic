@@ -167,6 +167,7 @@
 						maskFunction: function (value, element) {
 							if (element && element.innerText) {
 								element.innerText = element.innerText.replace(/[A-Z]/g, 'X').replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
+								// element.innerText = element.innerText.replace(/[A-Z]/g, 'X').replace(/[a-z]/g, "x").replace(/[0-9]/g, "9").replace(/(?=[^a-zA-Z])\p{Alphabetic}/gu, 'U');
 							}
 							return value;
 						}

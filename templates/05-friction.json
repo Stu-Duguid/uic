@@ -1,0 +1,674 @@
+{
+  "events": [
+    {
+      "displayName": "Rage click",
+      "internalName": "E_RAGE_CLICK_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_RAGE_CLICK_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"RAGECLICK\")\n    {\n        $F.setFacts(\"E_RAGE_CLICK_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "rageclick",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Dead click",
+      "internalName": "E_DEAD_CLICK_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_DEAD_CLICK_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"DEADCLICK\")\n    {\n        $F.setFacts(\"E_DEAD_CLICK_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "deadclick",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Friction counts in session",
+      "internalName": "E_FRICTION_COUNTS_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "AtSessionEnd",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_FRICTION_COUNTS_IN_SESSION_666()\n{\n    if ($S.ScreenViewCount >= 1)\n    {\n        $F.setFacts(\"E_FRICTION_COUNTS_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "ScreenView Count",
+              "internalName": "S_SCREENVIEW_COUNT",
+              "type": "SessionAttribute"
+            },
+            "leftOperandValueType": "SessionAttribute",
+            "conditionOperator": "LargerThanEqual",
+            "rightOperandValue": "1",
+            "rightOperandValueType": "NumericLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction pointer counts": false,
+        "Friction click counts": false
+      }
+    },
+    {
+      "displayName": "Excessive scrolling",
+      "internalName": "E_EXCESSIVE_SCROLLING_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_EXCESSIVE_SCROLLING_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"EXCESSSCROLL\")\n    {\n        $F.setFacts(\"E_EXCESSIVE_SCROLLING_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "excessscroll",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Error click",
+      "internalName": "E_ERROR_CLICK_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_ERROR_CLICK_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"ERRORCLICK\")\n    {\n        $F.setFacts(\"E_ERROR_CLICK_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "errorclick",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Thrashing pointer",
+      "internalName": "E_THRASHING_POINTER_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_THRASHING_POINTER_666()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_NAME_666\"].firstValue().toUpperCase() == \"THRASHING\")\n    {\n        $F.setFacts(\"E_THRASHING_POINTER_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Name",
+              "internalName": "P_STEP_CUSTOMEVENT_NAME_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "thrashing",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Thrashing pointer in session",
+      "internalName": "E_THRASHING_POINTER_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_THRASHING_POINTER_IN_SESSION_666()\n{\n    if ($F.getLastHitNumber(\"E_THRASHING_POINTER_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_THRASHING_POINTER_666\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_THRASHING_POINTER_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Thrashing pointer",
+              "internalName": "E_THRASHING_POINTER_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Excessive scrolling in session",
+      "internalName": "E_EXCESSIVE_SCROLLING_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_EXCESSIVE_SCROLLING_IN_SESSION_666()\n{\n    if ($F.getLastHitNumber(\"E_EXCESSIVE_SCROLLING_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_EXCESSIVE_SCROLLING_666\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_EXCESSIVE_SCROLLING_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Excessive scrolling",
+              "internalName": "E_EXCESSIVE_SCROLLING_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Error click in session",
+      "internalName": "E_ERROR_CLICK_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_ERROR_CLICK_IN_SESSION_666()\n{\n    if ($F.getLastHitNumber(\"E_ERROR_CLICK_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_ERROR_CLICK_666\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_ERROR_CLICK_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Error click",
+              "internalName": "E_ERROR_CLICK_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Dead click in session",
+      "internalName": "E_DEAD_CLICK_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_DEAD_CLICK_IN_SESSION_666()\n{\n    if ($F.getLastHitNumber(\"E_DEAD_CLICK_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_DEAD_CLICK_666\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_DEAD_CLICK_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Dead click",
+              "internalName": "E_DEAD_CLICK_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    },
+    {
+      "displayName": "Rage click in session",
+      "internalName": "E_RAGE_CLICK_IN_SESSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "friction"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_RAGE_CLICK_IN_SESSION_666()\n{\n    if ($F.getLastHitNumber(\"E_RAGE_CLICK_666\") == $H.HitNumber && $F.getLastStepNumber(\"E_RAGE_CLICK_666\") == $H.StepNumber)\n    {\n        $F.setFacts(\"E_RAGE_CLICK_IN_SESSION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Rage click",
+              "internalName": "E_RAGE_CLICK_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "ExistsOnStep",
+            "conditionOperator": "IsTrue",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Friction context": false
+      }
+    }
+  ],
+  "dimensions": [
+    {
+      "displayName": "Thrashing pointer count",
+      "internalName": "DIM_THRASHING_POINTER_COUNT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Thrashing pointer",
+        "internalName": "E_THRASHING_POINTER_666",
+        "type": "Event"
+      },
+      "populateWith": "CurrentCountInSession",
+      "defaultValue": "0",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Excessive scroll count",
+      "internalName": "DIM_EXCESSIVE_SCROLL_COUNT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Excessive scrolling",
+        "internalName": "E_EXCESSIVE_SCROLLING_666",
+        "type": "Event"
+      },
+      "populateWith": "CurrentCountInSession",
+      "defaultValue": "0",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Error click count",
+      "internalName": "DIM_ERROR_CLICK_COUNT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Error click",
+        "internalName": "E_ERROR_CLICK_666",
+        "type": "Event"
+      },
+      "populateWith": "CurrentCountInSession",
+      "defaultValue": "0",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Dead click count",
+      "internalName": "DIM_DEAD_CLICK_COUNT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Dead click",
+        "internalName": "E_DEAD_CLICK_666",
+        "type": "Event"
+      },
+      "populateWith": "CurrentCountInSession",
+      "defaultValue": "0",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Rage click count",
+      "internalName": "DIM_RAGE_CLICK_COUNT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Rage click",
+        "internalName": "E_RAGE_CLICK_666",
+        "type": "Event"
+      },
+      "populateWith": "CurrentCountInSession",
+      "defaultValue": "0",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Page element",
+      "internalName": "DIM_CUSTOM_EVENT_TARGET_666",
+      "tags": [
+        "friction",
+        "rrr"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - CustomEvent Data Target",
+        "internalName": "P_STEP_CUSTOMEVENT_DATA_TARGET_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    }
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Friction pointer counts",
+      "internalName": "DG_FRICTION_POINTER_COUNTS_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "dimensions": [
+        "Excessive scroll count",
+        "Thrashing pointer count",
+        "Platform",
+        "Platform OS"
+      ]
+    },
+    {
+      "displayName": "Friction click counts",
+      "internalName": "DG_FRICTION_CLICK_COUNTS_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "dimensions": [
+        "Rage click count",
+        "Dead click count",
+        "Error click count",
+        "Platform",
+        "Platform OS"
+      ]
+    },
+    {
+      "displayName": "Friction context",
+      "internalName": "DG_FRICTION_CONTEXT_666",
+      "tags": [
+        "friction"
+      ],
+      "active": true,
+      "dimensions": [
+        "Page element",
+        "Platform",
+        "Browser Name",
+        "Browser Version",
+        "ScreenView"
+      ]
+    }
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [],
+  "stepAttributes": []
+}
