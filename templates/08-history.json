@@ -109,6 +109,48 @@
       "valueToRecord": "WhiteListPlusObservedValues",
       "maxObservedValues": 10000,
       "turnOnLogging": false
+    },
+    {
+      "displayName": "Navigation current page path",
+      "internalName": "DIM_NAVIGATION_CURRENT_PAGE_PATH",
+      "tags": [
+        "history"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Web Path",
+        "internalName": "E_WEB_PATH",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 10000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Navigation previous page path",
+      "internalName": "DIM_NAVIGATION_PREVIOUS_PAGE_PATH",
+      "tags": [
+        "history"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Web Prev Path",
+        "internalName": "E_WEB_PREV_PATH",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 10000,
+      "turnOnLogging": false
     }
   ],
   "dimensionGroups": [
@@ -122,7 +164,9 @@
       "dimensions": [
         "Navigation type",
         "Navigation current page",
-        "Navigation previous page"
+        "Navigation previous page",
+        "Navigation current page path",
+        "Navigation previous page path"
       ]
     }
   ],
