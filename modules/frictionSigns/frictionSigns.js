@@ -107,6 +107,10 @@ TLT.addModule("frictionSigns", function (context) {
             if ((event.target.type === "input" && event.target.subType !== "button") || event.target.type === "select" || event.target.type === "label") {
                 return;
             }
+            // ignore if an anchor to open a new tab
+            if (event.target.type === "a" && event.target.target === "_blank") {
+                return;
+            }
             if (inList(deadclick.blocklist, event.target.id)) return;
 
             // set up to watch for a reaction
