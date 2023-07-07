@@ -43,6 +43,12 @@ TLT.addModule("dataListener", function (context) {
         for (var i = nextElem; dataLayer.length > i; i++) {
           var key = dataLayer[i][dataKey];
           // todo: add option to log if no key
+
+          //
+          // dataFilter: function (data) {
+          //   if (data.vproduct) return false;
+          // }
+          //
           if (key) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
