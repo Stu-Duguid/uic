@@ -10,6 +10,7 @@ The module will look for new entries in the array when Tealeaf processes events 
 
 ## Configuration
 
+` ``
 dataListener: {
     dataObject: "dataLayer", // the JavaScript array object to watch for new events
     dataKey: "event", // defaults to event if not specified
@@ -17,3 +18,4 @@ dataListener: {
     dataBlocklist: [], // only items to log (optional - applied after blocklist  )
     dataPropBlocklist: [] // properties of the logged data which should not be logged (optional - mostly PII, applied after block and allow lists)
 },
+` ``
