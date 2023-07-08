@@ -43,12 +43,6 @@ TLT.addModule("dataListener", function (context) {
         for (var i = nextElem; dataLayer.length > i; i++) {
           var key = dataLayer[i][dataKey];
           // todo: add option to log if no key
-
-          //
-          // dataFilter: function (data) {
-          //   if (data.vproduct) return false;
-          // }
-          //
           if (key) {
             if (!dataBlocklist || dataBlocklist.indexOf(key) === -1)
             {
@@ -70,6 +64,6 @@ TLT.addModule("dataListener", function (context) {
       }
     },
 
-    version: "1.2" // added rename of elements with dot in name 
+    version: "1.3" // added rename of elements with dot in name 
   };
 });
