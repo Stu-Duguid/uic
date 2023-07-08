@@ -41,7 +41,7 @@ dataListener: {
     dataKey: "event",
 
     // items not to log (optional - these settings are a good start)
-    dataBlocklist: ["gtm.js", "gtm.start", "gtm.load", "gtm.dom", "gtm.timer", "gtm.scrollDepth"]
+    dataBlocklist: ["gtm.js", "gtm.start", "gtm.load", "gtm.dom", "gtm.timer", "gtm.scrollDepth"],
 
     // only items to log (optional - applied after blocklist)
     dataBlocklist: [],
