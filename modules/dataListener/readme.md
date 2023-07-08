@@ -16,17 +16,17 @@ Under core.modules:
 
 ```
 dataListener: {
-					enabled: true,
-					events: [
-						{ name: "change", attachToShadows: true, recurseFrames: true },
-						{ name: "click", recurseFrames: true },
-						{ name: "hashchange", target: window },
-						{ name: "load", target: window },
-						{ name: "unload", target: window },
-						{ name: "error", target: window },
-						{ name: "visibilitychange" }
-					]
-				},
+    enabled: true,
+    events: [
+        { name: "change", attachToShadows: true, recurseFrames: true },
+        { name: "click", recurseFrames: true },
+        { name: "hashchange", target: window },
+        { name: "load", target: window },
+        { name: "unload", target: window },
+        { name: "error", target: window },
+        { name: "visibilitychange" }
+    ]
+},
 ```
 
 Under modules:
