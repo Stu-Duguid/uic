@@ -57,7 +57,7 @@ TLT.addModule("dataListener", function (context) {
                 for (var prop in dataLayer[i]) {
                   if (!dataPropBlocklist || dataPropBlocklist.indexOf(prop) === -1)
                   {
-                    sendData[prop.replace(/\./, '_').replace(/^(\d.*)$/, 'index_$1')] = dataLayer[i][prop];
+                    sendData[prop.replace(/(\.|-)/, '_').replace(/^(\d)/, '_$1')] = dataLayer[i][prop];
                   }
                 }
                 TLT.logDataLayer(sendData);
