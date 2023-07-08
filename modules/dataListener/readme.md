@@ -8,7 +8,7 @@ So that the data can be easily consumed, each array entry is separately posted t
 
 The module will look for new entries in the array when Tealeaf processes events like a click, change, unload, or visibility change.
 
-If a property name includes an '.' or a '-' it will be replaced with an underscore. If a property is a digit or begins with a digit it will be prefixed with an underscore. This is a workaround for the issue in Tealeaf where JavaScript bracket notation (object['property']) cannot be used in a step attribute definitions.
+If a property name includes an '.' or a '-' it will be replaced with an underscore. If a property is a digit or begins with a digit it will be prefixed with an underscore. This is a workaround for the issue in Tealeaf where JavaScript bracket notation (object['property']) cannot be used in step attribute definitions.
 
 ## Configuration
 
