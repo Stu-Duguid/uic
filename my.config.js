@@ -1,4 +1,7 @@
 // stu config for tealeaf
+
+// @ts-check
+
 (function () {
 	"use strict";
 	var TLT = window.TLT;
@@ -390,7 +393,7 @@
 	if (TLT.utils.isiOS) {
 		var iOSVersion = / OS (\d+)_(\d+)/.exec(navigator.userAgent);
 		// disable Beacon in iOS 12 and earlier due to Safari on iOS bug
-		config.services.queue.useBeacon = iOSVersion && (iOSVersion[1] + "." + iOSVersion[2]) >= 12.2;
+		config.services.queue.useBeacon = iOSVersion && parseFloat(iOSVersion[1] + "." + iOSVersion[2]) >= 12.2;
 	}
 
 	if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
