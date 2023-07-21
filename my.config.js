@@ -122,6 +122,7 @@
 			queue: {
 				// tltWorker: null, // default not used
 				asyncReqOnUnload: true,  // /WebKit/i.test(navigator.userAgent),
+				xhrLogging: false, // default true
 				// useBeacon: true, // default true
 				// useFetch: true, // default true
 				queues: [{
