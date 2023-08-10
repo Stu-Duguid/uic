@@ -1,0 +1,148 @@
+{
+    "events": [
+        {
+            "displayName": "Click - Account Icon",
+            "internalName": "E_CLICK_ACCOUNTICON",
+            "capturePersonalData": false,
+            "active": true,
+            "tags": [
+                "recorded"
+            ],
+            "trigger": "EveryStep",
+            "publish": "Immediate",
+            "mode": "Basic",
+            "javascript": "// NOTE: Do not change event name\\nfunction E_CLICK_ACCOUNTICON() {}",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "distanceOperator": "GreaterThan",
+                "conditions": [
+                    {
+                        "leftOperand": {
+                            "displayName": "Step - Event Type",
+                            "internalName": "STEP_EVENT_TYPE",
+                            "type": "StepAttribute"
+                        },
+                        "leftOperandValueType": "Pattern",
+                        "method": "firstValue()",
+                        "conditionOperator": "Equal",
+                        "rightOperandValue": "click",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    },
+                    {
+                        "leftOperand": {
+                            "displayName": "Step - Target ID",
+                            "internalName": "STEP_TARGET_ID",
+                            "type": "StepAttribute"
+                        },
+                        "leftOperandValueType": "Pattern",
+                        "method": "firstValue()",
+                        "conditionOperator": "Equal",
+                        "rightOperandValue": "[[\"app-header-content\"],[\"div\",3],[\"button\",0]]",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    },
+                    {
+                        "leftOperand": {
+                            "displayName": "Step - Target Name",
+                            "internalName": "STEP_TARGET_NAME",
+                            "type": "StepAttribute"
+                        },
+                        "leftOperandValueType": "Pattern",
+                        "method": "firstValue()",
+                        "conditionOperator": "IsTrue",
+                        "rightOperandValue": "",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    },
+                    {
+                        "leftOperand": {
+                            "displayName": "Step - Target Current InnerText",
+                            "internalName": "P_STEP_TARGET_CURRENT_INNERTEXT_666",
+                            "type": "StepAttribute"
+                        },
+                        "leftOperandValueType": "Pattern",
+                        "method": "firstValue()",
+                        "conditionOperator": "Equal",
+                        "rightOperandValue": "Account Icon",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    },
+                    {
+                        "leftOperand": {
+                            "displayName": "Web Path#Fragment",
+                            "internalName": "E_WEB_PATH_FRAGMENT",
+                            "type": "Event"
+                        },
+                        "leftOperandValueType": "Fact",
+                        "method": "Value",
+                        "conditionOperator": "Equal",
+                        "rightOperandValue": "/",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    }
+                ],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "AllOccurrence",
+            "forSupportUserOnly": false,
+            "buildingBlockOnly": false,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {}
+        },
+        {
+            "displayName": "Click - Account Icon in session",
+            "internalName": "E_CLICK_ACCOUNTICON_IN_SESSION",
+            "capturePersonalData": false,
+            "active": true,
+            "tags": [
+                "recorded"
+            ],
+            "trigger": "AtSessionEnd",
+            "publish": "SessionEnd",
+            "mode": "Basic",
+            "javascript": "// NOTE: Do not change event name\\nfunction E_CLICK_ACCOUNTICON_IN_SESSION() {}",
+            "conditionGroup": {
+                "conditionOperator": "And",
+                "conditions": [
+                    {
+                        "leftOperand": {
+                            "displayName": "Click - Account Icon",
+                            "internalName": "E_CLICK_ACCOUNTICON",
+                            "type": "Event"
+                        },
+                        "leftOperandValueType": "Fact",
+                        "method": "existsSession",
+                        "conditionOperator": "IsTrue",
+                        "rightOperandValue": "",
+                        "rightOperandValueType": "TextLiteral",
+                        "caseSensitive": false
+                    }
+                ],
+                "lowerBound": 0,
+                "upperBound": 0
+            },
+            "referenceValueType": "Custom",
+            "valueType": "Text",
+            "storeMetrics": "Count",
+            "track": "FirstOccurrence",
+            "forSupportUserOnly": false,
+            "buildingBlockOnly": false,
+            "discardSession": false,
+            "geoAnalyticsEnabled": false,
+            "dimensionGroups": {
+                "Status": false
+            }
+        }
+    ],
+    "dimensions": [],
+    "dimensionGroups": [],
+    "sessionAttributes": [],
+    "hitAttributes": [],
+    "stepAttributes": []
+}
