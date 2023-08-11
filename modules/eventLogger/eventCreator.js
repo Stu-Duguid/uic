@@ -2,6 +2,7 @@ const fs = require('fs');
 
 const inputFilename = process.argv[2] || 'events.csv';
 const outputFilename = process.argv[3] || inputFilename.replace(/csv$/, 'json');
+const siteName = process.argv[3] || inputFilename.replace(/^(?:.*\/)([^\/]+)\.csv$/, '$1');
 
 // read in the file with the required events
 const data = fs.readFileSync(inputFilename, 'utf-8');
@@ -417,11 +418,11 @@ for (const lineNum in lines) {
 
     switch (type) {
       case 'load':
-        id = path+frag;
-        if (id === '/') id = "Home";
-        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
+        id = path + frag;
+        if (id === '/') id = 'Home';
+        internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
-        loadEvent.displayName = "Load - " + id;
+        loadEvent.displayName = "Load - " + id + " [" + siteName + "]";
         loadEvent.internalName = "E_LOAD_" + internalName;
         loadEvent.tags = tags;
         loadEvent.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "() {}";
@@ -433,7 +434,7 @@ for (const lineNum in lines) {
         loadEvent.conditionGroup.conditions[2].rightOperandValue = frag.replace(/\*/, '');
         events.push(JSON.parse(JSON.stringify(loadEvent)));
 
-        loadEventSession.displayName = "Load - " + id + " in session";
+        loadEventSession.displayName = "Load - " + id + " in session [" + siteName + "]";
         loadEventSession.internalName = "E_LOAD_" + internalName + "_IN_SESSION";
         loadEventSession.tags = tags;
         loadEventSession.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "_IN_SESSION() {}";
@@ -444,9 +445,9 @@ for (const lineNum in lines) {
 
       case 'click':
         id = (innertext)? innertext:(name)? name:target;
-        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
+        internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
-        clickEvent.displayName = "Click - " + id;
+        clickEvent.displayName = "Click - " + id + " [" + siteName + "]";
         clickEvent.internalName = "E_CLICK_" + internalName;
         clickEvent.tags = tags;
         clickEvent.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "() {}";
@@ -464,7 +465,7 @@ for (const lineNum in lines) {
         clickEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
         events.push(JSON.parse(JSON.stringify(clickEvent)));
 
-        clickEventSession.displayName = "Click - " + id + " in session";
+        clickEventSession.displayName = "Click - " + id + " in session [" + siteName + "]";
         clickEventSession.internalName = "E_CLICK_" + internalName + "_IN_SESSION";
         clickEventSession.tags = tags;
         clickEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "_IN_SESSION() {}";
@@ -474,9 +475,9 @@ for (const lineNum in lines) {
         break;
       case 'change':
         id = (innertext)? innertext:(name)? name:target;
-        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
+        internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
-        changeEvent.displayName = "Change - " + id;
+        changeEvent.displayName = "Change - " + id + " [" + siteName + "]";
         changeEvent.internalName = "E_CHANGE_" + internalName;
         changeEvent.tags = tags;
         changeEvent.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "() {}";
@@ -494,7 +495,7 @@ for (const lineNum in lines) {
         changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
         events.push(JSON.parse(JSON.stringify(changeEvent)));
 
-        changeEventSession.displayName = "Change - " + id + " in session";
+        changeEventSession.displayName = "Change - " + id + " in session [" + siteName + "]";
         changeEventSession.internalName = "E_CHANGE_" + internalName + "_IN_SESSION";
         changeEventSession.tags = tags;
         changeEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "_IN_SESSION() {}";
@@ -516,6 +517,6 @@ const output = {
   stepAttributes : [ ]
 };
 
-fs.appendFileSync(outputFilename, JSON.stringify(output));
+fs.writeFileSync(outputFilename, JSON.stringify(output));
 
 // end
