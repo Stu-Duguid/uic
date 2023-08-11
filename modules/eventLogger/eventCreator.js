@@ -118,7 +118,7 @@ const loadEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    Status: false
+    "Status of session": false
   }
 };
 
@@ -255,7 +255,7 @@ const clickEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    Status: false
+    "Status of session": false
   }
 };
 
@@ -392,7 +392,7 @@ const changeEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    Status: false
+    "Status of session": false
   }
 };
 
@@ -402,23 +402,14 @@ for (const lineNum in lines) {
   console.log('processing line: ', lines[lineNum])
   const values = lines[lineNum].split('|');
   if (values.length > 2) {
-    const [type, path, frag, tagList, target, name, innertext] = values;
-    const tags = tagList.split(':');
-    // const type = values[0];
-    // const path = values[1];
-    // const frag = values[2];
-    // const tags = values[3].split(':');
-    // const target = values[4];
-    // const name = values[5];
-    // const innertext = values[6];
-    // write out, appending to output
-    var addedComma = (lineNum < lines.length - 1) ? ',' : '';
+    const [type, label, path, frag, tagList, target, name, innertext] = values;
+    const tags = (tagList === "")? []:tagList.split(':').map((x) => x+' ['+siteName+']');
+    tags.push('['+siteName+']');
     let id = "", internalName = "";
-    let event = {}, sessionEvent = {};
 
     switch (type) {
       case 'load':
-        id = path + frag;
+        id = (label)? label:path + frag;
         if (id === '/') id = 'Home';
         internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
@@ -444,7 +435,7 @@ for (const lineNum in lines) {
         break;
 
       case 'click':
-        id = (innertext)? innertext:(name)? name:target;
+        id = (label)? label:(innertext)? innertext:(name)? name:target;
         internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
         clickEvent.displayName = "Click - " + id + " [" + siteName + "]";
@@ -460,9 +451,10 @@ for (const lineNum in lines) {
         clickEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
         clickEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        clickEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'IsNotEmpty':'firstValue()';
-        clickEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsTrue':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
+        clickEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'Value':'firstValue()';
+        clickEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsNotEmpty':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
+        if (path === '' && frag === '') clickEvent.dimensionGroups["Navigation context"] = false;
         events.push(JSON.parse(JSON.stringify(clickEvent)));
 
         clickEventSession.displayName = "Click - " + id + " in session [" + siteName + "]";
@@ -474,7 +466,7 @@ for (const lineNum in lines) {
         events.push(JSON.parse(JSON.stringify(clickEventSession)));
         break;
       case 'change':
-        id = (innertext)? innertext:(name)? name:target;
+        id = (label)? label:(innertext)? innertext:(name)? name:target;
         internalName = (id + '_' + siteName).toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
         changeEvent.displayName = "Change - " + id + " [" + siteName + "]";
@@ -490,9 +482,10 @@ for (const lineNum in lines) {
         changeEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
         changeEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        changeEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'IsNotEmpty':'firstValue()';
-        changeEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsTrue':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
+        changeEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'Value':'firstValue()';
+        changeEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsNotEmpty':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
+        if (path === '' && frag === '') changeEvent.dimensionGroups["Navigation context"] = false;
         events.push(JSON.parse(JSON.stringify(changeEvent)));
 
         changeEventSession.displayName = "Change - " + id + " in session [" + siteName + "]";
