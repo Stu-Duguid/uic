@@ -1,1 +1,11 @@
-click|/||recorded|[["app-header-content"],["div",3],["button",0]]||Account Icon
+load|/|||||
+click|/||account|[["app-header-content"],["div",3],["button",0]]||Account Icon
+click|/||account|[["main-navigation"],["nav",0],["div",1],["div",0],["button",1]]||Create Account
+change|||account|email|email|Email
+change|||account|phone|phone|Phone
+change|||account|first-name|first-name|First name
+change|||account|last-name|last-name|Last name
+change|||account|password|password|Password
+click|/||account|[["layout"],["section",0],["div",1],["button",0]]||Join
+click|/||account|[["app-header-content"],["div",3],["button",0]]||Cancel Create Account
+click|/||account|[["main-navigation"],["nav",0],["div",1],["div",0],["button",0]]||Log In

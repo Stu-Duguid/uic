@@ -1,8 +1,7 @@
 const fs = require('fs');
 
-const tag = 'tag';
-const inputFilename = 'events.csv';
-const outputFilename = 'events.json';
+const inputFilename = process.argv[2] || 'events.csv';
+const outputFilename = process.argv[3] || inputFilename.replace(/csv$/, 'json');
 
 // read in the file with the required events
 const data = fs.readFileSync(inputFilename, 'utf-8');
@@ -16,11 +15,11 @@ const loadEvent = {
   internalName: "E_LOAD_",
   capturePersonalData: false,
   active: true,
-  tags: [""],
+  tags: [],
   trigger: "EveryStep",
   publish: "Immediate",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_LOAD_() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_LOAD_() {}",
   conditionGroup: {
     conditionOperator: "And",
     distanceOperator: "GreaterThan",
@@ -41,11 +40,11 @@ const loadEvent = {
       {
         leftOperand: {
           displayName: "Step - Screenview URL",
-          internalName: "P_STEP_SCREENVIEW_URL_1595831779522",
+          internalName: "STEP_SCREENVIEW_URL",
           type: "StepAttribute"
         },
         leftOperandValueType: "Pattern",
-        method: "firstValue()", //patternFound() ----------------------------
+        method: "firstValue()",
         conditionOperator: "",
         rightOperandValue: "",
         rightOperandValueType: "TextLiteral",
@@ -65,8 +64,8 @@ const loadEvent = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -84,11 +83,11 @@ const loadEventSession = {
   internalName: "E_LOAD__IN_SESSION",
   capturePersonalData: false,
   active: true,
-  tags: [""],
+  tags: [],
   trigger: "AtSessionEnd",
   publish: "SessionEnd",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_LOAD__IN_SESSION() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_LOAD__IN_SESSION() {}",
   conditionGroup: {
     conditionOperator: "And",
     conditions: [
@@ -106,8 +105,8 @@ const loadEventSession = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -127,11 +126,11 @@ const clickEvent = {
   internalName: "E_CLICK_",
   capturePersonalData: false,
   active: true,
-  tags: [""],
+  tags: [],
   trigger: "EveryStep",
   publish: "Immediate",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_CLICK_() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_CLICK_() {}",
   conditionGroup: {
     conditionOperator: "And",
     distanceOperator: "GreaterThan",
@@ -202,8 +201,8 @@ const clickEvent = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -221,11 +220,11 @@ const clickEventSession = {
   internalName: "E_CLICK__IN_SESSION",
   capturePersonalData: false,
   active: true,
-  tags: [""],
+  tags: [],
   trigger: "AtSessionEnd",
   publish: "SessionEnd",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_CLICK__IN_SESSION() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_CLICK__IN_SESSION() {}",
   conditionGroup: {
     conditionOperator: "And",
     conditions: [
@@ -243,8 +242,8 @@ const clickEventSession = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -264,11 +263,11 @@ const changeEvent = {
   internalName: "E_CHANGE_",
   capturePersonalData: false,
   active: true,
-  tags: ["recorded"],
+  tags: [],
   trigger: "EveryStep",
   publish: "Immediate",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_CHANGE_() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_CHANGE_() {}",
   conditionGroup: {
     conditionOperator: "And",
     distanceOperator: "GreaterThan",
@@ -339,8 +338,8 @@ const changeEvent = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -358,11 +357,11 @@ const changeEventSession = {
   internalName: "E_CHANGE__IN_SESSION",
   capturePersonalData: false,
   active: true,
-  tags: ["recorded"],
+  tags: [],
   trigger: "AtSessionEnd",
   publish: "SessionEnd",
   mode: "Basic",
-  javascript: "// NOTE: Do not change event name\\nfunction E_CHANGE__IN_SESSION() {}",
+  javascript: "// NOTE: Do not change event name\nfunction E_CHANGE__IN_SESSION() {}",
   conditionGroup: {
     conditionOperator: "And",
     conditions: [
@@ -380,8 +379,8 @@ const changeEventSession = {
         caseSensitive: false
       }
     ],
-    lowerBound: 0.0,
-    upperBound: 0.0
+    lowerBound: "0.0",
+    upperBound: "0.0"
   },
   referenceValueType: "Custom",
   valueType: "Text",
@@ -402,13 +401,15 @@ for (const lineNum in lines) {
   console.log('processing line: ', lines[lineNum])
   const values = lines[lineNum].split('|');
   if (values.length > 2) {
-    const type = values[0];
-    const path = values[1];
-    const frag = values[2];
-    const tags = values[3].split(':');
-    const target = values[4];
-    const name = values[5];
-    const innertext = values[6];
+    const [type, path, frag, tagList, target, name, innertext] = values;
+    const tags = tagList.split(':');
+    // const type = values[0];
+    // const path = values[1];
+    // const frag = values[2];
+    // const tags = values[3].split(':');
+    // const target = values[4];
+    // const name = values[5];
+    // const innertext = values[6];
     // write out, appending to output
     var addedComma = (lineNum < lines.length - 1) ? ',' : '';
     let id = "", internalName = "";
@@ -418,22 +419,24 @@ for (const lineNum in lines) {
       case 'load':
         id = path+frag;
         if (id === '/') id = "Home";
-        internalName = id.toUpperCase().replace(/(\*|\/)/g, '').replace(/\#/, '_');
+        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
         loadEvent.displayName = "Load - " + id;
         loadEvent.internalName = "E_LOAD_" + internalName;
         loadEvent.tags = tags;
-        loadEvent.javascript = "// NOTE: Do not change event name\\nfunction E_LOAD_" + internalName + "() {}";
-        loadEvent.conditionGroup.conditions[1].conditions.conditionOperator = (path === '')? 'IsTrue':(path[path.length-1] === '*')? 'Includes':'Equal';
-        loadEvent.conditionGroup.conditions[1].conditions.rightOperandValue = path.replace(/\*/, '');
-        loadEvent.conditionGroup.conditions[2].conditions.conditionOperator = (frag === '')? 'IsTrue':(frag[frag.length-1] === '*')? 'Includes':'Equal';
-        loadEvent.conditionGroup.conditions[2].conditions.rightOperandValue = frag.replace(/\*/, '');
+        loadEvent.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "() {}";
+        loadEvent.conditionGroup.conditions[1].method = (path === '')? 'patternFound()':'firstValue()';
+        loadEvent.conditionGroup.conditions[1].conditionOperator = (path === '')? 'IsTrue':(path[path.length-1] === '*')? 'Includes':'Equal';
+        loadEvent.conditionGroup.conditions[1].rightOperandValue = path.replace(/\*/, '');
+        loadEvent.conditionGroup.conditions[2].method = (frag === '')? 'patternFound()':'firstValue()';
+        loadEvent.conditionGroup.conditions[2].conditionOperator = (frag === '')? 'IsTrue':(frag[frag.length-1] === '*')? 'Includes':'Equal';
+        loadEvent.conditionGroup.conditions[2].rightOperandValue = frag.replace(/\*/, '');
         events.push(JSON.parse(JSON.stringify(loadEvent)));
 
         loadEventSession.displayName = "Load - " + id + " in session";
         loadEventSession.internalName = "E_LOAD_" + internalName + "_IN_SESSION";
         loadEventSession.tags = tags;
-        loadEventSession.javascript = "// NOTE: Do not change event name\\nfunction E_LOAD_" + internalName + "_IN_SESSION() {}";
+        loadEventSession.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "_IN_SESSION() {}";
         loadEventSession.conditionGroup.conditions[0].leftOperand.displayName = loadEvent.displayName;
         loadEventSession.conditionGroup.conditions[0].leftOperand.internalName = loadEvent.internalName;
         events.push(JSON.parse(JSON.stringify(loadEventSession)));
@@ -441,52 +444,60 @@ for (const lineNum in lines) {
 
       case 'click':
         id = (innertext)? innertext:(name)? name:target;
-        internalName = id.toUpperCase().replace(/(\s|'|"|\*|\/)/g, '');
+        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
         clickEvent.displayName = "Click - " + id;
         clickEvent.internalName = "E_CLICK_" + internalName;
         clickEvent.tags = tags;
-        clickEvent.javascript = "// NOTE: Do not change event name\\nfunction E_CLICK_" + internalName + "() {}";
+        clickEvent.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "() {}";
+        clickEvent.conditionGroup.conditions[1].method = (target === '')? 'patternFound()':'firstValue()';
         clickEvent.conditionGroup.conditions[1].conditionOperator = (target === '')? 'IsTrue':(target[target.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
+        clickEvent.conditionGroup.conditions[2].method = (name === '')? 'patternFound()':'firstValue()';
         clickEvent.conditionGroup.conditions[2].conditionOperator = (name === '')? 'IsTrue':(name[name.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
+        clickEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
         clickEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        clickEvent.conditionGroup.conditions[4].conditionOperator = (path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
+        clickEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'IsNotEmpty':'firstValue()';
+        clickEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsTrue':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
         clickEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
         events.push(JSON.parse(JSON.stringify(clickEvent)));
 
         clickEventSession.displayName = "Click - " + id + " in session";
         clickEventSession.internalName = "E_CLICK_" + internalName + "_IN_SESSION";
         clickEventSession.tags = tags;
-        clickEventSession.javascript = "// NOTE: Do not change event name\\nfunction E_CLICK_" + internalName + "_IN_SESSION() {}";
+        clickEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "_IN_SESSION() {}";
         clickEventSession.conditionGroup.conditions[0].leftOperand.displayName = clickEvent.displayName;
         clickEventSession.conditionGroup.conditions[0].leftOperand.internalName = clickEvent.internalName;
         events.push(JSON.parse(JSON.stringify(clickEventSession)));
         break;
       case 'change':
         id = (innertext)? innertext:(name)? name:target;
-        internalName = id.toUpperCase().replace(/(\s|'|"|\*|\/)/g, '');
+        internalName = id.toUpperCase().replace(/[^A-Z0-9_#]/g, '').replace(/#/, '_');
 
         changeEvent.displayName = "Change - " + id;
         changeEvent.internalName = "E_CHANGE_" + internalName;
-        changeEvent.tags = [ tags ];
-        changeEvent.javascript = "// NOTE: Do not change event name\\nfunction E_CHANGE_" + internalName + "() {}";
+        changeEvent.tags = tags;
+        changeEvent.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "() {}";
+        changeEvent.conditionGroup.conditions[1].method = (target === '')? 'patternFound()':'firstValue()';
         changeEvent.conditionGroup.conditions[1].conditionOperator = (target === '')? 'IsTrue':(target[target.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
+        changeEvent.conditionGroup.conditions[2].method = (name === '')? 'patternFound()':'firstValue()';
         changeEvent.conditionGroup.conditions[2].conditionOperator = (name === '')? 'IsTrue':(name[name.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
+        changeEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
         changeEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        changeEvent.conditionGroup.conditions[4].conditionOperator = (path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
+        changeEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'IsNotEmpty':'firstValue()';
+        changeEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsTrue':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
         changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
         events.push(JSON.parse(JSON.stringify(changeEvent)));
 
         changeEventSession.displayName = "Change - " + id + " in session";
         changeEventSession.internalName = "E_CHANGE_" + internalName + "_IN_SESSION";
-        changeEventSession.tags = [ tags ];
-        changeEventSession.javascript = "// NOTE: Do not change event name\\nfunction E_CHANGE_" + internalName + "_IN_SESSION() {}";
+        changeEventSession.tags = tags;
+        changeEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "_IN_SESSION() {}";
         changeEventSession.conditionGroup.conditions[0].leftOperand.displayName = changeEvent.displayName;
         changeEventSession.conditionGroup.conditions[0].leftOperand.internalName = changeEvent.internalName;
         events.push(JSON.parse(JSON.stringify(changeEventSession)));
