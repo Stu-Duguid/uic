@@ -408,6 +408,9 @@ for (const lineNum in lines) {
     let id = "", internalName = "";
 
     switch (type) {
+      case 'type':
+        // header line to show column names
+        break;
       case 'load':
         id = (label)? label:path + frag;
         if (id === '/') id = 'Home';
@@ -417,18 +420,41 @@ for (const lineNum in lines) {
         loadEvent.internalName = "E_LOAD_" + internalName;
         loadEvent.tags = tags;
         loadEvent.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "() {}";
-        loadEvent.conditionGroup.conditions[1].method = (path === '')? 'patternFound()':'firstValue()';
-        loadEvent.conditionGroup.conditions[1].conditionOperator = (path === '')? 'IsTrue':(path[path.length-1] === '*')? 'Includes':'Equal';
-        loadEvent.conditionGroup.conditions[1].rightOperandValue = path.replace(/\*/, '');
-        loadEvent.conditionGroup.conditions[2].method = (frag === '')? 'patternFound()':'firstValue()';
-        loadEvent.conditionGroup.conditions[2].conditionOperator = (frag === '')? 'IsTrue':(frag[frag.length-1] === '*')? 'Includes':'Equal';
-        loadEvent.conditionGroup.conditions[2].rightOperandValue = frag.replace(/\*/, '');
+        // screenview url
+        if (path === '') {
+          loadEvent.conditionGroup.conditions[1].method = 'patternFound()';
+          loadEvent.conditionGroup.conditions[1].conditionOperator = 'IsTrue';
+          loadEvent.conditionGroup.conditions[1].rightOperandValue = '';
+        } else if (path[path.length-1] === '*') {
+          loadEvent.conditionGroup.conditions[1].method = 'firstValue()';
+          loadEvent.conditionGroup.conditions[1].conditionOperator = 'Includes';
+          loadEvent.conditionGroup.conditions[1].rightOperandValue = path.replace(/\*/, '');
+        } else {
+          loadEvent.conditionGroup.conditions[1].method = 'firstValue()';
+          loadEvent.conditionGroup.conditions[1].conditionOperator = 'Equal';
+          loadEvent.conditionGroup.conditions[1].rightOperandValue = path;
+        }
+        // screenview name
+        if (frag === '') {
+          loadEvent.conditionGroup.conditions[2].method = 'patternFound()';
+          loadEvent.conditionGroup.conditions[2].conditionOperator = 'IsTrue';
+          loadEvent.conditionGroup.conditions[2].rightOperandValue = '';
+        } else if (frag[frag.length-1] === '*') {
+          loadEvent.conditionGroup.conditions[2].method = 'firstValue()';
+          loadEvent.conditionGroup.conditions[2].conditionOperator = 'Includes';
+          loadEvent.conditionGroup.conditions[2].rightOperandValue = frag.replace(/\*/, '');
+        } else {
+          loadEvent.conditionGroup.conditions[2].method = 'firstValue()';
+          loadEvent.conditionGroup.conditions[2].conditionOperator = 'Equal';
+          loadEvent.conditionGroup.conditions[2].rightOperandValue = frag;
+        }
         events.push(JSON.parse(JSON.stringify(loadEvent)));
 
         loadEventSession.displayName = "Load - " + id + " in session [" + siteName + "]";
         loadEventSession.internalName = "E_LOAD_" + internalName + "_IN_SESSION";
         loadEventSession.tags = tags;
         loadEventSession.javascript = "// NOTE: Do not change event name\nfunction E_LOAD_" + internalName + "_IN_SESSION() {}";
+        // event found in session
         loadEventSession.conditionGroup.conditions[0].leftOperand.displayName = loadEvent.displayName;
         loadEventSession.conditionGroup.conditions[0].leftOperand.internalName = loadEvent.internalName;
         events.push(JSON.parse(JSON.stringify(loadEventSession)));
@@ -442,25 +468,56 @@ for (const lineNum in lines) {
         clickEvent.internalName = "E_CLICK_" + internalName;
         clickEvent.tags = tags;
         clickEvent.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "() {}";
-        clickEvent.conditionGroup.conditions[1].method = (target === '')? 'patternFound()':'firstValue()';
-        clickEvent.conditionGroup.conditions[1].conditionOperator = (target === '')? 'IsTrue':(target[target.length-1] === '*')? 'Includes':'Equal';
-        clickEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
-        clickEvent.conditionGroup.conditions[2].method = (name === '')? 'patternFound()':'firstValue()';
-        clickEvent.conditionGroup.conditions[2].conditionOperator = (name === '')? 'IsTrue':(name[name.length-1] === '*')? 'Includes':'Equal';
-        clickEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
-        clickEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
-        clickEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
-        clickEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        clickEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'Value':'firstValue()';
-        clickEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsNotEmpty':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
-        clickEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
-        if (path === '' && frag === '') clickEvent.dimensionGroups["Navigation context"] = false;
+        // step target id
+        if (target[target.length-1] === '*') {
+          clickEvent.conditionGroup.conditions[1].conditionOperator = 'Includes';
+          clickEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
+        } else {
+          clickEvent.conditionGroup.conditions[1].conditionOperator = 'Equal';
+          clickEvent.conditionGroup.conditions[1].rightOperandValue = target;
+        }
+        // step target name
+        if (name === "") {
+          clickEvent.conditionGroup.conditions[2].conditionOperator = 'NotEqual';
+          clickEvent.conditionGroup.conditions[2].rightOperandValue = '[not used]';
+        } else if (name[name.length-1] === '*') {
+          clickEvent.conditionGroup.conditions[2].conditionOperator = 'Includes';
+          clickEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
+        } else {
+          clickEvent.conditionGroup.conditions[2].conditionOperator = 'Equal';
+          clickEvent.conditionGroup.conditions[2].rightOperandValue = name;
+        }
+        // step target current innertext
+        if (innertext === "") {
+          clickEvent.conditionGroup.conditions[3].conditionOperator = 'NotEqual';
+          clickEvent.conditionGroup.conditions[3].rightOperandValue = '[not used]';
+        } else if (innertext[innertext.length-1] === '*') {
+          clickEvent.conditionGroup.conditions[3].conditionOperator = 'Includes';
+          clickEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
+        } else {
+          clickEvent.conditionGroup.conditions[3].conditionOperator = 'Equal';
+          clickEvent.conditionGroup.conditions[3].rightOperandValue = innertext;
+        }
+        // web path#frag
+        if (path === '' && frag === '') {
+          clickEvent.conditionGroup.conditions[4].conditionOperator = 'NotEqual';
+          clickEvent.conditionGroup.conditions[4].rightOperandValue = '[not used]';
+        } else if (path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*') {
+          clickEvent.conditionGroup.conditions[4].conditionOperator = 'Includes';
+          clickEvent.conditionGroup.conditions[4].rightOperandValue = (path + frag).replace(/\*/, '');
+        } else {
+          clickEvent.conditionGroup.conditions[4].conditionOperator = 'Equal';
+          clickEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
+        }
+        // dims
+        if (path === '' && frag === '' || path.indexOf('*') !== -1 || frag.indexOf('*') !== -1) clickEvent.dimensionGroups["Navigation context"] = false;
         events.push(JSON.parse(JSON.stringify(clickEvent)));
 
         clickEventSession.displayName = "Click - " + id + " in session [" + siteName + "]";
         clickEventSession.internalName = "E_CLICK_" + internalName + "_IN_SESSION";
         clickEventSession.tags = tags;
         clickEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "_IN_SESSION() {}";
+        // event found in session
         clickEventSession.conditionGroup.conditions[0].leftOperand.displayName = clickEvent.displayName;
         clickEventSession.conditionGroup.conditions[0].leftOperand.internalName = clickEvent.internalName;
         events.push(JSON.parse(JSON.stringify(clickEventSession)));
@@ -473,28 +530,62 @@ for (const lineNum in lines) {
         changeEvent.internalName = "E_CHANGE_" + internalName;
         changeEvent.tags = tags;
         changeEvent.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "() {}";
-        changeEvent.conditionGroup.conditions[1].method = (target === '')? 'patternFound()':'firstValue()';
-        changeEvent.conditionGroup.conditions[1].conditionOperator = (target === '')? 'IsTrue':(target[target.length-1] === '*')? 'Includes':'Equal';
-        changeEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
-        changeEvent.conditionGroup.conditions[2].method = (name === '')? 'patternFound()':'firstValue()';
-        changeEvent.conditionGroup.conditions[2].conditionOperator = (name === '')? 'IsTrue':(name[name.length-1] === '*')? 'Includes':'Equal';
-        changeEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
-        changeEvent.conditionGroup.conditions[3].method = (innertext === '')? 'patternFound()':'firstValue()';
-        changeEvent.conditionGroup.conditions[3].conditionOperator = (innertext === '')? 'IsTrue':(innertext[innertext.length-1] === '*')? 'Includes':'Equal';
-        changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        changeEvent.conditionGroup.conditions[4].method = (path === '' && frag === '')? 'Value':'firstValue()';
-        changeEvent.conditionGroup.conditions[4].conditionOperator = (path === '' && frag === '')? 'IsNotEmpty':(path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*')? 'Includes':'Equal';
-        changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
-        if (path === '' && frag === '') changeEvent.dimensionGroups["Navigation context"] = false;
+        // step target id
+        if (target[target.length-1] === '*') {
+          changeEvent.conditionGroup.conditions[1].conditionOperator = 'Includes';
+          changeEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
+        } else {
+          changeEvent.conditionGroup.conditions[1].conditionOperator = 'Equal';
+          changeEvent.conditionGroup.conditions[1].rightOperandValue = target;
+        }
+        // step target name
+        if (name === "") {
+          changeEvent.conditionGroup.conditions[2].conditionOperator = 'NotEqual';
+          changeEvent.conditionGroup.conditions[2].rightOperandValue = '[not used]';
+        } else if (name[name.length-1] === '*') {
+          changeEvent.conditionGroup.conditions[2].conditionOperator = 'Includes';
+          changeEvent.conditionGroup.conditions[2].rightOperandValue = name.replace(/\*/, '');
+        } else {
+          changeEvent.conditionGroup.conditions[2].conditionOperator = 'Equal';
+          changeEvent.conditionGroup.conditions[2].rightOperandValue = name;
+        }
+        // step target current innertext
+        if (innertext === "") {
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'NotEqual';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = '[not used]';
+        } else if (innertext[innertext.length-1] === '*') {
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Includes';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
+        } else {
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Equal';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext;
+        }
+        // web path#frag
+        if (path === '' && frag === '') {
+          changeEvent.conditionGroup.conditions[4].conditionOperator = 'NotEqual';
+          changeEvent.conditionGroup.conditions[4].rightOperandValue = '[not used]';
+        } else if (path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*') {
+          changeEvent.conditionGroup.conditions[4].conditionOperator = 'Includes';
+          changeEvent.conditionGroup.conditions[4].rightOperandValue = (path + frag).replace(/\*/, '');
+        } else {
+          changeEvent.conditionGroup.conditions[4].conditionOperator = 'Equal';
+          changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
+        }
+        // dims
+        if (path === '' && frag === '' || path.indexOf('*') !== -1 || frag.indexOf('*') !== -1) clickEvent.dimensionGroups["Navigation context"] = false;
         events.push(JSON.parse(JSON.stringify(changeEvent)));
 
         changeEventSession.displayName = "Change - " + id + " in session [" + siteName + "]";
         changeEventSession.internalName = "E_CHANGE_" + internalName + "_IN_SESSION";
         changeEventSession.tags = tags;
         changeEventSession.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "_IN_SESSION() {}";
+        // event found in session
         changeEventSession.conditionGroup.conditions[0].leftOperand.displayName = changeEvent.displayName;
         changeEventSession.conditionGroup.conditions[0].leftOperand.internalName = changeEvent.internalName;
         events.push(JSON.parse(JSON.stringify(changeEventSession)));
+        break;
+      case 'text':
+        // tbd
         break;
     }
   }

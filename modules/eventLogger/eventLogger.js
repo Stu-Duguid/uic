@@ -12,8 +12,8 @@ TLT.addModule("eventLogger", function (context) {
     "use strict";
     var moduleLoaded, moduleConfig, eventList;
 
-    function logEvent (eventType, pagePath, pageFrag, eventTags, targetId, targetName, targetText) {
-        eventList.push(`${eventType}|${pagePath}|${pageFrag}|${eventTags}|${targetId}|${targetName}|${targetText}`);
+    function logEvent (eventType, label, pagePath, pageFrag, eventTags, targetId, targetName, targetText) {
+        eventList.push(`${eventType}|${label}|${pagePath}|${pageFrag}|${eventTags}|${targetId}|${targetName}|${targetText}`);
     }
 
     return {
@@ -39,7 +39,7 @@ TLT.addModule("eventLogger", function (context) {
             var eventTags = "recorded";
             
             if (event.type === 'load') {
-                logEvent('load', pagePath, pageFrag, eventTags, '', '', '');
+                logEvent('load', document.title, pagePath, pageFrag, eventTags, '', '', '');
                 return;
             }
             if (event.type === 'unload') {
@@ -51,7 +51,8 @@ TLT.addModule("eventLogger", function (context) {
             var targetId = event.target.id;
             var targetName = event.target.name;
             var targetText = (event.target.state.innerText)? event.target.state.innerText : '';
-            logEvent(event.type, pagePath, pageFrag, eventTags, targetId, targetName, targetText);
+            var label = (event.target.ariaLabel)? event.target.ariaLabel:(targetText)? targetText:(targetName)? targetName:'';
+            logEvent(event.type, label, pagePath, pageFrag, eventTags, targetId, targetName, targetText);
         },
 
         version: "1.0"
