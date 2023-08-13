@@ -36,10 +36,10 @@ TLT.addModule("eventLogger", function (context) {
 
             var pagePath = window.location.pathname;
             var pageFrag = window.location.hash;
-            var eventTags = "recorded";
+            var eventTags = "";
             
             if (event.type === 'load') {
-                logEvent('load', document.title, pagePath, pageFrag, eventTags, '', '', '');
+                logEvent('load', document.title.replace(/\|/g, '-'), pagePath, pageFrag, eventTags, '', '', '');
                 return;
             }
             if (event.type === 'unload') {
