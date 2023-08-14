@@ -229,7 +229,7 @@ TLT.addModule("frictionSigns", function (context) {
         if (event.type === 'scroll') {
             excessscroll.distance += Math.abs(window.scrollY - excessscroll.lastpos);
             excessscroll.lastpos = window.scrollY;
-            if (excessscroll.distance > document.body.scrollHeight * excessscroll.scale) {
+            if (document.body.scrollHeight !== 0 && excessscroll.distance > document.body.scrollHeight * excessscroll.scale) {
                 // log an error click event
                 console.debug(`frictionSigns: excess scroll seen`);
                 context.post({
