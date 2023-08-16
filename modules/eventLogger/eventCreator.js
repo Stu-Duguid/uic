@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const statusDimension = "Status of session";
+
 const inputFilename = process.argv[2] || 'events.csv';
 const outputFilename = process.argv[3] || inputFilename.replace(/csv$/, 'json');
 const siteName = process.argv[3] || inputFilename.replace(/^(?:.*\/)([^\/]+)\.csv$/, '$1');
@@ -118,9 +120,11 @@ const loadEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    "Status of session": false
+    // "Status of session": false
   }
 };
+
+loadEventSession.dimensionGroups[statusDimension] = false;
 
 const clickEvent = {
   displayName: "Click - ",
@@ -177,8 +181,8 @@ const clickEvent = {
       },
       {
         leftOperand: {
-          displayName: "Step - Target Current InnerText",
-          internalName: "P_STEP_TARGET_CURRENT_INNERTEXT_666",
+          displayName: "Step - Target Attributes InnerText",
+          internalName: "P_STEP_TARGET_ATTRIBUTES_INNERTEXT_666",
           type: "StepAttribute"
         },
         leftOperandValueType: "Pattern",
@@ -255,9 +259,11 @@ const clickEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    "Status of session": false
+    // "Status of session": false
   }
 };
+
+clickEventSession.dimensionGroups[statusDimension] = false;
 
 const changeEvent = {
   displayName: "Change - ",
@@ -303,19 +309,6 @@ const changeEvent = {
         leftOperand: {
           displayName: "Step - Target Name",
           internalName: "STEP_TARGET_NAME",
-          type: "StepAttribute"
-        },
-        leftOperandValueType: "Pattern",
-        method: "firstValue()",
-        conditionOperator: "Equal",
-        rightOperandValue: "",
-        rightOperandValueType: "TextLiteral",
-        caseSensitive: false
-      },
-      {
-        leftOperand: {
-          displayName: "Step - Target Current InnerText",
-          internalName: "P_STEP_TARGET_CURRENT_INNERTEXT_666",
           type: "StepAttribute"
         },
         leftOperandValueType: "Pattern",
@@ -395,6 +388,8 @@ const changeEventSession = {
     "Status of session": false
   }
 };
+
+changeEventSession.dimensionGroups[statusDimension] = false;
 
 // loop through each line of the input
 const lines = data.split('\n');
