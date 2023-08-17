@@ -544,27 +544,16 @@ for (const lineNum in lines) {
           changeEvent.conditionGroup.conditions[2].conditionOperator = 'Equal';
           changeEvent.conditionGroup.conditions[2].rightOperandValue = name;
         }
-        // step target current innertext
-        if (innertext === "") {
-          changeEvent.conditionGroup.conditions[3].conditionOperator = 'NotEqual';
-          changeEvent.conditionGroup.conditions[3].rightOperandValue = '[not used]';
-        } else if (innertext[innertext.length-1] === '*') {
-          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Includes';
-          changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext.replace(/\*/, '');
-        } else {
-          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Equal';
-          changeEvent.conditionGroup.conditions[3].rightOperandValue = innertext;
-        }
         // web path#frag
         if (path === '' && frag === '') {
-          changeEvent.conditionGroup.conditions[4].conditionOperator = 'NotEqual';
-          changeEvent.conditionGroup.conditions[4].rightOperandValue = '[not used]';
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'NotEqual';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = '[not used]';
         } else if (path === '' || path[path.length-1] === '*' || frag[frag.length-1] === '*') {
-          changeEvent.conditionGroup.conditions[4].conditionOperator = 'Includes';
-          changeEvent.conditionGroup.conditions[4].rightOperandValue = (path + frag).replace(/\*/, '');
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Includes';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = (path + frag).replace(/\*/, '');
         } else {
-          changeEvent.conditionGroup.conditions[4].conditionOperator = 'Equal';
-          changeEvent.conditionGroup.conditions[4].rightOperandValue = path + frag;
+          changeEvent.conditionGroup.conditions[3].conditionOperator = 'Equal';
+          changeEvent.conditionGroup.conditions[3].rightOperandValue = path + frag;
         }
         // dims
         if (path === '' && frag === '' || path.indexOf('*') !== -1 || frag.indexOf('*') !== -1) clickEvent.dimensionGroups["Navigation context"] = false;
