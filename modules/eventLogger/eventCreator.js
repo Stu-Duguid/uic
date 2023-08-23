@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+const buildNote = "2023.08.a";
 const statusDimension = "Status of session";
 
 const inputFilename = process.argv[2] || 'events.csv';
@@ -464,7 +465,10 @@ for (const lineNum in lines) {
         clickEvent.tags = tags;
         clickEvent.javascript = "// NOTE: Do not change event name\nfunction E_CLICK_" + internalName + "() {}";
         // step target id
-        if (target[target.length-1] === '*') {
+        if (target === "") {
+          clickEvent.conditionGroup.conditions[1].conditionOperator = 'NotEqual';
+          clickEvent.conditionGroup.conditions[1].rightOperandValue = '[not used]';
+        } else if (target[target.length-1] === '*') {
           clickEvent.conditionGroup.conditions[1].conditionOperator = 'Includes';
           clickEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
         } else {
@@ -526,7 +530,10 @@ for (const lineNum in lines) {
         changeEvent.tags = tags;
         changeEvent.javascript = "// NOTE: Do not change event name\nfunction E_CHANGE_" + internalName + "() {}";
         // step target id
-        if (target[target.length-1] === '*') {
+        if (target === "") {
+          changeEvent.conditionGroup.conditions[1].conditionOperator = 'NotEqual';
+          changeEvent.conditionGroup.conditions[1].rightOperandValue = '[not used]';
+        } else if (target[target.length-1] === '*') {
           changeEvent.conditionGroup.conditions[1].conditionOperator = 'Includes';
           changeEvent.conditionGroup.conditions[1].rightOperandValue = target.replace(/\*/, '');
         } else {
