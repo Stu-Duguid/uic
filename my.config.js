@@ -190,14 +190,14 @@
 			domCapture: {
 				// diffEnabled: true, // default true
 				options: {
-					// maxMutations: 100, // default 100
+					// maxMutations: 200, // default 100
 					maxLength: 2000000, // default 1000000
-					// captureFrames: false // default false
-					// captureShadowDOM: false, // default false
-					// captureStyle: true, // default true
+					// captureFrames: true // default false
+					// captureShadowDOM: true, // default false
+					// captureStyle: false, // default true
 					// discardBase64: 20000, // default true
-					// removeScripts: true, // default true
-					// removeComments: true, // default true
+					// removeScripts: false, // default true
+					// removeComments: false, // default true
 					captureDynamicStyles: true, // default false
 					// captureHREFStyles: true, // default false
 				}
