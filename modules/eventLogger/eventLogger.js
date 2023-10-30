@@ -5,6 +5,14 @@
  * @exports eventLogger
  */
 
+
+// todo:
+//
+// Add text selected
+// window.getSelection()
+// s.type = 'Range'
+// s.anchorNode.parentNode.outerHTML
+
 /* global TLT */
 
 // @ts-ignore
@@ -32,7 +40,7 @@ TLT.addModule("eventLogger", function (context) {
             if (typeof event !== "object" || !event.type || !moduleLoaded) {
                 return;
             }
-            console.debug(`eventLogger: ${event.type} - ${event.target.id}`);
+            // console.debug(`eventLogger: ${event.type} - ${event.target.id}`);
 
             var pagePath = window.location.pathname;
             var pageFrag = window.location.hash;
@@ -49,9 +57,10 @@ TLT.addModule("eventLogger", function (context) {
             }
 
             var targetId = event.target.id;
-            var targetName = event.target.name;
-            var targetText = (event.target.state.innerText)? event.target.state.innerText : '';
+            var targetName = (event.target.name)? event.target.name : '';
+            var targetText = (event.target.state && event.target.state.innerText)? event.target.state.innerText : '';
             var label = (event.target.ariaLabel)? event.target.ariaLabel:(targetText)? targetText:(targetName)? targetName:'';
+            console.debug(`${event.type}|${label}|${pagePath}|${pageFrag}|${eventTags}|${targetId}|${targetName}|${targetText}`);
             logEvent(event.type, label, pagePath, pageFrag, eventTags, targetId, targetName, targetText);
         },
 
