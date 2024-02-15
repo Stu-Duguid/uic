@@ -58,7 +58,10 @@ config.services.message.privacy = [
 ];
 config.services.message.privacyPatterns = []; // remove defaults
 
-var appKey = "2b5f323f11804851beb8617eee293042";
+var appKey = "test appkey value";
+if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
+    appKey = "prod appkey valuexxx"; // production
+}
 const postUrl = "https://lib-ap-1.brilliantcollector.com/collector/collectorPost";
 
 // initialize Tealeaf
