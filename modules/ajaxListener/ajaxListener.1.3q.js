@@ -152,8 +152,9 @@ TLT.addModule("ajaxListener", function (context) {
         dummyLink = document.createElement("a");
         dummyLink.href = xhr.tListener.url;
 
-        xhrMsg.originalURL = dummyLink.host + (dummyLink.pathname[0] === "/" ? "" : "/") + dummyLink.pathname + dummyLink.search + dummyLink.hash;
+        xhrMsg.originalURL = dummyLink.host + (dummyLink.pathname[0] === "/" ? "" : "/") + dummyLink.pathname;
         xhrMsg.requestURL = context.normalizeUrl ? context.normalizeUrl(xhrMsg.originalURL, 3) : xhrMsg.originalURL;
+        xhrMsg.originalURL = xhrMsg.originalURL + dummyLink.search + dummyLink.hash;
         xhrMsg.description = "Full Ajax Monitor " + dummyLink.host + dummyLink.pathname;
         xhrMsg.method = xhr.tListener.method;
         xhrMsg.status = xhr.status;
@@ -163,17 +164,17 @@ TLT.addModule("ajaxListener", function (context) {
         xhrMsg.locationHref = context.normalizeUrl(document.location.href, 3);
 
         if (logOptions.requestHeaders) {
-            xhrMsg.requestHeaders = xhr.tListener.reqHeaders;
+            xhrMsg.requestHeaders = cleanObject(xhr.tListener.reqHeaders);
         }
         if (logOptions.requestData && typeof xhr.tListener.reqData === "string" && !xhr.tListener.isSystemXHR) {
             try {
-                xhrMsg.request = JSON.parse(xhr.tListener.reqData);
+                xhrMsg.request = cleanObject(JSON.parse(xhr.tListener.reqData));
             } catch (e1) {
                 xhrMsg.request = xhr.tListener.reqData;
             }
         }
         if (logOptions.responseHeaders) {
-            xhrMsg.responseHeaders = extractResponseHeaders(xhr.getAllResponseHeaders());
+            xhrMsg.responseHeaders = cleanObject(extractResponseHeaders(xhr.getAllResponseHeaders()));
         }
         if (logOptions.responseData) {
             if (typeof xhr.responseType === "undefined") {
@@ -181,14 +182,14 @@ TLT.addModule("ajaxListener", function (context) {
             } else if (xhr.responseType === "" || xhr.responseType === "text") {
                 respText = xhr.response;
             } else if (xhr.responseType === "json") {
-                xhrMsg.response = xhr.response;
+                xhrMsg.response = cleanObject(xhr.response);
             } else {
                 xhrMsg.response = typeof xhr.response;
             }
 
             if (respText) {
                 try {
-                    xhrMsg.response = JSON.parse(respText);
+                    xhrMsg.response = cleanObject(JSON.parse(respText));
                 } catch (e2) {
                     xhrMsg.response = respText;
                 }
@@ -199,6 +200,29 @@ TLT.addModule("ajaxListener", function (context) {
             }
         }
         context.post(msg);
+    }
+
+    /**
+     * Rename the properties that cannot be addressed with dot notation and require [] notation
+     * Also turn arrays into strings
+     * @param {Object} object the object to be cleaned
+     * @returns {Object} a copy of the object after cleaning
+     */
+    function cleanObject(object) {
+        if (typeof object !== "object") {
+            return object;
+        }
+        // if an array, convert to a string
+        if (Array.isArray(object)) {
+            return JSON.stringify(object);
+        }
+        // operate on a copy to not alter original
+        var prop, copy = {};
+        // object so iterate through properties and recursively clean them of objects
+        for (prop in object) {
+            copy[prop.replace(/(\.|-)/g, '_').replace(/^(\d)/, '_$1')] = cleanObject(object[prop]);
+        }
+        return copy;
     }
 
     function getEntries(object) {
