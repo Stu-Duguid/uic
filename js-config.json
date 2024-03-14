@@ -2,6 +2,6 @@
     "compilerOptions": {
         "target": "es5"
     },
-    "include": ["../uic/tealeaf.6.3.3.js"],
+    "include": ["../uic/tealeaf.6.4.69/tealeaf.min.js"],
     "exclude": ["node_modules", "**/node_modules/*"]
 }
