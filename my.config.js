@@ -9,7 +9,7 @@ TLT.addModule("frictionSigns",function(t){"use strict";function e(t,e){for(var i
 /*! ---------- config ---------- */
 const config = TLT.getDefaultConfig();
 
-config.core.buildNote = "stu 2023.12.aa";
+config.core.buildNote = "stu 2024.03.aa";
 config.core.sessionDataEnabled = true;
 
 // config.core.modules.dataLayer.enabled = true;
