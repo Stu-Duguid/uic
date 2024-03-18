@@ -1,10 +1,10 @@
 /*! ---------- webvitals from cdn -- https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js ---------- */
 /*! ---------- tealeaf from cdn -- https://cdn.goacoustic.com/tealeaf/latest/tealeaf.min.js ---------- */
 
+/* global TLT */
+
 /*! ---------- webvitals ---------- */
-/*! ---------- pako ---------- */
 /*! ---------- tealeaf ---------- */
-/*! ---------- ajaxListener ---------- */
 /*! ---------- dataListener ---------- */
 /*! ---------- frictionSigns ---------- */
 
@@ -14,7 +14,19 @@ const config = TLT.getDefaultConfig();
 config.core.buildNote = "stu 2024.03.aa";
 config.core.sessionDataEnabled = true;
 
-// config.core.modules.dataLayer.enabled = true;
+config.core.modules.dataLayer.enabled = true;
+
+config.core.modules.dataListener = {
+    events: [
+        { name: "change", attachToShadows: true, recurseFrames: true },
+        { name: "click", recurseFrames: true },
+        { name: "hashchange", target: window },
+        { name: "load", target: window },
+        { name: "unload", target: window },
+        { name: "error", target: window },
+        { name: "visibilitychange" }
+    ]
+};
 
 config.core.modules.frictionSigns = {
 	events: [
