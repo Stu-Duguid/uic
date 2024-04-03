@@ -1,11 +1,10 @@
-/*! ---------- webvitals from cdn -- https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js ---------- */
-/*! ---------- tealeaf from cdn -- https://cdn.goacoustic.com/tealeaf/latest/tealeaf.min.js ---------- */
+/* ---------- webvitals from cdn -- https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js ---------- */
+/* ---------- tealeaf from cdn -- https://cdn.goacoustic.com/tealeaf/latest/tealeaf.min.js ---------- */
 
 /* global TLT */
 
 /*! ---------- webvitals ---------- */
 /*! ---------- tealeaf ---------- */
-/*! ---------- dataListener ---------- */
 /*! ---------- frictionSigns ---------- */
 
 /*! ---------- config ---------- */
@@ -67,7 +66,11 @@ config.services.message.privacy = [
                 element.innerText = element.innerText.replace(/[A-Z]/g, 'X').replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
             }
             return value;
-        }
+        },
+        maskAttributes: function (id, attr) {
+            attr['aria-label'] = "[masked]";
+            return attr;
+        },
     }
 ];
 config.services.message.privacyPatterns = []; // remove defaults
