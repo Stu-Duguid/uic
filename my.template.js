@@ -18,18 +18,6 @@
 
     config.core.modules.dataLayer.enabled = true;
 
-    config.core.modules.dataListener = {
-        events: [
-            { name: "change", attachToShadows: true, recurseFrames: true },
-            { name: "click", recurseFrames: true },
-            { name: "hashchange", target: window },
-            { name: "load", target: window },
-            { name: "unload", target: window },
-            { name: "error", target: window },
-            { name: "visibilitychange" }
-        ]
-    };
-
     config.core.modules.frictionSigns = {
         events: [
             { name: "change", attachToShadows: true, recurseFrames: true },
