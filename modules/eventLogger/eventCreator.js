@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const buildNote = "2023.08.a";
-const statusDimension = "Status of session";
+const buildNote = "2024.04.a";
+const statusDimension = "Status";
 
 const inputFilename = process.argv[2] || 'events.csv';
 const outputFilename = process.argv[3] || inputFilename.replace(/csv$/, 'json');
@@ -121,7 +121,6 @@ const loadEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    // "Status of session": false
   }
 };
 
@@ -260,7 +259,6 @@ const clickEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    // "Status of session": false
   }
 };
 
@@ -386,7 +384,6 @@ const changeEventSession = {
   discardSession: false,
   geoAnalyticsEnabled: false,
   dimensionGroups: {
-    "Status of session": false
   }
 };
 
