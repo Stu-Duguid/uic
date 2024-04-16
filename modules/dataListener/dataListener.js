@@ -54,8 +54,8 @@ TLT.addModule("dataListener", function (context) {
                     sendData[prop.replace(/(\.|-)/, '_').replace(/^(\d)/, '_$1')] = dataLayer[i][prop];
                   }
                 }
-                TLT.logDataLayer(sendData);
-                // TLT.logCustomEvent("gtm", { description: "GTM Events", value: sendData });
+                // TLT.logDataLayer(sendData);
+                TLT.logCustomEvent("gtm", { description: "Datalayer Events", value: sendData });
               }
             }
           }
