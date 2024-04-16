@@ -618,7 +618,7 @@
       "publish": "Immediate",
       "whiteList": [],
       "valueToRecord": "WhiteListPlusObservedValues",
-      "maxObservedValues": 1000,
+      "maxObservedValues": 100000,
       "turnOnLogging": false
     }
   ],
