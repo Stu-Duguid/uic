@@ -1,175 +1,196 @@
 {
-    "events" : [ {
-        "displayName" : "Page performance - First Input Delay",
-        "internalName" : "E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY",
-        "capturePersonalData" : false,
-        "active" : true,
-        "tags" : [ "vitals" ],
-        "trigger" : "EveryStep",
-        "publish" : "Immediate",
-        "mode" : "Basic",
-        "javascript" : "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY()\n{\n    if (($P[\"P_STEP_FIRST_INPUT_DELAY\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY\");\n    }\n}",
-        "conditionGroup" : {
-          "conditionOperator" : "And",
-          "conditions" : [ {
-            "leftOperand" : {
-              "displayName" : "Step - First Input Delay",
-              "internalName" : "P_STEP_FIRST_INPUT_DELAY",
-              "type" : "StepAttribute"
+  "events": [
+    {
+      "displayName": "Page performance - First Input Delay",
+      "internalName": "E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "vitals"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY()\n{\n    if (($P[\"P_STEP_FIRST_INPUT_DELAY\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_FIRST_INPUT_DELAY\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - First Input Delay",
+              "internalName": "P_STEP_FIRST_INPUT_DELAY",
+              "type": "StepAttribute"
             },
-            "leftOperandValueType" : "Pattern",
-            "method" : "firstValue()",
-            "conditionOperator" : "IsNotEmpty",
-            "rightOperandValue" : "",
-            "rightOperandValueType" : "TextLiteral",
-            "caseSensitive" : false
-          } ],
-          "lowerBound" : 0.0,
-          "upperBound" : 0.0
-        },
-        "referenceValueType" : "EventObjects",
-        "valueType" : "Numeric",
-        "valueSource" : {
-          "displayName" : "Step - First Input Delay",
-          "internalName" : "P_STEP_FIRST_INPUT_DELAY",
-          "type" : "StepAttribute"
-        },
-        "valueSourceMethod" : "firstValue()",
-        "storeMetrics" : "CountAndValueMetrics",
-        "track" : "AllOccurrence",
-        "forSupportUserOnly" : false,
-        "buildingBlockOnly" : false,
-        "discardSession" : false,
-        "geoAnalyticsEnabled" : false,
-        "dimensionGroups" : { }
-      }, {
-        "displayName" : "Page performance - Cumulative Layout Shift",
-        "internalName" : "E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT",
-        "capturePersonalData" : false,
-        "active" : true,
-        "tags" : [ "vitals" ],
-        "trigger" : "EveryStep",
-        "publish" : "Immediate",
-        "mode" : "Basic",
-        "javascript" : "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT()\n{\n    if (($P[\"P_STEP_CUMULATIVE_LAYOUT_SHIFT\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT\");\n    }\n}",
-        "conditionGroup" : {
-          "conditionOperator" : "And",
-          "distanceOperator" : "GreaterThan",
-          "conditions" : [ {
-            "leftOperand" : {
-              "displayName" : "Step - Cumulative Layout Shift",
-              "internalName" : "P_STEP_CUMULATIVE_LAYOUT_SHIFT",
-              "type" : "StepAttribute"
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Numeric",
+      "valueSource": {
+        "displayName": "Step - First Input Delay",
+        "internalName": "P_STEP_FIRST_INPUT_DELAY",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "CountAndValueMetrics",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Page performance - Cumulative Layout Shift",
+      "internalName": "E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "vitals"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT()\n{\n    if (($P[\"P_STEP_CUMULATIVE_LAYOUT_SHIFT\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_CUMULATIVE_LAYOUT_SHIFT\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Cumulative Layout Shift",
+              "internalName": "P_STEP_CUMULATIVE_LAYOUT_SHIFT",
+              "type": "StepAttribute"
             },
-            "leftOperandValueType" : "Pattern",
-            "method" : "firstValue()",
-            "conditionOperator" : "IsNotEmpty",
-            "rightOperandValue" : "",
-            "rightOperandValueType" : "TextLiteral",
-            "caseSensitive" : false
-          } ],
-          "lowerBound" : 0.0,
-          "upperBound" : 0.0
-        },
-        "referenceValueType" : "EventObjects",
-        "valueType" : "Numeric",
-        "valueSource" : {
-          "displayName" : "Step - Cumulative Layout Shift",
-          "internalName" : "P_STEP_CUMULATIVE_LAYOUT_SHIFT",
-          "type" : "StepAttribute"
-        },
-        "valueSourceMethod" : "firstValue()",
-        "storeMetrics" : "CountAndValueMetrics",
-        "track" : "AllOccurrence",
-        "forSupportUserOnly" : false,
-        "buildingBlockOnly" : false,
-        "discardSession" : false,
-        "geoAnalyticsEnabled" : false,
-        "dimensionGroups" : { }
-      }, {
-        "displayName" : "Page performance - Largest Contentful Paint",
-        "internalName" : "E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT",
-        "capturePersonalData" : false,
-        "active" : true,
-        "tags" : [ "vitals" ],
-        "trigger" : "EveryStep",
-        "publish" : "Immediate",
-        "mode" : "Basic",
-        "javascript" : "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT()\n{\n    if (($P[\"P_STEP_LARGEST_CONTENTFUL_PAINT\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT\");\n    }\n}",
-        "conditionGroup" : {
-          "conditionOperator" : "And",
-          "distanceOperator" : "GreaterThan",
-          "conditions" : [ {
-            "leftOperand" : {
-              "displayName" : "Step - Largest Contentful Paint",
-              "internalName" : "P_STEP_LARGEST_CONTENTFUL_PAINT",
-              "type" : "StepAttribute"
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Numeric",
+      "valueSource": {
+        "displayName": "Step - Cumulative Layout Shift",
+        "internalName": "P_STEP_CUMULATIVE_LAYOUT_SHIFT",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "CountAndValueMetrics",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Page performance - Largest Contentful Paint",
+      "internalName": "E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "vitals"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT()\n{\n    if (($P[\"P_STEP_LARGEST_CONTENTFUL_PAINT\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_LARGEST_CONTENTFUL_PAINT\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Largest Contentful Paint",
+              "internalName": "P_STEP_LARGEST_CONTENTFUL_PAINT",
+              "type": "StepAttribute"
             },
-            "leftOperandValueType" : "Pattern",
-            "method" : "firstValue()",
-            "conditionOperator" : "IsNotEmpty",
-            "rightOperandValue" : "",
-            "rightOperandValueType" : "TextLiteral",
-            "caseSensitive" : false
-          } ],
-          "lowerBound" : 0.0,
-          "upperBound" : 0.0
-        },
-        "referenceValueType" : "EventObjects",
-        "valueType" : "Numeric",
-        "valueSource" : {
-          "displayName" : "Step - Largest Contentful Paint",
-          "internalName" : "P_STEP_LARGEST_CONTENTFUL_PAINT",
-          "type" : "StepAttribute"
-        },
-        "valueSourceMethod" : "firstValue()",
-        "storeMetrics" : "CountAndValueMetrics",
-        "track" : "AllOccurrence",
-        "forSupportUserOnly" : false,
-        "buildingBlockOnly" : false,
-        "discardSession" : false,
-        "geoAnalyticsEnabled" : false,
-        "dimensionGroups" : { }
-      }, {
-        "displayName" : "Page performance - Core Web Vitals",
-        "internalName" : "E_PAGE_PERFORMANCE_CORE_WEB_VITALS",
-        "capturePersonalData" : false,
-        "active" : true,
-        "tags" : [ "vitals" ],
-        "trigger" : "EveryStep",
-        "publish" : "Immediate",
-        "mode" : "Basic",
-        "javascript" : "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_CORE_WEB_VITALS()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"20\")\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_CORE_WEB_VITALS\");\n    }\n}",
-        "conditionGroup" : {
-          "conditionOperator" : "And",
-          "conditions" : [ {
-            "leftOperand" : {
-              "displayName" : "Step - Message Type",
-              "internalName" : "STEP_MESSAGE_TYPE",
-              "type" : "StepAttribute"
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Numeric",
+      "valueSource": {
+        "displayName": "Step - Largest Contentful Paint",
+        "internalName": "P_STEP_LARGEST_CONTENTFUL_PAINT",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "CountAndValueMetrics",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Page performance - Core Web Vitals",
+      "internalName": "E_PAGE_PERFORMANCE_CORE_WEB_VITALS",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "vitals"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_PERFORMANCE_CORE_WEB_VITALS()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"20\")\n    {\n        $F.setFacts(\"E_PAGE_PERFORMANCE_CORE_WEB_VITALS\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Message Type",
+              "internalName": "STEP_MESSAGE_TYPE",
+              "type": "StepAttribute"
             },
-            "leftOperandValueType" : "Pattern",
-            "method" : "firstValue()",
-            "conditionOperator" : "Equal",
-            "rightOperandValue" : "20",
-            "rightOperandValueType" : "TextLiteral",
-            "caseSensitive" : false
-          } ],
-          "lowerBound" : 0.0,
-          "upperBound" : 0.0
-        },
-        "referenceValueType" : "Custom",
-        "valueType" : "Text",
-        "storeMetrics" : "Count",
-        "track" : "AllOccurrence",
-        "forSupportUserOnly" : false,
-        "buildingBlockOnly" : false,
-        "discardSession" : false,
-        "geoAnalyticsEnabled" : false,
-        "dimensionGroups" : {
-          "Core Web Vitals" : false
-        }
-      } ],
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "20",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Core Web Vitals": false
+      }
+    }
+  ],
   "dimensions": [
     {
       "displayName": "Largest Contentful Paint",

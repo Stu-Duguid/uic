@@ -1,160 +1,189 @@
 {
-  "events" : [ {
-    "displayName" : "Web click",
-    "internalName" : "E_WEB_CLICK_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "retro" ],
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_CLICK_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CLICK\")\n    {\n        $F.setFacts(\"E_WEB_CLICK_666\", $S.LastScreenView + ' : ' + xpathConversion($P[\"TL.STEP_TARGET_ID\"].firstValue()));\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - Event Type",
-          "internalName" : "STEP_EVENT_TYPE",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "Equal",
-        "rightOperandValue" : "click",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  "events": [
+    {
+      "displayName": "Web click",
+      "internalName": "E_WEB_CLICK_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "retro"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_CLICK_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CLICK\")\n    {\n        $F.setFacts(\"E_WEB_CLICK_666\", $S.LastScreenView + ' : ' + xpathConversion($P[\"TL.STEP_TARGET_ID\"].firstValue()));\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Event Type",
+              "internalName": "STEP_EVENT_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "click",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Web target context": false
+      }
     },
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : false,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : {
-      "Web target context" : false
+    {
+      "displayName": "Web change",
+      "internalName": "E_WEB_CHANGE_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "retro"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_WEB_CHANGE_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CHANGE\")\n    {\n        $F.setFacts(\"E_WEB_CHANGE_666\", $S.LastScreenView + ' : ' + xpathConversion($P[\"TL.STEP_TARGET_ID\"].firstValue()) + ' : ' + $P[\"TL.STEP_TARGET_CURRENT_VALUE\"].firstValue());\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Event Type",
+              "internalName": "STEP_EVENT_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "change",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Target Current Value",
+        "internalName": "STEP_TARGET_CURRENT_VALUE",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Web target context": false
+      }
+    },
+    {
+      "displayName": "Function xpathConversion",
+      "internalName": "E_FUNCTION_XPATH_CONVERSION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "retro"
+      ],
+      "description": "",
+      "trigger": "FirstHit",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_FUNCTION_XPATH_CONVERSION_666()\n{}\n\nvar xpathConversion1 = /(\\[|,)\\[/g;\nvar xpathConversion2 = /\\]|\"|(,0)/g;\nvar xpathConversion3 = /,(\\d+)/g;\n\nfunction xpathConversion(txp) {\n    return txp.replace(xpathConversion1, '/').replace(xpathConversion2, '').replace(xpathConversion3, '[$1]');\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "FirstOccurrence",
+      "forSupportUserOnly": true,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     }
-  }, {
-    "displayName" : "Web change",
-    "internalName" : "E_WEB_CHANGE_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "retro" ],
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_WEB_CHANGE_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"CHANGE\")\n    {\n        $F.setFacts(\"E_WEB_CHANGE_666\", $S.LastScreenView + ' : ' + xpathConversion($P[\"TL.STEP_TARGET_ID\"].firstValue()) + ' : ' + $P[\"TL.STEP_TARGET_CURRENT_VALUE\"].firstValue());\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - Event Type",
-          "internalName" : "STEP_EVENT_TYPE",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "Equal",
-        "rightOperandValue" : "change",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  ],
+  "dimensions": [
+    {
+      "displayName": "Web target id",
+      "internalName": "DIM_WEB_TARGET_ID_666",
+      "tags": [
+        "retro"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Target ID",
+        "internalName": "STEP_TARGET_ID",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 100000,
+      "turnOnLogging": false
     },
-    "referenceValueType" : "EventObjects",
-    "valueType" : "Text",
-    "valueSource" : {
-      "displayName" : "Step - Target Current Value",
-      "internalName" : "STEP_TARGET_CURRENT_VALUE",
-      "type" : "StepAttribute"
-    },
-    "valueSourceMethod" : "firstValue()",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : false,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : {
-      "Web target context" : false
+    {
+      "displayName": "Web target text",
+      "internalName": "DIM_WEB_TARGET_TEXT_666",
+      "tags": [
+        "retro"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Target Current InnerText",
+        "internalName": "P_STEP_TARGET_CURRENT_INNERTEXT_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 10000,
+      "turnOnLogging": false
     }
-  }, {
-    "displayName" : "Function xpathConversion",
-    "internalName" : "E_FUNCTION_XPATH_CONVERSION_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "retro" ],
-    "description" : "",
-    "trigger" : "FirstHit",
-    "publish" : "Immediate",
-    "mode" : "Advanced",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_FUNCTION_XPATH_CONVERSION_666()\n{}\n\nvar xpathConversion1 = /(\\[|,)\\[/g;\nvar xpathConversion2 = /\\]|\"|(,0)/g;\nvar xpathConversion3 = /,(\\d+)/g;\n\nfunction xpathConversion(txp) {\n    return txp.replace(xpathConversion1, '/').replace(xpathConversion2, '').replace(xpathConversion3, '[$1]');\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "conditions" : [ ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
-    },
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "FirstOccurrence",
-    "forSupportUserOnly" : true,
-    "buildingBlockOnly" : true,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : { }
-  } ],
-  "dimensions" : [ {
-    "displayName" : "Web target id",
-    "internalName" : "DIM_WEB_TARGET_ID_666",
-    "tags" : [ "retro" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Target ID",
-      "internalName" : "STEP_TARGET_ID",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "TLT$OTHERS",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 100000,
-    "turnOnLogging" : false
-  }, {
-    "displayName" : "Web target text",
-    "internalName" : "DIM_WEB_TARGET_TEXT_666",
-    "tags" : [ "retro" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Target Current InnerText",
-      "internalName" : "P_STEP_TARGET_CURRENT_INNERTEXT_666",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "TLT$OTHERS",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 10000,
-    "turnOnLogging" : false
-  } ],
-  "dimensionGroups" : [ {
-    "displayName" : "Web target context",
-    "internalName" : "DG_WEB_TARGET_CONTEXT_666",
-    "tags" : [ "retro" ],
-    "active" : true,
-    "dimensions" : [ "Web target id", "Web target text", "ScreenView" ]
-  } ],
-  "sessionAttributes" : [ ],
-  "hitAttributes" : [ ],
-  "stepAttributes" : [ ]
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Web target context",
+      "internalName": "DG_WEB_TARGET_CONTEXT_666",
+      "tags": [
+        "retro"
+      ],
+      "active": true,
+      "dimensions": [
+        "Web target id",
+        "Web target text",
+        "ScreenView"
+      ]
+    }
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [],
+  "stepAttributes": []
 }

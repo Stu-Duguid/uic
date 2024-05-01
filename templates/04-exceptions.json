@@ -1,242 +1,296 @@
 {
-  "events" : [ {
-    "displayName" : "Exception",
-    "internalName" : "E_EXCEPTION_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "exception" ],
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Basic",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_EXCEPTION_666()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"6\" && !($P[\"P_STEP_EXCEPTION_REPEATS_666\"].patternFound()))\n    {\n        $F.setFacts(\"E_EXCEPTION_666\");\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - Message Type",
-          "internalName" : "STEP_MESSAGE_TYPE",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "Equal",
-        "rightOperandValue" : "6",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      }, {
-        "leftOperand" : {
-          "displayName" : "Step - Exception Repeats",
-          "internalName" : "P_STEP_EXCEPTION_REPEATS_666",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "patternFound()",
-        "conditionOperator" : "IsFalse",
-        "rightOperandValue" : "",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  "events": [
+    {
+      "displayName": "Exception",
+      "internalName": "E_EXCEPTION_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "exception"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_EXCEPTION_666()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"6\" && !($P[\"P_STEP_EXCEPTION_REPEATS_666\"].patternFound()))\n    {\n        $F.setFacts(\"E_EXCEPTION_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Message Type",
+              "internalName": "STEP_MESSAGE_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "6",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception Repeats",
+              "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsFalse",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Exception tech context": false,
+        "Exception page context": false
+      }
     },
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : false,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : {
-      "Exception tech context" : false,
-      "Exception page context" : false
+    {
+      "displayName": "Exception Repeats",
+      "internalName": "E_EXCEPTION_REPEATS_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "exception"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_EXCEPTION_REPEATS_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"6\" && ($P[\"P_STEP_EXCEPTION_REPEATS_666\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_EXCEPTION_REPEATS_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Event Type",
+              "internalName": "STEP_EVENT_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "6",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception Repeats",
+              "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": true,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Exception page context": false
+      }
+    },
+    {
+      "displayName": "Exception page count",
+      "internalName": "E_EXCEPTION_PAGE_COUNT_666",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "exception"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_EXCEPTION_PAGE_COUNT_666()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        $F.setFacts(\"E_EXCEPTION_PAGE_COUNT_666\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Type",
+              "internalName": "STEP_SCREENVIEW_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "load",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Exception tech context": false,
+        "Exception page context": false
+      }
     }
-  }, {
-    "displayName" : "Exception Repeats",
-    "internalName" : "E_EXCEPTION_REPEATS_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "exception" ],
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Basic",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_EXCEPTION_REPEATS_666()\n{\n    if ($P[\"TL.STEP_EVENT_TYPE\"].firstValue().toUpperCase() == \"6\" && ($P[\"P_STEP_EXCEPTION_REPEATS_666\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_EXCEPTION_REPEATS_666\");\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - Event Type",
-          "internalName" : "STEP_EVENT_TYPE",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "Equal",
-        "rightOperandValue" : "6",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      }, {
-        "leftOperand" : {
-          "displayName" : "Step - Exception Repeats",
-          "internalName" : "P_STEP_EXCEPTION_REPEATS_666",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "IsNotEmpty",
-        "rightOperandValue" : "",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  ],
+  "dimensions": [
+    {
+      "displayName": "Exception Description",
+      "internalName": "DIM_EXCEPTION_DESCRIPTION_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Exception Description",
+        "internalName": "P_STEP_EXCEPTION_DESCRIPTION_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "empty",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
     },
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : true,
-    "buildingBlockOnly" : false,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : {
-      "Exception page context" : false
+    {
+      "displayName": "Exception URL",
+      "internalName": "DIM_EXCEPTION_URL_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Exception URL",
+        "internalName": "P_STEP_EXCEPTION_URL_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 10000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Exception Line",
+      "internalName": "DIM_EXCEPTION_LINE_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Exception Line",
+        "internalName": "P_STEP_EXCEPTION_LINE_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Exception Repeats",
+      "internalName": "DIM_EXCEPTION_REPEATS_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Exception Repeats",
+        "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "not a repeat",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
     }
-  }, {
-    "displayName" : "Exception page count",
-    "internalName" : "E_EXCEPTION_PAGE_COUNT_666",
-    "capturePersonalData" : false,
-    "active" : true,
-    "tags" : [ "exception" ],
-    "trigger" : "EveryStep",
-    "publish" : "Immediate",
-    "mode" : "Basic",
-    "javascript" : "// NOTE: Do not change event name\nfunction E_EXCEPTION_PAGE_COUNT_666()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        $F.setFacts(\"E_EXCEPTION_PAGE_COUNT_666\");\n    }\n}",
-    "conditionGroup" : {
-      "conditionOperator" : "And",
-      "distanceOperator" : "GreaterThan",
-      "conditions" : [ {
-        "leftOperand" : {
-          "displayName" : "Step - ScreenView Type",
-          "internalName" : "STEP_SCREENVIEW_TYPE",
-          "type" : "StepAttribute"
-        },
-        "leftOperandValueType" : "Pattern",
-        "method" : "firstValue()",
-        "conditionOperator" : "Equal",
-        "rightOperandValue" : "load",
-        "rightOperandValueType" : "TextLiteral",
-        "caseSensitive" : false
-      } ],
-      "lowerBound" : 0.0,
-      "upperBound" : 0.0
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Exception page context",
+      "internalName": "DG_EXCEPTION_PAGE_CONTEXT_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "dimensions": [
+        "Exception Description",
+        "Exception URL",
+        "Exception Line",
+        "Exception Repeats",
+        "ScreenView"
+      ]
     },
-    "referenceValueType" : "Custom",
-    "valueType" : "Text",
-    "storeMetrics" : "Count",
-    "track" : "AllOccurrence",
-    "forSupportUserOnly" : false,
-    "buildingBlockOnly" : false,
-    "discardSession" : false,
-    "geoAnalyticsEnabled" : false,
-    "dimensionGroups" : {
-      "Exception tech context" : false,
-      "Exception page context" : false
+    {
+      "displayName": "Exception tech context",
+      "internalName": "DG_EXCEPTION_TECH_CONTEXT_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "dimensions": [
+        "Exception Description",
+        "Browser Name",
+        "Browser Version",
+        "Platform OS",
+        "Platform OS Version"
+      ]
     }
-  } ],
-  "dimensions" : [ {
-    "displayName" : "Exception Description",
-    "internalName" : "DIM_EXCEPTION_DESCRIPTION_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Exception Description",
-      "internalName" : "P_STEP_EXCEPTION_DESCRIPTION_666",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "empty",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 1000,
-    "turnOnLogging" : false
-  }, {
-    "displayName" : "Exception URL",
-    "internalName" : "DIM_EXCEPTION_URL_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Exception URL",
-      "internalName" : "P_STEP_EXCEPTION_URL_666",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "TLT$OTHERS",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 10000,
-    "turnOnLogging" : false
-  }, {
-    "displayName" : "Exception Line",
-    "internalName" : "DIM_EXCEPTION_LINE_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Exception Line",
-      "internalName" : "P_STEP_EXCEPTION_LINE_666",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "TLT$OTHERS",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 1000,
-    "turnOnLogging" : false
-  }, {
-    "displayName" : "Exception Repeats",
-    "internalName" : "DIM_EXCEPTION_REPEATS_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "capturePersonalData" : false,
-    "populatedBy" : {
-      "displayName" : "Step - Exception Repeats",
-      "internalName" : "P_STEP_EXCEPTION_REPEATS_666",
-      "type" : "StepAttribute"
-    },
-    "defaultValue" : "not a repeat",
-    "publish" : "Immediate",
-    "whiteList" : [ ],
-    "valueToRecord" : "WhiteListPlusObservedValues",
-    "maxObservedValues" : 1000,
-    "turnOnLogging" : false
-  } ],
-  "dimensionGroups" : [ {
-    "displayName" : "Exception page context",
-    "internalName" : "DG_EXCEPTION_PAGE_CONTEXT_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "dimensions" : [ "Exception Description", "Exception URL", "Exception Line", "Exception Repeats", "ScreenView" ]
-  }, {
-    "displayName" : "Exception tech context",
-    "internalName" : "DG_EXCEPTION_TECH_CONTEXT_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "dimensions" : [ "Exception Description", "Browser Name", "Browser Version", "Platform OS", "Platform OS Version" ]
-  } ],
-  "sessionAttributes" : [ ],
-  "hitAttributes" : [ ],
-  "stepAttributes" : [ {
-    "displayName" : "Step - Exception Repeats",
-    "internalName" : "P_STEP_EXCEPTION_REPEATS_666",
-    "tags" : [ "exception" ],
-    "active" : true,
-    "stepPatternPath" : "sessions[0].message.exception.repeats",
-    "useRegex" : false,
-    "displayCase" : "NoChange"
-  } ]
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [],
+  "stepAttributes": [
+    {
+      "displayName": "Step - Exception Repeats",
+      "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+      "tags": [
+        "exception"
+      ],
+      "active": true,
+      "stepPatternPath": "sessions[0].message.exception.repeats",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    }
+  ]
 }
