@@ -29,6 +29,17 @@
             { name: "error", target: window },
         ]
     };
+  
+    function maskXx9(value) {
+        return value.replace(/[A-Z]/g, "X").replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
+    };
+
+    function maskXx9text(value, element) {
+        if (element && element.innerText) {
+            element.innerText = maskXx9(element.innerText);
+        }
+        return value;
+    };
 
     config.services.message.privacy = [
         {
@@ -43,21 +54,14 @@
                 "input[type=password]",
             ],
             maskType: 4, // replace all alphas with X and digits with 9
-            maskFunction: function (value) {
-                return value.replace(/[A-Z]/g, "X").replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
-            }
+            maskFunction: maskXx9
         },
         {
             targets: [
                 ".tlPrivate"
             ],
             maskType: 4,
-            maskFunction: function (value, element) {
-                if (element && element.innerText) {
-                    element.innerText = element.innerText.replace(/[A-Z]/g, 'X').replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
-                }
-                return value;
-            },
+            maskFunction: maskXx9text,
             maskAttributes: function (id, attr) {
                 attr['aria-label'] = "[masked]";
                 return attr;
