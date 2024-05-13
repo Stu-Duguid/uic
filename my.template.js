@@ -11,7 +11,7 @@
 
 (function () {
 
-    const config = TLT.getDefaultConfig();
+    var config = TLT.getDefaultConfig();
 
     config.core.buildNote = "stu 2024.03.aa";
     config.core.sessionDataEnabled = true;
@@ -74,7 +74,7 @@
     if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
         appKey = "prod appkey valuexxx"; // production
     }
-    const postUrl = "https://lib-ap-1.brilliantcollector.com/collector/collectorPost";
+    var postUrl = "https://lib-ap-1.brilliantcollector.com/collector/collectorPost";
 
     // initialize Tealeaf
     TLT.initLibAdv(appKey, postUrl, config, true, false, true, true, true); // addPako, addHammer, addSafariPolyfill, addAjaxListener, addRestartTLTforSPA
