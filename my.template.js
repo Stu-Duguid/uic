@@ -70,6 +70,42 @@
     ];
     config.services.message.privacyPatterns = []; // remove defaults
 
+    // config.modules.ajaxListener.urlBlocklist.push(
+    //     {regex:"clarity",flags:"i"},
+    //     {regex:"doubleclick",flags:"i"},
+    //     {regex:"google",flags:"i"},
+    //     {regex:"yimg",flags:"i"}
+    // );
+    // config.modules.ajaxListener.filters[0].log.requestData = true;
+    // config.modules.ajaxListener.filters[0].log.responseData = true;
+
+    // config.modules.dataLayer = {
+    //     dataObjects: [
+    //         {
+    //             dataObject: "dataLayer",
+    //             rules: {
+    //                 includeEverything: true,
+    //                 permittedProperties: [],
+    //                 propertyBlocklist: [],
+    //                 screenviewBlocklist: [],
+    //                 filter: [{
+    //                     matchProperty: 'event',
+    //                     matchValue: /gtm\.(?!js|start|load|dom|timer|scrollDepth)/
+    //                 }]
+    //             }
+    //         },
+    //     ]
+    // };
+
+    // config.modules.replay.domCapture.triggers = [
+    //     { event: "change" },
+    //     { event: "click" },
+    //     { event: "dblclick" },
+    //     { event: "contextmenu" },
+    //     { event: "visibilitychange" },
+    //     { event: "load", delayUntil: { selector: "div.page-preloader[style='display: none;']", exists: false, timeout: 2000 } },
+    // ];
+
     var appKey = "test appkey value";
     if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
         appKey = "prod appkey valuexxx"; // production
