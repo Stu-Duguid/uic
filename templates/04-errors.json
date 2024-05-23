@@ -1,0 +1,385 @@
+{
+  "events": [
+    {
+      "displayName": "Script error",
+      "internalName": "E_SCRIPT_ERROR",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "script errors"
+      ],
+      "description": "For browser JavaScript errors seen by Tealeaf",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_SCRIPT_ERROR()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"6\" && !($P[\"P_STEP_EXCEPTION_REPEATS_666\"].patternFound()))\n    {\n        $F.setFacts(\"E_SCRIPT_ERROR\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Message Type",
+              "internalName": "STEP_MESSAGE_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "6",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception Repeats",
+              "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "patternFound()",
+            "conditionOperator": "IsFalse",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Script error platform context": false,
+        "Script error context": false
+      }
+    },
+    {
+      "displayName": "Script error repeated",
+      "internalName": "E_SCRIPT_ERROR_REPEATED",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "script errors"
+      ],
+      "description": "For browser JavaScript errors firing repeatedly on a page",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_SCRIPT_ERROR_REPEATED()\n{\n    if ($P[\"TL.STEP_MESSAGE_TYPE\"].firstValue().toUpperCase() == \"6\" && ($P[\"P_STEP_EXCEPTION_REPEATS_666\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_SCRIPT_ERROR_REPEATED\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Message Type",
+              "internalName": "STEP_MESSAGE_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "6",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception Repeats",
+              "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Numeric",
+      "valueSource": {
+        "displayName": "Step - Exception Repeats",
+        "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+        "type": "StepAttribute"
+      },
+      "valueSourceMethod": "firstValue()",
+      "storeMetrics": "CountAndValueMetrics",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Script error repeats context": false
+      }
+    },
+    {
+      "displayName": "Script error percentage calculation",
+      "internalName": "E_SCRIPT_ERR_PERCENTAGE_CALCULATION",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "script errors"
+      ],
+      "description": "track pages with same dimensions for % calculations in reports",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_SCRIPT_ERR_PERCENTAGE_CALCULATION()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        $F.setFacts(\"E_SCRIPT_ERR_PERCENTAGE_CALCULATION\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Type",
+              "internalName": "STEP_SCREENVIEW_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "load",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Script error platform context": false,
+        "Script error context": false
+      }
+    },
+    {
+      "displayName": "Script error description",
+      "internalName": "E_SCRIPT_ERR_DESCRIPTION",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "script errors"
+      ],
+      "description": "To normalise descriptions - add your own (regexes defined out of the function)",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// var regex_line_num_E_SCRIPT_ERR_DESCRIPTION = /line: \\d+/;\nvar regex_unique_code_E_SCRIPT_ERR_DESCRIPTION = /[a-zA-Z0-9]{16,}/;\n\n// NOTE: Do not change event name\nfunction E_SCRIPT_ERR_DESCRIPTION()\n{\n    var desc = $P[\"P_STEP_EXCEPTION_DESCRIPTION_666\"].firstValue();\n    if (desc != \"\")\n    {\n        // desc = desc.replace(regex_line_num_E_SCRIPT_ERR_DESCRIPTION, 'line: 999');\n        desc = desc.replace(regex_unique_code_E_SCRIPT_ERR_DESCRIPTION, 'XXXX');\n        $F.setFacts(\"E_SCRIPT_ERR_DESCRIPTION\", desc);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception Description",
+              "internalName": "P_STEP_EXCEPTION_DESCRIPTION_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Exception Description",
+        "internalName": "P_STEP_EXCEPTION_DESCRIPTION_666",
+        "type": "StepAttribute"
+      },
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Script error URL",
+      "internalName": "E_SCRIPT_ERR_URL",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "script errors"
+      ],
+      "description": "To normalise urls - add your own (regexes defined out of the function)",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "var regex_adobe_E_SCRIPT_ERR_URL = /adobe_mc=[^&]+/; var regex_ga_E_SCRIPT_ERR_URL = /_ga[^&]+/;\nvar regex_unique_code_E_SCRIPT_ERR_URL = /[a-zA-Z0-9]{16,}/;\n\n// NOTE: Do not change event name\nfunction E_SCRIPT_ERR_URL()\n{\n    var url = $P[\"P_STEP_EXCEPTION_URL_666\"].firstValue();\n    if (url != \"\")\n    {\n        url = url.replace(regex_adobe_E_SCRIPT_ERR_URL, 'adobe_mc=XXX');\n        url = url.replace(regex_ga_E_SCRIPT_ERR_URL, '_gaXXX');\n        url = url.replace(regex_unique_code_E_SCRIPT_ERR_URL, 'XXXX');\n        $F.setFacts(\"E_SCRIPT_ERR_URL\", url);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - Exception URL",
+              "internalName": "P_STEP_EXCEPTION_URL_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "EventObjects",
+      "valueType": "Text",
+      "valueSource": {
+        "displayName": "Step - Exception URL",
+        "internalName": "P_STEP_EXCEPTION_URL_666",
+        "type": "StepAttribute"
+      },
+
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    }
+  ],
+  "dimensions": [
+    {
+      "displayName": "Script Error Description",
+      "internalName": "DIM_SCRIPT_ERROR_DESCRIPTION",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Script error description",
+        "internalName": "E_SCRIPT_ERR_DESCRIPTION",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Script Error URL",
+      "internalName": "DIM_SCRIPT_ERROR_URL",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Script error URL",
+        "internalName": "E_SCRIPT_ERR_URL",
+        "type": "Event"
+      },
+      "populateWith": "LastValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    },
+    {
+      "displayName": "Script Error Repeats",
+      "internalName": "DIM_SCRIPT_ERROR_REPEATS",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Step - Exception Repeats",
+        "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+        "type": "StepAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    }
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Script error context",
+      "internalName": "DG_SCRIPT_ERROR_CONTEXT",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Script Error Description",
+        "Script Error URL",
+        "Web Path#Fragment"
+      ]
+    },
+    {
+      "displayName": "Script error repeats context",
+      "internalName": "DG_SCRIPT_ERROR_REPEATS_CONTEXT",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Script Error Description",
+        "Script Error URL",
+        "Script Error Repeats",
+        "Web Path#Fragment"
+      ]
+    },
+    {
+      "displayName": "Script error platform context",
+      "internalName": "DG_SCRIPT_ERROR_PLATFORM_CONTEXT",
+      "tags": [
+        "script errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Script Error Description",
+        "Browser Name",
+        "Browser Version",
+        "Platform OS",
+        "Platform OS Version"
+      ]
+    }
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [],
+  "stepAttributes": []
+}

@@ -79,6 +79,15 @@
       "displayCase": "NoChange"
     },
     {
+      "displayName": "Step - Exception Repeats",
+      "internalName": "P_STEP_EXCEPTION_REPEATS_666",
+      "tags": [ "generic" ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.exception.repeats",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
       "displayName": "Step - Message Count",
       "internalName": "P_STEP_MESSAGE_COUNT_666",
       "tags": [ "generic" ],
