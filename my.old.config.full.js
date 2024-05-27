@@ -23,7 +23,7 @@
 			// "PhantomJS"
 			// ],
 			// ieExcludedLinks: ["a[href^=javascript]", "a.ignore"],
-			inactivityTimeout: 0,
+			// inactivityTimeout: 0,
 			modules: {
 				overstat: {
 					events: [
