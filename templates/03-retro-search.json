@@ -8,6 +8,7 @@
       "tags": [
         "retro"
       ],
+      "description": "captures \"screenview : xpath(targetid)\" in value (with spaces) for retro search",
       "trigger": "EveryStep",
       "publish": "Immediate",
       "mode": "Advanced",
@@ -53,6 +54,7 @@
       "tags": [
         "retro"
       ],
+      "description": "captures \"screenview : xpath(targetid) : value\" in value (with spaces) for retro search",
       "trigger": "EveryStep",
       "publish": "Immediate",
       "mode": "Advanced",
@@ -104,7 +106,7 @@
       "tags": [
         "retro"
       ],
-      "description": "",
+      "description": "becomes like /root/div/div[1]/div/fieldset/ul/li/label",
       "trigger": "FirstHit",
       "publish": "Immediate",
       "mode": "Advanced",

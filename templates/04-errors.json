@@ -125,7 +125,7 @@
       }
     },
     {
-      "displayName": "Script error percentage calculation",
+      "displayName": "Script error percentage",
       "internalName": "E_SCRIPT_ERR_PERCENTAGE_CALCULATION",
       "capturePersonalData": false,
       "active": true,
