@@ -160,6 +160,17 @@
       "displayCase": "NoChange"
     },
     {
+      "displayName": "Step - Accessibility Id",
+      "internalName": "P_STEP_ACCESSIBILITY_ID_666",
+      "tags": [
+        "generic"
+      ],
+      "active": true,
+      "stepPatternPath": ".sessions[0].message.target.accessibility.id",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
       "displayName" : "Step - Build Note",
       "internalName" : "P_STEP_BUILD_NOTE",
       "tags" : [ "generic" ],

@@ -1,0 +1,238 @@
+{
+  "events": [
+    {
+      "displayName": "Page error",
+      "internalName": "E_PAGE_ERROR",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "page errors"
+      ],
+      "trigger": "EveryHit",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_ERROR()\n{\n    if (($P[\"P_TEXT_PAGE_ERROR\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_PAGE_ERROR\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Text - Page error",
+              "internalName": "P_TEXT_PAGE_ERROR",
+              "type": "HitAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Page error context": false,
+        "Page error platform context": false
+      }
+    },
+    {
+      "displayName": "Page error percentage",
+      "internalName": "E_PAGE_ERR_PERCENTAGE",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "page errors"
+      ],
+      "description": "tracks pages where a change event has happened as a comparison baseline for the count of page errors",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_PAGE_ERR_PERCENTAGE()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"UNLOAD\" && $F.getLastHitTime(\"E_WEB_CHANGE_666\") > $F.getLastHitTime(\"E_WEB_PAGE_LOAD\"))\n    {\n        var dims = {};\n    \n        dims[\"DIM_WEB_PATH_FRAGMENT\"] = $F.getLastFact(\"F_E_WEB_PATH_FRAGMENT\").value;\n        dims[\"DIM_PAGE_ERROR_DESCRIPTION\"] = \"unknown\";\n        dims[\"DIM_BROWSER_NAME\"] = $S.BROWSER_NAME;\n        dims[\"DIM_BROWSER_VERSION\"] = $S.BROWSER_VERSION;\n        dims[\"DIM_PLATFORM_OS\"] = $S.PLATFORM_OS;\n        dims[\"DIM_PLATFORM_OS_VERSION\"] = $S.PLATFORM_OS_VERSION;\n        $F.setFacts(\"E_PAGE_ERR_PERCENTAGE\", null, dims);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Type",
+              "internalName": "STEP_SCREENVIEW_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "unload",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Web change",
+              "internalName": "E_WEB_CHANGE_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "HitTimeEpoch",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "0",
+            "rightOperandValueType": "NumericLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Web Page Load",
+              "internalName": "E_WEB_PAGE_LOAD",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "HitTimeEpoch",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "0",
+            "rightOperandValueType": "NumericLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Page error platform context": false,
+        "Page error context": false
+      }
+    },
+    {
+      "displayName": "Page error description",
+      "internalName": "E_PAGE_ERR_DESCRIPTION",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "page errors"
+      ],
+      "description": "removes HTML tags from captured description",
+      "trigger": "EveryHit",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "var regex_E_PAGE_ERR_DESCRIPTION = /<[^>]+>/g;\n\n// NOTE: Do not change event name\nfunction E_PAGE_ERR_DESCRIPTION()\n{\n    var p = $P[\"P_TEXT_PAGE_ERROR\"].firstValue();\n    if (p != \"\")\n    {\n        $F.setFacts(\"E_PAGE_ERR_DESCRIPTION\", p.replace(regex_E_PAGE_ERR_DESCRIPTION, '-'));\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Text - Page error",
+              "internalName": "P_TEXT_PAGE_ERROR",
+              "type": "HitAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    }
+  ],
+  "dimensions": [
+    {
+      "displayName": "Page Error Description",
+      "internalName": "DIM_PAGE_ERROR_DESCRIPTION",
+      "tags": [
+        "page errors"
+      ],
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Page error description",
+        "internalName": "E_PAGE_ERR_DESCRIPTION",
+        "type": "Event"
+      },
+      "populateWith": "FirstValueInSession",
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 1000,
+      "turnOnLogging": false
+    }
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Page error context",
+      "internalName": "DG_PAGE_ERROR_CONTEXT",
+      "tags": [
+        "page errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Page Error Description",
+        "Web Path#Fragment",
+        "Product Name"
+      ]
+    },
+    {
+      "displayName": "Page error platform context",
+      "internalName": "DG_PAGE_ERROR_PLATFORM_CONTEXT",
+      "tags": [
+        "page errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Page Error Description",
+        "Browser Name",
+        "Browser Version",
+        "Platform OS",
+        "Platform OS Version"
+      ]
+    }
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [
+    {
+      "displayName": "Text - Page error",
+      "internalName": "P_TEXT_PAGE_ERROR",
+      "tags": [
+        "page errors"
+      ],
+      "active": true,
+      "match": "Response",
+      "use": "StartEndExpression",
+      "startTag": "id=\"errorAlert_title\"",
+      "endTag": "</div>",
+      "useRegex": true,
+      "regex": "^[^<]*>(.*)</ul>",
+      "blockReplace": false,
+      "displayCase": "NoChange"
+    }
+  ],
+  "stepAttributes": []
+}

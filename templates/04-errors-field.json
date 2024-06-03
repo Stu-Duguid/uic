@@ -1,0 +1,279 @@
+{
+  "events": [
+    {
+      "displayName": "Field error (data)",
+      "internalName": "E_FIELD_ERROR_DATA",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "field errors"
+      ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_FIELD_ERROR_DATA()\n{\n    if (($P[\"P_FIELD_ERROR_FIELD_ID\"].firstValue().toUpperCase() != \"\") && ($P[\"P_FIELD_ERROR_DESCRIPTION\"].firstValue().toUpperCase() != \"\"))\n    {\n        $F.setFacts(\"E_FIELD_ERROR_DATA\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Field error field id",
+              "internalName": "P_FIELD_ERROR_FIELD_ID",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Field error description",
+              "internalName": "P_FIELD_ERROR_DESCRIPTION",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Field error platform context": false,
+        "Field error context": false
+      }
+    },
+    {
+      "displayName": "Field error (text)",
+      "internalName": "E_TEXT_FIELD_ERROR",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "field errors"
+      ],
+      "description": "fires once for each instance of the same-named hit attribute found",
+      "trigger": "EveryHit",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_TEXT_FIELD_ERROR()\n{\n    var p = $P[\"P_TEXT_FIELD_ERROR\"];\n    var matches = p.matchCount();\n    var i, m;\n    var dims = {};\n    \n    for (i=0; i<matches; i++)\n    {\n        m = p.valueAt(i);\n        dims[\"DIM_WEB_PATH_FRAGMENT\"] = $F.getLastFact(\"F_E_WEB_PATH_FRAGMENT\").value;\n        dims[\"DIM_FIELD_ERROR_DESCRIPTION\"] = m;\n        dims[\"DIM_BROWSER_NAME\"] = $S.BROWSER_NAME;\n        dims[\"DIM_BROWSER_VERSION\"] = $S.BROWSER_VERSION;\n        dims[\"DIM_PLATFORM_OS\"] = $S.PLATFORM_OS;\n        dims[\"DIM_PLATFORM_OS_VERSION\"] = $S.PLATFORM_OS_VERSION;\n        $F.setFacts(\"E_TEXT_FIELD_ERROR\", m, dims);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Text - Field error",
+              "internalName": "P_TEXT_FIELD_ERROR",
+              "type": "HitAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "IsNotEmpty",
+            "rightOperandValue": "",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Field error platform context": false,
+        "Field error context": false
+      }
+    },
+    {
+      "displayName": "Field error percentage",
+      "internalName": "E_FIELD_ERROR_PERCENTAGE",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "field errors"
+      ],
+      "description": "tracks pages where a change event has happened as a comparison baseline for the count of field errors",
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Advanced",
+      "javascript": "// NOTE: Do not change event name\nfunction E_FIELD_ERROR_PERCENTAGE()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"UNLOAD\" && $F.getLastHitTime(\"E_WEB_CHANGE_666\") > $F.getLastHitTime(\"E_WEB_PAGE_LOAD\"))\n    {\n        var dims = {};\n    \n        dims[\"DIM_WEB_PATH_FRAGMENT\"] = $F.getLastFact(\"F_E_WEB_PATH_FRAGMENT\").value;\n        dims[\"DIM_FIELD_ERROR_DESCRIPTION\"] = \"unknown\";\n        dims[\"DIM_BROWSER_NAME\"] = $S.BROWSER_NAME;\n        dims[\"DIM_BROWSER_VERSION\"] = $S.BROWSER_VERSION;\n        dims[\"DIM_PLATFORM_OS\"] = $S.PLATFORM_OS;\n        dims[\"DIM_PLATFORM_OS_VERSION\"] = $S.PLATFORM_OS_VERSION;\n        $F.setFacts(\"E_FIELD_ERROR_PERCENTAGE\", null, dims);\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Type",
+              "internalName": "STEP_SCREENVIEW_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "unload",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Web change",
+              "internalName": "E_WEB_CHANGE_666",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "HitTimeEpoch",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "0",
+            "rightOperandValueType": "NumericLiteral",
+            "caseSensitive": false
+          },
+          {
+            "leftOperand": {
+              "displayName": "Web Page Load",
+              "internalName": "E_WEB_PAGE_LOAD",
+              "type": "Event"
+            },
+            "leftOperandValueType": "Fact",
+            "method": "HitTimeEpoch",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "0",
+            "rightOperandValueType": "NumericLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Field error platform context": false,
+        "Field error context": false
+      }
+    }
+  ],
+  "dimensions": [
+    {
+      "displayName": "Field Error Description",
+      "internalName": "DIM_FIELD_ERROR_DESCRIPTION",
+      "tags": [
+        "field errors"
+      ],
+      "description": "populated in advanced mode event Text - Field error",
+      "active": true,
+      "capturePersonalData": false,
+      "populatedBy": {
+        "displayName": "Text - Field error",
+        "internalName": "P_TEXT_FIELD_ERROR",
+        "type": "HitAttribute"
+      },
+      "defaultValue": "TLT$OTHERS",
+      "publish": "Immediate",
+      "whiteList": [],
+      "valueToRecord": "WhiteListPlusObservedValues",
+      "maxObservedValues": 10000,
+      "turnOnLogging": false
+    }
+  ],
+  "dimensionGroups": [
+    {
+      "displayName": "Field error context",
+      "internalName": "DG_FIELD_ERROR_CONTEXT",
+      "tags": [
+        "field errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Field Error Description",
+        "Web Path#Fragment"
+      ]
+    },
+    {
+      "displayName": "Field error platform context",
+      "internalName": "DG_FIELD_ERROR_PLATFORM_CONTEXT",
+      "tags": [
+        "field errors"
+      ],
+      "active": true,
+      "dimensions": [
+        "Field Error Description",
+        "Browser Name",
+        "Browser Version",
+        "Platform OS",
+        "Platform OS Version"
+      ]
+    }
+  ],
+  "sessionAttributes": [],
+  "hitAttributes": [
+    {
+      "displayName": "Text - Field error",
+      "internalName": "P_TEXT_FIELD_ERROR",
+      "tags": [
+        "field errors"
+      ],
+      "active": true,
+      "match": "Response",
+      "use": "StartEndExpression",
+      "startTag": "id=\"",
+      "endTag": "_error\"",
+      "useRegex": true,
+      "regex": "^([^\"]+)$",
+      "blockReplace": false,
+      "displayCase": "NoChange"
+    }
+  ],
+  "stepAttributes": [
+    {
+      "displayName": "Field error description",
+      "internalName": "P_FIELD_ERROR_DESCRIPTION",
+      "tags": [
+        "field errors"
+      ],
+      "active": true,
+      "description": "Alter to match your incoming data",
+      "stepPatternPath": ".sessions[0].message.customEvent.data.fieldDescription",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    },
+    {
+      "displayName": "Field error field id",
+      "internalName": "P_FIELD_ERROR_FIELD_ID",
+      "tags": [
+        "field errors"
+      ],
+      "active": true,
+      "description": "Alter to match your incoming data",
+      "stepPatternPath": ".sessions[0].message.customEvent.data.fieldId",
+      "useRegex": false,
+      "displayCase": "NoChange"
+    }
+  ]
+}
