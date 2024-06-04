@@ -492,6 +492,129 @@
       "dimensionGroups": {
         "Friction context": false
       }
+    },
+    {
+      "displayName": "Dead click exclusions",
+      "internalName": "E_DEAD_CLICK_EXCLUSIONS",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [ "friction" ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_DEAD_CLICK_EXCLUSIONS()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_DATA_TARGET_666\"].firstValue().toUpperCase() == \"TARGET_TO_EXCLUDE\")\n    {\n        $F.setFacts(\"E_DEAD_CLICK_EXCLUSIONS\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Data Target",
+              "internalName": "P_STEP_CUSTOMEVENT_DATA_TARGET_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "target_to_exclude",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Rage click exclusions",
+      "internalName": "E_RAGE_CLICK_EXCLUSIONS",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [ "friction" ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_RAGE_CLICK_EXCLUSIONS()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_DATA_TARGET_666\"].firstValue().toUpperCase() == \"TARGET_TO_EXCLUDE\")\n    {\n        $F.setFacts(\"E_RAGE_CLICK_EXCLUSIONS\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Data Target",
+              "internalName": "P_STEP_CUSTOMEVENT_DATA_TARGET_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "target_to_exclude",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
+    },
+    {
+      "displayName": "Error click exclusions",
+      "internalName": "E_ERROR_CLICK_EXCLUSIONS",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [ "friction" ],
+      "trigger": "EveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_ERROR_CLICK_EXCLUSIONS()\n{\n    if ($P[\"P_STEP_CUSTOMEVENT_DATA_TARGET_666\"].firstValue().toUpperCase() == \"TARGET_TO_EXCLUDE\")\n    {\n        $F.setFacts(\"E_ERROR_CLICK_EXCLUSIONS\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - CustomEvent Data Target",
+              "internalName": "P_STEP_CUSTOMEVENT_DATA_TARGET_666",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "target_to_exclude",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": true,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {}
     }
   ],
   "dimensions": [
