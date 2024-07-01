@@ -67,7 +67,6 @@ TLT.addModule("frictionSigns", function (context) {
         rageclick.y = event.position.y;
         if (rageclick.count === rageclick.clicks) {
             // log a rage event
-            console.debug(`frictionSigns: rage clicks seen`);
             context.post({
                 type: 5,
                 customEvent: {
@@ -126,7 +125,6 @@ TLT.addModule("frictionSigns", function (context) {
                 function deadTimeCheck() {
                     if (unresolvedClick) {
                         // log a dead event
-                        console.debug(`frictionSigns: dead click seen`);
                         context.post({
                             type: 5,
                             customEvent: {
@@ -178,7 +176,6 @@ TLT.addModule("frictionSigns", function (context) {
             if (errorclick.target && event.nativeEvent.message) {
                 if (event.timestamp - errorclick.clickTime < errorclick.time) {
                     // log an error click event
-                    console.debug(`frictionSigns: error click seen`);
                     context.post({
                         type: 5,
                         customEvent: {
@@ -231,7 +228,6 @@ TLT.addModule("frictionSigns", function (context) {
             excessscroll.lastpos = window.scrollY;
             if (document.body.scrollHeight !== 0 && excessscroll.distance > document.body.scrollHeight * excessscroll.scale) {
                 // log an error click event
-                console.debug(`frictionSigns: excess scroll seen`);
                 context.post({
                     type: 5,
                     customEvent: {
@@ -313,7 +309,6 @@ TLT.addModule("frictionSigns", function (context) {
             // console.debug(`frictionSigns: thrash time ${event.timestamp}, delta ${delta}, total ${thrashing.total} length ${thrashing.seen.length}`);
             if (thrashing.total > thrashing.threshold) {
                 // log a thrashing event
-                console.debug(`frictionSigns: thrashing seen`);
                 context.post({
                     type: 5,
                     customEvent: {
