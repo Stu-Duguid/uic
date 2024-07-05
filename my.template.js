@@ -41,6 +41,19 @@
         return value;
     };
 
+    function  maskXx9htmltext(value, element) {
+        if (element && element.childNodes) {
+			var i, nodes = element.childNodes;
+			for (i=0; i<nodes.length; i++) {
+				var n = nodes[i];
+				if (n.nodeType == Node.TEXT_NODE) {
+					n.textContent = maskXx9(n.textContent);
+				}
+			}
+        }
+        return value;
+    };
+
     config.services.message.privacy = [
         {
             targets: ["input[type=password]"],
