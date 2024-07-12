@@ -30,6 +30,25 @@
         ]
     };
   
+    function uniqueIds() {
+       var dups = [];
+        Array.from(
+            document.querySelectorAll("[id]"))
+            .map(function (node) { return node.id })
+            .forEach(
+                function (elem, i, arr) {
+                    if (arr.includes(elem, i+1) && !dups.includes(elem) && elem !== "")
+                        dups.push(elem)
+                }
+            );
+        return dups;
+    }
+
+	config.services.browser.blacklist = [
+		{ regex: /(?:[0-9]{12,})/, flags: "g" }
+    ];
+    config.services.browser.blacklist = config.services.browser.blacklist.concat(uniqueIds());
+
     function maskXx9(value) {
         return value.replace(/[A-Z]/g, "X").replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
     };
