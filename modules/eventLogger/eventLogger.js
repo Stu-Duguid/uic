@@ -30,6 +30,16 @@ TLT.addModule("eventLogger", function (context) {
             moduleConfig = context.getConfig();
 			console.debug(`eventLogger: init`);
             eventList = [];
+
+            function keyListener(e) {
+                // console.debug(`key pressed ${e.code}`);
+                if (e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey && e.code === 'KeyC') { // Home
+                    navigator.clipboard.writeText(eventList.join('\n') + '\n');
+                    console.debug('%c\n%s\n\n', 'color: darkgreen;', eventList.join('\n'));
+                }
+            }
+
+            document.addEventListener('keydown', keyListener, true);
         },
 
         destroy: function () {
@@ -67,6 +77,8 @@ TLT.addModule("eventLogger", function (context) {
         version: "1.0"
     };
 });
+
+
 
 // moduleConfig.core.modules
 //

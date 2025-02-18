@@ -6,172 +6,188 @@
 // to answer:
 //   'how many sessions before when I see a purchase'
 //   'time from first session until purchase'
-// data kept in persistent 1st party cookie (or local storage?)
-//
-// TBD - support local storage and other data like client-side events
+// data kept in local storage
 //
 
 /*
-	data post format
+	data format
 
-	{
-		tltpid: '...', // 'sid' is session, 'pid' is persistent, 'uid' is user
-		user: {
-			idtype: idvalue,
-			email: 'a@b.com', ... // use config to spec ID and events to collect
-		}
+	window.localstorage.TLTdata: {
 		sessions: [
-      {
-        tltsid: 0, // to manually search for session if needed
-				startTime: 0, // machine time used for timeSince below
-        timeSince: '02 days', // recalculated on each save as human readable time since this session
-        duration: 0, // length of session
-        // TBD maybe
-        events: [ 'a', 'b', '🚩', '✅'], // coded into script not in event engine
-        referrer: '' // used to understand attribution
+			{
+				tltsid: 0,
+				startTime: 0, // epoch time
+				duration: 0, // length of session in minutes
+				events: [ 'a', 'b', '🚩', '✅'],
+				referrer: ''
 			},
 			{ ... }
 		],
-		sessionCount: 0, // count of sessions seen for easy access and as array may get truncated
-		recentActivity: 0 // timestamp since last interaction used to gauge if new session
+		timestamp: 0,
+
+		// extended for Nova
+		listens: [
+			{
+				station: 'x',
+				duration: 0,
+			},
+			{ ... }
+		],
 	}
-
-  // note data can be grabbed for easier parsing from cookie value
-
 */
 
 TLT.addModule("crossSession", function (context) {
-  "use strict";
 
-  // var useCookies = true;
-  // var useStorage = false;
-  var inactivityTimeout = 1000*60*30; // more than 30 min inactivity
-  var cookieName = "TLTPID"; // persistent cookie
-  var cookieMaxAge = 60*60*24*100; // 100 days
-	var cookieSecure = false;
-	var cookieSamesite = "Lax";
-	var cookie;
-	var newSession;
+	const storageKey = "TLTdata";
+	const inactivityTimeout = 1000 * 60 * 29;
+	const maxSessionsStored = 100;
 
-  function shorthandDuration(d) {
-		if (d < 1000) {
-			return d + ' ms';
-		}
-		if (d < 60*1000) {
-			return Math.floor(d/1000) + ' sec';
-		}
-		if (d < 60*60*1000) {
-			return Math.floor(d/(60*1000)) + ' min';
-		}
-		if (d < 24*60*60*1000) {
-			return Math.floor(d/(60*60*1000)) + ' hr';
-		}
-		return Math.floor(d/(24*60*60*1000)) + ' days';
-  }
+	let enabled = false;
+	let sessions = []
+	let timestamp = 0;
+	let listens = [];
+	let newSession = false;
+	
+	function shorthandDuration(d) {
+		const aMinuteInSec = 60;
+		const anHourInSec = aMinuteInSec*60;
+		const aDayInSec = anHourInSec*24;
 
-	function updateAndSaveCookie() {
-		var current, now, sessions;
+		if (d < aMinuteInSec) {
+			return d + ' sec';
+		}
+		if (d < anHourInSec) {
+			return Math.floor(d / aMinuteInSec) + ' min';
+		}
+		if (d < aDayInSec) {
+			return Math.floor(d / anHourInSec) + ' hr';
+		}
+		return Math.floor(d / aDayInSec) + ' days';
+	}
 
+	function updateAndSaveData(post) {
+		let current, sessions;
+		
 		// update current session times
-		now = Date.now();
-		sessions = cookie.sessions;
-		current = sessions[sessions.length-1];
-		current.duration = Math.floor((now - current.startTime)/1000);
-
+		timestamp = Math.floor(Date.now()/1000);
+		current = sessions[0];
+		current.duration = timestamp - current.startTime;
+		
 		// update time since session occurred for each in list
 		sessions.forEach(function (s) {
-			s.timeSince = shorthandDuration(Date.now() - s.startTime);
+			s.timeSince = shorthandDuration(timestamp - s.startTime);
 		});
+		
+		// update localstorage
+		let persistedData = {
+			sessions: sessions,
+			timestamp: timestamp,
+			listens: listens
+		};
+		window.localStorage.setItem(storageKey, JSON.stringify(persistedData));
 
-		cookie.recentActivity = now;
-
-		// set updated cookie
-		context.utils.setCookie(cookieName, JSON.stringify(cookie), cookieMaxAge, undefined, undefined, cookieSecure, cookieSamesite);
+		if (post) {
+			context.post({ type: 5, customEvent: { name: "crossSession", description: "Past session data", data: persistedData } });
+		}
 	}
 
-	function postMsg(descr) {
-		context.post({ type: 5, customEvent: { name: "crossSession", description: descr, data: cookie }});
-	}
 
-  // ---------------------------------------------------
+	// ---------------------------------------------------
 
-  return {
-    init: 
+	return {
+		init:
 			function () {
-				var prevSession, sessions;
-				var sessionCookieInfo, sessionCookieName, sessionCookieValue;
-				var cookieStr;
-				
-				// cookies
-				sessionCookieInfo = TLT.getTLTSessionCookieInfo();
-				sessionCookieName = sessionCookieInfo.tltCookieName;
-				sessionCookieValue = sessionCookieInfo.tltCookieValue;
-			
-				// get persistent cookie value or default
-				cookieStr = context.utils.getCookieValue(cookieName);
-				if (cookieStr === null) {
-					cookie = {
-						tltpid: sessionCookieValue,
-						// user: {},
-						sessions: [],
-						sessionCount: 0,
-						recentActivity: 0
-					};
-				} else {
-					cookie = JSON.parse(decodeURIComponent(cookieStr));
+				function storageAvailable(type) {
+					let storage;
+					try {
+						storage = window[type];
+						const x = "__storage_test__";
+						storage.setItem(x, x);
+						storage.removeItem(x);
+						return true;
+					} catch (e) {
+						console.debug("Tealeaf: cannot write to localstorage");
+						return false;
+					}
+				}
+				  
+				enabled = storageAvailable("localStorage");
+				if (!enabled)
+					return;
+
+				// initialise data from storage or blank
+				try {
+					let jsonStr = localStorage.getItem(storageKey);
+					if (jsonStr) {
+						let data = JSON.parse(jsonStr);
+						sessions = data.sessions || [];
+						timestamp = data.timestamp || 0;
+						listens = data.listens || [];
+					} else {
+						sessions = [];
+						timestamp = 0;
+						listens = [];
+					}
+				} catch (e) {
+					enabled = false;
+					return;
 				}
 
-				// create on first page of new session only - is the list empty, or the endTime within 30 min, or the session ID different
-				newSession = false;
-				sessions = cookie.sessions;
-				if (cookie.sessionCount == 0 || Date.now() - cookie.recentActivity > inactivityTimeout || sessionCookieValue !== sessions[sessions.length-1].tltsid) {
+				let cookeInfo = TLT.getTLTSessionCookieInfo();
+				let sessionCookieValue = (cookeInfo)? cookeInfo.tltCookieValue : '';
+
+				// add entry on first page of new session only - is the list empty, or the endTime within 30 min, or the session ID different
+				if (sessions.length == 0 || Date.now() - timestamp > inactivityTimeout || sessionCookieValue !== sessions[0].tltsid) {
 					// new session
 					newSession = true;
-					cookie.sessions.push(
+					sessions.unshift( // add newest session to the front of the array of sessions
 						{
 							tltsid: sessionCookieValue,
-							// start: Date(),
-							startTime: context.getStartTime(),
-							// referrer: "empty",
-							// events: ""
+							startTime: Math.floor(context.getStartTime()/1000),
+							duration: 0,
+							events: [],
+							referrer: ""
 						}
 					);
-					// prevent cookie getting too big
-					if (cookie.sessions.length > 10) {
-						cookie.sessions.shift();
+					// prevent storage from getting too big
+					if (sessions.length > maxSessionsStored) {
+						sessions.pop();
 					}
-					// separately still keep count
-					cookie.sessionCount++;
 				}
-				updateAndSaveCookie();
+				updateAndSaveData(false);
 			},
-    destroy: 
-			function () {},
-    onevent:
+		onevent:
 			function (event) {
-				updateAndSaveCookie();
+				if (!enabled)
+					return;
+				let post = false;
 				switch (event.type) {
 					case "load":
 						if (newSession) {
 							newSession = false;
-							postMsg("Session History");
+							post = true;
 						}
+						// no break
+					case "visibilitychange":
+					case "pagehide":
+					case "unload":
+						updateAndSaveData(post);
 						break;
 					default:
 						break;
 				}
 			},
-		version: "1.0"
-  };
+		version: "2.0"
+	};
 }); // End of TLT.addModule "crossSession"
 
 // sample config
 //
 // crossSession: {
 // 					enabled: true,
-//           events: [
-// 					{ name: "load", target: window },
-// 					{ name: "unload", target: window },
-//           { name: "visibilitychange" }
+//					events: [
+// 						{ name: "load", target: window },
+// 						{ name: "unload", target: window },
+//           			{ name: "visibilitychange" }
 // 					]
 // 				}
