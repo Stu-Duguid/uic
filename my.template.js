@@ -1,11 +1,9 @@
-/* ---------- webvitals from cdn -- https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js ---------- */
-/* ---------- tealeaf from cdn -- https://cdn.goacoustic.com/tealeaf/latest/tealeaf.min.js ---------- */
+/*  --- buildNote: template 2024.12a --- */
+/*! --- webvitals: <script src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"> --- */
+/*! --- tealeaf:   <script src="https://cdn.goacoustic.com/tealeaf/latest/tealeaf.min.j"> --- */
+/*! --- friction:  local include --- */
 
 /* global TLT */
-
-/*! ---------- webvitals ---------- */
-/*! ---------- tealeaf ---------- */
-/*! ---------- frictionSigns ---------- */
 
 /*! ---------- config ---------- */
 
@@ -13,10 +11,10 @@
 
     var config = TLT.getDefaultConfig();
 
-    config.core.buildNote = "stu 2024.03.aa";
+    config.core.buildNote = "template 2024.12a";
     config.core.sessionDataEnabled = true;
 
-    config.core.modules.dataLayer.enabled = true;
+    config.core.modules.dataLayer.enabled = false;
 
     config.core.modules.frictionSigns = {
         events: [
@@ -60,7 +58,7 @@
         return value;
     };
 
-    function  maskXx9htmltext(value, element) {
+    function maskXx9htmltext(value, element) {
         if (element && element.childNodes) {
 			var i, nodes = element.childNodes;
 			for (i=0; i<nodes.length; i++) {
@@ -84,6 +82,8 @@
                 "input[type=hidden]", "input[type=radio]", "input[type=checkbox]", "input[type=submit]", "input[type=button]", "input[type=search]",
                 // already mentioned so avoid twice masking
                 "input[type=password]",
+                // others
+                "a",
             ],
             maskType: 4, // replace all alphas with X and digits with 9
             maskFunction: maskXx9
@@ -138,9 +138,9 @@
     //     { event: "load", delayUntil: { selector: "div.page-preloader[style='display: none;']", exists: false, timeout: 2000 } },
     // ];
 
-    var appKey = "test appkey value";
+    var appKey = "2b5f323f11804851beb8617eee293042";
     if (window.location.hostname === "www.prod.com" || window.location.hostname === "other.prod.com") {
-        appKey = "prod appkey valuexxx"; // production
+        appKey = "prod appkey value"; // production
     }
     var postUrl = "https://lib-ap-1.brilliantcollector.com/collector/collectorPost";
 
