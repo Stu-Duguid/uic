@@ -100,7 +100,30 @@
             },
         }
     ];
-    config.services.message.privacyPatterns = []; // remove defaults
+
+    config.services.message.privacyPatterns = [
+        {
+            // any email
+        	pattern: { regex: /[\w\+\-]+@(?:[\w\+\-]+\.)+[\w\+\-]{2,}/, flags: "g" },
+            replacement: function (match) {
+                return maskXx9(match);
+            }
+        },
+        {
+            // any phone
+        	pattern: { regex: /\d\d[\d ]{6,10}/, flags: "g" },
+            replacement: function (match) {
+                return maskXx9(match);
+            }
+        },
+        {
+            // any date
+        	pattern: { regex: /\d\d?\/\d\d?\/\d\d(\d\d)?/, flags: "g" },
+            replacement: function (match) {
+                return maskXx9(match);
+            }
+        }
+    ];
 
     // config.modules.ajaxListener.urlBlocklist.push(
     //     {regex:"clarity",flags:"i"},
