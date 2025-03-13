@@ -45,6 +45,51 @@
       "dimensionGroups": {
         "Navigation context": false
       }
+    },
+    {
+      "displayName": "Navigation paths",
+      "internalName": "E_NAVIGATION_PATHS",
+      "capturePersonalData": false,
+      "active": true,
+      "tags": [
+        "history"
+      ],
+      "trigger": "AfterEveryStep",
+      "publish": "Immediate",
+      "mode": "Basic",
+      "javascript": "// NOTE: Do not change event name\nfunction E_NAVIGATION_PATHS()\n{\n    if ($P[\"TL.STEP_SCREENVIEW_TYPE\"].firstValue().toUpperCase() == \"LOAD\")\n    {\n        $F.setFacts(\"E_NAVIGATION_PATHS\");\n    }\n}",
+      "conditionGroup": {
+        "conditionOperator": "And",
+        "distanceOperator": "GreaterThan",
+        "conditions": [
+          {
+            "leftOperand": {
+              "displayName": "Step - ScreenView Type",
+              "internalName": "STEP_SCREENVIEW_TYPE",
+              "type": "StepAttribute"
+            },
+            "leftOperandValueType": "Pattern",
+            "method": "firstValue()",
+            "conditionOperator": "Equal",
+            "rightOperandValue": "load",
+            "rightOperandValueType": "TextLiteral",
+            "caseSensitive": false
+          }
+        ],
+        "lowerBound": 0.0,
+        "upperBound": 0.0
+      },
+      "referenceValueType": "Custom",
+      "valueType": "Text",
+      "storeMetrics": "Count",
+      "track": "AllOccurrence",
+      "forSupportUserOnly": false,
+      "buildingBlockOnly": false,
+      "discardSession": false,
+      "geoAnalyticsEnabled": false,
+      "dimensionGroups": {
+        "Navigation context": false
+      }
     }
   ],
   "dimensions": [
