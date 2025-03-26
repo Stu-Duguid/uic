@@ -54,6 +54,8 @@
     ];
     config.services.browser.blacklist = config.services.browser.blacklist.concat(uniqueIds());
 
+    config.services.browser.customid = ["data-testid", "for", "label", "title"];
+
     function maskXx9(value) {
         return value.replace(/[A-Z]/g, "X").replace(/[a-z]/g, "x").replace(/[0-9]/g, "9");
     };
