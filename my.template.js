@@ -16,6 +16,12 @@
 
     config.core.modules.dataLayer.enabled = false;
 
+    // config.core.normalization = {
+    //     urlFunction: function (urlOrPath) {
+    //         return urlOrPath.replace(/\/\d{4,}\//, "/9999/");
+    //     }
+    // };
+
     // Enable for cross-domain communication
     // config.core.frames.enableCrossDomainCommunication = true
     // In child page, indicate the ID of the iframe to be used on parent page.
@@ -51,8 +57,7 @@
 
 	config.services.browser.blacklist = [
 		{ regex: /(?:[0-9]{12,})/, flags: "g" }
-    ];
-    config.services.browser.blacklist = config.services.browser.blacklist.concat(uniqueIds());
+    ].concat(uniqueIds());
 
     config.services.browser.customid = ["data-testid", "for", "label", "title"];
 
