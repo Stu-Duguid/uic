@@ -1,5 +1,0 @@
-type|label|path|frag|tagList|target|name|innertext
-load||/|||||
-click|Account Icon|/path|#step|account|[["app-header-content"],["div",3],["button",0]]||
-change|Email|||account|email|email|
-text|Email error|||account|<p>invalid email format</p>||
